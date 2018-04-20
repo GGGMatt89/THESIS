@@ -1,0 +1,96 @@
+%%%%%%%%%%%%%%%%
+% modèle de page de garde pour une thèse de l'Université de Lyon (version de mars 2016)
+% Attention ! Encodage UTF8 ! Sinon adapter en conséquence...
+%%%%%%%%%%%%%%%%
+
+\documentclass[11pt,a4paper]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[frenchb]{babel}
+\usepackage[inner=2.5cm,outer=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+\begin{document}
+
+\setlength{\parindent}{0pt}
+\thispagestyle{empty}
+
+
+\begin{center}
+\includegraphics[height=3cm]{logo} %le fichier "logo" doit être dans le même dossier que le fichier tex
+\end{center}
+
+
+\fontsize{11pt}{13pt}\selectfont
+N\textsuperscript{o} d'ordre NNT : xxx
+
+\vspace{1cm}
+
+\begin{center}
+\fontsize{14pt}{16pt}\selectfont
+\textbf{\uppercase{Thèse de doctorat de l'université de Lyon}}\\
+\fontsize{12pt}{14pt}\selectfont
+opérée au sein de\\
+\textbf{l'Université Claude Bernard Lyon 1}
+
+\vspace{0.5cm}
+
+\textbf{École Doctorale ED52\\% rectifier le numéro d'accréditation
+Physique et Astrophysique de Lyon}% nom complet de l'école doctorale
+
+\vspace{0.5cm}
+
+\textbf{Spécialité de doctorat :\\
+Discipline : Physique m\'{e}dicale} % éventuellement
+
+
+\vspace{1.5cm}
+
+Soutenue publiquement/à huis clos le jj/12/2018, par :\\
+\fontsize{14pt}{16pt}\selectfont
+\textbf{Mattia Fontana}
+
+\vspace{1.5cm} % adapter à la longueur du titre
+
+\rule[20pt]{\textwidth}{0.5pt}
+
+\fontsize{25pt}{28pt}\selectfont
+\textbf{Gamma camera development for ion beam therapy monitoring and nuclear medicine applications}
+
+\rule{\textwidth}{0.5pt}
+
+\vspace{2cm} % adapter à la longueur du titre
+\end{center}
+
+\fontsize{12pt}{14pt}\selectfont
+Devant le jury composé de :
+\bigskip
+
+\fontsize{11pt}{13pt}\selectfont
+
+Nom Prénom, grade/qualité, établissement/entreprise \hfill Président(e) % mention "président" à ne préciser qu'après la soutenance
+
+\bigskip
+
+Nom Prénom, grade/qualité, établissement/entreprise \hfill  Rapporteur(e)
+
+Nom Prénom, grade/qualité, établissement/entreprise \hfill Rapporteur(e)
+
+Nom Prénom, grade/qualité, établissement/entreprise \hfill Examinateur/trice
+
+Nom Prénom, grade/qualité, établissement/entreprise \hfill Examinateur/trice
+
+\bigskip
+
+Testa \'{E}tienne, grade/qualité, établissement/entreprise \hfill Directeur de thèse
+
+L\'{e}tang Jean Michel, grade/qualité, établissement/entreprise \hfill Co-directeur de thèse % le cas échéant
+
+Dauvergne Denis, grade/qualité, établissement/entreprise \hfill Invité % le cas échéant
+
+\newpage
+
+%\fontsize{12pt}{14pt}\selectfont   % si le document général n'est pas en police 11pt, décommenter et préciser la taille utilisée
+% Suite du manuscrit
+\end{document}

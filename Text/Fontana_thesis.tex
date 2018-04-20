@@ -1,0 +1,186 @@
+% ##############################################
+% Start: Template Preamble
+% ##############################################
+%
+\listfiles
+% Documentclass definition
+\input{01_Preamble/documentclass.tex}
+
+% Loading additional packages from the KOMA-Script family
+\input{01_Preamble/KOMA-Script-Packages.tex}
+
+% Page layout definition
+\input{01_Preamble/PageLayout.tex}
+
+% Standard packages
+\input{01_Preamble/CommonPackages.tex}
+
+% ####-Important-####
+%
+% Definition of the two main colors
+% -----------------------
+% The corresponding xcolor package ist loaded in the file
+% 01_Preamble/StandardPackages.tex
+%
+% ####-Important-####
+\definecolor[named]{myColorMainA}{RGB}{0,26,153}
+\definecolor[named]{myColorMainB}{RGB}{174,49,54}
+% Customization of:
+% - Floating Objects (Caption)
+% - Table of Contents (TOC)
+% - List of Figures
+% - List of Tables
+% - Headings (like chapter, section, etc.)
+\input{01_Preamble/Floating-AND-TOC-AND-ListOf-AND-Headings.tex}
+
+% Customization of the header, footer and teh margin note
+\input{01_Preamble/HeaderFooterMarginnote.tex}
+
+% Optimize paragraphs (avoid overfull... warnings)
+\input{01_Preamble/ParagraphOptimization.tex}
+
+% PDF related packages
+\input{01_Preamble/PDF-Related.tex}
+
+% PDF related packages
+\input{01_Preamble/RandomTextPackage.tex}
+
+% Custom commands for style
+\input{01_Preamble/customCommands.tex}
+
+%Title page Packages
+\input{01_Preamble/titlePage_includes.tex}
+
+%
+% #######################
+% End: Template Preamble
+% #######################
+
+%%Adding bibliography files
+%\addbibresource{05_Bibliography/Biblio_13.bib}
+\addbibresource{05_Bibliography/thesis.bib}
+
+% ##############################################
+% Start: Document
+% ##############################################
+%
+% ------------------------------------------------------------------
+
+\makeindex
+
+\begin{document}
+\dominitoc
+%\dominilof
+%\dominilot
+
+\pagenumbering{gobble}
+%Thesis cover page
+%\frontmatter
+\hidefromtoc
+
+\input{02_Content/PageDeGarde/garde.tex}
+
+% Empty page after title page
+\cleardoublepage
+
+%Change geometry after cover page
+
+\newgeometry{% siehe geometry.pdf (Figure 1)
+	bottom=30mm,
+	showframe=false, % For debugging: try true and see the layout frames
+	%showframe=true, % For debugging: try true and see the layout frames
+	margin=30mm,
+	marginparsep=3mm,
+	marginparwidth=20mm
+}
+
+% Title page
+%\input{02_Chapters/TitlePage.tex}
+\input{02_Content/TitlePage/TitleMainPage.tex}
+
+% Empty page after title page
+\cleardoublepage
+
+% Activate header and footer defined in the file:
+% 01_Preamble/HeaderFooterMarginnote.tex
+\pagestyle{scrheadings}
+
+% Activate roman numbering 
+\pagenumbering{roman}
+
+% Start with page 1 (I)
+\setcounter{page}{1}
+
+% Prologue
+%\input{02_Chapters/Prologue.tex}
+
+% Abstract
+\input{02_Content/Abstract_preThesis/Abstract.tex}
+
+\cleardoublepage
+
+% Table of Contents and Lost of Figures/Tables
+\input{02_Content/Lists/TOC-AND-ListOf.tex}
+
+\cleardoublepage
+
+% Activate arabic numbering 
+\pagenumbering{arabic}
+
+% Start with page 1
+\setcounter{page}{1}
+
+\unhidefromtoc
+
+% Prologue
+\input{02_Content/Abstract_preThesis/Prologue.tex}
+
+% Introduction
+\input{02_Content/Chapters/Introduction.tex}
+
+% Main Part
+\input{02_Content/Chapters/Chapter1_GammaCameras.tex}
+
+\input{02_Content/Chapters/Chapter2_Hardware.tex}
+
+\input{02_Content/Chapters/Chapter3_SimulationHT.tex}
+
+\input{02_Content/Chapters/Chapter4_SimulationSPECT.tex}
+
+\input{02_Content/Chapters/Chapter5_BeamTests.tex}
+
+% Final Thoughts
+\input{02_Content/Chapters/Conclusions.tex}
+
+% Start appendix
+\appendix
+%\begin{appendices}
+% Appendix A
+\input{02_Content/Appendix/AppendixA_DataFormat.tex}
+
+% Appendix B
+\input{02_Content/Appendix/AppendixB_Electronics.tex}
+
+\endappendix
+
+%%BIBLIOGRAPHY
+\cleardoublepage
+%\autocite{citekey} % Use
+%\newrefsection
+%\saverefsection
+%\newrefcontext[sorting=nty]
+%\nocite{\ReferencesList}
+
+\printbibliography%Print bibliography
+
+\printindex%Print analytical index
+
+%Acknowledgements
+\input{02_Content/Acknoledgements/Acknoledgements.tex}
+
+\end{document}
+% ------------------------------------------------------------------
+%
+% #######################
+% End: Document
+% #######################

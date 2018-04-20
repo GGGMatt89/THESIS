@@ -1,0 +1,83 @@
+[0] Config.pm:302> INFO - This is Biber 2.10
+[0] Config.pm:305> INFO - Logfile is 'Fontana_thesis.blg'
+[55] biber-darwin:313> INFO - === Fri Apr 20, 2018, 16:28:14
+[85] Biber.pm:371> INFO - Reading 'Fontana_thesis.bcf'
+[238] Biber.pm:857> INFO - Found 71 citekeys in bib section 0
+[259] Biber.pm:3976> INFO - Processing section 0
+[276] Biber.pm:4136> INFO - Looking for bibtex format file '05_Bibliography/thesis.bib' for section 0
+[277] bibtex.pm:1490> INFO - LaTeX decoding ...
+[297] bibtex.pm:1306> INFO - Found BibTeX data source '05_Bibliography/thesis.bib'
+[319] Utils.pm:193> WARN - I didn't find a database entry for 'PTCOG_stats' (section 0)
+[319] Utils.pm:193> WARN - I didn't find a database entry for 'RBE_Elsasser' (section 0)
+[320] Utils.pm:193> WARN - I didn't find a database entry for 'RBE_Weyrather' (section 0)
+[320] Utils.pm:193> WARN - I didn't find a database entry for 'Paganetti:2012aa' (section 0)
+[320] Utils.pm:193> WARN - I didn't find a database entry for 'Knopf:2013aa' (section 0)
+[320] Utils.pm:193> WARN - I didn't find a database entry for 'ENGHARDT2004' (section 0)
+[320] Utils.pm:193> WARN - I didn't find a database entry for 'PARODI2016' (section 0)
+[320] Utils.pm:193> WARN - I didn't find a database entry for 'PG_first' (section 0)
+[320] Utils.pm:193> WARN - I didn't find a database entry for 'Min_PG' (section 0)
+[321] Utils.pm:193> WARN - I didn't find a database entry for 'Testa_PG' (section 0)
+[321] Utils.pm:193> WARN - I didn't find a database entry for 'Robert2013' (section 0)
+[321] Utils.pm:193> WARN - I didn't find a database entry for 'Golnik:2014aa' (section 0)
+[321] Utils.pm:193> WARN - I didn't find a database entry for 'Krimmer_PGPI' (section 0)
+[321] Utils.pm:193> WARN - I didn't find a database entry for 'Verburg:2014aa' (section 0)
+[321] Utils.pm:193> WARN - I didn't find a database entry for 'Bom_collimated' (section 0)
+[321] Utils.pm:193> WARN - I didn't find a database entry for 'Priegnitz:2015aa' (section 0)
+[322] Utils.pm:193> WARN - I didn't find a database entry for 'Smeets:2012aa' (section 0)
+[322] Utils.pm:193> WARN - I didn't find a database entry for 'Roellinghoff_2014' (section 0)
+[322] Utils.pm:193> WARN - I didn't find a database entry for 'Frandes_2010' (section 0)
+[322] Utils.pm:193> WARN - I didn't find a database entry for 'LLOSA2012105' (section 0)
+[322] Utils.pm:193> WARN - I didn't find a database entry for 'KORMOLL2011114' (section 0)
+[322] Utils.pm:193> WARN - I didn't find a database entry for 'MCCLESKEY2015163' (section 0)
+[322] Utils.pm:193> WARN - I didn't find a database entry for 'Matsuoka:2014qna' (section 0)
+[322] Utils.pm:193> WARN - I didn't find a database entry for 'Peterson:2010aa' (section 0)
+[323] Utils.pm:193> WARN - I didn't find a database entry for 'Solevi:2016aa' (section 0)
+[323] Utils.pm:193> WARN - I didn't find a database entry for 'ALDAWOOD2017190' (section 0)
+[323] Utils.pm:193> WARN - I didn't find a database entry for 'krimmer:hal-01585334' (section 0)
+[323] Utils.pm:193> WARN - I didn't find a database entry for 'TODD:1974aa' (section 0)
+[323] Utils.pm:193> WARN - I didn't find a database entry for 'Doppler' (section 0)
+[323] Utils.pm:193> WARN - I didn't find a database entry for '0031-9155-60-18-7085' (section 0)
+[323] Utils.pm:193> WARN - I didn't find a database entry for 'Yoshihara_ETCC' (section 0)
+[324] Utils.pm:193> WARN - I didn't find a database entry for 'McKisson3D' (section 0)
+[324] Utils.pm:193> WARN - I didn't find a database entry for 'Kuchment:2016uiw' (section 0)
+[324] Utils.pm:193> WARN - I didn't find a database entry for 'Draeger:2017aa' (section 0)
+[324] Utils.pm:193> WARN - I didn't find a database entry for 'Polf:2009aa' (section 0)
+[324] Utils.pm:193> WARN - I didn't find a database entry for 'Hilaire:2016aa' (section 0)
+[324] Utils.pm:193> WARN - I didn't find a database entry for 'Testa:2010aa' (section 0)
+[324] Utils.pm:193> WARN - I didn't find a database entry for 'Ortega:2015aa' (section 0)
+[324] Utils.pm:193> WARN - I didn't find a database entry for 'krimmer:hal-01101334' (section 0)
+[332] Utils.pm:193> WARN - I didn't find a database entry for 'HIT_timestructure' (section 0)
+[332] Utils.pm:193> WARN - I didn't find a database entry for 'Kramer:2000aa' (section 0)
+[332] Utils.pm:193> WARN - I didn't find a database entry for 'Grevillot_2011' (section 0)
+[333] Utils.pm:193> WARN - I didn't find a database entry for 'smeets_2012' (section 0)
+[333] Utils.pm:193> WARN - I didn't find a database entry for 'schone_common_2010' (section 0)
+[333] Utils.pm:193> WARN - I didn't find a database entry for 'zoglauer_design_2011' (section 0)
+[333] Utils.pm:193> WARN - I didn't find a database entry for 'gillam_compton_2011' (section 0)
+[333] Utils.pm:193> WARN - I didn't find a database entry for 'mackin_evaluation_2012' (section 0)
+[333] Utils.pm:193> WARN - I didn't find a database entry for 'lojacono_low_2013' (section 0)
+[333] Utils.pm:193> WARN - I didn't find a database entry for 'hilaire_compton_2014' (section 0)
+[334] Utils.pm:193> WARN - I didn't find a database entry for 'Nadaraya_regression' (section 0)
+[334] Utils.pm:193> WARN - I didn't find a database entry for 'Watson_regression' (section 0)
+[334] Utils.pm:193> WARN - I didn't find a database entry for 'NURBS' (section 0)
+[334] Utils.pm:193> WARN - I didn't find a database entry for 'Fontana_APPB' (section 0)
+[334] Utils.pm:193> WARN - I didn't find a database entry for 'Everett' (section 0)
+[334] Utils.pm:193> WARN - I didn't find a database entry for 'Compton1923' (section 0)
+[334] Utils.pm:193> WARN - I didn't find a database entry for 'HanComp' (section 0)
+[334] Utils.pm:193> WARN - I didn't find a database entry for 'AC_datasheet' (section 0)
+[334] Utils.pm:193> WARN - I didn't find a database entry for 'Krimmer2015' (section 0)
+[335] Utils.pm:193> WARN - I didn't find a database entry for 'Nurdan_sources' (section 0)
+[335] Utils.pm:193> WARN - I didn't find a database entry for 'NNDC' (section 0)
+[335] Utils.pm:193> WARN - I didn't find a database entry for 'Richard2012' (section 0)
+[335] Utils.pm:193> WARN - I didn't find a database entry for 'MEGALIB' (section 0)
+[335] Utils.pm:193> WARN - I didn't find a database entry for 'MLEM_Lojacono' (section 0)
+[335] Utils.pm:193> WARN - I didn't find a database entry for 'tabNIST' (section 0)
+[335] Utils.pm:193> WARN - I didn't find a database entry for 'CecchinFWHManger' (section 0)
+[335] Utils.pm:193> WARN - I didn't find a database entry for '7582015' (section 0)
+[336] Utils.pm:193> WARN - I didn't find a database entry for 'KABUKI20071031' (section 0)
+[354] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[354] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[354] Biber.pm:3804> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[354] Biber.pm:3810> INFO - No sort tailoring available for locale 'en-US'
+[366] bbl.pm:617> INFO - Writing 'Fontana_thesis.bbl' with encoding 'latin1'
+[369] bbl.pm:720> INFO - Output to Fontana_thesis.bbl
+[370] Biber.pm:110> INFO - WARNINGS: 67

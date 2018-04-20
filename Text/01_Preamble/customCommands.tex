@@ -1,0 +1,27 @@
+\DeclareMathVersion{mathchartertext}
+\SetSymbolFont{letters}{mathchartertext}{OML}{mdbch}{m}{n}
+\newcommand{\charmu}{\mathversion{mathchartertext}$\mu$\mathversion{normal}}
+
+%\newcommand\ReferencesList{}
+%\newcommand\AddtoRefsList[1]{\xdef\ReferencesList{\ReferencesList,#1}}
+%\AtEveryCitekey{\AddtoRefsList{\thefield{entrykey}}}
+
+%\makeatletter
+%\patchcmd{\blx@addbackref@i}{\c@refsection}{\c@savedrefsection}{}{}
+
+%\newcounter{savedrefsection}
+%\newcommand\saverefsection{%
+%  \protected@write\@mainaux{}{\string\setcounter{savedrefsection}{\the\c@refsection}}%
+%}
+%\makeatother
+
+\newcounter{oldtocdepth}
+
+\newcommand{\hidefromtoc}{%
+  \setcounter{oldtocdepth}{\value{tocdepth}}%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{-10}}%
+}
+
+\newcommand{\unhidefromtoc}{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{\value{oldtocdepth}}}%
+}

@@ -1,0 +1,51 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Prologue}{1}{chapter*.6}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Introduction}{3}{chapter.1}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Gamma cameras}{5}{chapter.2}
+\contentsline {table}{\numberline {\relax 2.1}{\ignorespaces Small table}}{7}{table.caption.9}
+\addvspace {10\p@ }
+\contentsline {xchapter}{CLaRyS prototypes}{11}{chapter.3}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Compton camera application for ion beam therapy monitoring}{13}{chapter.4}
+\contentsline {table}{\numberline {\relax 4.1}{\ignorespaces Estimations of reachable resolutions with the detectors. Those resolutions are applied during the simulations.\relax }}{18}{table.caption.11}
+\contentsline {table}{\numberline {\relax 4.2}{\ignorespaces Hadronic models used in the Geant4 simulations.\relax }}{18}{table.caption.12}
+\contentsline {table}{\numberline {\relax 4.3}{\ignorespaces Description of the two beam structures studied: the IBA cyclotron C230 for protons and the synchrotron installed at the Heidelberg Ion Therapy Center (HIT) in Germany for carbon ions. The macro-structure of the synchrotron, at the second time scale, is not considered here. The beam structures are applied to the simulation data.\relax }}{20}{table.caption.14}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Compton camera application in nuclear medicine}{37}{chapter.5}
+\contentsline {table}{\numberline {\relax 5.1}{\ignorespaces Radioactive sources used in the comparison study. Decay mode list: EC for electron capture, $\mathrm {\beta }-$ for electron emission, $\mathrm {\beta }+$ for positron emission, IT for isomeric transition. Half-life expressed in days (d), hours (h) or minutes (m). Data extracted using the National Nuclear Data Center On-Line Data Service from the Evaluated Nuclear Structure Data File database, file revised as of (2017-05-17)~\cite {NNDC}.\relax }}{40}{table.caption.25}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Beam tests}{59}{chapter.6}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Conclusions and discussion}{61}{chapter.7}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Compton camera data format}{63}{appendix.A}
+\contentsline {table}{\numberline {\relax A.1}{\ignorespaces Front End number associated to each Front End card.\relax }}{64}{table.caption.36}
+\contentsline {table}{\numberline {\relax A.2}{\ignorespaces Packet with an even octet number cargo.\relax }}{73}{table.caption.42}
+\contentsline {table}{\numberline {\relax A.3}{\ignorespaces Packet with an odd octet number cargo.\relax }}{73}{table.caption.43}
+\contentsline {table}{\numberline {\relax A.4}{\ignorespaces K octets definition.\relax }}{75}{table.caption.44}
+\contentsline {table}{\numberline {\relax A.5}{\ignorespaces Control octets K definition.\relax }}{76}{table.caption.45}
+\contentsline {table}{\numberline {\relax A.6}{\ignorespaces Definition of the acknowledgement packet.\relax }}{77}{table.caption.46}
+\contentsline {table}{\numberline {\relax A.7}{\ignorespaces Writing register packet.\relax }}{77}{table.caption.47}
+\contentsline {table}{\numberline {\relax A.8}{\ignorespaces Reading register packet.\relax }}{78}{table.caption.48}
+\contentsline {table}{\numberline {\relax A.9}{\ignorespaces Two special registers(\textit {{\mathversion {mathchartertext}$\mu $\mathversion {normal}-TCA} $\rightarrow $ Front End cards})\relax }}{78}{table.caption.49}
+\contentsline {table}{\numberline {\relax A.10}{\ignorespaces Measurement packet. (\textit {Front End cards $\rightarrow $ {\mathversion {mathchartertext}$\mu $\mathversion {normal}-TCA}})\relax }}{79}{table.caption.50}
+\contentsline {table}{\numberline {\relax A.11}{\ignorespaces Monitoring packet.\relax }}{80}{table.caption.51}
+\contentsline {table}{\numberline {\relax A.12}{\ignorespaces Monitoring messages.\relax }}{80}{table.caption.52}
+\contentsline {table}{\numberline {\relax A.13}{\ignorespaces Special command packets.\relax }}{81}{table.caption.53}
+\contentsline {table}{\numberline {\relax A.14}{\ignorespaces Special commands examples.\relax }}{81}{table.caption.54}
+\contentsline {table}{\numberline {\relax A.15}{\ignorespaces Control octets for pre-trigger, trigger and physical data.\relax }}{82}{table.caption.55}
+\contentsline {table}{\numberline {\relax A.16}{\ignorespaces Pre-trigger packet.\relax }}{82}{table.caption.56}
+\contentsline {table}{\numberline {\relax A.17}{\ignorespaces Trigger packet\relax }}{82}{table.caption.57}
+\contentsline {table}{\numberline {\relax A.18}{\ignorespaces Physical data packet.\relax }}{83}{table.caption.58}
+\contentsline {table}{\numberline {\relax A.19}{\ignorespaces Coincidence and single rate as a function of the beam intensity. The BGO single rate corresponds to the pre-trigger rate.\relax }}{85}{table.caption.59}
+\contentsline {table}{\numberline {\relax A.20}{\ignorespaces Data flux between FE cards and \mathversion {mathchartertext}$\mu $\mathversion {normal}-TCA.\relax }}{86}{table.caption.60}
+\contentsline {table}{\numberline {\relax A.21}{\ignorespaces Data flow between \mathversion {mathchartertext}$\mu $\mathversion {normal}-TCA and acquisition PC.\relax }}{87}{table.caption.61}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Electronics specifications}{89}{appendix.B}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Bibliography}{91}{chapter*.62}

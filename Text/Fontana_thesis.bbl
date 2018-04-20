@@ -1,0 +1,264 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{Anger1958}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=2d1bd5d1689655b1f86628934b209796}{%
+           family={Anger},
+           familyi={A\bibinitperiod},
+           given={Hal\bibnamedelima O.},
+           giveni={H\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2d1bd5d1689655b1f86628934b209796}
+      \strng{fullhash}{2d1bd5d1689655b1f86628934b209796}
+      \strng{bibnamehash}{2d1bd5d1689655b1f86628934b209796}
+      \strng{authorbibnamehash}{2d1bd5d1689655b1f86628934b209796}
+      \strng{authornamehash}{2d1bd5d1689655b1f86628934b209796}
+      \strng{authorfullhash}{2d1bd5d1689655b1f86628934b209796}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Review of Scientific Instruments}
+      \field{number}{1}
+      \field{title}{Scintillation Camera}
+      \field{volume}{29}
+      \field{year}{1958}
+      \field{pages}{27\bibrangedash 33}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1063/1.1715998
+      \endverb
+      \verb{eprint}
+      \verb http://dx.doi.org/10.1063/1.1715998
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1063/1.1715998
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1063/1.1715998
+      \endverb
+    \endentry
+    \entry{Anger1964}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=2d1bd5d1689655b1f86628934b209796}{%
+           family={Anger},
+           familyi={A\bibinitperiod},
+           given={Hal\bibnamedelima O.},
+           giveni={H\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2d1bd5d1689655b1f86628934b209796}
+      \strng{fullhash}{2d1bd5d1689655b1f86628934b209796}
+      \strng{bibnamehash}{2d1bd5d1689655b1f86628934b209796}
+      \strng{authorbibnamehash}{2d1bd5d1689655b1f86628934b209796}
+      \strng{authornamehash}{2d1bd5d1689655b1f86628934b209796}
+      \strng{authorfullhash}{2d1bd5d1689655b1f86628934b209796}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Nuclear Medicine}
+      \field{number}{7}
+      \field{title}{Scintillation Camera with Multichannel Collimators}
+      \field{volume}{5}
+      \field{year}{1964}
+      \field{pages}{515\bibrangedash 531}
+      \range{pages}{17}
+      \verb{eprint}
+      \verb http://jnm.snmjournals.org/content/5/7/515.full.pdf+html
+      \endverb
+      \verb{urlraw}
+      \verb http://jnm.snmjournals.org/content/5/7/515.short
+      \endverb
+      \verb{url}
+      \verb http://jnm.snmjournals.org/content/5/7/515.short
+      \endverb
+    \endentry
+    \entry{Bragg_main}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,uniquepart=base,hash=6e0f301ddfb3f408d0bdf50d6971d570}{%
+           family={Bragg},
+           familyi={B\bibinitperiod},
+           given={W\bibnamedelima H\bibnamedelimb M\bibnamedelima A},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=377b5a446a7a584ea1327d7ff78cc08c}{%
+           family={Kleeman},
+           familyi={K\bibinitperiod},
+           given={R},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor & Francis}%
+      }
+      \strng{namehash}{ea067a397479b512077455f8cfaac162}
+      \strng{fullhash}{ea067a397479b512077455f8cfaac162}
+      \strng{bibnamehash}{ea067a397479b512077455f8cfaac162}
+      \strng{authorbibnamehash}{ea067a397479b512077455f8cfaac162}
+      \strng{authornamehash}{ea067a397479b512077455f8cfaac162}
+      \strng{authorfullhash}{ea067a397479b512077455f8cfaac162}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science}
+      \field{number}{48}
+      \field{title}{On the ionization curves of radium}
+      \field{volume}{8}
+      \field{year}{1904}
+      \field{pages}{726\bibrangedash 738}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1080/14786440409463246
+      \endverb
+      \verb{eprint}
+      \verb https://doi.org/10.1080/14786440409463246
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1080/14786440409463246
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1080/14786440409463246
+      \endverb
+    \endentry
+    \entry{Singh_CC}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=1ac4750bbda233baa09f1b246b3d7de4}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association of Physicists in Medicine}%
+      }
+      \strng{namehash}{1ac4750bbda233baa09f1b246b3d7de4}
+      \strng{fullhash}{1ac4750bbda233baa09f1b246b3d7de4}
+      \strng{bibnamehash}{1ac4750bbda233baa09f1b246b3d7de4}
+      \strng{authorbibnamehash}{1ac4750bbda233baa09f1b246b3d7de4}
+      \strng{authornamehash}{1ac4750bbda233baa09f1b246b3d7de4}
+      \strng{authorfullhash}{1ac4750bbda233baa09f1b246b3d7de4}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2473-4209}
+      \field{journaltitle}{Medical Physics}
+      \field{number}{4}
+      \field{title}{An electronically collimated gamma camera for single photon emission computed tomography. {P}art {I}: theoretical considerations and design criteria}
+      \field{volume}{10}
+      \field{year}{1983}
+      \field{pages}{421\bibrangedash 427}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1118/1.595313
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1118/1.595313
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1118/1.595313
+      \endverb
+      \keyw{Medical imaging,Non-ionizing radiation equipment and techniques,Biomedical imaging,Biophysical techniques (research methods),X- and γ-ray instruments,design,gamma cameras,single photon emission computed tomography,images,collimators,optimization,radiation detectors,radiation detection,gamma radiation,signal−to−noise ratio,image forming,technetium 99,gain,germanium,Cameras,Medical imaging,Collimation,Image sensors,Scintillation detectors,Spatial resolution,Surface reconstruction,Gamma rays,Image detection systems,Single photon emission computed tomography}
+    \endentry
+  \enddatalist
+  \missing{0031-9155-60-18-7085}
+  \missing{7582015}
+  \missing{AC_datasheet}
+  \missing{ALDAWOOD2017190}
+  \missing{Bom_collimated}
+  \missing{CecchinFWHManger}
+  \missing{Compton1923}
+  \missing{Doppler}
+  \missing{Draeger:2017aa}
+  \missing{ENGHARDT2004}
+  \missing{Everett}
+  \missing{Fontana_APPB}
+  \missing{Frandes_2010}
+  \missing{Golnik:2014aa}
+  \missing{Grevillot_2011}
+  \missing{HIT_timestructure}
+  \missing{HanComp}
+  \missing{Hilaire:2016aa}
+  \missing{KABUKI20071031}
+  \missing{KORMOLL2011114}
+  \missing{Knopf:2013aa}
+  \missing{Kramer:2000aa}
+  \missing{Krimmer2015}
+  \missing{Krimmer_PGPI}
+  \missing{Kuchment:2016uiw}
+  \missing{LLOSA2012105}
+  \missing{MCCLESKEY2015163}
+  \missing{MEGALIB}
+  \missing{MLEM_Lojacono}
+  \missing{Matsuoka:2014qna}
+  \missing{McKisson3D}
+  \missing{Min_PG}
+  \missing{NNDC}
+  \missing{NURBS}
+  \missing{Nadaraya_regression}
+  \missing{Nurdan_sources}
+  \missing{Ortega:2015aa}
+  \missing{PARODI2016}
+  \missing{PG_first}
+  \missing{PTCOG_stats}
+  \missing{Paganetti:2012aa}
+  \missing{Peterson:2010aa}
+  \missing{Polf:2009aa}
+  \missing{Priegnitz:2015aa}
+  \missing{RBE_Elsasser}
+  \missing{RBE_Weyrather}
+  \missing{Richard2012}
+  \missing{Robert2013}
+  \missing{Roellinghoff_2014}
+  \missing{Smeets:2012aa}
+  \missing{Solevi:2016aa}
+  \missing{TODD:1974aa}
+  \missing{Testa:2010aa}
+  \missing{Testa_PG}
+  \missing{Verburg:2014aa}
+  \missing{Watson_regression}
+  \missing{Yoshihara_ETCC}
+  \missing{gillam_compton_2011}
+  \missing{hilaire_compton_2014}
+  \missing{krimmer:hal-01101334}
+  \missing{krimmer:hal-01585334}
+  \missing{lojacono_low_2013}
+  \missing{mackin_evaluation_2012}
+  \missing{schone_common_2010}
+  \missing{smeets_2012}
+  \missing{tabNIST}
+  \missing{zoglauer_design_2011}
+\endrefsection
+\endinput
+
