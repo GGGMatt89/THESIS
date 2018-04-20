@@ -19,7 +19,7 @@
 *.backup
 *.sinctex.gz
 *.xml
-.DS_Store
-various_fromMasterThesis
-titlePage_templates
-page_de_garde_latex
+**.DS_Store
+various_fromMasterThesis/
+titlePage_templates/
+page_de_garde_latex/
