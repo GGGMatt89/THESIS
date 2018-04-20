@@ -12,12 +12,13 @@
 *.out
 *.bbl
 *.blg
+*.bcf
 *.maf
 *.mtc*
 *~
 *backup
 *.backup
-*.sinctex.gz
+*.synctex.gz
 *.xml
 **.DS_Store
 various_fromMasterThesis/
