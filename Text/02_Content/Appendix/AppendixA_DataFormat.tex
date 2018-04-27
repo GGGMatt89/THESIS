@@ -20,36 +20,35 @@ Every data packet sent to the \charmu-TCA by the Front End cards starts with the
 	\item N$^{\circ}$ of element in the packet (8 bits).
 \end{itemize}
 
-\subsubsection{Front End number\newline}
+\subsubsection{Front End number}
 
 The Front End number is the identification code of each Front End card. A mechanical switch on the card defines the ID which is sent in the data packet header.
 \newline
-In \tablename~\ref{table::FE_numbers} the Front End number IDs are listed with the corresponding cards.
+In \tablename~\ref{tab::FE_numbers} the Front End number IDs are listed with the corresponding cards.
 
-\definecolor{Gray}{gray}{0.9}
-\begin{table} [!htbp]
+%\definecolor{Gray}{gray}{0.9}
+\begin{table}[!htbp]
 \centering
 \caption{Front End number associated to each Front End card.}
-\label{table::FE_numbers}
-\begin{tabular}{cc}
-\hline
-\rowcolor{Gray}
-\textbf{FE number} & \textbf{FE card} \\
-\hline
-\hline
+\label{tab::FE_numbers}
+\begin{tabular}{P{2cm} P{3cm}}
+\toprule
+\rowcolor{myColorMainA!20} 
+\textbf{FE number} 	& \textbf{FE card}\\
+\midrule
 0			&	All detectors \\
-\hline
-1			 &     Silicon 1\\
+\midrule
+1			&   Silicon 1\\
 2			&	Silicon 2	\\
-3        		&	Silicon 3	\\
+3        	&	Silicon 3	\\
 4			&	Silicon 4	\\
-5			 &     Silicon 5\\
+5			&   Silicon 5\\
 6			&	Silicon 6	\\
-7        		&	Silicon 7	\\
+7        	&	Silicon 7	\\
 8			&	Silicon 8	\\
-9        		&	Silicon 9	\\
+9        	&	Silicon 9	\\
 10			&	Silicon 10\\
-\hline
+\midrule
 11			&	ASM 1\\
 12			&	ASM 2\\
 13			&	ASM 3\\
@@ -66,23 +65,23 @@ In \tablename~\ref{table::FE_numbers} the Front End number IDs are listed with t
 24			&	ASM 14\\
 25			&	ASM 15\\
 26			&	ASM 16\\
-\hline
-27			 &     Hodoscope 1\\
+\midrule
+27			&   Hodoscope 1\\
 28			&	Hodoscope 2	\\
-29        		&	Hodoscope 3	\\
+29        	&	Hodoscope 3	\\
 30			&	Hodoscope 4	\\
-31			 &     Hodoscope 5\\
+31			&   Hodoscope 5\\
 32			&	Hodoscope 6	\\
-33        		&	Hodoscope 7	\\
+33        	&	Hodoscope 7	\\
 34			&	Hodoscope 8	\\
-\hline
+\midrule
 99 			&  \charmu-TCA\\
-\hline
+\bottomrule
 \end{tabular}
 \end{table}
 
 
-\subsubsection{Pre-trigger and trigger\newline}
+\subsubsection{Pre-trigger and trigger}
 
 The trigger number identifies each event, where an event is generated every time a coincidence is detected between a BGO block and a silicon layer. Once an interaction is detected in a BGO block, the associated ASM card generates a pre-trigger signal which is sent to the THOR card. This intermediate card shares the pre-trigger signal with the silicon FE cards; if an interaction with a compatible time stamp is found in one of the silicon layer, a trigger signal is generated and sent to all the silicon FE card, as well as to the ASM and hodoscope cards via the THOR card. The trigger signal validates the event, and each FE card sends the collected data to the \charmu-TCA system. The trigger number allows for a complete event reconstruction by the event builder on the acquisition PC. In \figurename~\ref{fig::triggerGeneration} the trigger generation process is sketched.\newline
 To be noticed that each FE cards sends the collected data independently from the others.\newline
@@ -93,21 +92,54 @@ To be noticed that each FE cards sends the collected data independently from the
 Pre-trigger and trigger signals are used by all the detectors to select the collected data to be sent to the acquisition system. The data selection and transfer must be as fast as possible in order to minimize the trigger latency and camera dead time. In order to reduce the transmission time, pre-trigger and trigger signals have been encoded on 24 bits.\newline
 This same trigger number is sent at the beginning of each data packet and is used by the event builder to associate the interactions collected by the three detector sections. With a 24-bit encoding, the trigger number is reset every 1 ns $\times \mathrm{2^{24}} =$ 16,78 ms. This time window is short for the event builder, so that for the physical data it is extended to 32 bits for all the FE cards in order to have a reset every 1 ns $\times \mathrm{2^{32}} =$ 4,2 s, which is enough for the reconstruction of the events.
 
-\newpage
-\begin{landscape}
-\begin{figure} [!h]
-\caption{Trigger generation and sharing with the three detector sections.}
- \subfloat[Pre-trigger generation in the THOR card.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive03.jpg}}
- \subfloat[Pre-trigger sent to the 10 silicon FE cards.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive04.jpg}}\\
- \subfloat[A single silicon FE card generates the trigger.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive05.jpg}}
- \subfloat[Trigger signal is distributed to all the detectors.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive06.jpg}}\\
- \subfloat[The detectors send the collected data to the \charmu-TCA. ]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive07.jpg}}
+
+%\begin{landscape}
+\begin{figure} [!ht]
+\centering
+ %\subfloat[Pre-trigger generation in the THOR card.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive03.jpg}}
+ %\subfloat[Pre-trigger sent to the 10 silicon FE cards.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive04.jpg}}\\
+ %\subfloat[A single silicon FE card generates the trigger.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive05.jpg}}
+ %\subfloat[Trigger signal is distributed to all the detectors.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive06.jpg}}\\
+ %\subfloat[The detectors send the collected data to the \charmu-TCA. ]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive07.jpg}}
+\begin{minipage}{0.47\textwidth}
+ \centering
+\includegraphics[width=0.7\textwidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_1.pdf}
+\subcaption[Signal detection on one ASM card and logical signal sent to the THOR card.]{An ASM card detects an interaction \\ and sends a logical signal to the THOR card.}\label{triggerLogic_1}
+\end{minipage}%
+\begin{minipage}{0.47\textwidth}
+ \centering
+\includegraphics[width=0.7\textwidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_2.pdf}
+\subcaption[Pre-trigger generation in the THOR card.]{The THOR card generates \\ the pre-trigger signal.}\label{triggerLogic_2}
+\end{minipage}%
+\newline
+\begin{minipage}{0.47\textwidth}
+ \centering
+\includegraphics[width=0.7\textwidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_3.pdf}
+\subcaption[Pre-trigger sent to the 10 silicon FE cards.]{The pre-trigger is sent \\ to the 10 silicon FE cards.}\label{triggerLogic_3}
+\end{minipage}%
+\begin{minipage}{0.47\textwidth}
+ \centering
+\includegraphics[width=0.7\textwidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_4.pdf}
+\subcaption[A single silicon FE card generates the trigger.]{A single silicon FE card \\ generates the trigger.}\label{triggerLogic_4}
+\end{minipage}%
+\newline
+\begin{minipage}{0.47\textwidth}
+ \centering
+\includegraphics[width=0.7\textwidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_5.pdf}
+\subcaption[Trigger signal is distributed to all the detectors.]{The trigger signal is distributed \\ to all the detectors.}\label{triggerLogic_5}
+\end{minipage}%
+\begin{minipage}{0.47\textwidth}
+ \centering
+\includegraphics[width=0.7\textwidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_6.pdf}
+\subcaption[The detectors send the collected data to the \charmu-TCA.]{The detectors send \\ the collected data to the \charmu-TCA.}\label{triggerLogic_6}
+\end{minipage}%
+ \caption{Data acquisition logic: pre-trigger and trigger generation and readout process.}
   \label{fig::triggerGeneration}
 \end{figure}
-\end{landscape}
+%\end{landscape}
 
 
-\subsubsection{Mode number\newline}
+\subsubsection{Mode number}
 
 The Compton camera detector components can work in different mode, according to the application requirements. At least two working modes are possible for every detector section: an \enquote{optimal} mode, corresponding to the final camera configuration; a \enquote{test} mode, allowing for the collection of more raw information. Every operating mode presents a peculiar data format, so that the data packets size is not fixed. In order to fix the acquisition tuning, the mode number is defined before its beginning.\newline
 The operating mode are identified as following: \newline
@@ -137,178 +169,500 @@ Four different data formats, corresponding to four working modes, have been defi
 \underline{Modes 1 and 3}\newline
 In mode 1 and 3, for each detector strip involved in the interaction, the strip ID, total collected charge and time are stored. The interaction position will be calculated via a center of gravity algorithm at the analysis stage. The raw information about the number of involved strips is useful for the evaluation of the signal dispersion in the detector.\newline
 \underline{Modes 2 and 4}\newline
-In mode 2 and 4, the interaction is calculated on the FE card and the number of involved strip is then not stored.
+In mode 2 and 4, the interaction is calculated on the FE card and the number of involved strip is then not stored.\newline
+\begin{figure}[ht]
+\centering
+\hspace*{-4em}\begin{tikzpicture}
+[%
+    auto,
+    block/.style={
+      rectangle,
+      draw=myColorMainA,
+      thick,
+      fill=myColorMainA!20,
+      text width=4em,
+      align=center,
+      rounded corners,
+      minimum height=2.5em,
+      font=\footnotesize
+    },
+    block1/.style={
+      rectangle,
+      draw=myColorMainA,
+      thick,
+      dashed,
+      fill=myColorMainA!20,
+      text width=4em,
+      align=center,
+      rounded corners,
+      minimum height=1em,
+      font=\footnotesize
+    },
+    comment/.style={
+    text width=2em,
+    minimum height=7em
+    }
+  ]
+  %Mode 1
+  	\node at (0, -0.6) {\underline{Mode 1}};
+  	\node at (0, -1.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (2, -1.3) {\textcolor{myColorMainB}{24 bits}} ;
+    \node at (4, -1.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (6, -1.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (8, -1.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (10, -1.3) {\textcolor{myColorMainB}{16 bits}} ;
+    \node at (12, -1.3) {\textcolor{myColorMainB}{32 bits}} ;
+    \draw (0,-2) node[block] (FEN) {Front End N};
+    \draw (2,-2) node[block] (TN) {Trigger N};
+    \draw      (4,-2) node[block] (MN) {Mode N};
+    \draw     (6,-2) node[block] (NHS) {N hit strips};
+    \draw      (8,-2) node[block1] (SN) {Strip N};
+    \draw     (10,-2) node[block1] (Q) {Charge};
+    \draw     (12,-2) node[block1] (T) {Time};
+    \draw      (8,-3) node[block1] (SN2) {Strip N};
+    \draw     (10,-3) node[block1] (Q2) {Charge};
+    \draw     (12,-3) node[block1] (T2) {Time};
+    \node at (12,-3.6) {...};
+	\draw     (13.5,-2.5) node[comment] (cm) {$\times$ N hit strips};
+  
+  	\draw[myColorMainB,thick,dotted] ($(SN.north west)+(-0.2,0.2)$)  rectangle ($(T2.south east)+(0.2,-0.6)$);
+  	
+  	%Mode 2
+  	\node at (0, -4.6) {\underline{Mode 2}};
+  	\node at (0, -5.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (2, -5.3) {\textcolor{myColorMainB}{24 bits}} ;
+    \node at (4, -5.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (6, -5.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (8, -5.3) {\textcolor{myColorMainB}{16 bits}} ;
+    \node at (10, -5.3) {\textcolor{myColorMainB}{16 bits}} ;
+    \node at (12, -5.3) {\textcolor{myColorMainB}{32 bits}} ;
+    \draw (0,-6) node[block] (FEN) {Front End N};
+    \draw (2,-6) node[block] (TN) {Trigger N};
+    \draw      (4,-6) node[block] (MN) {Mode N};
+    \draw     (6,-6) node[block] (NHS) {N tracks};
+    \draw      (8,-6) node[block1] (SN) {Position};
+    \draw     (10,-6) node[block1] (Q) {Charge};
+    \draw     (12,-6) node[block1] (T) {Time};
+    \draw      (8,-7) node[block1] (SN2) {Position};
+    \draw     (10,-7) node[block1] (Q2) {Charge};
+    \draw     (12,-7) node[block1] (T2) {Time};
+    \node at (12,-7.6) {...};
+	\draw     (13.5,-6.5) node[comment] (cm) {$\times$ N tracks};
+  
+  	\draw[myColorMainB,thick,dotted] ($(SN.north west)+(-0.2,0.2)$)  rectangle ($(T2.south east)+(0.2,-0.6)$);
+  	
+  	%Mode 3
+  	\node at (0, -8.6) {\underline{Mode 3}};
+  	\node at (0, -9.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (2, -9.3) {\textcolor{myColorMainB}{24 bits}} ;
+    \node at (4, -9.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (6, -9.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (8, -9.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (10, -9.3) {\textcolor{myColorMainB}{16 bits}} ;
+    \node at (13, -9.3) {\textcolor{myColorMainB}{16 bits}} ;
+    \node at (15, -9.3) {\textcolor{myColorMainB}{32 bits}} ;
+    \draw (0,-10) node[block] (FEN) {Front End N};
+    \draw (2,-10) node[block] (TN) {Trigger N};
+    \draw      (4,-10) node[block] (MN) {Mode N};
+    \draw     (6,-10) node[block] (NHS) {N hit strips};
+    \draw      (8,-10) node[block1] (SN) {Strip N};
+    \draw      (10,-10) node[block1] (S1) {Sample 1};
+    \node at (11.5, -10) {...};
+    \draw     (13,-10) node[block1] (Sn) {Sample n};
+    \draw     (15,-10) node[block1] (T) {Time};
+    \draw      (8,-11) node[block1] (SN2) {Strip N};
+    \draw      (10,-11) node[block1] (S12) {Sample 1};
+    \node at (11.5, -11) {...};
+    \draw     (13,-11) node[block1] (Sn2) {Sample n};
+    \draw     (15,-11) node[block1] (T2) {Time};
+    \node at (15,-11.6) {...};
+	\draw     (16.5,-10.5) node[comment] (cm) {$\times$ N hit strips};
+  
+  	\draw[myColorMainB,thick,dotted] ($(SN.north west)+(-0.2,0.2)$)  rectangle ($(T2.south east)+(0.2,-0.6)$);
+  	
+  	%Mode 4
+  	\node at (0, -12.6) {\underline{Mode 4}};
+  	\node at (0, -13.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (2, -13.3) {\textcolor{myColorMainB}{24 bits}} ;
+    \node at (4, -13.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (6, -13.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (8, -13.3) {\textcolor{myColorMainB}{16 bits}} ;
+    \node at (10, -13.3) {\textcolor{myColorMainB}{16 bits}} ;
+    \node at (13, -13.3) {\textcolor{myColorMainB}{16 bits}} ;
+    \node at (15, -13.3) {\textcolor{myColorMainB}{32 bits}} ;
+    \draw (0,-14) node[block] (FEN) {Front End N};
+    \draw (2,-14) node[block] (TN) {Trigger N};
+    \draw      (4,-14) node[block] (MN) {Mode N};
+    \draw     (6,-14) node[block] (NHS) {N tracks};
+    \draw      (8,-14) node[block1] (SN) {Position};
+    \draw      (10,-14) node[block1] (S1) {Sample 1};
+    \node at (11.5, -14) {...};
+    \draw     (13,-14) node[block1] (Sn) {Sample n};
+    \draw     (15,-14) node[block1] (T) {Time};
+    \draw      (8,-15) node[block1] (Sn2) {Position};
+    \draw      (10,-15) node[block1] (S12) {Sample 1};
+    \node at (11.5, -15) {...};
+    \draw     (13,-15) node[block1] (Sn2) {Sample n};
+    \draw     (15,-15) node[block1] (T2) {Time};
+    \node at (15,-15.6) {...};
+	\draw     (16.5,-14.5) node[comment] (cm) {$\times$ N tracks};
+  
+  	\draw[myColorMainB,thick,dotted] ($(SN.north west)+(-0.2,0.2)$)  rectangle ($(T2.south east)+(0.2,-0.6)$);
+\end{tikzpicture}
+\caption{Scatterer detector data format.}
+\end{figure}
 
-	\begin{figure} [hbtp]
-	\centering
-	\caption{Silicon scatterer data format.}
-	\includegraphics[width=1.3\textwidth]{03_GraphicFiles/appendixA_dataFormat/2015_05_14_Format_datas_acquisition_Si.pdf}
-	\end{figure}
-
-\clearpage
-\newpage
 \subsection{Absorber detector data format}
 The BGO block readout is performed via the ASM cards. Each card is equipped with 24 input ports (signal PM), corresponding to 6 BGO blocks. Two possible working modes have been defined for the BGO absorber: the collected total charge and time are evaluated on the card, or the PM raw signals are sampled and the sampling is sent to the acquisition (figure 3). Charge and time are then calculated at the analysis stage. This second operating mode can be useful in the test phase but it determines a low acquisition rate, so that it can be used only at low beam intensity.\newline
-The complete sampling is stored in a dedicated buffer (see table 9).
+The complete sampling is stored in a dedicated buffer (see table 9).\newline
 
-  	\begin{figure} [hbtp]
-	\centering
-	\caption{BGO absorber data format.}
-	\includegraphics[width=1.2\textwidth]{03_GraphicFiles/appendixA_dataFormat/2015_05_14_Format_datas_acquisition_BGO.pdf}
-	\end{figure}
+\begin{figure}[ht]
+\centering
+\hspace*{-4em}\begin{tikzpicture}
+[%
+    auto,
+    block/.style={
+      rectangle,
+      draw=myColorMainA,
+      thick,
+      fill=myColorMainA!20,
+      text width=4em,
+      align=center,
+      rounded corners,
+      minimum height=2.5em,
+      font=\footnotesize
+    },
+    block1/.style={
+      rectangle,
+      draw=myColorMainA,
+      thick,
+      dashed,
+      fill=myColorMainA!20,
+      text width=4em,
+      align=center,
+      rounded corners,
+      minimum height=1em,
+      font=\footnotesize
+    },
+    comment/.style={
+    text width=2em,
+    minimum height=7em
+    }
+  ]
+  %Mode 1
+  	\node at (0, -0.6) {\underline{Mode 1}};
+  	\node at (0, -1.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (2, -1.3) {\textcolor{myColorMainB}{24 bits}} ;
+    \node at (4, -1.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (6, -1.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (8, -1.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (10, -1.3) {\textcolor{myColorMainB}{32 bits}} ;
+    \node at (12, -1.3) {\textcolor{myColorMainB}{24 bits}} ;
+    \draw (0,-2) node[block] (FEN) {Front End N};
+    \draw (2,-2) node[block] (TN) {Trigger N};
+    \draw      (4,-2) node[block] (MN) {Mode N};
+    \draw     (6,-2) node[block] (NHS) {N hit blocks};
+    \draw      (8,-2) node[block1] (SN) {Block N};
+    \draw     (10,-2) node[block1] (T) {Time};
+    \draw     (12,-2) node[block1] (Q1) {Charge PM1};
+    \draw     (12,-3) node[block1] (Q2) {Charge PM2};
+	\draw     (12,-4) node[block1] (Q3) {Charge PM3};
+    \draw     (12,-5) node[block1] (Q4) {Charge PM4};
+    \draw      (8,-6) node[block1] (SN_2) {Block N};
+    \draw     (10,-6) node[block1] (T_2) {Time};
+    \draw     (12,-6) node[block1] (Q1_2) {Charge PM1};
+    \draw     (12,-7) node[block1] (Q2_2) {Charge PM2};
+	\draw     (12,-8) node[block1] (Q3_2) {Charge PM3};
+    \draw     (12,-9) node[block1] (Q4_2) {Charge PM4};        
+    \node at (10,-9.9) {...};
+	\draw     (13.5,-6) node[comment] (cm) {$\times$ N hit blocks};
+  
+  	\draw[myColorMainB,thick,dotted] ($(SN.north west)+(-0.2,0.2)$)  rectangle ($(Q4_2.south east)+(0.2,-0.6)$);
+  	
+  	%Mode 2
+  	\node at (0, -11.5) {\underline{Mode 2}};
+  	\node at (0, -12.2) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (2, -12.2) {\textcolor{myColorMainB}{24 bits}} ;
+    \node at (4, -12.2) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (6, -12.2) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (8, -12.2) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (10, -12.2) {\textcolor{myColorMainB}{32 bits}} ;
+    \node at (12, -12.2) {\textcolor{myColorMainB}{16 bits}} ;
+    \node at (15, -12.2) {\textcolor{myColorMainB}{16 bits}} ;
+        
+    \draw (0,-12.9) node[block] (FEN) {Front End N};
+    \draw (2,-12.9) node[block] (TN) {Trigger N};
+    \draw      (4,-12.9) node[block] (MN) {Mode N};
+    \draw     (6,-12.9) node[block] (NHS) {N hit blocks};
+    \draw      (8,-12.9) node[block1] (BN) {Block N};
+    \draw     (10,-12.9) node[block1] (T) {Time};
+    \draw     (12,-12.9) node[block1] (Q1) {Sample 1 - PM1};
+    \node at (13.5,-12.9) {...};
+	\draw     (15,-12.9) node[block1] (Qn) {Sample n - PM1};
+	\draw     (12,-13.9) node[block1] (Q1_2) {Sample 1 - PM2};
+    \node at (13.5,-13.9) {...};
+	\draw     (15,-13.9) node[block1] (Qn_2) {Sample n - PM2};
+	\draw     (12,-14.9) node[block1] (Q1_3) {Sample 1 - PM3};
+    \node at (13.5,-14.9) {...};
+	\draw     (15,-14.9) node[block1] (Qn_3) {Sample n - PM3};
+	\draw     (12,-15.9) node[block1] (Q1_4) {Sample 1 - PM4};
+    \node at (13.5,-15.9) {...};
+	\draw     (15,-15.9) node[block1] (Qn_4) {Sample n - PM4};
+	
+	\draw      (8,-16.9) node[block1] (BN_2) {Block N};
+    \draw     (10,-16.9) node[block1] (T_2) {Time};
+    \draw     (12,-16.9) node[block1] (Q1_2) {Sample 1 - PM1};
+    \node at (13.5,-16.9) {...};
+	\draw     (15,-16.9) node[block1] (Qn_2) {Sample n - PM1};
+	\draw     (12,-17.9) node[block1] (Q1_2_2) {Sample 1 - PM2};
+    \node at (13.5,-17.9) {...};
+	\draw     (15,-17.9) node[block1] (Qn_2_2) {Sample n - PM2};
+	\draw     (12,-18.9) node[block1] (Q1_3_2) {Sample 1 - PM3};
+    \node at (13.5,-18.9) {...};
+	\draw     (15,-18.9) node[block1] (Qn_3_2) {Sample n - PM3};
+	\draw     (12,-19.9) node[block1] (Q1_4_2) {Sample 1 - PM4};
+    \node at (13.5,-19.9) {...};
+	\draw     (15,-19.9) node[block1] (Qn_4_2) {Sample n - PM4};   
+    \node at (13.5,-20.8) {...};
+	\draw     (16.5,-16.5) node[comment] (cm) {$\times$ N hit blocks};
+  
+  	\draw[myColorMainB,thick,dotted] ($(BN.north west)+(-0.2,0.2)$)  rectangle ($(Qn_4_2.south east)+(0.2,-0.6)$);
+  	
+\end{tikzpicture}
+\caption{Absorber detector data format.}
+\end{figure}
 
 
-
-\clearpage
 \subsection{Beam hodoscope data format}
 The beam tagging hodoscope is composed of two perpendicular planes of 128 scintillating fibers each. Each fiber is read-out on the two sides, for a total of  512 read-out channels. The output signals are send via optical fibers to 8 64-channel PM H8500 by Hamamatsu. 8 FE cards have been developed for the signal collection, one per PM, and are equipped with two custom ASICs (32 channels each) and one FPGA.\newline
 Concerning the \enquote{optimal} mode (1$^{\mathrm{st}}$ operating mode for the hodoscope), the only collected information are the ID of the involved fibers and the interaction time. The ASICs allow for a minimum time resolution of 10 ns; this means that if two particles interacts in the hodoscope within a 10 ns window, they will be considered as part of a single event.\newline
 In test mode, the total collected charge can be calculated. This feature is useful to evaluate the detector aging effect due to radiation exposure. The charge measurement is anyway limited to a single channel per ASIC, so to two channels per PM. The ASIC channel able to measure the charge is identified as "N$^{\circ}$ Fiber charge 1" and "N$^{\circ}$ Fiber charge 2".
 
-	\begin{figure} [!hbtp]
-	\centering
-	\caption{Hodoscope data format.}
-	\includegraphics[width=1\textwidth]{03_GraphicFiles/appendixA_dataFormat/2015_01_26_Format_datas_acquisition_hodoscope_update.pdf}
-	\end{figure}
+\begin{figure}[ht]
+\centering
+\hspace*{-4em}\begin{tikzpicture}
+[%
+    auto,
+    block/.style={
+      rectangle,
+      draw=myColorMainA,
+      thick,
+      fill=myColorMainA!20,
+      text width=4em,
+      align=center,
+      rounded corners,
+      minimum height=2.5em,
+      font=\footnotesize
+    },
+    block1/.style={
+      rectangle,
+      draw=myColorMainA,
+      thick,
+      dashed,
+      fill=myColorMainA!20,
+      text width=4em,
+      align=center,
+      rounded corners,
+      minimum height=1em,
+      font=\footnotesize
+    },
+    comment/.style={
+    text width=2em,
+    minimum height=7em
+    }
+  ]
+  %Mode 1
+  	\node at (0, -0.6) {\underline{Mode 1}};
+  	\node at (0, -1.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (2, -1.3) {\textcolor{myColorMainB}{24 bits}} ;
+    \node at (4, -1.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (6, -1.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (8, -1.3) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (10, -1.3) {\textcolor{myColorMainB}{32 bits}} ;
+    \draw (0,-2) node[block] (FEN) {Front End N};
+    \draw (2,-2) node[block] (TN) {Trigger N};
+    \draw      (4,-2) node[block] (MN) {Mode N};
+    \draw     (6,-2) node[block] (NHF) {N hit fibers};
+    \draw      (8,-2) node[block1] (SN) {Fiber N};
+    \draw     (10,-2) node[block1] (T) {Time};
+    \draw      (8,-3) node[block1] (SN_2) {Fiber N};
+    \draw     (10,-3) node[block1] (T_2) {Time};   
+    \node at (10,-3.6) {...};
+	\draw     (11.5,-2.5) node[comment] (cm) {$\times$ N hit fibers};
+  
+  	\draw[myColorMainB,thick,dotted] ($(SN.north west)+(-0.2,0.2)$)  rectangle ($(T_2.south east)+(0.2,-0.6)$);
+  	
+  	%Mode 2
+  	\node at (0, -6.2) {\underline{Mode 2}};
+  	\node at (0, -6.8) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (2, -6.8) {\textcolor{myColorMainB}{24 bits}} ;
+    \node at (4, -6.8) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (6, -6.8) {\textcolor{myColorMainB}{16 bits}} ;
+    \node at (8, -6.8) {\textcolor{myColorMainB}{16 bits}} ;
+    \node at (10, -6.8) {\textcolor{myColorMainB}{16 bits}} ;
+    \node at (12, -6.8) {\textcolor{myColorMainB}{16 bits}} ;
+    \node at (14, -6.8) {\textcolor{myColorMainB}{8 bits}} ;
+    \node at (16, -6.8) {\textcolor{myColorMainB}{32 bits}} ;
+        
+    \draw (0,-7.5) node[block] (FEN) {Front End N};
+    \draw (2,-7.5) node[block] (TN) {Trigger N};
+    \draw      (4,-7.5) node[block] (MN) {Mode N};
+    \draw     (6,-7.5) node[block] (NHS) {N fiber charge 1};
+    \draw      (8,-7.5) node[block] (BN) {Charge 1};
+    \draw     (10,-7.5) node[block] (NHS) {N fiber charge 2};
+    \draw      (12,-7.5) node[block] (BN) {Charge 2};
+    \draw      (14,-7.5) node[block1] (SN) {Fiber N};
+    \draw     (16,-7.5) node[block1] (T) {Time};
+    \draw      (14,-8.5) node[block1] (SN_2) {Fiber N};
+    \draw     (16,-8.5) node[block1] (T_2) {Time};  
+     \node at (16,-9.1) {...};
+	\draw     (17.5,-8) node[comment] (cm) {$\times$ N hit fibers}; 
+    
+  	\draw[myColorMainB,thick,dotted] ($(SN.north west)+(-0.2,0.2)$)  rectangle ($(T_2.south east)+(0.2,-0.6)$);
+  	
+\end{tikzpicture}
+\caption{Beam hodoscope data format.}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\clearpage
-\newpage
 \section{Slow control, trigger and monitoring data format}
-
-by X. Chen and Y. Zoccarato.
 
 \subsection{Communication architecture}
 
-The Endpoint architecture is composed of three parts:
+The Endpoint architecture is composed of three layers:
 \begin{itemize}
-	\item application
-	\item mac (or transport part)/processor packet
-	\item physics
+	\item application layer
+	\item mac (or transport) layer/processor packet
+	\item physical layer
 \end{itemize}
 
 	\begin{figure} [!hbtp]
 	\centering
 	\caption{Architecture of communication between DAQ cards and \charmu-TCA.}
-	\includegraphics[width=1\textwidth]{03_GraphicFiles/appendixA_dataFormat/architecture_EndPont_update.jpg}
+	\includegraphics[width=1\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_uTCAImage.pdf}
 	\end{figure}
 
 \subsection{Transport protocol and processor packets}
 
-\subsubsection{Definitions\newline}
+\subsubsection{Definitions}
 	It is worth to define some useful terms for the following part of the document:
 
 	\begin{itemize}
-		\item octet : 8 bits
-		\item mot : 16 bits
-		\item K : control octet
-		\item D : data octet
+		\item byte : 8 bits
+		\item word : 16 bits
+		\item K : control byte
+		\item D : data byte
 		\item cargo : data group
-		\item terminaison : packet end
+		\item terminator : packet end
 		\item CRC : cyclic redundancy code \newline
 	\end{itemize}
 
 The CRC allows one to detect the transmission errors and the data transfer issues. A specific algorithm must be used, as CRC-16 : X16 + X15 + X2 + 1. In the present protocol, a \enquote{parity patter of 16 bits} have been used.
 
-The trasport part ensures a proper packets exchange between two terminals via the data shaping. The data come from the application part and are then sent to the physics part.\newline
+The transport layer ensures a proper packets exchange between two terminals via the data encapsulation. The data come from the application layer and are then sent to the physical layer.\newline
 %\textbf{L'encapsulation choisie est 8 bits/10 bits.}\newline
 
-\subsubsection{Data encoding\newline}
-For the transport part, the data structure is created via the addition of a packet header, corresponding to a parity bit, of a 16 bit parity pattern and a bit for the end of the packet.
-The data to be sent are encoded with a logic 8bits/10bits. This encoding structure allows for the extraction of the clock from the data flow at the reception time.
+\subsubsection{Data encoding}
+For the transport layer, the data structure is created via the addition of a packet header, corresponding to a parity bit, of a 16 bit parity pattern and a bit for the end of the packet.
+The data are 8 bits/10 bits encoded. This standard 8 bits/10 bits encoding ensures sufficient data transitions for clock recovery.
 
-\subsubsection{Packets format\newline}
+\subsubsection{Packets format}
 
-All the data packets have the same structure. A K octet (control) is followed by the cargos to be sent. The end of the packets changes according to the cargos parity.\newline
-If the cargo contains an even number of octets, the packet ends with K.28.6.
+All the data packets have the same structure. A K byte (control symbol) is followed by the cargo to be sent. The end of the packets changes according to the cargo parity.\newline
+If the cargo contains an even number of bytes, the packet ends with K.28.6.
+
 \begin{table} [!htbp]
-  \centering
-  \caption{Packet with an even octet number cargo.}
-\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\bf{Item}  & 		\bf{Packet beginning}		& \bf{Cargo}	& \bf{Packet end}\\
-\hline
-1			&	One K octet 	& 0 - N D-octets			&		K.28.6	\\
-\hline
+\centering
+\caption{Packet with an even byte number cargo.}
+\label{tab::EvenCargo}
+\begin{tabular}{m{1.5cm} M{2.5cm} M{2.5cm} M{4cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Item}  	&\textbf{Packet beginning}		&\textbf{Cargo} 	&\textbf{Packet end}\\
+\midrule
+1				& One K byte 					& 0 - N D-bytes		& K.28.6	\\
+\bottomrule
 \end{tabular}
 \end{table}
 
-If the cargo contains an odd number of octets, the packet ends without any particul octet.
+If the cargo contains an odd number of bytes, the packet ends without any control symbol.
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Packet with an odd octet number cargo.}
-\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\bf{Item}  & 		\bf{Packet beginning}		& \bf{Cargo}	& \bf{Packet end}\\
-\hline
-1			&	One K octet	&	0 - N D-octets				&	Start of a new packet	\\
-\hline
+\centering
+\caption{Packet with an odd byte number cargo.}
+\label{tab::OddCargo}
+\begin{tabular}{m{1.5cm} M{2.5cm} M{2.5cm} M{4cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Item}  	&\textbf{Packet beginning}		&\textbf{Cargo} 	&\textbf{Packet end}\\
+\midrule
+1				& One K byte						& 0 - N D-bytes		& Beginning of a new packet	\\
+\bottomrule
 \end{tabular}
 \end{table}
 
 \underline{Remark} :
 	\begin{itemize}
-		\item SYN packet is a special kind of packet starting with K.28.6 and ending with K.28.5. It is only composed of these two octets (16 bits). It allow the receiver to find the beginning and the end of the transmitted octets with the aim to reconstruct the events in parallel. The synchronization speed is 44 Hz (data by Carlos Abellan).
-		\item In order to optimize the passing band, the K octet at the beginning of the packet can probably be removed (further study needed).
+		\item SYN packet is a special kind of packet starting with K.28.6 and ending with K.28.5. It is only composed of these two bytes (16 bits). It allows the receiver to find the beginning and the end of the transmitted bytes with the aim to reconstruct the events in parallel. The synchronization speed is 44 Hz (defined by Carlos Abellan).
+		\item In order to optimize the throughput, the control symbol at the beginning of the packet can probably be removed (further study needed).
 		\end{itemize}
 
-\newpage
 
 
-\subsubsection{Possible K octets\newline}
+\subsubsection{Possible control symbols}
 
-In the following table, all the possible K octets are listed (document by Carlos Abellan).
+In the following table, all the possible control symbols are listed (defined by Carlos Abellan).
 
 \begin{table} [!htbp]
-  \centering
-  \caption{K octets definition.}
-\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\bf{Item}  			& 		\bf{Name}		& \bf{Control code}	& \bf{Comment}\\
-\hline
-1				&	K.28.0			&	0x1C			&	Acknowledgement\\
-2				&	K.28.1			&	0x3C			&	Ask for writing registers\\
-3				&	K.28.2			&	0x5C			&	Ask for reading registers\\
-4				&	K.28.3			&	0x7C			&	Special command\\
-5				&	K.28.4			&	0x9C			&	Monitoring\\
-6				&	K.28.5			&	0xBC		& Default synchronization\\
-7				&	K.28.6			&	0xDC		& IDLE (default) and packet end\\
-8				&	K.28.	7			&	0xFC		&	Pre-trigger\\
-9				&	K.23.7			&	0xF7			&	Trigger \\
-10				&	K.27.7			&	0xFB			&	\\
-11				&	K.29.7			&	0xFD			&	\\
-12				&	K.30.7			&	0xFE			&	Physical data\\
-\hline
+\centering
+\caption{Control symbol definition.}
+\label{tab::ControlSymbol}
+\begin{tabular}{m{1.5cm} M{2.5cm} M{2.5cm} M{4cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Item}  			&\textbf{Name}		&\textbf{Control code}	&\textbf{Comment}\\
+\midrule
+1						&K.28.0				&	0x1C					&	Acknowledgement\\
+2						&K.28.1				&	0x3C					&	Ask for writing registers\\
+3						&K.28.2				&	0x5C					&	Ask for reading registers\\
+4						&K.28.3				&	0x7C					&	Special command\\
+5						&K.28.4				&	0x9C					&	Monitoring\\
+6						&K.28.5				&	0xBC					& 	Default synchronization\\
+7						&K.28.6				&	0xDC					& 	IDLE (default) and packet end\\
+8						&K.28.7				&	0xFC					&	Pre-trigger\\
+9						&K.23.7				&	0xF7					&	Trigger \\
+10						&K.27.7				&	0xFB					&	\\
+11						&K.29.7				&	0xFD					&	\\
+12						&K.30.7				&	0xFE					&	Physical data\\
+\bottomrule
 \end{tabular}
 \end{table}
 
-\clearpage
-\newpage
 
-\subsection{Trasport part}
+\subsection{Transport layer}
 
-\subsubsection{Control packet\newline}
+\subsubsection{Control packet}
 
 This kind of packet is used to check the link and for the control/command operations.
 \begin{itemize}
 \item For the link check, two kinds of packets are used: synchronization packet and IDLE packet.
-\item For the control/command operation, here are some examples: register configuration,  FPGA dynamical programming, monitoring, etc.\newline
+\item For the control/command operations, here are some examples: register configuration,  FPGA dynamical programming, monitoring, etc.\newline
 \end{itemize}
 
-\underline{Control octets} :
+\underline{Control symbol for control} :
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Control octets K definition.}
-\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\bf{Item}  			& 		\bf{Name}		& \bf{Control code}	& \bf{Comment}\\
-\hline
+\centering
+\caption{Control symbol definition.}
+\label{tab::ControlSymbolDef}
+\begin{tabular}{m{1.5cm} M{2.5cm} M{2.5cm} M{4cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Item}  			& 		\textbf{Name}		& \textbf{Control code}	& \textbf{Comment}\\
+\midrule
 1				&	K.28.0			&	0x1C			& Acknowledgement	\\
 2				&	K.28.1			&	0x3C			& Ask for writing registers	\\
 3				&	K.28.2			&	0x5C			& Ask for reading registers	\\
@@ -316,12 +670,12 @@ This kind of packet is used to check the link and for the control/command operat
 5				&	K.28.4			&	0x9C			& Monitoring	\\
 6				&	K.28.5			&	0xBC		& Synchronization	\\
 7				&	K.28.6			&	0xDC		& IDLE (default) and end of packet\\
-\hline
+\bottomrule
 \end{tabular}
 \end{table}
 
 
-\underline{Acknowledgement packet} (\textit{Front End cards $\rightarrow$ {\charmu-TCA}})\newline
+\underline{Acknowledgement packet (Front End cards $\rightarrow$ \charmu-TCA)}\newline
 
 This packet is sent by the FE cards and interpreted as an acknowledgement by the \charmu-TCA. If a part is missing, it is set to zero.
 \begin{itemize}
@@ -331,219 +685,221 @@ This packet is sent by the FE cards and interpreted as an acknowledgement by the
 
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Definition of the acknowledgement packet.}
-\begin{tabular}{|c|p{1.5cm}|p{0.5cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{2cm}|p{2cm}|}
-\hline
-\bf{Word}  			& 		\bf{1$^{st}$ octet}		& \multicolumn{8}{c|}{\bf{2$^{nd}$ octet}} 	\\
-\hline
+\centering
+\caption{Definition of the acknowledgement packet.}
+\label{tab::AcknPacket}
+\begin{tabular}{p{1cm} P{2cm} P{1cm}P{1cm}P{1cm}P{1cm}P{1cm}P{1cm}P{1cm}P{1cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Word}  			& 		\textbf{1$\mathrm{^{st}}$ byte}		& \multicolumn{8}{c}{\textbf{2$\mathrm{^{nd}}$ byte}} 	\\
+\midrule
 					&						& 7b & 6b& 5b&4b&3b&2b&1b&0b \\
-					\cline{3-10}
-1				&	K.28.0			&	0	& Pb Front End number & Pb with packet beginning & Pb with packet end & Pb with CRC & Pb with number of received words &  Pb with parity bit of octet 2 & parity bit of the acknowledgement packet	\\
-\hline
-2				& \multicolumn{9}{c|}{Front End number}\\
-\hline
+					\cmidrule{3-10}
+1				&	K.28.0			&	0	& Pb Front End number & Pb with packet beginning & Pb with packet end & Pb with CRC & Pb with number of received words &  Pb with parity bit of byte 2 & parity bit of the acknowledgement packet	\\
+\midrule
+2				& \multicolumn{9}{c}{Front End number}\\
+\bottomrule
 \end{tabular}
 \end{table}
 
-\newpage
-\subsubsection{Configuration packets\newline}
+\subsubsection{Configuration packets}
 
-\underline{Writing register process} (\textit{{\charmu-TCA} $\rightarrow$ Front End cards})\newline
+\underline{Writing register process (\charmu-TCA $\rightarrow$ Front End cards)}\newline
 
 The process starts with a packet sent by the \charmu-TCA asking for the register writing. The receiver (FE card) sends back an acknowledgement packet to finish the process. In the following table the format of this writing register packet is reported.
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Writing register packet.}
-\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\bf{Word}  			& 	\bf{1$^{st}$ octet}	& \bf{2$^{nd}$ octet} & \bf{Comment} \\
-\hline
+\centering
+\caption{Writing register packet.}
+\label{tab::WriteRegister}
+\begin{tabular}{m{1.5cm} M{2cm} M{3cm} M{5.5cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Word}  			& 	\textbf{1$\mathrm{^{st}}$ byte}	& \textbf{2$\mathrm{^{nd}}$ byte} & \textbf{Comment} \\
+\midrule
 1				&	K.28.1	& Front End number + 1 parity bit		& N/A  \\
-\hline
-2				&\multicolumn{2}{p{8cm}|}{2 octets with the number of words to be written}& The length is word-based: max $2^{16}-~1$~=~65535 words\\
-\hline
-3 			&      \multicolumn{2}{p{8cm}|}{Register address} & Address where the writing process starts\\
-\hline
-4..N+3        	&      \multicolumn{2}{p{8cm}|}{Data to be written} &0000 0000\\
-\hline
-N+4				 & \multicolumn{2}{p{8cm}|}{CRC composed of the « xor » of all bits in the same position, from word 2 to word (N+3)}&/\\
-\hline
+\cmidrule{2-4}
+2				&\multicolumn{2}{M{5cm}}{2 bytes with the number of words to be written}& The length is word-based: max $2^{16}-~1$~=~65535 words\\
+\cmidrule{2-4}
+3 			&      \multicolumn{2}{M{5cm}}{Register address} 		& Address where the writing process starts\\
+\cmidrule{2-4}
+4..N+3        	&      \multicolumn{2}{M{5cm}}{Data to be written} 		&0000 0000\\
+\cmidrule{2-4}
+N+4				 & \multicolumn{2}{M{5cm}}{CRC composed of the \enquote{xor} of all bits in the same position, from word 2 to word (N+3)} 		& 	\\
+\bottomrule
 \end{tabular}
 \end{table}
 
-\newpage
-\underline{Reading register process} (\textit{{\charmu-TCA} $\rightarrow$ Front End cards})\newline
+
+\underline{Reading register process (\charmu-TCA $\rightarrow$ Front End cards)}\newline
 
 The process starts with a packet sent by the \charmu-TCA asking for the register reading. The receiver (FE card) sends back the \enquote{measure packet} (Table 10) if the command is correct, an acknowledgement packet if it is not.\newline
 At the beginning of the slow control, the physical addresses on the FE cards are read at the address 0 (Table 9).\newline
 In the following table the format of this reading register packet is reported.
 
-
-
 \begin{table} [!htbp]
   \centering
   \caption{Reading register packet.}
-\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\bf{Word}  			& 	\bf{1$^{st}$ octet}	& \bf{2$^{nd}$ octet} & \bf{Comment} \\
-\hline
+\begin{tabular}{m{1.5cm} M{2cm} M{3cm} M{5.5cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Word}  			& 	\textbf{1$\mathrm{^{st}}$ byte}	& \textbf{2$\mathrm{^{nd}}$ byte} & \textbf{Comment} \\
+\midrule
 1				&	K.28.2	& Front End number + 1 parity bit &  N/A \\
-\hline
-2				&\multicolumn{2}{p{8cm}|}{2 octets with the number of words to be read}& The length is word-based: max $2^{16}-~1$~=~65535 words\\
-\hline
-3 			&      \multicolumn{2}{p{8cm}|}{Address of 1$^{st}$ data to be read} & Address where the reading process starts\\
-\hline
-4				 & \multicolumn{2}{p{8cm}|}{CRC composed of the « xor » of all bits in the same position, from word 2 to word 3}&/\\
-\hline
+\cmidrule{2-4}
+2				&\multicolumn{2}{M{5cm}}{2 bytes with the number of words to be read}	& The length is word-based: max $2^{16}-~1$~=~65535 words\\
+\cmidrule{2-4}
+3 			&      \multicolumn{2}{M{5cm}}{Address of 1$\mathrm{^{st}}$ data to be read} & Address where the reading process starts\\
+\cmidrule{2-4}
+4				 & \multicolumn{2}{M{5cm}}{CRC composed of the \enquote{xor} of all bits in the same position, from word 2 to word 3} & /\\
+\bottomrule
 \end{tabular}
 \end{table}
 
 \begin{table} [!htbp]
   \centering
-  \caption{Two special registers(\textit{{\charmu-TCA} $\rightarrow$  Front End cards})}
-\begin{tabular}{|c|p{6cm}|p{6cm}|}
-\hline
-\bf{Register address}  			& 	\bf{Details}	& \bf{Comment} \\
-\hline
+  \caption{Two special registers(\charmu-TCA $\rightarrow$  Front End cards)}
+\begin{tabular}{m{1.5cm} M{5.25cm} M{5.25cm} }
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Register address}  			& 	\textbf{Details}	& \textbf{Comment} \\
+\midrule
 0				&	Front End number		&  No writing rights: register in read-only mode. Hard coded on DAQ card.\\
-\hline
+\cmidrule{2-3}
 1				&    It defines the working modes (Table 1)  & Optimal mode, test mode, collimated camera mode, Compton camera mode, individual detector section test. It is possible to write in the register.  \\
-\hline
+\cmidrule{2-3}
 2				& It defines the detector to test (in single detector test mode)		& Scatterer, absorber, hodoscope.\\
-\hline
+\cmidrule{2-3}
 3 				& BGO number of sampling		& For test mode with the BGO blocks signal sampling.\\
-\hline
-4				& Silicon number of sampling	& PFor test mode with the silicon layers signal sampling.\\
-\hline
+\cmidrule{2-3}
+4				& Silicon number of sampling	& For test mode with the silicon layers signal sampling.\\
+\bottomrule
 \end{tabular}
 \end{table}
-
-
-
-\newpage
 
 
 \begin{table} [!htbp]
   \centering
-  \caption{Measurement packet. (\textit{Front End cards $\rightarrow$ {\charmu-TCA}})}
-\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\bf{word}  			& 	\bf{1$^{st}$ octet}	& \bf{2$^{nd}$ octet} & \bf{Comment} \\
-\hline
+  \caption{Measurement packet (Front End cards $\rightarrow$ \charmu-TCA)}
+\begin{tabular}{m{1.5cm} M{2cm} M{3cm} M{5.5cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Word}  			& 	\textbf{1$\mathrm{^{st}}$ byte}	& \textbf{2$\mathrm{^{nd}}$ byte} & \bf{Comment} \\
+\midrule
 1				&	K.28.1	&Front End number + 1 parity bit		&\\
-\hline
-2				&\multicolumn{2}{p{8cm}|}{2 octets for the number of data words to send}& The length is word-based: max $2^{16}-~1$~=~65535 words\\
-\hline
-3 			&      \multicolumn{2}{p{8cm}|}{Register address} & Address where the writing process starts\\
-\hline
-4..N+3        	&      \multicolumn{2}{p{8cm}|}{Read data} &0000 0000\\
-\hline
-N+4				 & \multicolumn{2}{p{8cm}|}{CRC composed of the « xor » of all bits in the same position, from word 2 to word (N+3)}&/\\
-\hline
+\cmidrule{2-4}
+2				&\multicolumn{2}{M{5cm}}{2 bytes for the number of data words to send}& The length is word-based: max $2^{16}-~1$~=~65535 words\\
+\cmidrule{2-4}
+3 			&      \multicolumn{2}{M{5cm}}{Register address} & Address where the writing process starts\\
+\cmidrule{2-4}
+4..N+3        	&      \multicolumn{2}{M{5cm}}{Read data} &0000 0000\\
+\cmidrule{2-4}
+N+4				 & \multicolumn{2}{M{5cm}}{CRC composed of the \enquote{xor} of all bits in the same position, from word 2 to word (N+3)}&/\\
+\bottomrule
 \end{tabular}
 \end{table}
 
 
-\newpage
-\subsubsection{Monitoring process (\textit{Front End cards $\rightarrow$ {\charmu-TCA}})\newline}
+\subsubsection{Monitoring process (Front End cards $\rightarrow$ \charmu-TCA)}
 
 In case of issues, for example when the temperature of a card go beyond a fixed threshold, the DAQ card sends a \enquote{monitoring} packet to the \charmu-TCA. There is not a corresponding acknowledgement from the \charmu-TCA.\newline
 
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Monitoring packet.}
-\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\bf{Word}  			& 	\bf{1$^{st}$ octet}	& \bf{2$^{nd}$ octet} & \bf{Comment} \\
-\hline
-	1				&	K.28.4.		& Front End number + 1 parity bit & Message in the following table.\\
-\hline
-	2				&	 \multicolumn{2}{c|}{15 bits for the message + 1 parity bit} 	& Message in the following table.\\
-\hline
+\centering
+\caption{Monitoring packet.}
+\begin{tabular}{m{1.5cm} M{2cm} M{3cm} M{5.5cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Word}  			& 	\textbf{1$\mathrm{^{st}}$ byte}	& \textbf{2$\mathrm{^{nd}}$ byte} & \textbf{Comment} \\
+\midrule
+	1				&	K.28.4.		& Front End number + 1 parity bit & Message in \tablename~\ref{tab::monitoringMess}.\\
+\cmidrule{2-4}
+	2				&	 \multicolumn{2}{M{5cm}}{15 bits for the message + 1 parity bit} 	& Message in \tablename~\ref{tab::monitoringMess}.\\
+\bottomrule
 \end{tabular}
 \end{table}
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Monitoring messages.}
-\begin{tabular}{|p{0.8cm}|p{1.7cm}|p{1.2cm}|p{0.5cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{2.5cm}|}
-\hline
-\bf{Item}  			& 		\bf{Message}		& \bf{Bit[15]}& \bf{....} &\bf{Bit[7]} & \bf{Bit[6]} & \bf{Bit[5]} & \bf{Bit[4]} & \bf{Bit[3]} & \bf{Bit[2]} & \bf{Bit[1]} & \bf{Remarque}\\
-\cline{3-11}
-				&						& \multicolumn{6}{c|}{Message type} & \multicolumn{3}{c|}{Further information} & \\
-\hline
+\centering
+\caption{Monitoring messages.}
+\label{tab::monitoringMess}
+\begin{tabular}{m{0.6cm} M{1.3cm} M{1.cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{2.5cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Item}  			& 		\textbf{Message}		& \textbf{Bit[15] } & \textbf{...} &\textbf{Bit[7]} & \textbf{Bit[6]} & \textbf{Bit[5]} & \textbf{Bit[4]} & \textbf{Bit[3]} & \textbf{Bit[2]} & \textbf{Bit[1]} & \textbf{Comment}\\
+\midrule
+				&						& \multicolumn{6}{M{5.cm}}{Message type} & \multicolumn{3}{M{2.4cm}}{Further information} & \\
+\cmidrule{3-11}
 1				&	FPGA reconfiguration error 			&0&0&	0	& 0&0&1&0&0&0& N/A	\\
-\hline
-2				&	Temperature alarm 			&0&0&	0	& 0&1&0&x&x&x& Bit \enquote{x} is 1 if the corresponding detector goes beyond the threshold (0 elsewhere)\\
-\hline
+\cmidrule{3-11}
+2				&	Tem\-pe\-ra\-tu\-re alarm 			&0&0&	0	& 0&1&0&x&x&x& Bit \enquote{x} is 1 if the corresponding detector goes beyond the threshold (0 elsewhere)\\
+\cmidrule{3-11}
 3				&	Busy							&0&0&	0	& 1&0&0&0&0&0&Front End is not able to send data\\
-\hline
+\cmidrule{3-11}
 ...				&								&	& &	& & & & & & & \\
-\hline
+\bottomrule
 \end{tabular}
 \end{table}
 
 
-\newpage
-\subsubsection{Special command process (\textit{{\charmu-TCA} $\rightarrow$ Front End cards})\newline}
+\subsubsection{Special command process (\charmu-TCA $\rightarrow$ Front End cards)}
 
 This process is designed to allow the \charmu-TCA to send special commands to the FE cards.
 
 \begin{table} [!htbp]
   \centering
-  \caption{Special command packets.}
-\begin{tabular}{|c|p{4cm}|p{6cm}|p{6cm}|}
-\hline
-\bf{Word}  			& 	\bf{1$^{st}$ octet}	& \bf{2$^{nd}$ octet}\\
-\hline
+  \caption{Special command packets}
+\begin{tabular}{m{1.5cm} M{5.25cm} M{5.25cm} }
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Word}  			& 	\textbf{1$\mathrm{^{st}}$ byte}	& \textbf{2$\mathrm{^{nd}}$ byte}\\
+\midrule
 1			& K.28.3	& Front End number + 1 parity bit\\
-\hline
-2				&	 \multicolumn{2}{c|}{15 bits for the special command + 1 parity bit}\\
-\hline
+
+2				&	 \multicolumn{2}{M{10.5cm}}{15 bits for the special command + 1 parity bit}\\
+\bottomrule
 \end{tabular}
 \end{table}
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Special commands examples.}
-\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\bf{Item}  			& 	\bf{Command name}	& \bf{Bit[15..1] of 2$^{nd}$ word} & \bf{Comment} \\
-\hline
+\centering
+\caption{Special commands examples}
+\begin{tabular}{m{1.5cm} M{4cm} M{4cm} M{4cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Item}  			& 	\textbf{Command name}	& \textbf{Bit[15..1] of 2$\mathrm{^{nd}}$ word} & \textbf{Comment} \\
+\midrule
 	1				&	System reset				& "0000 0000 0001  001"  	& Acknowledgement packet missing \\
 	2				&	Counter reset			& "0000 0000 0001  000"  	& Acknowledgement packet needed \\
 	3				&	Start run					& "0000 0000 0000  100"  	& Acknowledgement packet needed\\
 	4				&	Stop run					& "0000 0000 0000  101" 	& Acknowledgement packet needed\\
 	5				&	Dynamical FPGA configuration		& "0000 0000 0000  010" 	& Acknowledgement packet needed\\
-	6				&	Veto						& "0000 0000 0000  011" 	& Example: \textit{\charmu-TCA} cannot receive the data. Acknowledgement packet needed\\
-\hline
+	6				&	Veto						& "0000 0000 0000  011" 	& Example: \charmu-TCA cannot receive the data. Acknowledgement packet needed\\
+\bottomrule
 \end{tabular}
 \end{table}
 
 A register database (containing the operating mode identification) must be fixed and shared between all the detectors.
 
-\newpage
-\subsection{Data packets (\textit{Front End card $\rightarrow$ {\charmu-TCA}})}
+\subsection{Data packets (Front End card $\rightarrow$ \charmu-TCA)}
 
 In the section the packets concerning trigger, pre-trigger and physical data are described.\newline
 No acknowledgement is demanded for this kind of packets.
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Control octets for pre-trigger, trigger and physical data.}
-\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\bf{Item}  			& 	\bf{Name}	& \bf{Control code} & \bf{Comment} \\
-\hline
+\centering
+\caption{Control symbol for pre-trigger, trigger and physical data.}
+\begin{tabular}{m{1.0cm} M{2cm} M{2cm} M{5cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Item}  			& 	\textbf{Name}	& \textbf{Control code} & \textbf{Comment} \\
+\midrule
 	1				&	K.28.7	& 0xFC  	& The pre-trigger is generated by the THOR card and sent to the \charmu-TCA who shares it with the silicon layers cards. \\
-	\hline
 	2				&	K.23.7	& 0xF7  	& The trigger is generated by a single silicon layer card and sent to the \charmu-TCA who shares it with all the FE cards.\\
-	\hline
+
 	5				&	K.30.7	& 0xFE	& The FE cards send the data.  \\
-\hline
+\bottomrule
 \end{tabular}
 \end{table}
 
@@ -553,13 +909,14 @@ This packet is sent to the \charmu-TCA by the THOR card. The \charmu-TCA then sh
 
 \begin{table} [!htbp]
   \centering
-  \caption{Pre-trigger packet.}
-\begin{tabular}{|c|p{4cm}|p{6cm}|p{6cm}|}
-\hline
-\bf{Item}  			& 	\bf{1$^{st}$ octet}	& \bf{2$^{nd}$ - 4$^{th}$ octets}\\
-\hline
+  \caption{Pre-trigger packet}
+\begin{tabular}{m{1.cm} M{3cm} M{5cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Item}  			& 	\textbf{1$\mathrm{^{st}}$ byte}	& \textbf{2$\mathrm{^{nd}}$ - 4$\mathrm{^{th}}$ bytes}\\
+\midrule
 1			& K.28.7	&	24 bits for the trigger number\\
-\hline
+\bottomrule
 \end{tabular}
 \end{table}
 
@@ -570,29 +927,30 @@ This packet is sent back to the \charmu-TCA if a silicon FE card finds an intera
 \begin{table} [!htbp]
   \centering
   \caption{Trigger packet}
-\begin{tabular}{|c|p{4cm}|p{6cm}|p{6cm}|}
-\hline
-\bf{Item}  			& 	\bf{1$^{st}$ octet}	& \bf{2$^{nd}$ - 4$^{th}$ octets}\\
-\hline
+\begin{tabular}{m{1.cm} M{3cm} M{5cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Item}  			& 	\textbf{1$\mathrm{^{st}}$ byte}	& \textbf{2$\mathrm{^{nd}}$ - 4$\mathrm{^{th}}$ bytes}\\
+\midrule
 1			& K.23.7	&	24 bits for the trigger number\\
-\hline
+\midrule
 \end{tabular}
 \end{table}
 
-\newpage
 \underline{Physical data packet format\newline}
 
 This packet sends the \enquote{useful} data to the \charmu-TCA. The data format (cargo) is defined in chapter 3.
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Physical data packet.}
-\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\bf{Item}  			& 	\bf{1$^{st}$ octet}	& \bf{Cargo} & \bf{End of packet} \\
-\hline
+\centering
+\caption{Physical data packet}
+\begin{tabular}{m{1.cm} M{3cm} M{3cm} M{3cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{Item}  			& 	\textbf{1$\mathrm{^{st}}$ byte}	& \textbf{Cargo} & \textbf{End of packet} \\
+\midrule
 	1				&	K.30.7.		& From 0 to Nbr-1 words of D characters & K.28.6 or the beginning of a new packet.\\
-\hline
+\bottomrule
 \end{tabular}
 \end{table}
 
@@ -619,8 +977,8 @@ In clinical standards, the beam maximum intensity is:
 
 The Compton camera must be designed in order to be able to handle the whole range of clinical intensities. The design reference is then the maximum intensity, about 3.2 nA ($2\times10^{10}$ protons/s) delivered by the cyclotron C230 by IBA. The number of proton delivered per second is higher then the maximum considered rate ($10^{10}$ protons/s).\newline
 As shown by the simulation results, the Compton camera can not be used for an online monitoring at the maximum beam intensity for both proton and carbon ion beams. The main limitation comes from the amount of random coincidences detected by the camera for high intensity beams. One possible solution is to deliver a lower intensity beam for the range monitoring before the beginning of the treatment. The results shown here relates to a reduced intensity, corresponding to the one selected via the simulation studies.
-\newpage
-\subsubsection{Review: detector and target sizes\newline}
+
+\subsubsection{Review: detector and target sizes}
 
 Detectors sizes:
 \begin{itemize}
@@ -630,35 +988,37 @@ Detectors sizes:
 PMMA target size: cylindrical shape, diameter 15 cm,  20 cm length along the beam direction.
 
 
-\subsection{Coincidence rate\newline}
+\subsection{Coincidence rate}
 
 In the following table the coincidence and single (pre-trigger) rates expected for the different detector section are listed according to the beam kind and intensity. This values correspond the Compton camera, while for the collimated camera a reduced rate is expected for the absorber due to the presence of the physical collimator.
 
 \begin{table} [!htbp]
   \centering
-\begin{tabular}{|p{3.5cm}|p{1.7cm}|p{2cm}|p{1.7cm}|p{2cm}|p{1.5cm}|p{2cm}|}
-\hline
-		&\multicolumn{2}{c|}{	\bf{Clinical intensity}} &\multicolumn{2}{c|}{ \bf{Reduced intensity}} &\multicolumn{2}{c|}{ \bf{Collimated camera}}\\
-		& \bf{Protons}& \bf{Carbon ions} & \bf{Protons}& \bf{Carbon ions} &\bf{Protons}& \bf{Carbon ions} \\
-\hline
-\bf{Intensity(ions/s)}		& $2\times10^{10}$	&$5\times10^{7}$  & $1\times10^{8}$& $5\times10^{6}$ &$2\times10^{10}$& $5\times10^{7}$ \\
-\bf{Coincidence rate per incident ion}		& $9\times10^{-4}$&  $8\times10^{-4}$&  $9\times10^{-4}$& $8\times10^{-4}$& / &  / \\
-\bf{Coincidence rate (Hz)}		& $1,8\times10^{7}$&  $4\times10^{4}$&  9$\times10^{4}$& $4\times10^{3}$& / &  / \\
-\bf{Single rate BGO (Hz) - \newline 96 blocks}		& 	$7,8\times10^{7}$& $1,4\times10^{6}$ & $3,9\times10^{5}$&$1,4\times10^{5}$ &/&/\\
-\bf{Single rate BGO BGO (Hz) - \newline 1 block}		& 	$8,1\times10^{5}$& $1,5\times10^{4}$ & $4\times10^{3}$&$1,5\times10^{3}$ &/&/\\
-\bf{Single rate BGO BGO (Hz) - \newline 1 ASM card (6 blocks)}		& 	$6,5\times10^{6}$& $1,2\times10^{5}$ & $3,2\times10^{4}$&$1,2\times10^{4}$ &/&/\\
-\hline
+\begin{tabular}{m{3.2cm} c c c c c c}
+\toprule
+\rowcolor{myColorMainA!20}
+		& \multicolumn{2}{c}{\textbf{Clinical intensity}} &\multicolumn{2}{c}{\textbf{Reduced intensity}} &\multicolumn{2}{c}{ \textbf{Collimated camera}}\\
+\midrule		
+		& \underline{Protons}& \underline{Carbon ions} & \underline{Protons}& \underline{Carbon ions} &\underline{Protons}& \underline{Carbon ions} \\
+\midrule
+\textbf{Intensity(ions/s)}		& $2\times10^{10}$	&$5\times10^{7}$  & $1\times10^{8}$& $5\times10^{6}$ &$2\times10^{10}$& $5\times10^{7}$ \\
+\textbf{Coincidence rate per incident ion}		& $9\times10^{-4}$&  $8\times10^{-4}$&  $9\times10^{-4}$& $8\times10^{-4}$& / &  / \\
+\textbf{Coincidence rate (Hz)}		& $1,8\times10^{7}$&  $4\times10^{4}$&  9$\times10^{4}$& $4\times10^{3}$& / &  / \\
+\textbf{Single rate BGO (Hz) - 96 blocks}		& 	$7,8\times10^{7}$& $1,4\times10^{6}$ & $3,9\times10^{5}$&$1,4\times10^{5}$ &/&/\\
+\textbf{Single rate BGO (Hz) - 1 block}		& 	$8,1\times10^{5}$& $1,5\times10^{4}$ & $4\times10^{3}$&$1,5\times10^{3}$ &/&/\\
+\textbf{Single rate BGO (Hz) - 1 ASM card (6 blocks)}		& 	$6,5\times10^{6}$& $1,2\times10^{5}$ & $3,2\times10^{4}$&$1,2\times10^{4}$ &/&/\\
+\bottomrule
 \end{tabular}
   \caption{Coincidence and single rate as a function of the beam intensity. The BGO single rate corresponds to the pre-trigger rate.}
 \end{table}
 
-\newpage
-The application of the Compton camera at clinical intensity seems not feasible. The caemra distance with respect to the beam line should be increased to lower the rate to $1\times10^{5}$ Hz (which means to put the $1^{st}$ silicon layer 1 m far from the beam line).
+
+The application of the Compton camera at clinical intensity seems not feasible. The caemra distance with respect to the beam line should be increased to lower the rate to 1$\mathrm{\times10^{5}}$ Hz (which means to put the 1$\mathrm{^{st}$ silicon layer 1 m far from the beam line).
 For a carbon ion beam at $5\times10^{7}$ Hz, the estimated coincidence rate is $4\times10^{4}$ Hz, with $1,4\times10^{6}$ single rate on the absorber (measurements of coincidence rate on the HIT accelerator adapted to a real camera size with a 40 ns coincidence window, Krimmer ANIMMA 2013).
 The data flow between the \charmu-TCA and the acquisition PC corresponds to the coincidence rate, due to the fact that only coincidence events are stored.
 
 
-\subsection{Data flow (\textit{Front End cards  $\rightarrow$ {\charmu-TCA}})\newline}
+\subsection{Data flow (Front End cards  $\rightarrow$ \charmu-TCA)\newline}
 
 The data format previously described has been used to evaluate the data flow between each FE card and the \charmu-TCA. The calculation is performed according to the \enquote{optimal} mode of each detector. For the BGO, we only consider events where the 4 PMs are involved. For the silicon layers, two cases are considered:
 \begin{itemize}
@@ -670,44 +1030,48 @@ The 8bits/10bits encoding in included in the calculation.
 
 \begin{table} [!htbp]
   \centering
-\begin{tabular}{|p{3.5cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
-\hline
-		&\multicolumn{2}{c|}{	\bf{Clinical intensity}} &\multicolumn{2}{c|}{ \bf{Reduced intensity}} \\
-		& \bf{Protons}& \bf{Carbon ions} & \bf{Protons}& \bf{Carbon ions} \\
-\hline
-\bf{Intensity (ions/s)}		& $2\times10^{10}$	&$5\times10^{7}$  & $1\times10^{8}$& $5\times10^{6}$  \\
-\bf{Pre-trigger flux (Mbits/s)}		& 	$2,5\times10^{3}$& 47,6 &  13,3&4,76 \\
-\bf{Trigger flux (Mbits/s)}		& 	612& 1,4 & 3,1&0,1\\
-\bf{BGO data flux (Mbits/s) - 96 blocks}		& 	$1,7\times10^{5}$& 373 & 873&37,3\\
-\bf{BGO data flux (Mbits/s)- 1 block}		& 	$1,7\times10^{3}$& 3,88 & 8,73&0,3 \\
-\bf{BGO data flux (Mbits/s) - 1 carte ASM}		& 	$1,4\times10^{4}$& 31,1 & 69,9&3,1\\
-\bf{Silicon data flux (Mbits/s) - case 1}		& 	$2,3\times10^{5}$& 522 & $1,2\times10^{3}$ & 52,2 \\
-\bf{Silicon data flux (Mbits/s) - case 2}		& 	$1,6\times10^{6}$&  $ 3,7\times10^{3}$ &  $8,2\times10^{3}$&366 \\
-\bf{Hodosocpe data flux (Mbits/s)}		& 	$8,1\times10^{4}$& 180 & 404 &18\\
-\hline
+\begin{tabular}{m{3.5cm} c c c c}
+\toprule
+\rowcolor{myColorMainA!20}
+		&\multicolumn{2}{c}{\textbf{Clinical intensity}} &\multicolumn{2}{c}{\textbf{Reduced intensity}} \\
+\midrule
+		& \underline{Protons}& \underline{Carbon ions} & \underline{Protons}& \underline{Carbon ions} \\
+\midrule
+\textbf{Intensity (ions/s)}		& $2\times10^{10}$	&$5\times10^{7}$  & $1\times10^{8}$& $5\times10^{6}$  \\
+\textbf{Pre-trigger flux (Mbits/s)}		& 	$2,5\times10^{3}$& 47,6 &  13,3&4,76 \\
+\textbf{Trigger flux (Mbits/s)}		& 	612& 1,4 & 3,1&0,1\\
+\textbf{BGO data flux (Mbits/s) - 96 blocks}		& 	$1,7\times10^{5}$& 373 & 873&37,3\\
+\textbf{BGO data flux (Mbits/s)- 1 block}		& 	$1,7\times10^{3}$& 3,88 & 8,73&0,3 \\
+\textbf{BGO data flux (Mbits/s) - 1 carte ASM}		& 	$1,4\times10^{4}$& 31,1 & 69,9&3,1\\
+\textbf{Silicon data flux (Mbits/s) - case 1}		& 	$2,3\times10^{5}$& 522 & $1,2\times10^{3}$ & 52,2 \\
+\textbf{Silicon data flux (Mbits/s) - case 2}		& 	$1,6\times10^{6}$&  $ 3,7\times10^{3}$ &  $8,2\times10^{3}$&366 \\
+\textbf{Hodosocpe data flux (Mbits/s)}		& 	$8,1\times10^{4}$& 180 & 404 &18\\
+\bottomrule
 \end{tabular}
   \caption{Data flux between FE cards and \charmu-TCA.}
 \end{table}
 
-\clearpage
-\newpage
-\subsection{Acquisition data flow (\textit{\charmu-TCA $\rightarrow$ Acquisition PC})\newline}
+
+
+\subsection{Acquisition data flow (\charmu-TCA $\rightarrow$ Acquisition PC)}
 
 The data flow from the \charmu-TCA to the acquisition PC is detailed here. The UDP encoding is included in the calculation.
 
 \begin{table} [!htbp]
   \centering
-\begin{tabular}{|p{3.5cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
-\hline
-		&\multicolumn{2}{c|}{	\bf{Clinical intensity}} &\multicolumn{2}{c|}{ \bf{Reduced intensity}} \\
-		& \bf{Protons}& \bf{Carbon ions} & \bf{Protons}& \bf{Carbon ions}\\
-\hline
-\bf{Intensity (ions/s)}		& $2\times10^{10}$	&$5\times10^{7}$  & $1\times10^{8}$& $5\times10^{6}$\\
-\bf{Coincidence rate per incident ion}		& $9\times10^{-4}$&  $8\times10^{-4}$&  $9\times10^{-4}$& $8\times10^{-4}$ \\
-\bf{Coincidence rate (Hz)}		& $1,8\times10^{7}$&  $4\times10^{4}$&  9$\times10^{4}$& $4\times10^{3}$\\
-\bf{Data flow (Mbits/s) - case 1}		&$2,2\times10^{4}$ &  46,7&  112& 5,0\\
-\bf{Data flow (Mbits/s) - case 2}		& $6\times10^{4}$&  133&  300& 13,3\\
-\hline
+\begin{tabular}{m{3.5cm} c c c c}
+\toprule
+\rowcolor{myColorMainA!20}
+		&\multicolumn{2}{c}{	\textbf{Clinical intensity}} &\multicolumn{2}{c}{ \textbf{Reduced intensity}} \\
+\midrule
+		& \underline{Protons}& \underline{Carbon ions} & \underline{Protons}& \underline{Carbon ions} \\
+\midrule
+\textbf{Intensity (ions/s)}		& $2\times10^{10}$	&$5\times10^{7}$  & $1\times10^{8}$& $5\times10^{6}$\\
+\textbf{Coincidence rate per incident ion}		& $9\times10^{-4}$&  $8\times10^{-4}$&  $9\times10^{-4}$& $8\times10^{-4}$ \\
+\textbf{Coincidence rate (Hz)}		& $1,8\times10^{7}$&  $4\times10^{4}$&  9$\times10^{4}$& $4\times10^{3}$\\
+\textbf{Data flow (Mbits/s) - case 1}		&$2,2\times10^{4}$ &  46,7&  112& 5,0\\
+\textbf{Data flow (Mbits/s) - case 2}		& $6\times10^{4}$&  133&  300& 13,3\\
+\bottomrule
 \end{tabular}
   \caption{Data flow between \charmu-TCA and acquisition PC.}
 \end{table}

@@ -15,6 +15,8 @@
 % CTAN: http://www.ctan.org/pkg/babel
 \usepackage[english]{babel} %OK
 \usepackage[babel]{csquotes}
+\usepackage{hyphenat}
+\hyphenation{tem-pe-ra-tu-re}
 
 % Doing calculations with LaTeX units -- needed for the vertical line in the footer
 % CTAN: http://www.ctan.org/pkg/calc
@@ -28,6 +30,11 @@
 % Extendes support for floating objects (tables, figures), adds the [H] placing option (\begin{figure}[H]) which palces it "Here" (without any doubt).
 % CTAN: http://www.ctan.org/pkg/float
 \usepackage{float}
+
+% Support for captions, subcaptions and subfigures
+\usepackage{subcaption}
+\usepackage{caption}
+\captionsetup{justification=centering}
 
 % Extended color support
 % I use the command \definecolor for example.
@@ -71,6 +78,9 @@
 \usepackage{makeidx}
 \DeclareIndexFieldFormat{indextitle}{}{}{}
 
+%for schemes and pictures
+\usepackage{tikz}
+\usetikzlibrary{calc}
 
 %Auxiliary packages for styling
 \usepackage[protrusion=true,expansion=true]{microtype}
@@ -82,3 +92,16 @@
 \usepackage[binary-units=true]{siunitx}
 \sisetup{per-mode = symbol-or-fraction}
 \sisetup{detect-family = true}
+
+%for nice tables
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{tabularx}
+
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+
+\newcommand{\heading}[1]{\centering{\textbf{#1}}}
