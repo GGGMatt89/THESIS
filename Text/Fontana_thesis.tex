@@ -66,6 +66,9 @@
 %
 % ------------------------------------------------------------------
 
+\input{02_Content/Lists/glossary.tex}
+\makeglossaries
+
 \makeindex
 
 \begin{document}
@@ -137,21 +140,21 @@
 \input{02_Content/Abstract_preThesis/Prologue.tex}
 
 % Introduction
-\input{02_Content/Chapters/Introduction.tex}
+\input{02_Content/Chapters/Chapter1_Introduction.tex}
 
 % Main Part
-\input{02_Content/Chapters/Chapter1_GammaCameras.tex}
+\input{02_Content/Chapters/Chapter2_GammaCameras.tex}
 
-\input{02_Content/Chapters/Chapter2_Hardware.tex}
+\input{02_Content/Chapters/Chapter3_CLaRySproto.tex}
 
-\input{02_Content/Chapters/Chapter3_SimulationHT.tex}
+\input{02_Content/Chapters/Chapter4_SimulationHT.tex}
 
-\input{02_Content/Chapters/Chapter4_SimulationSPECT.tex}
+\input{02_Content/Chapters/Chapter5_SimulationSPECT.tex}
 
-\input{02_Content/Chapters/Chapter5_BeamTests.tex}
+\input{02_Content/Chapters/Chapter6_BeamTests.tex}
 
 % Final Thoughts
-\input{02_Content/Chapters/Conclusions.tex}
+\input{02_Content/Chapters/Chapter7_Conclusions.tex}
 
 % Start appendix
 \appendix
@@ -163,6 +166,11 @@
 \input{02_Content/Appendix/AppendixB_Electronics.tex}
 
 \endappendix
+
+%%GLOSSARY and list of ACRONYMS
+\cleardoublepage
+
+\printglossaries
 
 %%BIBLIOGRAPHY
 \cleardoublepage

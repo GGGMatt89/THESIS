@@ -1,0 +1,60 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                  LABELLING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+chapter
+\chapter{title}\label{chap::N}
+
+section
+\label{chapN::sec::name}
+
+subsection
+\label{chapN::subsec::name}
+
+subsubsection
+\label{chapN::subsubsec::name}
+
+
+tables
+\label{chapN::tab::name}
+
+figures
+\label{chapN::fig::name}
+
+equations
+\label{chapN::eq::name}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                  ACRONYMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Always reset at the beginning of a new chapter with 
+\glsresetall
+
+then cite with \gls{label}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                  TABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{table}[!htbp]
+\centering
+\caption{Front End number associated to each Front End card.}
+\label{tab::FE_numbers}
+\begin{tabular}{P{2cm} P{3cm}}
+\toprule
+\rowcolor{myColorMainA!20}
+\textbf{FE number} 	& \textbf{FE card}\\
+\midrule
+
+\midrule
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                  FIGURES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

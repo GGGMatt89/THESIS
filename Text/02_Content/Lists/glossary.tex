@@ -1,135 +1,40 @@
 
-
 \newglossaryentry{henry}{name={\ensuremath{\alpha_\mathrm{H}}},description={Solubility (a.k.a. Partitioning coefficient) \ensuremath{c_\mathrm{water} = \alpha_\mathrm{H} \cdot c_\mathrm{air}} } }
 
-\newglossaryentry{ustar}{name=\ensuremath{u_\ast},description={Friction velocity defined from moment flux at the boundary as \ensuremath{\gls{tau0} = \rho u_\ast^2}} }
-
-\newglossaryentry{u0}{name=\ensuremath{U_0}, description={Free stream air flow velocity}}
-
-\newglossaryentry{fwind}{name=\ensuremath{f_\mathrm{wind}},description={Frequency of the wind turbine in \si{Hz}}}
-
-\newglossaryentry{wage}{name={\ensuremath{\nicefrac{c}{\gls{ustar}}}}, description={A parameter quantifying empirically the wave age, with $c$ the wave's phase velocity and \gls{ustar} the friction velocity.}}
-
-\newglossaryentry{ak}{name=\ensuremath{ak},description={Wave slope, with \ensuremath{a} the wave's amplitude and \ensuremath{k=\nicefrac{2\pi}{\lambda}}}}
-
-\newglossaryentry{psat}{name=\ensuremath{P_\mathrm{sat}}, description={Laser power at which the fluorescence intensity is half of its value expected without effects of saturation.}}
-
-\newglossaryentry{upwp}{name=\ensuremath{\ave{u^\prime w^\prime}}, description={Turbulent contribution to vertical momentum flux}}
-
-\newglossaryentry{cpwp}{name=\ensuremath{\ave{c^\prime w^\prime}}, description={Turbulent contribution to vertical scalar flux}}
-
-\newglossaryentry{kzturb}{name=\ensuremath{K_\mathrm{turb}(z)}, description={Turbulent contribution to vertical momentum flux}}
-\newglossaryentry{kzplusturb}{name=\ensuremath{K_\mathrm{turb}(\gls{zplus})}, description={Turbulent contribution to vertical momentum flux}}
-
-\newglossaryentry{kzdiff}{name=\ensuremath{K_\mathrm{diff}(z)}, description={Turbulent contribution to vertical scalar flux}}
-\newglossaryentry{kzplusdiff}{name=\ensuremath{K_\mathrm{diff}(\gls{zplus})}, description={Turbulent contribution to vertical scalar flux}}
-
-\newglossaryentry{deltatbl}{name=\ensuremath{\delta}, description={Width of the turbulent boundary layer.}}
-
-\newglossaryentry{tau}{name=\ensuremath{\tau}, description={Vertical momentum flux}}
-
-\newglossaryentry{tau0}{name=\ensuremath{\tau_\mathrm{s}}, description={Vertical momentum flux at the surface}}
-
-\newglossaryentry{j}{name=\ensuremath{j}, description={Vertical scalar flux}}
-
-\newglossaryentry{js}{name=\ensuremath{j_\mathrm{s}}, description={Vertical scalar flux at the surface}}
-
-\newglossaryentry{dudz}{name=\ensuremath{\frac{\partial \bar{u}}{\partial z}}, description={Gradient of the mean velocity profile, \gls{uz}}}
-
-\newglossaryentry{dcdz}{name=\ensuremath{\frac{\partial \bar{c}}{\partial z}}, description={Gradient of the mean concentration profile, \gls{cz}}}
-
-\newglossaryentry{uz}{name=\ensuremath{\bar{u}(z)}, description={Mean velocity profile}}
-
-\newglossaryentry{cz}{name=\ensuremath{\bar{c}(z)}, description={Mean concentration profile}}
-
-\newglossaryentry{cplus}{name=\ensuremath{\bar{c}^\plus}, description={Normalized mean concentration profile, $\bar{c}^\plus(z) = \nicefrac{\gls{cz}}{\gls{cb}}$} }
-
-
-\newglossaryentry{uzplus}{name=\ensuremath{\bar{u}(\gls{zplus})}, description={Mean velocity profile in dimensionless units}}
-
-\newglossaryentry{D}{name=\ensuremath{\mathrm{D}}, description={Diffusion constant, usually in \si{cm^2/s}}}
-
-\newglossaryentry{rho}{name=\ensuremath{\rho}, description={Density}}
-
-\newglossaryentry{nu}{name=\ensuremath{\nu}, description={Kinematic viscosity, defined as $\nu = \nicefrac{\mu}{\rho}$}}
-
-\newglossaryentry{nuair}{name=\ensuremath{\nu_\mathrm{air}}, description={Kinematic viscosity of air}}
-
-\newglossaryentry{nuwater}{name=\ensuremath{\nu_\mathrm{water}}, description={Kinematic viscosity of water}}
-
-\newglossaryentry{vw}{name=\ensuremath{V_\mathrm{water}}, description={Volume of the water compartment}}
-
-\newglossaryentry{va}{name=\ensuremath{V_\mathrm{air}}, description={Volume of the air compartment}}
-
-\newglossaryentry{zplus}{name=\ensuremath{z^\plus}, description={Dimensionless vertical coordinates \ensuremath{z^\plus = \nicefrac{z \gls{ustar}}{\gls{nu}}} }}
-
-\newglossaryentry{z11}{name=\ensuremath{z_\mathrm{11}}, description={Scale of transition between diffusive and logarithmic sublayer, \ensuremath{z^\plus = \nicefrac{z_\mathrm{11} \gls{ustar}}{\gls{nu}} = 11} } }
-
-
-\newglossaryentry{Re}{name=\ensuremath{\mathrm{Re}}, description={Reynolds number, $\gls{Re} \equiv \nicefrac{U L}{\gls{nu}}$. }}
-
-\newglossaryentry{karman}{name=\ensuremath{\kappa}, description={Von Karman constant, typical literature values are $\gls{karman}\approx \num[range-phrase=--]{0.37}{0.41}$} }
-
-\newglossaryentry{sc}{name=\ensuremath{\mathrm{Sc}}, description={Schmidt number, defined as ratio of kinematic viscosity and diffusion constant, $\gls{sc} = \nicefrac{\gls{nu}}{\gls{D}}$}}
-
-\newglossaryentry{sct}{name=\ensuremath{\mathrm{Sc_{turb.}}}, description={Turbulent Schmidt number, defined as ratio of turbulent viscosity and diffusivity, $\gls{sct} = \nicefrac{\gls{kzturb}}{\gls{kzdiff}}$} }
-
-
-
-\newglossaryentry{cb}{name=\ensuremath{c_\mathrm{b}}, description={Bulk concentration of the tracer.}}
-
-\newglossaryentry{cs}{name=\ensuremath{c_\mathrm{s}}, description={Surface concentration of the tracer.}}
-
-\newglossaryentry{zstar}{name=\ensuremath{z^\ast}, description={Characteristic scale of an exponential profile, $c(z) \propto \exp(z/z^\ast)$.}}
-
-\newglossaryentry{Isat}{name=\ensuremath{I_\mathrm{sat}}, description={Saturation laser irradiance.}}
-
-\newglossaryentry{qeff}{name=\ensuremath{\Phi_\mathrm{f}}, description={Quantum efficiency of fluorescence, i.e. ratio of emitted to absorbed photons.}}
-
-\newglossaryentry{flaser}{name=\ensuremath{f_\mathrm{laser}}, description={Flash frequency of the pulsed UV laser}}
-
-\newglossaryentry{sigmacs}{name=\ensuremath{\sigma_\mathrm{cs}}, description={Absorption cross section}}
-
-\newglossaryentry{epsair}{name=\ensuremath{\epsilon_\mathrm{air}}, description={Optical extinction coefficient of acetone vapor, intended at $\lambda=\SI{266}{nm}$}}
-
-\newglossaryentry{epswater}{name=\ensuremath{\epsilon_\mathrm{water}}, description={Optical extinction coefficient of dilute acetone in water, intended at $\lambda=\SI{266}{nm}$}}
-
-\newglossaryentry{isat}{name=\ensuremath{I_\mathrm{sat}}, description={Saturation laser irradiance}}
-
-\newglossaryentry{ri}{name=\ensuremath{R_\mathrm{IF}}, description={Transfer resistance associated to the air water interface.}}
-
-\newglossaryentry{rw}{name=\ensuremath{R_\mathrm{w}}, description={Transfer resistance associated to the water sided fluid.}}
-
-\newglossaryentry{ra}{name=\ensuremath{R_\mathrm{a}}, description={Transfer resistance associated to the air sided fluid.}}
-
-\newglossaryentry{rtot}{name=\ensuremath{R_\mathrm{tot}}, description={Total transfer resistance, i.e. of air and water-sided boundary together.}}
-
-\newglossaryentry{nwater}{name=\ensuremath{n_\mathrm{water}}, description={Refractive index of water}}
 
 
 % *****  ACRONYMS  ************
 
-\newacronym{ndyag}{Nd:YAG}{neodymium-doped yttrium aluminum garnet}
+%%%%%%%%%%%%%%%%%% Institutions - collaborations - groups %%%%%%%%%%%%%%%%%%%%%%%%%
+\newacronym{ipnl}{IPNL}{Institut de Physique Nucl\'{e}aire de Lyon}
+\newacronym{lpsc}{LPSC}{Laboratoire de Physique Subatomique et Corpuscolaire}
+\newacronym{lpc}{LPC}{Laboratoire de Physique de Clermont}
+\newacronym{creatis}{CREATIS}{Centre de Recherche en Acquisition et Traitement de l'Image pour la Sant\'{e}}
+\newacronym{cppm}{CPPM}{Centre de Physique des Particules de Marseille}
+\newacronym{clarys}{CLaRyS}{Contr\^{o}le en Ligne de l’hadronth\'{e}rapie par Rayonnements Secondaires - Online monitoring of ion beam therapy through secondary particles}
+\newacronym{ganil}{GANIL}{Grand Accelerateur National d'Ions Lourds}
 
-\newacronym{isc}{ISC}{intersystem crossing}
+%%%%%%%%% Materials %%%%%%%%%%%%%%%%
+\newacronym{bgo}{BGO}{Bismuth Germanium Oxide - Bi$\mathrm{_{12}}$GeO$\mathrm{_{20}}$}
+\newacronym{cdte}{CdTe}{Cadmium Telluride}
+\newacronym{pmma}{PMMA}{Poly Methyl Metacrylate}
+\newacronym{naitl}{NaI(Tl)}{Sodium Iodide doped with Thallium}
 
-\newacronym{piv}{PIV}{particle imaging velocimetry}
 
-\newacronym{qs}{QS}{Q-switch}
+%%%%%%%%%%%% Detectors and utils %%%%%%%%%%%%%%%%%%%%%%
+\newacronym{tof}{TOF}{Time-Of-Flight}
+\newacronym{fwhm}{FWHM}{Full Width at Half Maximum}
+\newacronym{enc}{ENC}{Equivalent Noise Charge}
+\newacronym{dssd}{DSSD}{Double-sided Silicon Strip Detector}
+\newacronym{hegp}{HEGP}{High Energy General Purpose}
 
-\newacronym{mss}{mss}{mean square slope}
+%%%%%%%%%%%% Code and software utils %%%%%%%%%%%%%%%%%%%%%
+\newacronym{geant4}{GEANT4}{GEometry And Tracking 4}
+\newacronym{lm-mlem}{LM-MLEM}{List Mode-Maximum Likelihood Expectation Maximization}
+\newacronym{megalib}{MEGAlib}{Medium-Energy Gamma-ray Astronomy library}
+\newacronym{gate}{GATE}{GEANT4 Application for Tomographic Emission}
 
-\newacronym{lif}{LIF}{laser induced fluorescence}
 
-\newacronym{plif}{PLIF}{planar laser induced fluorescence}
-
-\newacronym{cms}{center of mass}{center of mass}
-\glsmoveentry{cms}{}
-
-\newacronym{fwhm}{FWHM}{full width at half maximum}
-
-\newacronym{lsg}{LSG}{laser-slope-gauge}
-
-\newacronym{gv}{GV}{gray value}
-
-\newacronym{dns}{DNS}{direct numerical simulation}
+%%%%%%%%%%%%% Medical physics %%%%%%%%%%%%%%%%%%%
+\newacronym{pet}{PET}{Positron Emission Tomography}
+\newacronym{spect}{SPECT}{Single Photon Emission Computed Tomography}

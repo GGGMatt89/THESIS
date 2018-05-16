@@ -66,29 +66,60 @@
 
 % Create nice bibliography
 % CTAN: http://www.ctan.org/pkg/biblatex
-\usepackage[backend=biber, bibstyle=authoryear, citestyle=authoryear-comp, sortcites, url=true, doi=true, dashed=false, indexing, backref=true, sorting=nyt]{biblatex}%refsection=chapter,
+\usepackage[backend=biber, bibstyle=authoryear, citestyle=authoryear-comp, sortcites, doi=true, dashed=false, indexing, backref=true, sorting=nyt, maxcitenames=1, maxbibnames=100, uniquelist=false, firstinits=true]{biblatex}%refsection=chapter, url=true, 
+\setlength\bibitemsep{\baselineskip}
+\DeclareNameFormat{coloured-family-given/given-family}{%
+  \ifnumequal{\value{listcount}}{1}
+    {\textcolor{myColorMainA}{%
+     \ifgiveninits
+       {\usebibmacro{name:family-given}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefix}
+         {\namepartsuffix}}
+       {\usebibmacro{name:family-given}
+         {\namepartfamily}
+         {\namepartgiven}
+         {\namepartprefix}
+         {\namepartsuffix}}%
+     \ifboolexpe{%
+       test {\ifdefvoid\namepartgiven}
+       and
+       test {\ifdefvoid\namepartprefix}}
+       {}
+       {\usebibmacro{name:revsdelim}}}}
+    {\ifgiveninits
+       {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefix}
+         {\namepartsuffix}}
+       {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiven}
+         {\namepartprefix}
+         {\namepartsuffix}}}%
+  \usebibmacro{name:andothers}}
+\DeclareNameAlias{sortname}{coloured-family-given/given-family}
 \AtEveryCite{\color{myColorMainA}}
 \usepackage{guit}
 \urlstyle{sf}
 
-%Create list of abbreviations
-\usepackage[acronym]{glossaries}
+%Create list of abbreviations and glossary
+\usepackage[acronym, toc]{glossaries}
 
 %Create analytical index
-\usepackage{makeidx}
+\usepackage[toc]{makeidx}
 \DeclareIndexFieldFormat{indextitle}{}{}{}
 
 %for schemes and pictures
 \usepackage{tikz}
 \usetikzlibrary{calc}
 
-%Auxiliary packages for styling
+%Auxiliary packages for styling (from Nils)
 \usepackage[protrusion=true,expansion=true]{microtype}
-
 \usepackage[color=yellow,linecolor=white,textsize=footnotesize]{todonotes} % 
-
 \usepackage{nicefrac}
-
 \usepackage[binary-units=true]{siunitx}
 \sisetup{per-mode = symbol-or-fraction}
 \sisetup{detect-family = true}
