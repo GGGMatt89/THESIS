@@ -32,9 +32,9 @@
 \usepackage{float}
 
 % Support for captions, subcaptions and subfigures
-\usepackage{subcaption}
+\usepackage[margin=20pt]{subcaption}
 \usepackage{caption}
-\captionsetup{justification=centering}
+\captionsetup{justification=justified, format=hang}
 
 % Extended color support
 % I use the command \definecolor for example.
@@ -136,3 +136,6 @@
 \newcolumntype{s}{>{\hsize=.5\hsize}X}
 
 \newcommand{\heading}[1]{\centering{\textbf{#1}}}
+
+%%%Text specific features, like \textdegree{}
+\usepackage{textcomp} 

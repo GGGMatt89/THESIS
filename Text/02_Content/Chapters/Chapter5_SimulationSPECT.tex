@@ -67,14 +67,14 @@ Thallium 208		  & 2614		&	99.8        & $\mathrm{\beta}-$         & 3 m      \\
 \subsubsection{Simulation settings}\label{chap5::subsubsec::CC_settings}
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/schema}
+  \includegraphics[width=1.1\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/schema_withRedAbs}
   \caption{Sketch of the simulated geometry of the two systems: Anger camera (left) and Compton camera (right), in 3 dimensions (top line) and side projection (bottom line).}
   \label{chap5::fig::geometry_schema}
 \end{figure}
 
 The simulation code for the Compton camera was developed with \gls{geant4} v.9.6 and the camera design is based on the specifications of the prototype at present under development by the \gls{clarys} collaboration, detailed in chapter~\ref{chap::3}. It should be noticed that the real size of the detector components slightly differs from the ones reproduced in simulation, which have been used in the code for simplicity. The geometric setting of the camera has initially been optimized for the application in ion therapy monitoring via prompt-gamma emission and has been adapted for \gls{spect} for this study in order to maximize the similarities between the two systems (Compton and Anger camera) in terms of detector acceptance, as detailed in the following. A \gls{spect} specific optimization would depend on the choice of the particular gamma energy and it has not been studied yet.
 
-The distance between the last silicon plane (center) and the center of the absorber is set to 15~cm (see Figure~\ref{fig:geometry_schema}).  Moreover, the absorber size has been adapted to be as close as possible to the Anger camera detector, maintaining the real \gls{bgo} block size. As a result, a matrix of 8$\times$6 blocks has been arranged, for a total surface of 28$\times$21~cm$^{2}$.
+The distance between the last silicon plane (center) and the center of the absorber is set to 15~cm (see Figure~\ref{chap5::fig:geometry_schema}).  Moreover, the absorber size has been adapted to be as close as possible to the Anger camera detector, maintaining the real \gls{bgo} block size. As a result, a matrix of 8$\times$6 blocks has been arranged, for a total surface of 28$\times$21~cm$^{2}$.
 In the work of Han and colleagues~\parencite{Han2008} a Philips camera was described in GATE as Anger system and the same NaI absorber detector was adapted for the simulation of the Compton system with the introduction of silicon pad detectors as scatterer part. The two geometries compared in this study are slightly different but the common absorber size strategy has been maintained.
 
 The values for energy and spatial resolution of the silicon and \gls{bgo} detectors used in the simulation were derived from the first tests performed on the detector prototypes (see chapter~\ref{chap::3}). For the silicon planes, the energy resolution is obtained from the \gls{enc}:
@@ -96,7 +96,7 @@ The radioactive source is placed at 10~cm from the first silicon detector, in th
 All the events with at least one interaction in a silicon plane or at least one interaction in a \gls{bgo} block are stored during the simulation process in two data sets, one per detector section. A small fraction of events presents interactions in more than one scatterer plane ($<1$\% at 245~keV) and/or in more than one \gls{bgo} block ($\sim$8\% at 245~keV). This kind of events leads to ambiguities in the cone reconstruction, because the cone vertex and axis are not univocally defined, and it is not treatable via \gls{lm-mlem} reconstruction. Alternative reconstruction algorithms (such as the one included in the \gls{megalib}~\parencite{Zoglauer2006}) are able to estimate the most likely scenario for multiple interactions, at the expense of larger uncertainties and longer calculation time. The multiple interactions events, representing approximatly 8\% of the total at 245~keV, are then refused in this study for simplicity. This choice reduces the detection efficiency, so that the value obtained in this work could be seen as the lower limit for this kind of detection system. Once the two lists of events are built, the time coincidences are defined according to the source activity, the detector geometry and the single detection section time resolution. Finally, the emission points are reconstructed with a \gls{lm-mlem} algorithm developed by the \gls{creatis} institute in Lyon~\parencite{Lojacono2013}. The iterative algorithm reconstructs the Compton cones from the position and energy deposited in the scatterer stack and in the absorber blocks. A reconstruction volume must be defined, as well as a voxel 3 dimensional matrix in this volume. For this study the reconstruction volume has been fixed to $\mathrm{5\times5\times5}$~$\mathrm{cm^{3}}$ around the source, with a matrix of $\mathrm{51\times51\times51}$~voxels, and 15 algorithm iterations: this number is a compromise between reconstruction performance and calculation time.
 
 \subsubsection{Compton camera study for SPECT application}\label{CC_SPECT}
-As already mentioned in the introduction, a critical parameter in the Compton camera performances is the scatterer detector energy resolution. The goal of the instrumental development is to obtain an energy resolution as close to 1~keV ($\sigma_{E}$) as possible. The silicon detectors composing the stack have been tested at various temperatures in order to understand the behavior of the electronic noise and of the leakage current, and the read-out electronics is being developed with the aim to reduce the electronic noise. The first laboratory tests showed an energy resolution at 25$\degree$C of approximately 10-15~keV \gls{fwhm} with a first read-out card prototype. The new card has been tested with simulated signals and gives a noise level closer to the expectations. No data are yet available to determine the detector energy resolution at different temperatures and with the final card version. In the simulation two different resolutions have been considered in order to verify the influence of this parameter on the final reconstructed image. The two chosen values are $\mathrm{\sigma_{E}\,=\,2\,keV}$ and $\mathrm{\sigma_{E}\,=\,4\,keV}$, corresponding to about 5~keV and 9.5~keV \gls{fwhm}, respectively, both calculated at 200~keV of released energy using equation~\ref{E_res_ENC}. The influence of Doppler broadening has also been studied by disabling the Doppler effect in the simulation with the energy resolution set to $\mathrm{\sigma_{E}\,=\,2\,keV}$. Finally, a different possible scatterer material, \gls{cdte}, has been tested at the same resolution in order to verify the expected advantage given by the choice of silicon.
+As already mentioned in the introduction, a critical parameter in the Compton camera performances is the scatterer detector energy resolution. The goal of the instrumental development is to obtain an energy resolution as close to 1~keV ($\sigma_{E}$) as possible. The silicon detectors composing the stack have been tested at various temperatures in order to understand the behavior of the electronic noise and of the leakage current, and the read-out electronics is being developed with the aim to reduce the electronic noise. The first laboratory tests showed an energy resolution at 25$\degree$C of approximately 10-15~keV \gls{fwhm} with a first read-out card prototype. The new card has been tested with simulated signals and gives a noise level closer to the expectations. No data are yet available to determine the detector energy resolution at different temperatures and with the final card version. In the simulation two different resolutions have been considered in order to verify the influence of this parameter on the final reconstructed image. The two chosen values are $\mathrm{\sigma_{E}\,=\,2\,keV}$ and $\mathrm{\sigma_{E}\,=\,4\,keV}$, corresponding to about 5~keV and 9.5~keV \gls{fwhm}, respectively, both calculated at 200~keV of released energy using equation~\ref{chap5::eq::E_res_ENC}. The influence of Doppler broadening has also been studied by disabling the Doppler effect in the simulation with the energy resolution set to $\mathrm{\sigma_{E}\,=\,2\,keV}$. Finally, a different possible scatterer material, \gls{cdte}, has been tested at the same resolution in order to verify the expected advantage given by the choice of silicon.
 
 A coincidence study is mandatory to define the source activity to be used in the simulations dedicated to the benchmark with the Anger camera. Timing information is not included in the simulation code and a time structure must be assigned to the simulated primaries in the data analysis stage. A reference time is chosen randomly from an uniform distribution between 0~s and the data acquisition time and assigned to a primary photon. The data acquisition time ($\mathrm{T_{DAQ}}$) is calculated as the expected time needed for the emission of the desired number of primaries ($\mathrm{N_{primaries}}$) according to the source activity $\mathrm{A_{source}}$:
 
@@ -107,16 +107,16 @@ T_{DAQ}\, = \,\frac{N_{primaries}}{A_{source}}.
 
 The source activity is not fixed at the simulation stage but only during data analysis afterwards. It can therefore be easily modified to perform a study of the camera performance with different kinds of sources. The scatterer and absorber interaction times are calculated with respect to the reference primary emission and included in the related data sets for the analysis.
 
-Two sets of data are produced as output of this analysis, one for the scatterer and one for the absorber: Each element in the two sets corresponds to an interaction in the detector and includes the interaction 3 dimensional position, energy released, time with respect to the total data acquisition time and primary reference index provided by the simulation. The elements in the two data lists are ordered for increasing time. The detectors time resolution specified in section~\ref{CC_simu} and a time window set to 20~ns, corresponding to a 3~$\mathrm{\sigma}$ acceptance are then used for the coincidence definition for different source activities. The time of each element in the absorber data set is compared to the time of the elements  in the scatterer data set. A coincidence is defined when the scatterer event time is within the time window centered in the absorber event time. Each element is used one time only, and the analysis continues until the end of the absorber data list. If the two  elements (one from the scatterer data set and one from the absorber one) forming a coincidence have the same reference index, they correspond to interactions of the same primary photons and the coincidence is then a true one. If the reference index is different for the two elements, the coincidence is random. The number of true and random coincidences has been studied as a function of the source activity in a range of clinical interest between 1~MBq and 500~MBq, for a fixed energy value of 555~keV. The variation of the influence of random coincidences as a function of the energy was also investigated at a fixed source activity of 200~MBq.
+Two sets of data are produced as output of this analysis, one for the scatterer and one for the absorber: Each element in the two sets corresponds to an interaction in the detector and includes the interaction 3 dimensional position, energy released, time with respect to the total data acquisition time and primary reference index provided by the simulation. The elements in the two data lists are ordered for increasing time. The detectors time resolution specified in section~\ref{chap5::subsec::CC_simu} and a time window set to 20~ns, corresponding to a 3~$\mathrm{\sigma}$ acceptance are then used for the coincidence definition for different source activities. The time of each element in the absorber data set is compared to the time of the elements  in the scatterer data set. A coincidence is defined when the scatterer event time is within the time window centered in the absorber event time. Each element is used one time only, and the analysis continues until the end of the absorber data list. If the two  elements (one from the scatterer data set and one from the absorber one) forming a coincidence have the same reference index, they correspond to interactions of the same primary photons and the coincidence is then a true one. If the reference index is different for the two elements, the coincidence is random. The number of true and random coincidences has been studied as a function of the source activity in a range of clinical interest between 1~MBq and 500~MBq, for a fixed energy value of 555~keV. The variation of the influence of random coincidences as a function of the energy was also investigated at a fixed source activity of 200~MBq.
 
-The scatterer energy resolution and the source activity have been fixed for the benchmark study. The choice of their values is discussed in section \ref{Results_CC_SPECT}. 
+The scatterer energy resolution and the source activity have been fixed for the benchmark study. The choice of their values is discussed in section \ref{chap5::sec::Results_CC_SPECT}. 
 
 \subsection{Anger camera simulation and data analysis}\label{chap5::subsec::Anger_descr}
 
 \subsubsection{Simulation settings}\label{chap5::subsubsec::AC_settings}
 The Anger camera system is simulated with \gls{gate} v.7.1 and it is based on the General Electrics Healthcare Infinia \gls{spect} system~\parencite{GeneralElectrics2006}, a commercial clinical camera with parallel hole collimator and \gls{naitl} scintillator. A single detection head is simulated in order to obtain a direct performance comparison to the Compton system.
 
-The chosen configuration includes a \gls{hegp} lead collimator, 6.6~cm thick, with a surface of 28$\times$19~cm$^{2}$ (see Figure~\ref{fig:geometry_schema}). The parallel hole grid is composed of hexagonal shaped holes, 0.2~cm radius, arranged in a quincunx structure, with a septal thickness of 1.8~mm. This collimator is optimized for energies below 364~keV, corresponding to the main gamma emission energy of iodine-131. The \gls{naitl} crystal is simulated as a single block of 28$\times$19$\times$1~cm$^{3}$, in contact with the collimator back surface and read out by photo-multiplier tubes. The photo-multiplier grid is represented with a glass block of 2.5~cm thickness behind the crystal, with the same transverse surface (see Figure~\ref{fig:geometry_schema}). The spatial and energy resolutions have been set according to the manufacturer specifications. Unless otherwise stated, their values correspond to one standard deviation. A lower detected energy threshold has been set to 80~keV.
+The chosen configuration includes a \gls{hegp} lead collimator, 6.6~cm thick, with a surface of 28$\times$19~cm$^{2}$ (see Figure~\ref{chap5::fig::geometry_schema}). The parallel hole grid is composed of hexagonal shaped holes, 0.2~cm radius, arranged in a quincunx structure, with a septal thickness of 1.8~mm. This collimator is optimized for energies below 364~keV, corresponding to the main gamma emission energy of iodine-131. The \gls{naitl} crystal is simulated as a single block of 28$\times$19$\times$1~cm$^{3}$, in contact with the collimator back surface and read out by photo-multiplier tubes. The photo-multiplier grid is represented with a glass block of 2.5~cm thickness behind the crystal, with the same transverse surface (see Figure~\ref{chap5::fig::geometry_schema}). The spatial and energy resolutions have been set according to the manufacturer specifications. Unless otherwise stated, their values correspond to one standard deviation. A lower detected energy threshold has been set to 80~keV.
 
 The source is placed at 10~cm distance from the collimator surface (the distance chosen in the Infinia data sheet), and its transverse position corresponds to the center of the central collimator hole. For each source energy, 10$^{8}$ primary photons are simulated in 4$\pi$. An event corresponds to single or multiple interaction of a photon (or secondary particle produced by the photon interaction in the collimator) in the \gls{naitl} crystal. All the detected interactions are computed and the gamma interaction position is calculated during the simulation as the center of gravity of the positions of all the hits (energy transfers of secondary electrons), with the deposited energy as weight for the calculation. The deposited energy corresponds to the sum of the energies released during each hit. A set of interaction points and energy deposited is then stored. 
 
@@ -124,7 +124,7 @@ The source is placed at 10~cm distance from the collimator surface (the distance
 \subsubsection{Data analysis}\label{chap5::subsubsec::AC_dataTreat}
 Four source primary energies have been chosen as references of the studied energy range and are used in the following to show the analysis method and the study results. The low energy range is represented by the indium-111 emission at 245~keV, the first energy above the Anger camera construction limit has been set to 555~keV (yttrium-91m), while iron-59 at 1099~keV and potassium-42 at 1524~keV have been chosen to represent the medium and high energy range respectively. 
 
-Figure~\ref{fig:distr_with_fit} presents the raw radial event distributions for the four reference energies. Each distribution bin content is normalized according to the surface of the circular region corresponding to each radius. The first distribution bin always corresponds to the radius of the central collimator hole, with the partial inclusion of the surrounding septa. This choice is determined by the detector and collimator geometry and by the source position. It is possible to list three different kinds of events contributing to the radial distributions:
+Figure~\ref{chap5::fig::distr_with_fit} presents the raw radial event distributions for the four reference energies. Each distribution bin content is normalized according to the surface of the circular region corresponding to each radius. The first distribution bin always corresponds to the radius of the central collimator hole, with the partial inclusion of the surrounding septa. This choice is determined by the detector and collimator geometry and by the source position. It is possible to list three different kinds of events contributing to the radial distributions:
 \begin{enumerate}
 \item photons passing through the collimators holes without interactions,
 \item photons traversing the collimator septa without interactions,
@@ -137,28 +137,28 @@ A background rejection is performed in order to extract the distribution corresp
 \item[-] the lower limit is calculated as the radial distance where the photon flux on the \gls{naitl} detector is reduced to a fraction $\mathrm{\frac{1}{e}}$ by absorption effect in the collimator septa;
 \item[-] the upper limit has been fixed to the half of the collimator smaller lateral side (95~mm), in order to avoid any kind of geometric effect due the binning choice or the normalization surface selection. The bin size creates artifacts in the radial distribution corresponding to the collimator limits, because three different geometries are involved: the circular surface covered by each distribution bin, the hexagonal shape of the collimator holes and the rectangular collimator geometry.
 \end{itemize}
-The estimated background profile is subtracted from the raw distribution and the result is used as reference of the image signal (figure~\ref{fig:distr_with_fit}).
+The estimated background profile is subtracted from the raw distribution and the result is used as reference of the image signal (figure~\ref{chap5::fig::distr_with_fit}).
 
 \begin{figure}
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}[b]{.5\textwidth}
   \centering
   \includegraphics[width=.9\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/anger/radial_distr/fit_245keV}
   \caption{245~keV}
   \label{fig:rad_distr_fit_245keV}
 \end{subfigure}
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}[b]{.5\textwidth}
   \centering
   \includegraphics[width=.9\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/anger/radial_distr/fit_555keV}
   \caption{555~keV}
   \label{fig:rad_distr_fit_555keV}
 \end{subfigure}
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}[b]{.5\textwidth}
   \centering
   \includegraphics[width=.9\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/anger/radial_distr/fit_1099keV}
   \caption{1099~keV}
   \label{fig:rad_distr_fit_1099keV}
 \end{subfigure}
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}[b]{.5\textwidth}
   \centering
   \includegraphics[width=.9\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/anger/radial_distr/fit_1524keV}
   \caption{1524~keV}
@@ -169,19 +169,19 @@ The estimated background profile is subtracted from the raw distribution and the
 \end{figure}
 
 Two validation tests have been performed in order to check this analysis method. 
-First, according to the geometry of the collimator and to the mass attenuation coefficient of \gls{naitl}~\parencite{Hubbell1987}, we evaluated the expected number of entries in the first distribution bin (before normalization), corresponding to the central collimator hole in front of the source. The calculation is performed with the attenuation law of photons in 1~cm of \gls{naitl}. A dedicated set of simulations has been performed equivalent to the ones for the Anger camera described in section~\ref{AC_settings}, but using an ideal detector and a reduced number of photons of 10$^7$. No uncertainties are applied on the position of photon interactions to avoid resolution effects and the background is estimated via a linear fit as described above. The obtained entries in the first distribution bin after the fit selection are compared to the ones obtained with the theoretical calculation. In figure~\ref{chap5::fig::firstBinCheck} the results are shown as a function of the source energy.
+First, according to the geometry of the collimator and to the mass attenuation coefficient of \gls{naitl}~\parencite{Hubbell1987}, we evaluated the expected number of entries in the first distribution bin (before normalization), corresponding to the central collimator hole in front of the source. The calculation is performed with the attenuation law of photons in 1~cm of \gls{naitl}. A dedicated set of simulations has been performed equivalent to the ones for the Anger camera described in section~\ref{chap5::subsubsec::AC_settings}, but using an ideal detector and a reduced number of photons of 10$^7$. No uncertainties are applied on the position of photon interactions to avoid resolution effects and the background is estimated via a linear fit as described above. The obtained entries in the first distribution bin after the fit selection are compared to the ones obtained with the theoretical calculation. In figure~\ref{chap5::fig::firstBinCheck} the results are shown as a function of the source energy.
 
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=.5\textwidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/anger/firstBinInVSenergy}
+  \includegraphics[width=.6\textwidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/anger/firstBinInVSenergy}
 \caption{Comparison between expected entries in the central collimator hole (blue dashed curve) calculated according to pure geometrical factors and detector interaction cross section and simulated detected entries after background rejection (red solid curve) with null spatial resolution (ideal detector) to avoid resolution effects and lower energy threshold set to 80~keV.}
 \label{chap5::fig::firstBinCheck}
 \end{figure}
 
 There is a good agreement between the values calculated with the attenuation law and the simulation data selected with the fit-based background subtraction, and the detected variations from the ideal trend are within the statistical fluctuations. A slight overall effect of under-detection is observed (about 10\% on average), while the single value at 245~keV shows an opposite behavior (with a difference of less than 20\%). This is related to the chosen fit function.
 
-As a second validation, an additional set of simulations has been performed with the same settings as defined in section \ref{AC_settings} but with an infinitely dense collimator. The raw radial distributions obtained with this set of simulation is compared to the radial distribution 'derived' by the simulations with nominal settings after the application of the fit-based background subtraction. The results are shown in figure~\ref{chap5::fig::distr_infAbs}.
+As a second validation, an additional set of simulations has been performed with the same settings as defined in section \ref{chap5::subsubsec::AC_settings} but with an infinitely dense collimator. The raw radial distributions obtained with this set of simulation is compared to the radial distribution 'derived' by the simulations with nominal settings after the application of the fit-based background subtraction. The results are shown in figure~\ref{chap5::fig::distr_infAbs}.
 
 \begin{figure}
 \begin{subfigure}{.5\textwidth}
@@ -230,11 +230,21 @@ For the Anger camera, it is difficult to define the spatial resolution, as shown
 The results of the characterization of the \gls{clarys} Compton camera prototype for the application in SPECT are presented in the following sections, dedicated to the study of the scatterer detector energy resolution and of the Doppler broadening effect, and to the analysis of the rate of random coincidences, respectively.
 
 \subsection{Influence of Compton camera scatterer detector energy resolution}\label{chap5::subsec::Results_CC_SPECT_ENC}
-Figure~\ref{fig:ENC_study} shows the standard deviation of the radial distribution obtained after the MLEM reconstruction (see section~\ref{CC_analysis}) as a function of the source energy for the two different analyzed noise levels (Electron Noise Charge - ENC = 500~e$^-$, corresponding to $\mathrm{\sigma_{E}\,=\,2\,keV}$, and ENC =1100~e$^-$, corresponding to $\mathrm{\sigma_{E}\,=\,4\,keV}$). The maximum detected difference is about 35\%, but the influence of the silicon detectors' energy resolution rapidly reduces at increasing energy. In the same figure, the results for the simulation without the Doppler broadening for the lowest energy resolution are shown. It is clear that this parameter has a strong influence for the Compton camera spatial resolution, at least for energies below 2.5~MeV. This result justifies the choice of silicon as scatterer material, because it is the lowest $Z$ available detector and therefore minimizes the Doppler contribution. This is underlined by the black curve corresponding to a Cadmium Telluride (CdTe) detector, i.e. a higher $Z$ material than silicon. For this last study, the electronic noise level has been set for CdTe in order to have the same intrinsic resolution as for silicon ($\mathrm{\sigma_{E}\,=\,2\,keV}$ obtained with equation~\ref{E_res_ENC}).
+Figure~\ref{chap5::fig::ENC_study} shows the standard deviation of the radial distribution obtained after the MLEM reconstruction (see section~\ref{chap5::subsubsec::CC_analysis}) as a function of the source energy for the two different analyzed noise levels (Electron Noise Charge - ENC = 500~e$^-$, corresponding to $\mathrm{\sigma_{E}\,=\,2\,keV}$, and ENC =1100~e$^-$, corresponding to $\mathrm{\sigma_{E}\,=\,4\,keV}$). The maximum detected difference is about 35\%, but the influence of the silicon detectors' energy resolution rapidly reduces at increasing energy. In the same figure, the results for the simulation without the Doppler broadening for the lowest energy resolution are shown. It is clear that this parameter has a strong influence for the Compton camera spatial resolution, at least for energies below 2.5~MeV. This result justifies the choice of silicon as scatterer material, because it is the lowest $Z$ available detector and therefore minimizes the Doppler contribution. This is underlined by the black curve corresponding to a Cadmium Telluride (CdTe) detector, i.e. a higher $Z$ material than silicon. For this last study, the electronic noise level has been set for CdTe in order to have the same intrinsic resolution as for silicon ($\mathrm{\sigma_{E}\,=\,2\,keV}$ obtained with equation~\ref{chap5::eq::E_res_ENC}).
 
-\begin{figure}[h!]
+\begin{figure}
+\begin{subfigure}[t]{.5\textwidth}
 \centering
 \includegraphics[width=.5\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/compton/ENC/rmsVSenergy_ENCstudy_Doppler} 
+\caption{}
+\label{chap5::subfig::ENCSi}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=.5\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/compton/ENC/rmsVSenergy_ENCstudy_Doppler_CdTe} 
+\caption{}
+\label{chap5::subfig::ENCSi}
+\end{subfigure}
 \caption{Reconstructed radial distribution standard deviation as a function of the source energy. Two energy resolution values are set to the silicon detectors ($\mathrm{\sigma_{E}\,=\,2\,keV}$ - red dots solid line - and $\mathrm{\sigma_{E}\,=\,4\,keV}$ - blue dots dashed line), the Doppler broadening effect has been removed (green horizontal triangles dashed line) and the scatterer material has been changed with CdTe solid state detectors (black vertical triangles dashed line), for a fixed energy resolution of $\mathrm{\sigma_{E}\,=\,2\,keV}$.}
 \label{chap5::fig::ENC_study}
 \end{figure}      
@@ -242,46 +252,48 @@ Figure~\ref{fig:ENC_study} shows the standard deviation of the radial distributi
 For the benchmark with the Anger camera, the ENC value of the Compton camera scatterer components has been fixed to 500~e$^-$, which corresponds to the expected level of noise affecting the silicon detectors at about 0$\degree$C (the silicon detectors are cooled down with a thermal-controlled box) and with the final acquisition card (about 2~keV~$\sigma_{E}$). This value has to be experimentally verified.
 
 \subsection{Compton camera coincidence study}\label{chap5::sec::Results_CC_SPECT_coinc}
-Figure~\ref{timig_en_coinc}~(left) shows the numbers of true and random coincidences as a function of the source activity, ranging between 1 and 500~MBq in order to explore the whole range potentially employed in real examinations. The energy is set to 555~keV.  
+Figure~\ref{chap5::fig::timig_en_coinc}~(left) shows the numbers of true and random coincidences as a function of the source activity, ranging between 1 and 500~MBq in order to explore the whole range potentially employed in real examinations. The energy is set to 555~keV.  
 
 \begin{figure}
-\begin{subfigure}[t]{.45\textwidth}
+\begin{subfigure}[t]{.5\textwidth}
 \centering
   \includegraphics[width=.95\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/compton/timing/CoincidenceCounts}
+  \caption{Number of coincidences \\ as a function of the source activity.}
   \label{chap5::fig::timing_counts}
 \end{subfigure}
-\begin{subfigure}[t]{.45\textwidth}
+\begin{subfigure}[t]{.5\textwidth}
 \centering
   \includegraphics[width=.95\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/compton/timing/randomRatioVSenergy}
+  \caption{Random coincidence ratio \\ as a function of the gamma energy.}
   \label{chap5::fig::timing_energy}
 \end{subfigure}
-\caption{Left: number of true (green) and random (red) coincidences as a function of the source activity in the range 1-500~MBq, for the reference energy of 555~keV. Right: Percentage of random coincidences as a function of the source energy, with a fixed source activity of 200~MBq. Compton camera parameters: time resolution FWHM of 20~ns for silicon detectors, 3 ns for \gls{bgo} and a coincidence window of 40~ns. The source branching ratio has been set to 100\% for all sources for simplicity in the comparison of results.}
+\caption{(a): number of true (green) and random (red) coincidences as a function of the source activity in the range 1-500~MBq, for the reference energy of 555~keV. (b): Percentage of random coincidences as a function of the source energy, with a fixed source activity of 200~MBq. Compton camera parameters: time resolution FWHM of 20~ns for silicon detectors, 3 ns for \gls{bgo} and a coincidence window of 40~ns. The source branching ratio has been set to 100\% for all sources for simplicity in the comparison of results.}
 \label{chap5::fig::timig_en_coinc}
 \end{figure} 
 
 At 200~MBq source activity, the same amount of true and random coincidences is observed at 555~keV gamma energy. With activities above this value, the ratio between true and random coincidences is less than one. In principle the reconstruction \gls{lm-mlem} program can partially reject this kind of events and if we consider the expected important increase in detection efficiency guaranteed by the \enquote{electronic collimation}, it results clearly that it is not worth to employ high activity sources (or that a smaller camera can be considered at the expense of the examination time).
 
-For the further analysis and the final detector comparison, the source activity has been then set to 200~MBq, and the number of random coincidences is studied as a function of the source energy. Figure~\ref{timig_en_coinc}~(right) shows the ratio of detected random coincidences over the total number of reconstructed coincidences (see Section~\ref{CC_analysis}) as a function of energy for a fixed activity of 200~MBq. The ratio decreases for increasing energies, because the product of
+For the further analysis and the final detector comparison, the source activity has been then set to 200~MBq, and the number of random coincidences is studied as a function of the source energy. Figure~\ref{chap5::fig::timig_en_coinc}~(right) shows the ratio of detected random coincidences over the total number of reconstructed coincidences (see Section~\ref{chap5::subsubsec::CC_analysis}) as a function of energy for a fixed activity of 200~MBq. The ratio decreases for increasing energies, because the product of
 independent interaction probabilities in two detectors decreases faster
 than the true coincidence one. Therefore, an increasing reconstruction
-efficiency with MLEM is verified (see Section~\ref{Results_benchmark}).
+efficiency with MLEM is verified (see Section~\ref{chap5::sec::Results_benchmark}).
 
 \section{Results: Benchmark of Compton camera and Anger camera performance}\label{chap5::sec::Results_benchmark}
 
-The analysis methods presented in section~\ref{CC_analysis} and section~\ref{AC_dataTreat} for the Compton and Anger camera, respectively, have been applied to the simulated data sets of the two cameras at all energies.
+The analysis methods presented in section~\ref{chap5::subsubsec::CC_analysis} and section~\ref{chap5::subsubsec::AC_dataTreat} for the Compton and Anger camera, respectively, have been applied to the simulated data sets of the two cameras at all energies.
 
-The radial distributions for Anger and Compton camera at the different reference source energies and a source activity of 200~MBq are shown in figure~\ref{fig:rad_distr_overlap}. The same reference energies selected in section~\ref{AC_dataTreat} are included here. The radial range is limited to the smaller collimator lateral size (95~mm), according to the fit limits imposed on the Anger camera data (see Section~\ref{AC_dataTreat}). The curves are normalized to 1 for an easier visual comparison.
+The radial distributions for Anger and Compton camera at the different reference source energies and a source activity of 200~MBq are shown in figure~\ref{chap5::fig::rad_distr_overlap}. The same reference energies selected in section~\ref{chap5::subsubsec::AC_dataTreat} are included here. The radial range is limited to the smaller collimator lateral size (95~mm), according to the fit limits imposed on the Anger camera data (see Section~\ref{chap5::subsubsec::AC_dataTreat}). The curves are normalized to 1 for an easier visual comparison.
 
 \begin{figure}
 \begin{subfigure}{.5\textwidth}
 \centering
-  \includegraphics[width=.91\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/anger/radial_distribution_overlap}
+  \includegraphics[width=.95\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/anger/radial_distribution_overlap}
   \caption{Anger camera events.}
   \label{chap5::fig::rad_distr_overlap_CA}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
 \centering
-  \includegraphics[width=.91\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/compton/radial_distribution_overlap_sel}
+  \includegraphics[width=.95\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/compton/radial_distribution_overlap_sel}
   \caption{Compton camera reconstructed events.}
   \label{chap5::fig::rad_distr_overlap_CC}
 \end{subfigure}
@@ -289,12 +301,12 @@ The radial distributions for Anger and Compton camera at the different reference
 \label{chap5::fig::rad_distr_overlap}
 \end{figure} 
                
-In figures~\ref{eff_energy_comp}, \ref{RMS_energy_comp}, and \ref{sel_eff_energy_comp}, the detection efficiency, the radial distribution standard deviation and the signal-over-noise ratio are respectively shown as a function of the source energy for the two sets of data. Uncertainties (1 standard deviation) are reported for all the values and included in the data points when not visible.
+In figures~\ref{chap5::fig::eff_energy_comp}, \ref{chap5::fig::RMS_energy_comp}, and \ref{chap5::fig::sel_eff_energy_comp}, the detection efficiency, the radial distribution standard deviation and the signal-over-noise ratio are respectively shown as a function of the source energy for the two sets of data. Uncertainties (1 standard deviation) are reported for all the values and included in the data points when not visible.
 
 
 \begin{figure}[h!]
 \begin{center}
-\hspace{0.4cm} \includegraphics[scale=0.4]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/comparison/effVSenergy_overlap}
+\hspace{0.4cm} \includegraphics[scale=0.4]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/comparison/reduced_absorber/effVSenergy_overlap}
 \caption{Detection efficiency as a function of the source energy. Source activity~=~200~MBq, Compton camera silicon detector $\mathrm{\sigma_{E}\,=\,2\,keV}$.}
 \label{chap5::fig::eff_energy_comp}
 \end{center}
@@ -302,7 +314,7 @@ In figures~\ref{eff_energy_comp}, \ref{RMS_energy_comp}, and \ref{sel_eff_energy
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.4]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/comparison/RMSVSenergy_overlap}
+\includegraphics[scale=0.4]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/comparison/reduced_absorber/RMSVSenergy_overlap}
 \caption{Standard deviation of the radial event distributions as a function of the source energy. Source activity~=~200~MBq, Compton camera silicon detector $\mathrm{\sigma_{E}\,=\,2\,keV}$.}
 \label{chap5::fig::RMS_energy_comp}
 \end{center}
@@ -310,15 +322,15 @@ In figures~\ref{eff_energy_comp}, \ref{RMS_energy_comp}, and \ref{sel_eff_energy
 
 \begin{figure}[h!]
 \begin{center}
-\includegraphics[scale=0.4]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/comparison/SOBVSenergy_overlap}
+\includegraphics[scale=0.4]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/comparison/reduced_absorber/SOBVSenergy_overlap}
 \caption{Signal-to-background ratio as a function of the source energy. Source activity~=~200~MBq, Compton camera silicon detector $\mathrm{\sigma_{E}\,=\,2\,keV}$.}
 \label{chap5::fig::sel_eff_energy_comp}
 \end{center}
 \end{figure}
 
-From figure~\ref{eff_energy_comp} one can point out the advantage provided by the absence of a physical collimation system in terms of detector efficiency. It should be noticed that two different scales are applied to figure~\ref{eff_energy_comp} in order to show the two plots on the same figure and appreciate the variations with respect to the energy. The detection efficiency of the Compton camera is always more than a factor 20 higher than the one of the Anger camera. Although the images of the Anger and Compton cameras are based on different kinds of spatial information (a line and a cone, respectively), the Compton camera efficiency should allow a substantial reduction of the injected source activity and/or of the acquisition time. The efficiency of both cameras constantly decreases with increasing energy, because of the decreasing photon interaction probability. The only exception is found at the lowest considered energy of 245~keV in the Compton camera, due to an increased  probability of photon absorption in the scatterer and, in parallel, a larger fraction of events with wide Compton scattering angles at low gamma energy.
+From figure~\ref{chap5::fig::eff_energy_comp} one can point out the advantage provided by the absence of a physical collimation system in terms of detector efficiency. It should be noticed that two different scales are applied to figure~\ref{chap5::fig::eff_energy_comp} in order to show the two plots on the same figure and appreciate the variations with respect to the energy. The detection efficiency of the Compton camera is always more than a factor 20 higher than the one of the Anger camera. Although the images of the Anger and Compton cameras are based on different kinds of spatial information (a line and a cone, respectively), the Compton camera efficiency should allow a substantial reduction of the injected source activity and/or of the acquisition time. The efficiency of both cameras constantly decreases with increasing energy, because of the decreasing photon interaction probability. The only exception is found at the lowest considered energy of 245~keV in the Compton camera, due to an increased  probability of photon absorption in the scatterer and, in parallel, a larger fraction of events with wide Compton scattering angles at low gamma energy.
 
-The standard deviation of the radial distribution, shown in figure~\ref{RMS_energy_comp}, confirms the optimization of the chosen collimator for the Anger camera for low energies (below 364~keV). With the ad-hoc background subtraction operated here, which is not realistic for an extended source, the Anger camera outperforms the Compton one in terms of spatial resolution at low energies (by $>3$~mm at 245~keV and about 1.3~mm at 364~keV). However, above 500~keV, the Compton camera can provide a better spatial resolution with a difference ranging between a fraction of millimeter up to about 2~mm. For energies above 1.5~MeV, the two curves of standard deviation for the two cameras reach similar values ($<0.5$~mm difference at 2614~keV), but figure~\ref{sel_eff_energy_comp} shows how the background rejection for the Anger camera and the MLEM reconstruction for the Compton system (see Sections~\ref{AC_dataTreat} and~\ref{CC_analysis}) affect this result. Above 364~keV, the selection for the background rejection of the Anger camera data drastically reduces the number of events contributing to the final image (the ratio between selected and detected events approaches zero). With an extreme selection, at very high energy the only events contributing to the final image are the events traversing the central hole of the collimator, resulting in an enhanced spatial resolution (see Figure~\ref{fig:rad_distr_infAbs_1524keV}). The signal-to-background ratio of the Compton camera confirms the expectations concerning the reconstruction algorithm performance: if compared to Figure~\ref{timig_en_coinc}~(right), the curve in Figure~\ref{sel_eff_energy_comp} shows how the rejected events correspond approximately to the amount of random coincidences.
+The standard deviation of the radial distribution, shown in figure~\ref{chap5::fig::RMS_energy_comp}, confirms the optimization of the chosen collimator for the Anger camera for low energies (below 364~keV). With the ad-hoc background subtraction operated here, which is not realistic for an extended source, the Anger camera outperforms the Compton one in terms of spatial resolution at low energies (by $>3$~mm at 245~keV and about 1.3~mm at 364~keV). However, above 500~keV, the Compton camera can provide a better spatial resolution with a difference ranging between a fraction of millimeter up to about 2~mm. For energies above 1.5~MeV, the two curves of standard deviation for the two cameras reach similar values ($<0.5$~mm difference at 2614~keV), but figure~\ref{chap5::fig::sel_eff_energy_comp} shows how the background rejection for the Anger camera and the MLEM reconstruction for the Compton system (see Sections~\ref{chap5::subsubsec::AC_dataTreat} and~\ref{chap5::subsubsec::CC_analysis}) affect this result. Above 364~keV, the selection for the background rejection of the Anger camera data drastically reduces the number of events contributing to the final image (the ratio between selected and detected events approaches zero). With an extreme selection, at very high energy the only events contributing to the final image are the events traversing the central hole of the collimator, resulting in an enhanced spatial resolution (see Figure~\ref{chap5::fig::rad_distr_infAbs_1524keV}). The signal-to-background ratio of the Compton camera confirms the expectations concerning the reconstruction algorithm performance: if compared to Figure~\ref{chap5::fig::timig_en_coinc}~(right), the curve in Figure~\ref{chap5::fig::sel_eff_energy_comp} shows how the rejected events correspond approximately to the amount of random coincidences.
               
 
 \section{Discussion}\label{chap5::sec::Conclusions}
@@ -331,7 +343,7 @@ First of all, the present work aimed to extend these results by testing the two 
 
 A preliminary study has been performed on the simulated Compton camera data in order to fix the main parameters of the camera simulations, namely the energy resolution of the silicon scatterer detectors and the source activity determining the coincidence rate. Two Electron Noise Charge values have been studied, resulting in a maximum difference in spatial resolution of 35\% at the lowest energies, rapidly decreasing at increasing primary energy. A value of ENC = 500~e$^-$ has been chosen as the closest to the instrumental development expectations and first tests. The influence of the Doppler broadening on the spatial resolution has been also estimated in a factor $\sim$1/3 at 500 keV, then reduced up to $\sim$0 at 2.5 MeV of primary gamma energy, with fixed energy resolution ($\mathrm{\sigma_{E}\,=\,2\,keV}$ - ENC = 500~e$^-$) in the silicon detectors. Moving to the coincidence rate analysis, at the reference energy of 555~keV and with detector time resolution set according to first characterization results, the simulated data have been analyzed by reproducing a source activity in the range 1-500~MBq. The result shows the expected increase in the random coincidence rate at increasing source activity, with a ratio between true and random coincidences close to one at 200~MBq. This value has been chosen as clinical reference for the comparison analysis.
 
-The results discussed in section~\ref{Results_benchmark} confirm the conclusion of Han et al. about the advantage given by the usage of a Compton system and show how the gain factor in the detector efficiency is maintained at increasing energy. Concerning the detector spatial resolution, the Compton camera outperforms the Anger system at energies above about 500~keV. The Anger camera spatial resolution can be boosted by aggressive background subtraction in the considered case (point-like source image), at the expense of a drastic signal suppression. However, this approach is not reproducible and exploitable in actual clinical conditions and the obtained results are not comparable to the Compton camera performance at the same energy.
+The results discussed in section~\ref{chap5::sec::Results_benchmark} confirm the conclusion of Han et al. about the advantage given by the usage of a Compton system and show how the gain factor in the detector efficiency is maintained at increasing energy. Concerning the detector spatial resolution, the Compton camera outperforms the Anger system at energies above about 500~keV. The Anger camera spatial resolution can be boosted by aggressive background subtraction in the considered case (point-like source image), at the expense of a drastic signal suppression. However, this approach is not reproducible and exploitable in actual clinical conditions and the obtained results are not comparable to the Compton camera performance at the same energy.
 
 The results of this work clearly show the potential of the Compton camera for the application in nuclear medicine examination, opening new possibilities for the clinical implementation. The studied detector has originally been designed and optimized for another application, and it has only been adapted for SPECT here, but not yet optimized in terms of detector geometry (size, position, and inter-detector distances). For an optimized detector, performance is therefore expected to be improved with respect to the presented results. In future development, the reconstruction MLEM algorithm should be adapted to this application and the reconstruction parameters should be studied to further enhance the final performance, in particular for what concerns random coincidence rejection.
 

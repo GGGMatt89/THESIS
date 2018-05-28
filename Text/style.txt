@@ -19,6 +19,7 @@ tables
 
 figures
 \label{chapN::fig::name}
+\label{chapN::subfig::name}
 
 equations
 \label{chapN::eq::name}

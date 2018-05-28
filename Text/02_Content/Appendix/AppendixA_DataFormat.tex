@@ -1,14 +1,14 @@
-\chapter{Compton camera data format}
+\chapter{Compton camera data format}\label{chap::appA}
 
-\section{Introduction}
+\section{Introduction}\label{chapappA::sec::Intro}
 
 This document aims to formalize and fix the Compton camera data format. The structure of the data sent by each detector section (scatterer, absorber and beam hodoscope) to the acquisition card is detailed, as well as the structure of the events sent to the acquisition PC.
 
 
-\section{General features}
+\section{General features}\label{chapappA::sec::GenFeat}
 
 
-\subsection{Common information}
+\subsection{Common information}\label{chapappA::subsec::cmnInfo}
 
 The detector Front End cards are connected to the \charmu-TCA via optical links, with a speed of 3.0 Gbit/s. The transfer frequency is 150 MHz.\newline
 All the Front End card TDCs share the same synchronized clock, at a 40 MHz frequency, which is sent to the cards through an external link.\newline
@@ -20,7 +20,7 @@ Every data packet sent to the \charmu-TCA by the Front End cards starts with the
 	\item N$^{\circ}$ of element in the packet (8 bits).
 \end{itemize}
 
-\subsubsection{Front End number}
+\subsubsection{Front End number}\label{chapappA::subsubsec::FEnum}
 
 The Front End number is the identification code of each Front End card. A mechanical switch on the card defines the ID which is sent in the data packet header.
 \newline
@@ -30,7 +30,7 @@ In \tablename~\ref{tab::FE_numbers} the Front End number IDs are listed with the
 \begin{table}[!htbp]
 \centering
 \caption{Front End number associated to each Front End card.}
-\label{tab::FE_numbers}
+\label{chapappA::tab::FE_numbers}
 \begin{tabular}{P{2cm} P{3cm}}
 \toprule
 \rowcolor{myColorMainA!20} 
@@ -81,7 +81,7 @@ In \tablename~\ref{tab::FE_numbers} the Front End number IDs are listed with the
 \end{table}
 
 
-\subsubsection{Pre-trigger and trigger}
+\subsubsection{Pre-trigger and trigger}\label{chapappA::subsubsec::trigger}
 
 The trigger number identifies each event, where an event is generated every time a coincidence is detected between a BGO block and a silicon layer. Once an interaction is detected in a BGO block, the associated ASM card generates a pre-trigger signal which is sent to the THOR card. This intermediate card shares the pre-trigger signal with the silicon FE cards; if an interaction with a compatible time stamp is found in one of the silicon layer, a trigger signal is generated and sent to all the silicon FE card, as well as to the ASM and hodoscope cards via the THOR card. The trigger signal validates the event, and each FE card sends the collected data to the \charmu-TCA system. The trigger number allows for a complete event reconstruction by the event builder on the acquisition PC. In \figurename~\ref{fig::triggerGeneration} the trigger generation process is sketched.\newline
 To be noticed that each FE cards sends the collected data independently from the others.\newline
@@ -94,52 +94,55 @@ This same trigger number is sent at the beginning of each data packet and is use
 
 
 %\begin{landscape}
-\begin{figure} [!ht]
-\centering
+\begin{figure}
  %\subfloat[Pre-trigger generation in the THOR card.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive03.jpg}}
  %\subfloat[Pre-trigger sent to the 10 silicon FE cards.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive04.jpg}}\\
  %\subfloat[A single silicon FE card generates the trigger.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive05.jpg}}
  %\subfloat[Trigger signal is distributed to all the detectors.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive06.jpg}}\\
  %\subfloat[The detectors send the collected data to the \charmu-TCA. ]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive07.jpg}}
-\begin{minipage}{0.47\textwidth}
+\begin{subfigure}[b]{0.5\textwidth}
  \centering
-\includegraphics[width=0.7\textwidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_1.pdf}
-\subcaption[Signal detection on one ASM card and logical signal sent to the THOR card.]{An ASM card detects an interaction \\ and sends a logical signal to the THOR card.}\label{triggerLogic_1}
-\end{minipage}%
-\begin{minipage}{0.47\textwidth}
+\includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_1.pdf}
+\caption[Signal detection on one ASM card and logical signal sent to the THOR card.]{An ASM card detects an interaction and sends a logical signal to the THOR card.}
+\label{chapappA::subfig::triggerLogic_1}
+\end{subfigure}%
+\begin{subfigure}[b]{0.5\textwidth}
  \centering
-\includegraphics[width=0.7\textwidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_2.pdf}
-\subcaption[Pre-trigger generation in the THOR card.]{The THOR card generates \\ the pre-trigger signal.}\label{triggerLogic_2}
-\end{minipage}%
+\includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_2.pdf}
+\caption[Pre-trigger generation in the THOR card.]{The THOR card generates the pre-trigger signal.}
+\label{chapappA::subfig::triggerLogic_2}
+\end{subfigure}%
 \newline
-\begin{minipage}{0.47\textwidth}
+\begin{subfigure}[b]{0.5\textwidth}
  \centering
-\includegraphics[width=0.7\textwidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_3.pdf}
-\subcaption[Pre-trigger sent to the 10 silicon FE cards.]{The pre-trigger is sent \\ to the 10 silicon FE cards.}\label{triggerLogic_3}
-\end{minipage}%
-\begin{minipage}{0.47\textwidth}
+\includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_3.pdf}
+\caption[Pre-trigger sent to the 10 silicon FE cards.]{The pre-trigger is sent to the 10 silicon FE cards.}
+\label{chapappA::subfig::triggerLogic_3}
+\end{subfigure}%
+\begin{subfigure}[b]{0.5\textwidth}
  \centering
-\includegraphics[width=0.7\textwidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_4.pdf}
-\subcaption[A single silicon FE card generates the trigger.]{A single silicon FE card \\ generates the trigger.}\label{triggerLogic_4}
-\end{minipage}%
+\includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_4.pdf}
+\caption[A single silicon FE card generates the trigger.]{A single silicon FE card generates the trigger.}
+\label{chapappA::subfig::triggerLogic_4}
+\end{subfigure}%
 \newline
-\begin{minipage}{0.47\textwidth}
+\begin{subfigure}[b]{0.5\textwidth}
  \centering
-\includegraphics[width=0.7\textwidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_5.pdf}
-\subcaption[Trigger signal is distributed to all the detectors.]{The trigger signal is distributed \\ to all the detectors.}\label{triggerLogic_5}
-\end{minipage}%
-\begin{minipage}{0.47\textwidth}
+\includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_5.pdf}
+\caption[Trigger signal is distributed to all the detectors.]{The trigger signal is distributed to all the detectors.}\label{chapappA::subfig::triggerLogic_5}
+\end{subfigure}%
+\begin{subfigure}[b]{0.5\textwidth}
  \centering
-\includegraphics[width=0.7\textwidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_6.pdf}
-\subcaption[The detectors send the collected data to the \charmu-TCA.]{The detectors send \\ the collected data to the \charmu-TCA.}\label{triggerLogic_6}
-\end{minipage}%
- \caption{Data acquisition logic: pre-trigger and trigger generation and readout process.}
-  \label{fig::triggerGeneration}
+\includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_6.pdf}
+\caption[The detectors send the collected data to the \charmu-TCA.]{The detectors send the collected data to the \charmu-TCA.}\label{chapappA::subfig::triggerLogic_6}
+\end{subfigure}%
+\caption{Data acquisition logic: pre-trigger and trigger generation and readout process.}
+\label{chapappA::fig::triggerGeneration}
 \end{figure}
 %\end{landscape}
 
 
-\subsubsection{Mode number}
+\subsubsection{Mode number}\label{chapappA::subsubsec::modeN}
 
 The Compton camera detector components can work in different mode, according to the application requirements. At least two working modes are possible for every detector section: an \enquote{optimal} mode, corresponding to the final camera configuration; a \enquote{test} mode, allowing for the collection of more raw information. Every operating mode presents a peculiar data format, so that the data packets size is not fixed. In order to fix the acquisition tuning, the mode number is defined before its beginning.\newline
 The operating mode are identified as following: \newline
@@ -157,20 +160,21 @@ The operating mode are identified as following: \newline
 %La description des différentes possibilités est détaillée par les figures 2, 3 et 4.
 
 
-\section{Physical data format}
+\section{Physical data format}\label{chapappA::sec::physDataFormat}
 
 %\subsection{Format spécifique pré-trigger et trigger}
 
 %Le format pour ces deux informations est simplement constitué d'une information: le time stamp.
 
-\subsection{Scatterer detector data format}
+\subsection{Scatterer detector data format}\label{chapappA::subsec::scattDataFormat}
 
 Four different data formats, corresponding to four working modes, have been defined for the silicon scatterer operation (figure 2). For mode 1 and 2, the collected total charge is directly evaluated on the FE card via the slow shaper output and one ASIC, while for mode 3 and 4 the ASIC pre-amplifier output directly sends a sampling of the raw signal.  In this last case, the number of samples can be tuned and each sample corresponds to 10 ns.The complete sampling is stored in a dedicated buffer (see table 9).\newline\newline
 \underline{Modes 1 and 3}\newline
 In mode 1 and 3, for each detector strip involved in the interaction, the strip ID, total collected charge and time are stored. The interaction position will be calculated via a center of gravity algorithm at the analysis stage. The raw information about the number of involved strips is useful for the evaluation of the signal dispersion in the detector.\newline
 \underline{Modes 2 and 4}\newline
 In mode 2 and 4, the interaction is calculated on the FE card and the number of involved strip is then not stored.\newline
-\begin{figure}[ht]
+
+\begin{figure}[htbp]
 \centering
 \hspace*{-4em}\begin{tikzpicture}
 [%
@@ -310,13 +314,14 @@ In mode 2 and 4, the interaction is calculated on the FE card and the number of 
   	\draw[myColorMainB,thick,dotted] ($(SN.north west)+(-0.2,0.2)$)  rectangle ($(T2.south east)+(0.2,-0.6)$);
 \end{tikzpicture}
 \caption{Scatterer detector data format.}
+\label{chapappA::fig::scattDataForm}
 \end{figure}
 
-\subsection{Absorber detector data format}
+\subsection{Absorber detector data format}\label{chapappA::subsec::absDataFormat}
 The BGO block readout is performed via the ASM cards. Each card is equipped with 24 input ports (signal PM), corresponding to 6 BGO blocks. Two possible working modes have been defined for the BGO absorber: the collected total charge and time are evaluated on the card, or the PM raw signals are sampled and the sampling is sent to the acquisition (figure 3). Charge and time are then calculated at the analysis stage. This second operating mode can be useful in the test phase but it determines a low acquisition rate, so that it can be used only at low beam intensity.\newline
-The complete sampling is stored in a dedicated buffer (see table 9).\newline
+The complete sampling is stored in a dedicated buffer (see table 9).
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
 \hspace*{-4em}\begin{tikzpicture}
 [%
@@ -430,15 +435,15 @@ The complete sampling is stored in a dedicated buffer (see table 9).\newline
   	
 \end{tikzpicture}
 \caption{Absorber detector data format.}
+\label{chapappA::fig::absDataForm}
 \end{figure}
 
-
-\subsection{Beam hodoscope data format}
+\subsection{Beam hodoscope data format}\label{chapappA::subsec::hodoDataFormat}
 The beam tagging hodoscope is composed of two perpendicular planes of 128 scintillating fibers each. Each fiber is read-out on the two sides, for a total of  512 read-out channels. The output signals are send via optical fibers to 8 64-channel PM H8500 by Hamamatsu. 8 FE cards have been developed for the signal collection, one per PM, and are equipped with two custom ASICs (32 channels each) and one FPGA.\newline
 Concerning the \enquote{optimal} mode (1$^{\mathrm{st}}$ operating mode for the hodoscope), the only collected information are the ID of the involved fibers and the interaction time. The ASICs allow for a minimum time resolution of 10 ns; this means that if two particles interacts in the hodoscope within a 10 ns window, they will be considered as part of a single event.\newline
 In test mode, the total collected charge can be calculated. This feature is useful to evaluate the detector aging effect due to radiation exposure. The charge measurement is anyway limited to a single channel per ASIC, so to two channels per PM. The ASIC channel able to measure the charge is identified as "N$^{\circ}$ Fiber charge 1" and "N$^{\circ}$ Fiber charge 2".
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
 \hspace*{-4em}\begin{tikzpicture}
 [%
@@ -522,15 +527,16 @@ In test mode, the total collected charge can be calculated. This feature is usef
   	
 \end{tikzpicture}
 \caption{Beam hodoscope data format.}
+\label{chapappA::fig::hodoDataForm}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Slow control, trigger and monitoring data format}
+\section{Slow control, trigger and monitoring data format}\label{chapappA::sec::slowCTrigMonDataFormat}
 
-\subsection{Communication architecture}
+\subsection{Communication architecture}\label{chapappA::subsec::commArch}
 
 The Endpoint architecture is composed of three layers:
 \begin{itemize}
@@ -542,12 +548,14 @@ The Endpoint architecture is composed of three layers:
 	\begin{figure} [!hbtp]
 	\centering
 	\caption{Architecture of communication between DAQ cards and \charmu-TCA.}
+	\label{chapappA::fig::commDAQuTCA}
 	\includegraphics[width=1\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_uTCAImage.pdf}
 	\end{figure}
 
-\subsection{Transport protocol and processor packets}
 
-\subsubsection{Definitions}
+\subsection{Transport protocol and processor packets}\label{chapappA::subsec::transport}
+
+\subsubsection{Definitions}\label{chapappA::subsubsec::transpDefs}
 	It is worth to define some useful terms for the following part of the document:
 
 	\begin{itemize}
@@ -565,11 +573,11 @@ The CRC allows one to detect the transmission errors and the data transfer issue
 The transport layer ensures a proper packets exchange between two terminals via the data encapsulation. The data come from the application layer and are then sent to the physical layer.\newline
 %\textbf{L'encapsulation choisie est 8 bits/10 bits.}\newline
 
-\subsubsection{Data encoding}
+\subsubsection{Data encoding}\label{chapappA::subsubsec::transpDataDec}
 For the transport layer, the data structure is created via the addition of a packet header, corresponding to a parity bit, of a 16 bit parity pattern and a bit for the end of the packet.
 The data are 8 bits/10 bits encoded. This standard 8 bits/10 bits encoding ensures sufficient data transitions for clock recovery.
 
-\subsubsection{Packets format}
+\subsubsection{Packets format}\label{chapappA::subsubsec::transpPackForm}
 
 All the data packets have the same structure. A K byte (control symbol) is followed by the cargo to be sent. The end of the packets changes according to the cargo parity.\newline
 If the cargo contains an even number of bytes, the packet ends with K.28.6.
@@ -577,7 +585,7 @@ If the cargo contains an even number of bytes, the packet ends with K.28.6.
 \begin{table} [!htbp]
 \centering
 \caption{Packet with an even byte number cargo.}
-\label{tab::EvenCargo}
+\label{chapappA::tab::EvenCargo}
 \begin{tabular}{m{1.5cm} M{2.5cm} M{2.5cm} M{4cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -593,7 +601,7 @@ If the cargo contains an odd number of bytes, the packet ends without any contro
 \begin{table} [!htbp]
 \centering
 \caption{Packet with an odd byte number cargo.}
-\label{tab::OddCargo}
+\label{chapappA::tab::OddCargo}
 \begin{tabular}{m{1.5cm} M{2.5cm} M{2.5cm} M{4cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -612,14 +620,14 @@ If the cargo contains an odd number of bytes, the packet ends without any contro
 
 
 
-\subsubsection{Possible control symbols}
+\subsubsection{Possible control symbols}\label{chapappA::subsubsec::ctrlSymbols}
 
 In the following table, all the possible control symbols are listed (defined by Carlos Abellan).
 
 \begin{table} [!htbp]
 \centering
 \caption{Control symbol definition.}
-\label{tab::ControlSymbol}
+\label{chapappA::tab::ControlSymbol}
 \begin{tabular}{m{1.5cm} M{2.5cm} M{2.5cm} M{4cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -642,9 +650,9 @@ In the following table, all the possible control symbols are listed (defined by 
 \end{table}
 
 
-\subsection{Transport layer}
+\subsection{Transport layer}\label{chapappA::subsec::transpLayer}
 
-\subsubsection{Control packet}
+\subsubsection{Control packet}\label{chapappA::subsubsec::ctrlPacket}
 
 This kind of packet is used to check the link and for the control/command operations.
 \begin{itemize}
@@ -657,7 +665,7 @@ This kind of packet is used to check the link and for the control/command operat
 \begin{table} [!htbp]
 \centering
 \caption{Control symbol definition.}
-\label{tab::ControlSymbolDef}
+\label{chapappA::tab::ControlSymbolDef}
 \begin{tabular}{m{1.5cm} M{2.5cm} M{2.5cm} M{4cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -687,7 +695,7 @@ This packet is sent by the FE cards and interpreted as an acknowledgement by the
 \begin{table} [!htbp]
 \centering
 \caption{Definition of the acknowledgement packet.}
-\label{tab::AcknPacket}
+\label{chapappA::tab::AcknPacket}
 \begin{tabular}{p{1cm} P{2cm} P{1cm}P{1cm}P{1cm}P{1cm}P{1cm}P{1cm}P{1cm}P{1cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -702,7 +710,7 @@ This packet is sent by the FE cards and interpreted as an acknowledgement by the
 \end{tabular}
 \end{table}
 
-\subsubsection{Configuration packets}
+\subsubsection{Configuration packets}\label{chapappA::subsubsec::confPackets}
 
 \underline{Writing register process (\charmu-TCA $\rightarrow$ Front End cards)}\newline
 
@@ -711,7 +719,7 @@ The process starts with a packet sent by the \charmu-TCA asking for the register
 \begin{table} [!htbp]
 \centering
 \caption{Writing register packet.}
-\label{tab::WriteRegister}
+\label{chapappA::tab::WriteRegister}
 \begin{tabular}{m{1.5cm} M{2cm} M{3cm} M{5.5cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -738,8 +746,9 @@ At the beginning of the slow control, the physical addresses on the FE cards are
 In the following table the format of this reading register packet is reported.
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Reading register packet.}
+\centering
+\caption{Reading register packet.}
+\label{chapappA::tab::readRegPacket}
 \begin{tabular}{m{1.5cm} M{2cm} M{3cm} M{5.5cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -757,8 +766,9 @@ In the following table the format of this reading register packet is reported.
 \end{table}
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Two special registers(\charmu-TCA $\rightarrow$  Front End cards)}
+\centering
+\caption{Two special registers(\charmu-TCA $\rightarrow$  Front End cards)}
+\label{chapaapA::tab::twoSpecReg}
 \begin{tabular}{m{1.5cm} M{5.25cm} M{5.25cm} }
 \toprule
 \rowcolor{myColorMainA!20}
@@ -779,8 +789,9 @@ In the following table the format of this reading register packet is reported.
 
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Measurement packet (Front End cards $\rightarrow$ \charmu-TCA)}
+\centering
+\caption{Measurement packet (Front End cards $\rightarrow$ \charmu-TCA)}
+\label{chapappA::tab::measPacket}
 \begin{tabular}{m{1.5cm} M{2cm} M{3cm} M{5.5cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -800,7 +811,7 @@ N+4				 & \multicolumn{2}{M{5cm}}{CRC composed of the \enquote{xor} of all bits 
 \end{table}
 
 
-\subsubsection{Monitoring process (Front End cards $\rightarrow$ \charmu-TCA)}
+\subsubsection{Monitoring process (Front End cards $\rightarrow$ \charmu-TCA)}\label{chapappA::subsubsec::monitorProcess}
 
 In case of issues, for example when the temperature of a card go beyond a fixed threshold, the DAQ card sends a \enquote{monitoring} packet to the \charmu-TCA. There is not a corresponding acknowledgement from the \charmu-TCA.\newline
 
@@ -808,6 +819,7 @@ In case of issues, for example when the temperature of a card go beyond a fixed 
 \begin{table} [!htbp]
 \centering
 \caption{Monitoring packet.}
+\label{chapappA::tab::monitorPacket}
 \begin{tabular}{m{1.5cm} M{2cm} M{3cm} M{5.5cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -823,7 +835,7 @@ In case of issues, for example when the temperature of a card go beyond a fixed 
 \begin{table} [!htbp]
 \centering
 \caption{Monitoring messages.}
-\label{tab::monitoringMess}
+\label{chapappA::tab::monitoringMess}
 \begin{tabular}{m{0.6cm} M{1.3cm} M{1.cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{2.5cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -843,13 +855,14 @@ In case of issues, for example when the temperature of a card go beyond a fixed 
 \end{table}
 
 
-\subsubsection{Special command process (\charmu-TCA $\rightarrow$ Front End cards)}
+\subsubsection{Special command process (\charmu-TCA $\rightarrow$ Front End cards)}\label{chapappA::subsec::specCmdProcess}
 
 This process is designed to allow the \charmu-TCA to send special commands to the FE cards.
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Special command packets}
+\centering
+\caption{Special command packets}
+\label{chapappA::tab::specCmdPacket}
 \begin{tabular}{m{1.5cm} M{5.25cm} M{5.25cm} }
 \toprule
 \rowcolor{myColorMainA!20}
@@ -865,6 +878,7 @@ This process is designed to allow the \charmu-TCA to send special commands to th
 \begin{table} [!htbp]
 \centering
 \caption{Special commands examples}
+\label{chapappA::tab::specCmdExamples}
 \begin{tabular}{m{1.5cm} M{4cm} M{4cm} M{4cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -882,7 +896,7 @@ This process is designed to allow the \charmu-TCA to send special commands to th
 
 A register database (containing the operating mode identification) must be fixed and shared between all the detectors.
 
-\subsection{Data packets (Front End card $\rightarrow$ \charmu-TCA)}
+\subsection{Data packets (Front End card $\rightarrow$ \charmu-TCA)}\label{chapappA::subsec::dataPackets}
 
 In the section the packets concerning trigger, pre-trigger and physical data are described.\newline
 No acknowledgement is demanded for this kind of packets.
@@ -890,6 +904,7 @@ No acknowledgement is demanded for this kind of packets.
 \begin{table} [!htbp]
 \centering
 \caption{Control symbol for pre-trigger, trigger and physical data.}
+\label{chapappA::tab::ctrlSymbolTrigData}
 \begin{tabular}{m{1.0cm} M{2cm} M{2cm} M{5cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -908,8 +923,9 @@ No acknowledgement is demanded for this kind of packets.
 This packet is sent to the \charmu-TCA by the THOR card. The \charmu-TCA then shares it with all the silicon FE cards.\newline
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Pre-trigger packet}
+\centering
+\caption{Pre-trigger packet}
+\label{chapappA::tab::preTrigPacket}
 \begin{tabular}{m{1.cm} M{3cm} M{5cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -925,8 +941,9 @@ This packet is sent to the \charmu-TCA by the THOR card. The \charmu-TCA then sh
 This packet is sent back to the \charmu-TCA if a silicon FE card finds an interaction in coincidence after the reception of the pre-trigger packet. The trigger is always sent before the physical data packets. The  \charmu-TCA then sends the trigger packet to all the FE cards (scatterer, absorber, hodoscope).
 
 \begin{table} [!htbp]
-  \centering
-  \caption{Trigger packet}
+\centering
+\caption{Trigger packet}
+\label{chapappA::tab::triggerPacket}
 \begin{tabular}{m{1.cm} M{3cm} M{5cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -944,6 +961,7 @@ This packet sends the \enquote{useful} data to the \charmu-TCA. The data format 
 \begin{table} [!htbp]
 \centering
 \caption{Physical data packet}
+\label{chapappA::tab::physDataPacket}
 \begin{tabular}{m{1.cm} M{3cm} M{3cm} M{3cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -954,7 +972,7 @@ This packet sends the \enquote{useful} data to the \charmu-TCA. The data format 
 \end{tabular}
 \end{table}
 
-\section{UDP packets format}
+\section{UDP packets format}\label{chapappA::sec::UDPpackForm}
 
 Once the \charmu-TCA receives the data from the FE cards, a physical event is generated and stored in dedicated buffers. The buffers are then sent to the acquisition PC via UDP packets. Each detector section has its own UDP socket, and three receiving ports are used for the three data fluxes: 60001 for the hodoscope, 60002 for the absorber, 60003 for the scatterer. The content of the data buffers are sent in order to avoid to divide events in different packets, so that each UDP packet is completely independent from the others and contains complete events. The maximum size of a packet is set to 1500 (UDP data = 1472), or to 9000 for the so called \enquote{jumbo frames}, used for high speed acquisitions.\newline
 Each UDP packet has a custom defined header, composed of:
@@ -964,9 +982,9 @@ Each UDP packet has a custom defined header, composed of:
 \end{itemize}
 The data structures are then in a list one after the other with the already described format.
 
-\section{Data throughput expected in clinical conditions}
+\section{Data throughput expected in clinical conditions}\label{chapappA::sec::dataThroughputClinic}
 
-\subsection{Clinical intensities}
+\subsection{Clinical intensities}\label{chapappA::subsec::clinIntensity}
 
 In clinical standards, the beam maximum intensity is:
 \begin{itemize}
@@ -978,7 +996,7 @@ In clinical standards, the beam maximum intensity is:
 The Compton camera must be designed in order to be able to handle the whole range of clinical intensities. The design reference is then the maximum intensity, about 3.2 nA ($2\times10^{10}$ protons/s) delivered by the cyclotron C230 by IBA. The number of proton delivered per second is higher then the maximum considered rate ($10^{10}$ protons/s).\newline
 As shown by the simulation results, the Compton camera can not be used for an online monitoring at the maximum beam intensity for both proton and carbon ion beams. The main limitation comes from the amount of random coincidences detected by the camera for high intensity beams. One possible solution is to deliver a lower intensity beam for the range monitoring before the beginning of the treatment. The results shown here relates to a reduced intensity, corresponding to the one selected via the simulation studies.
 
-\subsubsection{Review: detector and target sizes}
+\subsubsection{Review: detector and target sizes}\label{chapappA::subsubsec::revDetTargetSize}
 
 Detectors sizes:
 \begin{itemize}
@@ -988,12 +1006,14 @@ Detectors sizes:
 PMMA target size: cylindrical shape, diameter 15 cm,  20 cm length along the beam direction.
 
 
-\subsection{Coincidence rate}
+\subsection{Coincidence rate}\label{chapappA::subsec::coincRate}
 
 In the following table the coincidence and single (pre-trigger) rates expected for the different detector section are listed according to the beam kind and intensity. This values correspond the Compton camera, while for the collimated camera a reduced rate is expected for the absorber due to the presence of the physical collimator.
 
 \begin{table} [!htbp]
-  \centering
+\centering
+\caption{Coincidence and single rate as a function of the beam intensity. The BGO single rate corresponds to the pre-trigger rate.}
+\label{chapappA::tab::coincSingleRate}
 \begin{tabular}{m{3.2cm} c c c c c c}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -1009,7 +1029,6 @@ In the following table the coincidence and single (pre-trigger) rates expected f
 \textbf{Single rate BGO (Hz) - 1 ASM card (6 blocks)}		& 	$6,5\times10^{6}$& $1,2\times10^{5}$ & $3,2\times10^{4}$&$1,2\times10^{4}$ &/&/\\
 \bottomrule
 \end{tabular}
-  \caption{Coincidence and single rate as a function of the beam intensity. The BGO single rate corresponds to the pre-trigger rate.}
 \end{table}
 
 
@@ -1018,7 +1037,7 @@ For a carbon ion beam at $5\times10^{7}$ Hz, the estimated coincidence rate is $
 The data flow between the \charmu-TCA and the acquisition PC corresponds to the coincidence rate, due to the fact that only coincidence events are stored.
 
 
-\subsection{Data flow (Front End cards  $\rightarrow$ \charmu-TCA)\newline}
+\subsection{Data flow (Front End cards  $\rightarrow$ \charmu-TCA)\newline}\label{chapappA::subsec::dataFlow}
 
 The data format previously described has been used to evaluate the data flow between each FE card and the \charmu-TCA. The calculation is performed according to the \enquote{optimal} mode of each detector. For the BGO, we only consider events where the 4 PMs are involved. For the silicon layers, two cases are considered:
 \begin{itemize}
@@ -1029,7 +1048,9 @@ Concerning the hodoscope, we considered an event with one hit fiber readout on t
 The 8bits/10bits encoding in included in the calculation.
 
 \begin{table} [!htbp]
-  \centering
+\centering
+\caption{Data flux between FE cards and \charmu-TCA.}
+\label{chapappA::tab::dataFlowFEuTCA}
 \begin{tabular}{m{3.5cm} c c c c}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -1048,17 +1069,18 @@ The 8bits/10bits encoding in included in the calculation.
 \textbf{Hodosocpe data flux (Mbits/s)}		& 	$8,1\times10^{4}$& 180 & 404 &18\\
 \bottomrule
 \end{tabular}
-  \caption{Data flux between FE cards and \charmu-TCA.}
 \end{table}
 
 
 
-\subsection{Acquisition data flow (\charmu-TCA $\rightarrow$ Acquisition PC)}
+\subsection{Acquisition data flow (\charmu-TCA $\rightarrow$ Acquisition PC)}\label{chapappA::subsec::daqDataFlow}
 
 The data flow from the \charmu-TCA to the acquisition PC is detailed here. The UDP encoding is included in the calculation.
 
 \begin{table} [!htbp]
-  \centering
+\centering
+\caption{Data flow between \charmu-TCA and acquisition PC.}
+\label{chapappA::tab::dataFlowuTCAPC}
 \begin{tabular}{m{3.5cm} c c c c}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -1073,10 +1095,9 @@ The data flow from the \charmu-TCA to the acquisition PC is detailed here. The U
 \textbf{Data flow (Mbits/s) - case 2}		& $6\times10^{4}$&  133&  300& 13,3\\
 \bottomrule
 \end{tabular}
-  \caption{Data flow between \charmu-TCA and acquisition PC.}
 \end{table}
 
-\subsection{Conclusions}
+\subsection{Conclusions}\label{chapappA::subsec::conclusions}
 
 As already mentioned, the Compton camera application is not feasible at clinical beam intensities. \newline
 In order to have an online monitoring of the beam range, a reduced intensity must be foreseen. The main limitation is the rate of random coincidences detected at high intensity, while from the technological point of view no limitations are highlighted by this study. In the collimated camera configuration, where no coincidences are required and the random coincidences limitation is removed, we can then expect to be able to work at real clinical intensity.
