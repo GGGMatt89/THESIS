@@ -24,13 +24,13 @@ A schematic view of the two prototypes is given in figure~\ref{chap3::fig::camer
 \begin{figure}
 \begin{subfigure}[b]{.5\textwidth}
 \centering
-\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/schemes/schema_Collimated_withHodo.pdf}
+\includegraphics[width=1.2\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/schemes/schema_Collimated_withHodo.pdf}
 \caption{Scheme of the multi-collimated camera with the beam tagging hodoscope.}
 \label{chap3::subfig::multiCollScheme}
 \end{subfigure}
 \begin{subfigure}[b]{.5\textwidth}
 \centering
-\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/schemes/schema_Compton_withHodo.pdf}	
+\includegraphics[width=1.2\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/schemes/schema_Compton_withHodo.pdf}	
 \caption{Scheme of the Compton camera with the beam tagging hodoscope.}
 \label{chap3::subfig::ComptonScheme}
 \end{subfigure}
@@ -45,7 +45,7 @@ A schematic view of the two prototypes is given in figure~\ref{chap3::fig::camer
 The scatterer stack is one of the components of the Compton camera prototype. Dedicated to the photon Compton scattering, its design has been studied to fulfill the camera requirements.\\ 
 The Compton events reconstruction strongly relies on the measurement of the energy deposited by the photon in its Compton interaction, mandatory to properly calculate the Compton scattering angle, which is then the aperture of the resulting Compton cone. The camera accuracy is then strictly dependent on the scatterer energy resolution. At the same time, the camera efficiency is dominated by the balance between Compton interaction and photoelectric absorption probability in the scatterer detector.\\
 Given the need of at least two interactions for a proper event reconstruction (a Compton scattering in the scatterer section and an ideally complete absorption in the absorber section, described in~\ref{chap3::subsec::absorber}), the material choice and the geometrical configuration play a fundamental role in the camera operation. The setup must be tuned in order to define the better trade-off between Compton and photoelectric interaction probability and to optimize, as mentioned, the detector energy resolution.\\
-Knowing that the Compton interaction probability linearly increases with the material atomic number (Z), while the photoelectric absorption depends on Z$^{n}$ with n varying between 4 and 5 according to the photon primary energy~\parencite{Knoll2000}, it is clear that a low Z material is preferred. Considering now the detector energy resolution, it must be noticed that the main parameter affecting the deposited energy detection is the so called \enquote{Doppler spread}. The Compton angle reconstruction formula in equation~\ref{chap1::eq::Compton} neglects the initial recoil electron state, which is considered free or unbound. The Compton energy transfer continuum results affected by the binding energy of the electron, with a relatively increasing effects for decreasing incident photon energy. This effect adds uncertainty on the reconstructed deposited energy, and so in the Compton angle calculation. Given its direct dependence on the recoil electron binding energy, the \enquote{Doppler spread} is reduced for low Z materials. Following the described theoretical considerations, silicon detectors are the most coherent choice. This choice has been verified in simulation, where a silicon scatterer has been compared to competitor materials; the result are included in the Monte Carlo study presented in chapter~\ref{chap::5}.\\
+Given the fact that the Compton interaction probability linearly increases with the material atomic number (Z), while the photoelectric absorption depends on Z$^{n}$ with n varying between 4 and 5 according to the photon primary energy~\parencite{Knoll2000}, it is clear that a low Z material is preferred. Considering now the detector energy resolution, it must be noticed that the main parameter affecting the deposited energy detection is the so called \enquote{Doppler spread}. The Compton angle reconstruction formula in equation~\ref{chap1::eq::Compton} neglects the initial recoil electron state, which is considered free or unbound. The Compton energy transfer continuum results affected by the binding energy of the electron, with a relatively increasing effects for decreasing incident photon energy. This effect adds uncertainty on the reconstructed deposited energy, and so in the Compton angle calculation. Given its direct dependence on the recoil electron binding energy, the \enquote{Doppler spread} is reduced for low Z materials. Following the described theoretical considerations, silicon detectors are the most coherent choice. This choice has been verified in simulation, where a silicon scatterer has been compared to competitor materials; the result are included in the Monte Carlo study presented in chapter~\ref{chap::5}.\\
 Dedicated Monte Carlo simulation studies have been performed in order to define the most suitable geometrical configuration for the Compton camera, including the scatterer stack~\parencite{Richard2012}. As a trade-off between detection efficiency and total cost, 10 layers were included in the original scatterer design. Concerning the layer size, about 10$\times$10~cm$^{2}$ of active area in the transverse plane have been identified as the most convenient choice, also considering the absorber size (see section~\ref{chap3::subsec::absorber}) and the distances between the detection sections required by the \gls{tof} measurements and imposed by the detector rate acceptance in clinical conditions (see appendix~\ref{chap::appA}). Moving to the layer thickness, its choice is governed by the definition of the camera operation. The \gls{clarys} Compton camera does not aim to track the Compton recoil electron, which must be then absorbed inside the same scatterer layer where the Compton interaction took place. This requirement is necessary to well reconstruct the Compton interaction angle, which needs the whole transferred energy as parameter; in addition to this, a recoil electron escaping the involved detection layer can interact in a different layer causing false coincidences which affect the camera efficiency and imaging accuracy. In order to minimize the recoil electron escape probability, relatively thick detectors are needed.\\
 The technological choice of the collaboration was oriented to silicon \glspl{dssd}, provided by the Norwegian company SINTEF. A schematic view of the detector principle is given in figure~\ref{chap3::fig::dssdTHEO}. The silicon crystal is doped with negative (n) and positive (p) charge carriers on the two opposite sides, creating diodes which are then reverse biased. A polarization voltage is applied to the two opposite sides of the crystal, and a depletion region with no free charges is created. A ionizing particle interacting in the depletion region generates electron-hole pairs in number proportional to the deposited energy. The generated charges drift towards anode (electrons) and cathode (holes) and are converted into electrical signals. The read-out is ensured by the implanted strips, which transfer the charges outside the detection region.\\     
 
@@ -66,14 +66,24 @@ The technological choice of the collaboration was oriented to silicon \glspl{dss
 \label{chap3::fig::scatterer}
 \end{figure} 
 
-Each layer has an active volume of 96$\times$96$\times$2~mm$^{3}$, segmented with 64 strips per detection plane. The strip pitch is 1.41~mm, for a strip width of 1.31~mm. The applied polarization voltage is nominally -750~V, and it is uniformly shared on the whole surface to obtain a homogeneous depletion region. A guard ring, composed of 23 strips surrounding the read-out ones, ensures the desired voltage gradient. The p and n strips are then connected to the read-out electronics via bonding cables.\\
+Each layer has an active volume of 96$\times$96$\times$2~mm$^{3}$, segmented with 64 strips per detection plane. The strip pitch is 1.41~mm, for a strip width of 1.31~mm. The applied polarization voltage is nominally -750~V, and it is uniformly shared on the whole surface to obtain a homogeneous depletion region. A guard ring, composed of 23 strips surrounding the read-out ones on the p side, ensures the desired voltage gradient. The more peripheral strip of the guard ring is connected to the high voltage, while the n side has a single strip for the guard ring, connected to the ground. The p and n read-out strips are then connected to the \gls{fe} electronics via bonding cables.\\
 The \gls{fe} electronics card has been developed by the \gls{ipnl} electronics group and is described in details in section~\ref{chap3::subsubsec::ScattFEcard}. The silicon detector is directly plugged on the card, and the mechanical support for the scatterer stack has been studied according to the card size, as shown in figure~\ref{chap3::fig::ScattPicture}.\\   
-Among the 10 received \glspl{dssd}, only 7 fulfilled the requirements imposed by the Compton camera application, mainly in terms of noise level; 3 layer have been rejected, so that the final prototype scatterer is composed of 7 silicon planes.\\
+Among the 10 received \glspl{dssd}, only 7 fulfilled the requirements imposed by the Compton camera application, mainly in terms of noise level (leakage current); 3 layer have been rejected, so that the final prototype scatterer is composed of 7 silicon planes.\\
 The 7 selected layers have been characterized with a temporary acquisition system in terms of leakage current at different temperatures. The results of these measurements can be found in~\cite{Ley2015}. The measurements allowed to verify the producer specifications in terms of polarization voltage to be applied for a complete detector depletion, as well as to identify the noisy strips and create a complete characterization database. In addition to this, they highlighted the need to cool the detectors down with respect to the room temperature (25\textdegree{}C) in order to reduce the leakage current to acceptable levels, and so reducing the total noise level, affecting the detector performance. In order to accomplish the cooling task and respect, at the same time, the clinical restrictions, a thermal regulated box based on cold air pump has been designed and produced. It operates as the scatterer stack mechanical support, and it is described in section~\ref{chap3::subsubsec::ScattThermBox}.\\
       
  
 
 \subsubsection{Scatterer Front-End card}\label{chap3::subsubsec::ScattFEcard}
+As mentioned in the previous paragraph, the main requirement for the scatterer detector modules is a very good energy resolution. The desired working performance can be quantified as follows:
+\begin{itemize}
+\item 1~keV \gls{fwhm} energy resolution;
+\item 1.41~mm spatial resolution (corresponding to the strip pitch);
+\item 15~ns \gls{fwhm} time resolution.
+\end{itemize} 
+
+The scatterer \gls{fe} card has been developed by the \gls{ipnl} electronics group in order to achieve these performance. It is composed of two well separated sections, analog and digital, which must be kept separated in the card layout in order to minimize the contribution of the digital noise on the treatment of the analog signals.  The required energy resolution corresponds to an \gls{enc} of 118 electrons \gls{rms}; a dedicated, custom \gls{asic} represents the core of the \gls{fe} card and has been developed to obtain this result~\parencite{Dahoumane2014}.\\
+   
+
 
 \subsubsection{Scatterer thermal regulated box}\label{chap3::subsubsec::ScattThermBox}
 
@@ -84,7 +94,7 @@ The 	\gls{fe} cards and the silicon layers are fixed inside the box via a mechan
     
 \begin{figure} [!h]
 \centering
-\includegraphics[width=0.6\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Scatterer/Rack_cartes_Si.jpg}
+\includegraphics[width=0.7\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Scatterer/Rack_cartes_Si_2.jpg}
 \caption{Scheme of the scatterer stack thermal box and internal mechanical support.}
 \label{chap3::fig::thermalBox}
 \end{figure} 
@@ -162,7 +172,7 @@ A custom front-end card has been designed and produced by the \gls{lpc} research
 \begin{figure}
 \begin{subfigure}[b]{.5\textwidth}
 \centering
-\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images/FEcard}
+\includegraphics[width=1.1\textwidth, angle = -90]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images/FEcard}
 \caption{Front-End card of the absorber \gls{bgo} detectors.}
 \label{chap3::fig::FEcard_mod} 
 \end{subfigure}
@@ -190,6 +200,7 @@ A first mechanical structure for the absorber detector was initially conceived b
 \label{chap3::fig::absorberPicture}
 \end{subfigure}
 \begin{subfigure}[b]{.5\textwidth}
+\centering
 \includegraphics[width=1\textwidth, height=16em]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images/Absorbeur.jpg}
 \caption{Scheme of the absorber detector with its mechanical support.}
 \label{chap3::fig::absorber30Scheme}
@@ -231,12 +242,13 @@ Each \gls{pm} is connected to a single custom \gls{fe} card. The hodoscope \gls{
 \newline
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
-\includegraphics[width=1\textwidth, height=5.5cm]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/H8500.png}
+\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/H8500.png}
 \caption{Hodoscope read-out \glspl{pm} Hamamatsu H8500.}
 \label{chap3::fig::PMH8500}
 \end{subfigure}
 \begin{subfigure}[t]{.5\textwidth}
-\includegraphics[width=1\textwidth, height=5.5cm]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/Hodoscope_PMmask.JPG}
+\centering
+\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/Hodoscope_PMmask.JPG}
 \caption{\gls{pm} plastic mask for optical fiber connection.}
 \label{chap3::fig::PMmask}
 \end{subfigure}
@@ -257,9 +269,10 @@ The hodoscope is designed to tag in space and time the incoming beam ions, so th
 \label{chap3::fig::HodoscopeFEcard}
 \end{subfigure}
 \begin{subfigure}[t]{.7\textwidth}
-\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/HodoCardDesign.pdf}
-\caption{Hodoscope Front-End card detailed design.}
-\label{chap3::fig::HodoscopeFEcardDesign}
+\centering
+\includegraphics[width=0.5\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/HodoScheme.png}
+\caption{Hodoscope mechanical support scheme.}
+\label{chap3::fig::HodoscopeSchemeMech}
 \end{subfigure}
 \caption{Hodoscope Front-End card developed at \gls{ipnl}.}
 \label{chap3::fig::HodoPic}
@@ -271,14 +284,6 @@ CARD DESCRIPTION \parencite{Deng2012, Deng2013}.
 \subsubsection{Hodoscope mechanical support}\label{chap3::subsubsec::HodoMechanics}
 
 The beam tagging hodoscope is set between the beam nozzle and the patient and requires a dedicated mechanical support. In order to profit of the large active area and to be able to remotely control the hodoscope position in the beam transverse plane, the detector is mounted on a 2-dimensional moving table (see the picture in figure~\ref{chap3::fig::HodoscopeMain}), which also supports the \gls{fe} cards. Detector and \gls{fe} cards are then integral and translate together. A scheme of the moving table is given in figure~\ref{chap3::fig::HodoscopeSchemeMech}.\\
-   
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.5\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/HodoScheme.png}
-\caption{Hodoscope mechanical support scheme.}
-\label{chap3::fig::HodoscopeSchemeMech}
-\end{figure}
-
 The 2-axis table is provided by Beijing Winner Optical Instruments; it is composed of two motorized linear stages, connected via a right angle bracket. The two stages have a moving range of 30~cm each and the stepper motors have a step resolution of 20~\charmum. The employed motor controller is a Newport XPS-Q8~\parencite{Newport2017}, equipped with 8 channels for the simultaneous control of a maximum of 8 motors. The movements are steered with an online interface or with a LabVIEW based program, which will be integrated in the final setup of the slow control software under development with the cameras.
 
 \subsubsection{Small hodoscope prototypes}\label{chap3::subsubsec::SmallHodoProto}
@@ -286,6 +291,7 @@ Before the production of the large active surface hodoscope prototype described 
 
 \begin{figure}
 \begin{subfigure}[t]{.5\textwidth}
+\centering
 \includegraphics[width=0.8\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/hodo2.jpg}
 \caption{Hodoscope small prototype, 1$\times$1 scintillating fibers.}
 \label{chap3::fig::singleFibHodo}
@@ -309,21 +315,40 @@ The 32$\times$32-fiber hodoscope prototype has been tested in 2014 on proton and
 \subsection{Camera electronics and acquisition system}\label{chap3::subsec::cameraElectronicsDAQ}
 
 \begin{figure}
-\begin{subfigure}[t]{.5\textwidth}
+\begin{subfigure}[t]{.35\textwidth}
 \centering
-\includegraphics[width=0.8\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Electronics_Acquisition/uTCAcrate_1.jpg}
+\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Electronics_Acquisition/uTCAcrate_1.jpg}
 \caption{}
 \label{chap3::fig::uTCAcrate}
 \end{subfigure}
-\begin{subfigure}[t]{.5\textwidth}
+\begin{subfigure}[t]{.28\textwidth}
 \centering
-\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Electronics_Acquisition/AMC40.jpg}
+\includegraphics[width=1\textwidth, angle = -90, trim={0 0.2cm 0 0.2cm}, clip = true]{03_GraphicFiles/chapter3_CLaRySproto/Electronics_Acquisition/AMC40_ipnl_top.jpg}
 \caption{}
 \label{chap3::fig::AMC40}
+\end{subfigure}
+\begin{subfigure}[t]{.36\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Electronics_Acquisition/THOR.pdf}
+\caption{}
+\label{chap3::fig::THOR}
 \end{subfigure}
 \caption{}
 \label{chap3::fig::AcquisitionSystem}
 \end{figure}
+
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Electronics_Acquisition/acqLogic_complete.pdf}
+\caption{Schematic view of the Compton camera acquisition system. For the multi-collimated camera, the trigger and pre-trigger signals are the same.}
+\label{chap3::fig::DAQscheme}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   SOFTWARE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Camera slow control, acquisition and monitoring software}\label{chap3::subsec::cameraSoftware}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   MECHANICAL SUPPORT  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -332,13 +357,13 @@ The 32$\times$32-fiber hodoscope prototype has been tested in 2014 on proton and
 \begin{figure}
 \begin{subfigure}[t]{.5\textwidth}
 \centering
-\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Mechanics/TableCameraSchemeBlue.jpg}
+\includegraphics[width=1\textwidth, trim= {1cm 0 1cm 0}, clip = true, height=5cm]{03_GraphicFiles/chapter3_CLaRySproto/Mechanics/TableCameraSchemeBlue.jpg}
 \caption{}
 \label{chap3::fig::schemeTable}
 \end{subfigure}
 \begin{subfigure}[t]{.5\textwidth}
 \centering
-\includegraphics[width=0.8\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Mechanics/Table.JPG}
+\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Mechanics/Table.JPG}
 \caption{}
 \label{chap3::fig::pictureTable}
 \end{subfigure}
@@ -357,22 +382,22 @@ The results presented in this section also introduce the following one (~\ref{ch
 \subsection{Hodoscope \glspl{pm} characterization}\label{chap3::subsec::hodoPMchar}         
 
 The beam tagging hodoscope read-out is performed via 8 multi-anode \glspl{pm}, Hamamatsu H8500~\parencite{Hamamatsu2006}, shown in figure~\ref{chap3::fig::PMH8500}. In order to guarantee a uniform response of the whole detector active area, composed of 256 scintillating fibers, the \glspl{pm} must be previously characterized in terms of gain with a light source of fixed and known wave-length and intensity. The source selected for the measurements is a blue \gls{led} (Hewlett-Packard HLMP-CB), installed on the test-bench shown in figure~\ref{chap3::fig::hodo_testBenchPM} and described in the following. The test-bench has been developed by the \gls{lpc} group (see~\cite{Gaglione2013}) and adapted at the \gls{ipnl} to a different acquisition system.\\
-The goal of the characterization measurements is to trace a gain map of the whole \gls{pm} surface, with the aim of storing calibration data to be used to both tune the \gls{pm} working parameters (supply voltage and threshold) and correct the collected data. This is achieved by scanning the \gls{pm} anode surface with the \gls{led}. The \gls{led} is so mounted on a motorized double-axis table, controlled by two G203V stepper modules provided by GeckoDrive Motor Controls~\parencite{GeckoDrive2010}. The two axes have a total range of 20~cm each, and the step resolution achieved by the controllers is 20~\charmum. A metal support is set on the table in order to fix the \gls{led}. It produces light pulses synchronized with a pulse generator, which is also used as trigger signal for the acquisition system, as detailed later. The light pulse produced by the \gls{led} is split into two pulses with a 45\textdegree{} mirror: one pulse is sent to the H8500 \gls{pm} to be tested via optical fiber, in order to obtain a light beam perpendicular to the anode surface (\gls{fwhm} beam width estimated in 0.5~mm), the second one is detected by an Hamamatsu R5600 \gls{pm}~\parencite{Hamamatsu1995}, used as reference for the correction of \gls{led} temperature fluctuations. The \gls{pm} under tests if fixed below the optical fiber output with a plastic support, not connected to the moving table. The whole described system is contained in a black box for external light shielding.\\
+The goal of the characterization measurements is to trace a gain map of the whole \gls{pm} surface, with the aim of storing calibration data to be used to both tune the \gls{pm} working parameters (supply voltage and threshold) and correct the collected data. This is achieved by scanning the \gls{pm} photo-cathode surface with the \gls{led}. The \gls{led} is so mounted on a motorized double-axis table, controlled by two G203V stepper modules provided by GeckoDrive Motor Controls~\parencite{GeckoDrive2010}. The two axes have a total range of 20~cm each, and the step resolution achieved by the controllers is 20~\charmum. A metal support is set on the table in order to fix the \gls{led}. It produces light pulses synchronized with a pulse generator, which is also used as trigger signal for the acquisition system, as detailed later. The light pulse produced by the \gls{led} is split into two pulses with a 45\textdegree{} mirror: one pulse is sent to the H8500 \gls{pm} to be tested via optical fiber, in order to obtain a light beam perpendicular to the cathode surface (\gls{fwhm} beam width estimated in 0.5~mm), the second one is detected by an Hamamatsu R5600 \gls{pm}~\parencite{Hamamatsu1995}, used as reference for the correction of \gls{led} temperature fluctuations. The \gls{pm} under tests if fixed below the optical fiber output with a plastic support, not connected to the moving table. The whole described system is contained in a black box for external light shielding.\\
 The output signals from the H8500 \gls{pm} are initially amplified by custom pre-amplification cards: 8 cards are available and have been characterized in terms of amplification gain. Once amplified, the signals H8500 \gls{pm}, together with the output of the reference \gls{pm}, are sent to the acquisition system composed of a National Instrument PXI Express 1082~\parencite{NationalInstruments2010} equipped with two 8-channel flash \gls{adc} modules (NI PXI-5105) and a two-channel ultra-fast digitizer (NI PXI-5154). The flash \gls{adc} modules have a maximum sampling rate of 60~MHz and are used for the read-out of the H8500 \gls{pm} signals, while the ultra-fast digitizer, able to sample at a frequency up to 1~GHz, is used for the reference \gls{pm}.\\
 The acquisition and control software is developed with LabVIEW (2009) installed on the PXI; a picture of the software user interface is shown in figure~\ref{chap3::fig::hodo_LabView}. The PXI receives the signals form the two \glspl{pm} and is also connected to the table stepper modules, so that the LabVIEW software can handle and synchronized data acquisition and table movements. The table movements can be automatized via LabVIEW macros, where step size, number and direction are stored and then used for the acquisition. The acquisition trigger, as mentioned, is given by the pulse generator which also control the light pulses of the \gls{led}; in this way, a fixed number of pulses per table position can be recorded, and the measurement process is completely automatic. During the acquisition, the LabVIEW software automatically correct the collected data according to the reference \gls{pm} signal amplitude and to the pre-amplification card gain.\\
-Given the limited number of flash \gls{adc} channels, only 16 \gls{pm} anodes can be characterized per acquisition; four acquisition are needed to scan the complete \gls{pm} surface.\\
+Given the limited number of flash \gls{adc} channels, only 16 \gls{pm} pixels can be characterized per acquisition; four acquisitions are needed to scan the complete \gls{pm} surface.\\
  
 \begin{figure}
 \begin{subfigure}[t]{1\textwidth}
 \centering
-\includegraphics[width=0.6\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/testBenchPM.jpg}
+\includegraphics[width=0.7\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/testBenchPM.jpg}
 \caption{}
 \label{chap3::fig::hodo_testBenchPM}
 \end{subfigure}
 \newline
 \begin{subfigure}[t]{.5\textwidth}
 \centering
-\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Electronics_Acquisition/PXI.png}
+\includegraphics[width=1\textwidth, height = 5.cm]{03_GraphicFiles/chapter3_CLaRySproto/Electronics_Acquisition/PXI_ipnl.jpg}
 \caption{}
 \label{chap3::fig::PXI_NI}
 \end{subfigure}
@@ -386,8 +411,47 @@ Given the limited number of flash \gls{adc} channels, only 16 \gls{pm} anodes ca
 \label{chap3::fig::hodoPMtest}
 \end{figure}
 
-The 8 Hamamatsu \glspl{pm} have been completely scanned with and without the optical fiber mask used in the hodoscope and shown in figure~\ref{chap3::fig::PMmask}, and the results are shown here for one reference \gls{pm}.\\
-DETAILS ABOUT THE TABLE STEP SIZE AND THE ACQUISITION CONFIGURATION, THEN DESCRIPTION OF THE ANALYSIS AND OF THE RESULTS
+Each performed acquisition is set to scan a matrix of 4$\times$4 \gls{pm} pixels, and safety margins are arranged on the \gls{pm} sides in order to ensure a complete surface irradiation. As shown in the schematic view of the \gls{pm} in figure~\ref{chap3::fig::hodoPMscheme}, the total \gls{pm} size is 52$\times$52~mm$^{2}$, for an active area of about 49$\times$49~mm$^{2}$. The active area of the pixels on the borders is slightly wider than the central ones. In order to optimize the measurement process, a preliminary analysis has been done for the definition of the needed step length, and the details are reported in~\cite{Coudurier2015}. A trade-off between measurement accuracy, required time and collected data size has been found with a step of 800~\charmum, so that each pixel is scanned with approximately 64 measurement points and the transition between neighboring pixels can be appreciated. To be noticed that for each irradiated point, 100 \gls{led} pulses are sent to the detector and the average amplitude value is  calculated and collected.\\  
+The 8 Hamamatsu \glspl{pm} have been completely scanned with and without the optical fiber mask used in the hodoscope and shown in figure~\ref{chap3::fig::PMmask}, and the results are shown here for one reference \gls{pm}. A complete result database has been created for calibration purpose.\\
+
+\begin{figure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PM_specs_mod.pdf}
+\caption{}
+\label{chap3::fig::hodoPMscheme}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/scan_logic.pdf}
+\caption{}
+\label{chap3::fig::hodoPMscanScheme}
+\end{subfigure}
+\caption{}
+\label{chap3::fig::hodoScanDetails}
+\end{figure}
+
+
+\begin{figure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth, height = 5.8cm ]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/2Dmap_noMask.pdf}
+\caption{}
+\label{chap3::fig::hodoPMchar2DnoMask}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth, height = 5.8cm ]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/2Dmap_withMask.pdf}
+\caption{}
+\label{chap3::fig::hodoPMchar2DnoMask}
+\end{subfigure}
+\caption{}
+\label{chap3::fig::hodoPMchar2Dmaps}
+\end{figure}
+
+
+
+
 
 \subsection{Hodoscope fiber test with electron source}\label{chap3::subsec::hodoBetatest}
 
@@ -400,16 +464,16 @@ The measurements are performed with the irradiation with gamma sources, emitting
 The employed $^{22}$Na source is a cylindrical source with a diameter of 1~cm, and an activity of about 400~kBq: it has been placed at a distance of about 5~cm from the block entrance surface, with the center of the source facing the center of the block transverse surface. The $^{60}$Co source has been installed in a lead cylindrical container (12~cm radius and 35~cm height), equipped with three different apertures: point-like (2$\times$2~mm$^2$), linear (2$\times$50~mm$^2$) and squared (50$\times$50~mm$^2$). The design of the lead container has been studied in simulation to ensure the proper radiation protection, and produced according to the specifications defined by the \gls{ipnl} mechanics group. The activity of the $^{60}$Co source is about 1.7~MBq, and the square shape has been used to obtain an homogeneous irradiation of the \gls{bgo} block, with the block set with the center of the entrance surface corresponding to the source position, at a distance of 12~cm.\\
 The signals produced by the four \glspl{pm} of each block are collected via four analog outputs on the front-end card (see picture~\ref{chap3::fig::FEcard_mod}). The four retrieved signals per event are treated via standard \gls{nim} modules in order to be adapted to the acquisition systems and measurement purposes.\\
 Two different acquisition systems have been used for this characterization work. First, the PXIe described in section~\ref{chap3::subsec::hodoPMchar} with its two flash \gls{adc} read-out modules, 8 channels each, is used for the spatial and energy characterization and calibration of the tested blocks. The raw signals coming from the four \glspl{pm} are amplified and shaped via \gls{nim} modules, which were fine tuned via a pulse generator in order to adapt the amplification factor of each channel (an amplification factor of about 50 has been applied to the raw signals). The amplified signals are then split in order to be treated for trigger purpose. The trigger for the acquisition is based on the sum of the four signals, and a fixed threshold is applied for background rejection. The employed discriminator provides the logical trigger signal, which is sent to the trigger input of the \gls{adc} modules on the PXI. The four amplified signals, conveniently delayed, are sent as inputs to the \gls{adc} modules on the PXI, together with the sum signal which is used for experimental verification of the acquisition setup. A LabVIEW based acquisition software, developed for this particular application by the \gls{ipnl} group, provides real time event visualization together with a partial, on-line spatial reconstruction of the events, and stores them in text files for further analysis. A second threshold can be set at the software level in case particular selections are needed during the acquisition, otherwise the event selection is performed at the analysis stage.\\
-Concerning the timing characterization measurements, an eight-channel signal digitizer at 3.2~GS/s has been employed for high time resolution acquisitions. The so called WaveCatcher, shown in figure~\ref{chap3::fig::WaveCatcher}, has been developed by the \gls{lal} in Orsay and the \gls{irfu} in CEA-Saclay, and its features are detailed in~\cite{Breton2014}. The digitizer is connected to the acquisition PC via USB cable, and the data read-out and storage is performed thanks to a custom acquisition software.  The measurements are based on the coincidence detection of back-to-back 511~keV photons emitted by a $^{22}$Na radioactive source, in order to be able to compare the time response of the tested \gls{bgo} block to a reference scintillator with a fast and known response. An external trigger is then provided to the WaveCatcher by treating the \gls{bgo} block and reference scintillator signals with logic coincidence \gls{nim} modules, after proper discrimination. Further details are given in section~\ref{chap3::subsubsec::absTimeMethod}.
+Concerning the timing characterization measurements, an eight-channel signal digitizer at 3.2~GS/s has been employed for high time resolution acquisitions. The so called WaveCatcher, shown in figure~\ref{chap3::fig::WaveCatcher}, has been developed by the \gls{lal} in Orsay and the \gls{irfu} in CEA-Saclay, and its features are detailed in~\cite{Breton2014}. The digitizer is connected to the acquisition PC via USB cable, and the data read-out and storage is performed thanks to a custom acquisition software.  The measurements are based on the coincidence detection of back-to-back 511~keV photons emitted by a $^{22}$Na radioactive source, in order to be able to compare the time response of the tested \gls{bgo} block to a reference fast timing scintillator. An external trigger is then provided to the WaveCatcher by treating the \gls{bgo} block and reference scintillator signals with logic coincidence \gls{nim} modules, after proper discrimination. Further details are given in section~\ref{chap3::subsubsec::absTimeMethod}.
 
 \begin{figure}
-\begin{subfigure}[t]{.5\textwidth}
+\begin{subfigure}[t]{.45\textwidth}
 \centering
 \includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Electronics_Acquisition/WaveCatcher.jpg}
 \caption{}
 \label{chap3::fig::WaveCatcher}
 \end{subfigure}
-\begin{subfigure}[t]{.5\textwidth}
+\begin{subfigure}[t]{.55\textwidth}
 \centering
 \includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images/coincidence_timing_scheme_complete.pdf}
 \caption{Scheme of the time response characterization test-bench.}
@@ -676,33 +740,38 @@ The characterized blocks shows very uniform results, with an average energy reso
 \textbf{Ref. block} & & &\\
 \textbf{7627} & \textbf{23}& \textbf{18}& \textbf{4.0}\\
 \midrule
+3126 & & & \\
 3166 & 27& 24& 4.4\\
+3171 & 23& 18& \\
 3184 & 24& 20& 4.3\\
+3232 & 24& 20& \\
+3263 & & & \\
+3280 & 24& 19& \\
+3322 & 25& 20& \\
+3972 & & & \\
 4368 & 25& 20& 5.3\\
+5243 & 25 & 19 & \\
+6823 & & & \\
+7130 & & & \\
+7218 & 25& 21& \\
+7240 & 25& 20& \\
 7258 & 26& 19& 4.9\\
+7369 & 23& 19& \\
+7424 & 25& 21& \\
 7581 & 26& 23& 4.1\\
+7586 & 26& 24& \\
 7601 & 24& 19& 4.1\\
 7612 & 23& 19& 4.1\\
 7651 & 24& 20& 3.9\\
+7657 & 24& 19& \\
 14676 & 25& 19& 5.1\\
-3232 & & & \\
-3171 & & & \\
-7424 & & & \\
-3322 & & & \\
-3280 & & & \\
+31210 & 25& 21& \\
+\midrule
 3375 & & & 1 pixel not found\\
-3263 & & & \\
-3126 & & & \\
-7369 & & & \\
-7240 & & & \\
-7657 & & & \\
+3252 & & & problem PM 0\\
 7244 & & & problem PM 2\\
 21097 & & & problem PM 2\\
 7253 & & & 1 pixel not found\\
-7130 & & & \\
-3972 & & & \\
-6823 & & & \\
-3252 & & & problem PM 0\\
 
 
 \midrule

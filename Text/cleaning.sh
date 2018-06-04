@@ -2,6 +2,13 @@
 
 echo Cleaning auxiliary compilation files
 
+rm *.acn
+rm *.acr
+rm *.alg
+rm *.glg
+rm *.glo
+rm *.gls
+rm *.ist
 rm *.aux
 rm *.log
 rm *.gz
