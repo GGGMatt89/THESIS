@@ -81,9 +81,13 @@ As mentioned in the previous paragraph, the main requirement for the scatterer d
 \item 15~ns \gls{fwhm} time resolution.
 \end{itemize} 
 
-The scatterer \gls{fe} card has been developed by the \gls{ipnl} electronics group in order to achieve these performance. It is composed of two well separated sections, analog and digital, which must be kept separated in the card layout in order to minimize the contribution of the digital noise on the treatment of the analog signals.  The required energy resolution corresponds to an \gls{enc} of 118 electrons \gls{rms}; a dedicated, custom \gls{asic} represents the core of the \gls{fe} card and has been developed to obtain this result~\parencite{Dahoumane2014}.\\
-   
-
+The scatterer \gls{fe} card has been developed by the \gls{ipnl} electronics group in order to achieve this performance. It is composed of two well separated sections, analog and digital, which must be kept separated in the card layout in order to minimize the contribution of the digital noise on the treatment of the analog signals. Moreover, in order to reduce the electronic noise, the analog section must be placed as close as possible to the detector, to minimize the signal path length.\\
+At first, a dedicated \gls{asic} has been designed and developed to treat the signals directly coming from the \gls{dssd}~\parencite{Dahoumane2014}. Each \gls{asic} 
+processes 8 detectors channels, so that 8 \gls{asic} per plane are required for the read-out of a complete silicon layer. This section represents the core of the analog stage. The \gls{asic} has been designed and tested to achieve the desired performance in terms of \gls{enc}, which must be lower than 118 electrons \gls{rms} in order to obtain the 1~keV \gls{fwhm} energy resolution, signal dynamics and accepted detection rate. The analog raw signal first passes through a \gls{csa}, which returns an analog amplified signal. This pulse can be further amplified with a \gls{shs} based on a \gls{cr-rc} filter, which filters and shapes the signal in about 1~\charmus, or via a fast amplifier (with 15~ns shaping time). The first mode is used for a refined charge (deposited energy) measurement and can be employed for detector tests and characterization, while the second is the standard working one which allows for fast energy and time measurements. The amplified signal finally passes through a discriminator, which gives a digital output. Analog (from \gls{csa} or \gls{shs}) and digital signals are then sent to the digital stage of the card for the measurement of time, position and energy. To be noticed \\
+The digital stage is mainly composed of one \gls{adc} module per \gls{asic} and two \glspl{fpga}. The analog signal from the \gls{asic} is processed by the \gls{adc}, which is a 12-bit module with 8 channels, with a sampling rate of 100~mpsp (Mega Samples Per Second). Each \gls{adc} returns 16 \gls{lvds} pairs (2 per channel), which are sent to the \glspl{fpga} together with two clock signals (two \gls{lvds} pairs) and the 8 digital outputs of the \gls{asic}. So, 44 input channels of the \gls{fpga} are used for the acquisition of 8 read-out channels (one \gls{asic}). Two \glspl{fpga} Altera Cyclone III~\parencite{Altera2012} are installed on the card to handle the signals coming from the whole detector (128 channels, 64 per detection plane): both of them are equipped with a \gls{tdc} for the time measurement.\\
+A third \gls{fpga} (Altera StratixII GX~\parencite{Altera2009}) is finally installed on the card to handle the processed data collection and the communication with the acquisition system, described in section~\ref{chap3::subsec::cameraElectronicsDAQ}, via a 3~Gbit/s link.\\
+The \gls{asic} has been developed in three versions, and the cards have been optimized during the development process and produced in its final version (shown in figure~\ref{chap3::fig::scattDAQcard}) in the spring 2017. The 7 cards are now available and the development of the \gls{fpga} firmware is ongoing.\\
+More details about the card layout, components and operating principle, as well as a description of the tests performed during the development can be found in~\cite{Chen2017} and~\cite{Dahoumane2012}.    
 
 \subsubsection{Scatterer thermal regulated box}\label{chap3::subsubsec::ScattThermBox}
 
@@ -92,11 +96,21 @@ A cooling system is needed for the silicon detectors operations: it must be able
 The implemented solution consists in the thermal regulated box shown in figure~\ref{chap3::fig::ScattPicture}, together with one of the silicon layers. The size of the box is 490$\times$490$\times$300~mm$^3$, and the structure is composed of 2~mm of aluminum and three insulation layers of 10~mm of silica aerogel Spaceloft\textsuperscript{\textregistered}~\parencite{Spaceloft2011}, for an equivalent thickness of 2~mm of silicon (0.7\% of interaction probability for 1~MeV photons). The cooling is performed via an electric air pump, which is able to keep the temperature inside the box at -20~\textdegree{}C with a 400~W haet evacuation power. The heat power produced by the 7 silicon \gls{fe} cards in operation must be verified, but the estimate confirms the effectiveness of the thermal box nominal performance. Once card and detector will be fully operational, a test will be performed to check the temperature stability inside the box.\\
 The 	\gls{fe} cards and the silicon layers are fixed inside the box via a mechanical support designed and produced by the \gls{ipnl} mechanics group. The support, which ensures a millimeter position accuracy, is fixed on metal rails which allow to easily handle each detector layer. A scheme of the thermal box and the internal support is shown in figure~\ref{chap3::fig::thermalBox}.
     
-\begin{figure} [!h]
+\begin{figure}
+\begin{subfigure}[t]{.5\textwidth}
 \centering
-\includegraphics[width=0.7\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Scatterer/Rack_cartes_Si_2.jpg}
+\includegraphics[width=1\textwidth, height = 5.7cm]{03_GraphicFiles/chapter3_CLaRySproto/Scatterer/DAQ_card.JPG}
+\caption{Final version of the scatterer \gls{fe} card with the silicon detector layer.}
+\label{chap3::fig::scattDAQcard}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth, trim={5cm 0 5cm 0}, clip = true, height = 5.7cm]{03_GraphicFiles/chapter3_CLaRySproto/Scatterer/Rack_cartes_Si_2.jpg}
 \caption{Scheme of the scatterer stack thermal box and internal mechanical support.}
 \label{chap3::fig::thermalBox}
+\end{subfigure}
+\caption{}
+\label{chap3::fig::scattererCardMech}
 \end{figure} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   COLLIMATOR  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -259,8 +273,8 @@ Each \gls{pm} is connected to a single custom \gls{fe} card. The hodoscope \gls{
 
 \subsubsection{Hodoscope Front-End card}\label{chap3::subsubsec::HodoFEcard}
 
-The hodoscope is designed to tag in space and time the incoming beam ions, so that the signal read-out must be optimized to provide accurate time measurements and an high detection rate acceptance, with reduced dead time and detection efficiency close to 100\%. In particular, the design requirements include a maximum counting rate acceptance of 10$^{8}$~Hz per detection plane, with a time resolution of 1~ns~\parencite{Krimmer2014}.  The hodoscope \gls{fe} card shown in figure~\ref{chap3::fig::HodoscopeFEcard} has been developed by the \gls{ipnl} electronics group to fulfill the listed requirements. The Hamamatsu \gls{pm} is connected to the 64-channel connector (4 connectors of 16 channels each) and two custom \glspl{asic} are dedicated to the data first treatment (32 channels each).        
- 
+The hodoscope is designed to tag in space and time the incoming beam ions, so that the signal read-out must be optimized to provide accurate time measurements and an high detection rate acceptance, with reduced dead time and detection efficiency close to 100\%. In particular, the design requirements include a maximum counting rate acceptance of 10$^{8}$~Hz per detection plane, with a time resolution of 1~ns~\parencite{Krimmer2014}.  The hodoscope \gls{fe} card shown in figure~\ref{chap3::fig::HodoscopeFEcard} has been developed by the \gls{ipnl} electronics group to fulfill the listed requirements. The Hamamatsu \gls{pm} is connected to the 64-channel connector (4 connectors of 16 channels each) and two custom \glspl{asic} are dedicated to the data first treatment (32 channels each).\\
+  
 \begin{figure}
 \begin{subfigure}[t]{.3\textwidth}
 \centering
@@ -278,8 +292,14 @@ The hodoscope is designed to tag in space and time the incoming beam ions, so th
 \label{chap3::fig::HodoPic}
 \end{figure}
 
-
-CARD DESCRIPTION \parencite{Deng2012, Deng2013}.
+A first version of the \gls{fe} \gls{asic} has been developed in 2012 by the group \gls{micrhau} for the read-out of 8 channels (designed for the 32$\times$32 fiber hodoscope prototype described in section~\ref{chap3::subsubsec::SmallHodoProto}). The input part is composed of a current conveyor, and the output one has two sections: a current discriminator and a charge pre-amplifier for the charge measurements in test mode~\parencite{Deng2012, Deng2013}. In addition, the \gls{asic} gain can be tuned channel by channel, so that the response of each \gls{pm} output channel can be fine tuned with respect to the others.\\
+The second version of the \gls{asic} includes all the features of the first version, with the addition of a \gls{tdc} based on a 160~MHz clock for a more accurate time tagging of the detected events. Moreover, a \gls{dll} is installed to divide the main clock in 32 intervals: for each event, the \gls{dll} state is stored in a 32 bit register and then encoded in a 5-bit Gray decoder. As a result, the \gls{tdc} has a 6.25~ns dynamics, with a sampling step of 195~ps and a time resolution of 58.8~ps \gls{rms}, for a maximum accepted rate of 10$^{8}$~Hz~\parencite{Deng2012b}.\\
+The third and final \gls{asic} version, called HODOPIC, is adapted to the big size hodoscope (512 read-out channels), with the extension to 32 channels and with the \gls{tdc} implemented on the second version. An external \gls{adc} is used for the charge measurement in test mode for a single channel, selected via slow control. All the \gls{asic} outputs are sent to a \gls{fpga} installed on the card for the actual time measurement and data decoding. The \gls{fpga} finally handles the data transmission to the acquisition system, depending on the card version.\\
+A first card has been developed to test the first \gls{asic} version with the 32$\times$32 fiber hodoscope. It is based on a \gls{fpga} Altera Cyclone III~\parencite{Altera2012} and on 9 \glspl{asic}, with a LabVIEW acquisition. A single card is enough for the read-out of the complete small hodoscope prototype. This first setup has been tested on beam at the \gls{ganil} and the \gls{hit}, and a sub-ns time resolution has been verified, together with the expected 1~mm spatial resolution on the two fiber planes and an efficiency of more then 90\% at a 10$^{6}$ acquisition rate.\\
+The second prototype of the card, shown in figure~\ref{chap3::fig::HodoscopeFEcard}, has been adapted to the 512-channel hodoscope described in the previous section and to the gamma camera acquisition system described in~\ref{chap3::subsec::cameraElectronicsDAQ}: each card has two HODOPIC \glspl{asic}, 32 channels each, so that it is designed for the read-out of a single 64-anode \gls{pm}. 8 cards are then needed for the read-out of the whole hodoscope. This version is based on a \gls{fpga} Altera StratixII GX~\parencite{Altera2009}, and the connection to the acquisition is ensured by a 3~Gbit/s optical link. 4 digital input-output channels are installed for test and validation purpose, together with an Ethernet port.\\
+Further details about the different card versions and the applied validation tests can be found in~\cite{Chen2017}.\\
+The hodoscope card firmware has been developed in 2017 and tested in simplified versions on beam, as detailed in chapter~\ref{chap::6}.
+           
 
 \subsubsection{Hodoscope mechanical support}\label{chap3::subsubsec::HodoMechanics}
 
