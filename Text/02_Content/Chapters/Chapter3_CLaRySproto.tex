@@ -592,7 +592,9 @@ It is worth to notice that the $^{60}$Co irradiation is useful for the pixel ide
 
 \subsubsection{Qualitative test of spatial reconstruction accuracy}\label{chap3::subsubsec::test_spatial_scan}
 
-Specific acquisitions have been devoted to the test of the block spatial accuracy potential. The detector is expected to be able to locate the collected interaction on the pseudo-pixel grid, but the possible sub-pixel accuracy can be tested with a collimated source scan of the block surface. The $^{60}$Co source has been employed for this purpose, with the linear aperture. The block has been placed on a moving table with no distance between its entrance surface and the collimator aperture. The whole surface have been irradiated with horizontal and vertical movements of 1~mm and 2~mm per step. The collected data have been calibrated with the factors obtained with the homogeneous $^{22}$Na irradiation, as explained in the previous section.
+Specific acquisitions have been devoted to the test of the block spatial accuracy potential. The detector is expected to be able to locate the collected interaction on the pseudo-pixel grid, but the possible sub-pixel accuracy can be tested with a collimated source scan of the block surface. The $^{60}$Co source has been employed for this purpose, with the linear aperture. The block has been placed on a moving table with no distance between its entrance surface and the collimator aperture. The whole surface have been irradiated with horizontal and vertical movements of 1~mm and 2~mm per step. The collected data have been calibrated with the factors obtained with the homogeneous $^{22}$Na irradiation, as explained in the previous section. The results are shown and qualitatively discussed in section~\ref{chap3::subsubsec::absBlockSpatialAcc}. 
+
+PUT ALSO POINT-LIKE SCAN ????
 
 \subsubsection{Pixel identification and energy calibration algorithm}\label{chap3::subsubsec::absPixel_ID_algo}
 An automatic algorithm has been developed to identify the block pseudo-pixel positions starting from the calibrated and reconstructed data. Starting from the integrated mono-dimensional spatial projections along the two axes obtained from the calibrated flood map, the distributions peaks and valleys are derived with the ROOT methods included in the TSpectrum class and simple analytic calculations. With the resulting valley positions, a grid is created on the flood map with a pixel-by-pixel center of gravity calculation: each grid portion should contain a single peak, corresponding to the center of the related pseudo-pixel. Spatial reconstruction artifacts can determine a non complete identification of the 64 pseudo-pixels, and the algorithm is able to check for errors of this kind. In case the identified valleys are less then seven on each axis (corresponding to a 8$\times$8 pseudo-pixel array), the projection of each identified region (rows and columns) on the two axis is created and re-analyzed looking for peaks and valleys as before. The values obtained for the rows and columns are compared and a new, fine-tuned grid is produced. This process can be iterated a given number of times if a complete grid is not obtained. Once the pseudo-pixels grid is fixed, the maximum of each region is automatically identified and its position defines the pseudo-pixel center relative position in the map. The event data are then assigned to the pseudo-pixels with the application of the following process. A new grid composed of the average points on the borders between pixels is created and the reconstructed event position is compared to each point of this map to identify the most likely pseudo-pixel. This is done by calculating the minimal distance between a column and a row average point with respect to the reconstructed event and then calculating two external products, between the vector connecting the reconstructed point and closest column (row) average point and the vector connecting this average point to the previous or next one on the same column (row). The sign of the products defines the column (row) where to assign the interaction. 
@@ -686,32 +688,35 @@ Figures~\ref{chap3::fig::absraw_floodMap} and~\ref{chap3::fig::abscal_floodMap} 
 
 As shown by Figures~\ref{chap3::fig::absPM_amp} to~\ref{chap3::fig::absFloodMap}, the \gls{pm} gain equalization performed in this first calibration step is mandatory to optimize the spatial and energy response of the tested block. \figurename~\ref{chap3::fig::abssingleAxisCalProfile} highlights the better definition of the pseudo-pixels ensured by the gain equalization: the peak-to-valley ratio is increased, in particular for the most external pixels. The spatial response improvement is also reflected in a better energy response, as shown in \figurename~\ref{chap3::fig::absCal_Espectrum}, where the two energy peaks of the $^{22}$Na source are more narrow with respect to the ones obtained with the raw data. The obtained energy response is still not satisfactory, and the next steps of the calibration process are dedicated to the improvement of this result. The flood map in \figurename~\ref{chap3::fig::abscal_floodMap} shows how the gain equalization and the offset tuning allow to arrange the position map over the whole block surface; the borders are better defined and the pseudo-pixels on the block limits (especially on the corner) are better separated. 
 
+
+\subsubsection{Results: block spatial accuracy}\label{chap3::subsubsec::absBlockSpatialAcc}
+
 \begin{figure}
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
 \includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_2mm/run8_floodMap.pdf}
-\caption{}
+\caption{Aperture center relative X position: \\ -0.675}
 \label{chap3::fig::scan_map1}
 \end{subfigure}
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
 \includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_2mm/run9_floodMap.pdf}
-\caption{}
+\caption{Aperture center relative X position: \\ -0.560}
 \label{chap3::fig::scan_map2}
 \end{subfigure}\newline
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
 \includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_2mm/run10_floodMap.pdf}
-\caption{}
+\caption{Aperture center relative X position: \\ -0.445}
 \label{chap3::fig::scan_map3}
 \end{subfigure}
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
 \includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_2mm/run11_floodMap.pdf}
-\caption{}
+\caption{Aperture center relative X position: \\ -0.330}
 \label{chap3::fig::scan_map4}
 \end{subfigure}
-\caption{2D reconstructed position maps during a 2-mm step scan performed with the $^{60}$Co source with the line aperture from the left to the right size of the block surface. 4 reference measurements points.}
+\caption{2D reconstructed position maps during a 2-mm step scan performed with the $^{60}$Co source with the line aperture from the left to the right size of the block surface. 4 reference measurements points, the position of the aperture is shown by the semi-transparent yellow band.}
 \label{chap3::fig::ScanFloodMap}
 \end{figure}
 
@@ -719,28 +724,28 @@ As shown by Figures~\ref{chap3::fig::absPM_amp} to~\ref{chap3::fig::absFloodMap}
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
 \includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_2mm_vert/run12_floodMap.pdf}
-\caption{}
+\caption{Aperture center relative Y position: \\ -0.100}
 \label{chap3::fig::scan_map1_vert}
 \end{subfigure}
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
 \includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_2mm_vert/run13_floodMap.pdf}
-\caption{}
+\caption{Aperture center relative Y position: \\ 0.015}
 \label{chap3::fig::scan_map2_vert}
 \end{subfigure}\newline
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
 \includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_2mm_vert/run14_floodMap.pdf}
-\caption{}
+\caption{Aperture center relative Y position: \\ 0.130}
 \label{chap3::fig::scan_map3_vert}
 \end{subfigure}
 \begin{subfigure}[t]{0.5\textwidth}
 \centering
 \includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_2mm_vert/run15_floodMap.pdf}
-\caption{}
+\caption{Aperture center relative Y position: \\ 0.245}
 \label{chap3::fig::scan_map4_vert}
 \end{subfigure}
-\caption{2D reconstructed position maps during a 2-mm step scan performed with the $^{60}$Co source with the line aperture from the bottom to the top side of the block surface. 4 reference measurements points.}
+\caption{2D reconstructed position maps during a 2-mm step scan performed with the $^{60}$Co source with the line aperture from the bottom to the top side of the block surface. 4 reference measurements points, the position of the aperture is shown by the semi-transparent yellow band.}
 \label{chap3::fig::ScanFloodMap_Vert}
 \end{figure}
 
@@ -752,61 +757,61 @@ In order to further confirm these results, a scan with reduced step size (1~mm) 
 \centering
 \begin{subfigure}[t]{0.32\textwidth}
 \centering
-\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/map_run14.pdf}
-\caption{}
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/run00014_floodMap.pdf}
+\caption{Aperture center relative X position: \\ -0.400}
 \label{chap3::fig::scan_map1_1mm}
 \end{subfigure}
 \begin{subfigure}[t]{0.32\textwidth}
 \centering
-\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/map_run15.pdf}
-\caption{}
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/run00015_floodMap.pdf}
+\caption{Aperture center relative X position: \\ -0.342}
 \label{chap3::fig::scan_map2_1mm}
 \end{subfigure}
 \begin{subfigure}[t]{0.32\textwidth}
 \centering
-\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/map_run16.pdf}
-\caption{}
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/run00016_floodMap.pdf}
+\caption{Aperture center relative X position: \\ -0.285}
 \label{chap3::fig::scan_map3_1mm}
 \end{subfigure}
 \newline
 \begin{subfigure}[t]{0.32\textwidth}
 \centering
-\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/map_run17.pdf}
-\caption{}
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/run00017_floodMap.pdf}
+\caption{Aperture center relative X position: \\ -0.227}
 \label{chap3::fig::scan_map4_1mm}
 \end{subfigure}
 \begin{subfigure}[t]{0.32\textwidth}
 \centering
-\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/map_run18.pdf}
-\caption{}
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/run00018_floodMap.pdf}
+\caption{Aperture center relative X position: \\ -0.170}
 \label{chap3::fig::scan_map5_1mm}
 \end{subfigure}
 \begin{subfigure}[t]{0.32\textwidth}
 \centering
-\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/map_run19.pdf}
-\caption{}
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/run00019_floodMap.pdf}
+\caption{Aperture center relative X position: \\ -0.112}
 \label{chap3::fig::scan_map6_1mm}
 \end{subfigure}
 \newline
 \begin{subfigure}[t]{0.32\textwidth}
 \centering
-\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/map_run20.pdf}
-\caption{}
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/run00020_floodMap.pdf}
+\caption{Aperture center relative X position: \\ -0.055}
 \label{chap3::fig::scan_map7_1mm}
 \end{subfigure}
 \begin{subfigure}[t]{0.32\textwidth}
 \centering
-\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/map_run21.pdf}
-\caption{}
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/run00021_floodMap.pdf}
+\caption{Aperture center relative X position: \\ 0.003}
 \label{chap3::fig::scan_map8_1mm}
 \end{subfigure}
 \begin{subfigure}[t]{0.32\textwidth}
 \centering
-\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/map_run22.pdf}
-\caption{}
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/run00022_floodMap.pdf}
+\caption{Aperture center relative X position: \\ 0.061}
 \label{chap3::fig::scan_map9_1mm}
 \end{subfigure}
-\caption{2D reconstructed position maps during a 1-mm step scan performed with the $^{60}$Co source with the line aperture. 9 reference measurements points.}
+\caption{2D reconstructed position maps during a 1-mm step scan performed with the $^{60}$Co source with the line aperture. 9 reference measurements points, the position of the aperture is shown by the semi-transparent yellow band.}
 \label{chap3::fig::ScanFloodMap_1mm}
 \end{figure}
 
