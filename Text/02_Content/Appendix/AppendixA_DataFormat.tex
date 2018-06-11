@@ -1,5 +1,10 @@
 \chapter{Compton camera data format}\label{chap::appA}
 
+\glsresetall
+
+\glsunset{asm}
+
+
 \section{Introduction}\label{chapappA::sec::Intro}
 
 This document aims to formalize and fix the Compton camera data format. The structure of the data sent by each detector section (scatterer, absorber and beam hodoscope) to the acquisition card is detailed, as well as the structure of the events sent to the acquisition PC.
@@ -10,9 +15,9 @@ This document aims to formalize and fix the Compton camera data format. The stru
 
 \subsection{Common information}\label{chapappA::subsec::cmnInfo}
 
-The detector Front End cards are connected to the \charmu-TCA via optical links, with a speed of 3.0 Gbit/s. The transfer frequency is 150 MHz.\newline
-All the Front End card TDCs share the same synchronized clock, at a 40 MHz frequency, which is sent to the cards through an external link.\newline
-Every data packet sent to the \charmu-TCA by the Front End cards starts with the following information:
+The detector \gls{fe} cards are connected to the \gls{utca} via optical links, with a speed of 3.0~Gbit/s. The transfer frequency is 150~MHz.\newline
+All the \gls{fe} card \glspl{tdc} share the same synchronized clock, at a 40~MHz frequency, which is sent to the cards through an external link.\newline
+Every data packet sent to the \gls{utca} by the Front End cards starts with the following information:
 \begin{itemize}
 	\item N$^{\circ}$ Front End (8 bits);
 	\item N$^{\circ}$ Trigger (24 bits);
@@ -22,11 +27,10 @@ Every data packet sent to the \charmu-TCA by the Front End cards starts with the
 
 \subsubsection{Front End number}\label{chapappA::subsubsec::FEnum}
 
-The Front End number is the identification code of each Front End card. A mechanical switch on the card defines the ID which is sent in the data packet header.
+The \gls{fe} number is the identification code of each \gls{fe} card. A mechanical switch on the card defines the ID which is sent in the data packet header.
 \newline
-In \tablename~\ref{tab::FE_numbers} the Front End number IDs are listed with the corresponding cards.
+In \tablename~\ref{chapappA::tab::FE_numbers} the \gls{fe} number IDs are listed with the corresponding cards.
 
-%\definecolor{Gray}{gray}{0.9}
 \begin{table}[!htbp]
 \centering
 \caption{Front End number associated to each Front End card.}
@@ -34,7 +38,7 @@ In \tablename~\ref{tab::FE_numbers} the Front End number IDs are listed with the
 \begin{tabular}{P{2cm} P{3cm}}
 \toprule
 \rowcolor{myColorMainA!20} 
-\textbf{FE number} 	& \textbf{FE card}\\
+\textbf{\gls{fe} number} 	& \textbf{\gls{fe} card}\\
 \midrule
 0			&	All detectors \\
 \midrule
@@ -49,22 +53,22 @@ In \tablename~\ref{tab::FE_numbers} the Front End number IDs are listed with the
 9        	&	Silicon 9	\\
 10			&	Silicon 10\\
 \midrule
-11			&	ASM 1\\
-12			&	ASM 2\\
-13			&	ASM 3\\
-14			&	ASM 4\\
-15			&	ASM 5\\
-16			&	ASM 6\\
-17			&	ASM 7\\
-18			&	ASM 8\\
-19			&	ASM 9\\
-20			&	ASM 10\\
-21			&	ASM 11\\
-22			&	ASM 12\\
-23			&	ASM 13\\
-24			&	ASM 14\\
-25			&	ASM 15\\
-26			&	ASM 16\\
+11			&	\gls{asm} 1\\
+12			&	\gls{asm} 2\\
+13			&	\gls{asm} 3\\
+14			&	\gls{asm} 4\\
+15			&	\gls{asm} 5\\
+16			&	\gls{asm} 6\\
+17			&	\gls{asm} 7\\
+18			&	\gls{asm} 8\\
+19			&	\gls{asm} 9\\
+20			&	\gls{asm} 10\\
+21			&	\gls{asm} 11\\
+22			&	\gls{asm} 12\\
+23			&	\gls{asm} 13\\
+24			&	\gls{asm} 14\\
+25			&	\gls{asm} 15\\
+26			&	\gls{asm} 16\\
 \midrule
 27			&   Hodoscope 1\\
 28			&	Hodoscope 2	\\
@@ -75,22 +79,23 @@ In \tablename~\ref{tab::FE_numbers} the Front End number IDs are listed with the
 33        	&	Hodoscope 7	\\
 34			&	Hodoscope 8	\\
 \midrule
-99 			&  \charmu-TCA\\
+99 			&  \gls{utca}\\
 \bottomrule
 \end{tabular}
 \end{table}
 
+\glsreset{asm}
 
 \subsubsection{Pre-trigger and trigger}\label{chapappA::subsubsec::trigger}
 
-The trigger number identifies each event, where an event is generated every time a coincidence is detected between a BGO block and a silicon layer. Once an interaction is detected in a BGO block, the associated ASM card generates a pre-trigger signal which is sent to the THOR card. This intermediate card shares the pre-trigger signal with the silicon FE cards; if an interaction with a compatible time stamp is found in one of the silicon layer, a trigger signal is generated and sent to all the silicon FE card, as well as to the ASM and hodoscope cards via the THOR card. The trigger signal validates the event, and each FE card sends the collected data to the \charmu-TCA system. The trigger number allows for a complete event reconstruction by the event builder on the acquisition PC. In \figurename~\ref{fig::triggerGeneration} the trigger generation process is sketched.\newline
-To be noticed that each FE cards sends the collected data independently from the others.\newline
+The trigger number identifies each event, where an event is generated every time a coincidence is detected between a \gls{bgo} block and a silicon layer. Once an interaction is detected in a \gls{bgo} block, the associated \gls{asm} card generates a pre-trigger signal which is sent to the \gls{thor} card. This intermediate card shares the pre-trigger signal with the silicon \gls{fe} cards; if an interaction with a compatible time stamp is found in one of the silicon layer, a trigger signal is generated and sent to all the silicon \gls{fe} card, as well as to the \gls{asm} and hodoscope cards via the \gls{thor} card. The trigger signal validates the event, and each \gls{fe} card sends the collected data to the \gls{utca} system. The trigger number allows for a complete event reconstruction by the event builder on the acquisition PC. In \figurename~\ref{chapappA::fig::triggerGeneratio} the trigger generation process is sketched.\newline
+To be noticed that each \gls{fe} cards sends the collected data independently from the others.\newline
 
 
 \underline{Trigger and pre-trigger encoding}\newline
 
-Pre-trigger and trigger signals are used by all the detectors to select the collected data to be sent to the acquisition system. The data selection and transfer must be as fast as possible in order to minimize the trigger latency and camera dead time. In order to reduce the transmission time, pre-trigger and trigger signals have been encoded on 24 bits.\newline
-This same trigger number is sent at the beginning of each data packet and is used by the event builder to associate the interactions collected by the three detector sections. With a 24-bit encoding, the trigger number is reset every 1 ns $\times \mathrm{2^{24}} =$ 16,78 ms. This time window is short for the event builder, so that for the physical data it is extended to 32 bits for all the FE cards in order to have a reset every 1 ns $\times \mathrm{2^{32}} =$ 4,2 s, which is enough for the reconstruction of the events.
+Pre-trigger and trigger signals are used by all the detectors to select the collected data to be sent to the acquisition system. The data selection and transfer must be as fast as possible in order to minimize the trigger latency and camera dead time. In order to reduce the transmission time, pre-trigger and trigger signals have been encoded on 24~bits.\newline
+This same trigger number is sent at the beginning of each data packet and is used by the event builder to associate the interactions collected by the three detector sections. With a 24-bit encoding, the trigger number is reset every 1 ns $\times \mathrm{2^{24}} =$ 16,78~ms. This time window is short for the event builder, so that for the physical data it is extended to 32~bits for all the \gls{fe} cards in order to have a reset every 1~ns $\times \mathrm{2^{32}} =$ 4,2~s, which is enough for the reconstruction of the events.
 
 
 %\begin{landscape}
@@ -103,26 +108,26 @@ This same trigger number is sent at the beginning of each data packet and is use
 \begin{subfigure}[b]{0.5\textwidth}
  \centering
 \includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_1.pdf}
-\caption[Signal detection on one ASM card and logical signal sent to the THOR card.]{An ASM card detects an interaction and sends a logical signal to the THOR card.}
+\caption[Signal detection on one \gls{asm} card and logical signal sent to the \gls{thor} card.]{An \gls{asm} card detects an interaction and sends a logical signal to the \gls{thor} card.}
 \label{chapappA::subfig::triggerLogic_1}
 \end{subfigure}%
 \begin{subfigure}[b]{0.5\textwidth}
  \centering
 \includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_2.pdf}
-\caption[Pre-trigger generation in the THOR card.]{The THOR card generates the pre-trigger signal.}
+\caption[Pre-trigger generation in the \gls{thor} card.]{The \gls{thor} card generates the pre-trigger signal.}
 \label{chapappA::subfig::triggerLogic_2}
 \end{subfigure}%
 \newline
 \begin{subfigure}[b]{0.5\textwidth}
  \centering
 \includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_3.pdf}
-\caption[Pre-trigger sent to the 10 silicon FE cards.]{The pre-trigger is sent to the 10 silicon FE cards.}
+\caption[Pre-trigger sent to the 10 silicon \gls{fe} cards.]{The pre-trigger is sent to the 10 silicon \gls{fe} cards.}
 \label{chapappA::subfig::triggerLogic_3}
 \end{subfigure}%
 \begin{subfigure}[b]{0.5\textwidth}
  \centering
 \includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_4.pdf}
-\caption[A single silicon FE card generates the trigger.]{A single silicon FE card generates the trigger.}
+\caption[A single silicon \gls{fe} card generates the trigger.]{A single silicon \gls{fe} card generates the trigger.}
 \label{chapappA::subfig::triggerLogic_4}
 \end{subfigure}%
 \newline
@@ -134,7 +139,7 @@ This same trigger number is sent at the beginning of each data packet and is use
 \begin{subfigure}[b]{0.5\textwidth}
  \centering
 \includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_6.pdf}
-\caption[The detectors send the collected data to the \charmu-TCA.]{The detectors send the collected data to the \charmu-TCA.}\label{chapappA::subfig::triggerLogic_6}
+\caption[The detectors send the collected data to the \gls{utca}.]{The detectors send the collected data to the \gls{utca}.}\label{chapappA::subfig::triggerLogic_6}
 \end{subfigure}%
 \caption{Data acquisition logic: pre-trigger and trigger generation and readout process.}
 \label{chapappA::fig::triggerGeneration}
@@ -151,8 +156,8 @@ The operating mode are identified as following: \newline
 	\item N$^{\circ}$ Mode = 2 : $2^{\mathrm{nd}}$ mode for silicon
 	\item N$^{\circ}$ Mode = 3 : $3^{\mathrm{rd}}$ mode for silicon
 	\item N$^{\circ}$ Mode = 4 : $4^{\mathrm{th}}$ mode for silicon
-	\item N$^{\circ}$ Mode = 5 : $1^{\mathrm{st}}$ mode for BGO
-	\item N$^{\circ}$ Mode = 6 : $2^{\mathrm{nd}}$ mode for BGO
+	\item N$^{\circ}$ Mode = 5 : $1^{\mathrm{st}}$ mode for \gls{bgo}
+	\item N$^{\circ}$ Mode = 6 : $2^{\mathrm{nd}}$ mode for \gls{bgo}
 	\item N$^{\circ}$ Mode = 7 : $1^{\mathrm{st}}$ mode for hodoscope
 	\item N$^{\circ}$ Mode = 8 : $2^{\mathrm{nd}}$ mode for hodoscope.\newline
 \end{itemize}
@@ -168,11 +173,11 @@ The operating mode are identified as following: \newline
 
 \subsection{Scatterer detector data format}\label{chapappA::subsec::scattDataFormat}
 
-Four different data formats, corresponding to four working modes, have been defined for the silicon scatterer operation (figure 2). For mode 1 and 2, the collected total charge is directly evaluated on the FE card via the slow shaper output and one ASIC, while for mode 3 and 4 the ASIC pre-amplifier output directly sends a sampling of the raw signal.  In this last case, the number of samples can be tuned and each sample corresponds to 10 ns.The complete sampling is stored in a dedicated buffer (see table 9).\newline\newline
+Four different data formats, corresponding to four working modes, have been defined for the silicon scatterer operation (\figurename~\ref{chapappA::fig::scattDataForm}). For mode 1 and 2, the collected total charge is directly evaluated on the \gls{fe} card via the slow shaper output and one \gls{asic}, while for mode 3 and 4 the \gls{asic} pre-amplifier output directly sends a sampling of the raw signal.  In this last case, the number of samples can be tuned and each sample corresponds to 10 ns. The complete sampling is stored in a dedicated buffer.\newline\newline
 \underline{Modes 1 and 3}\newline
 In mode 1 and 3, for each detector strip involved in the interaction, the strip ID, total collected charge and time are stored. The interaction position will be calculated via a center of gravity algorithm at the analysis stage. The raw information about the number of involved strips is useful for the evaluation of the signal dispersion in the detector.\newline
 \underline{Modes 2 and 4}\newline
-In mode 2 and 4, the interaction is calculated on the FE card and the number of involved strip is then not stored.\newline
+In mode 2 and 4, the interaction is calculated on the \gls{fe} card and the number of involved strip is then not stored.\newline
 
 \begin{figure}[htbp]
 \centering
@@ -318,8 +323,8 @@ In mode 2 and 4, the interaction is calculated on the FE card and the number of 
 \end{figure}
 
 \subsection{Absorber detector data format}\label{chapappA::subsec::absDataFormat}
-The BGO block readout is performed via the ASM cards. Each card is equipped with 24 input ports (signal PM), corresponding to 6 BGO blocks. Two possible working modes have been defined for the BGO absorber: the collected total charge and time are evaluated on the card, or the PM raw signals are sampled and the sampling is sent to the acquisition (figure 3). Charge and time are then calculated at the analysis stage. This second operating mode can be useful in the test phase but it determines a low acquisition rate, so that it can be used only at low beam intensity.\newline
-The complete sampling is stored in a dedicated buffer (see table 9).
+The \gls{bgo} block readout is performed via the \gls{asm} cards. Each card is equipped with 24 input ports (signal \gls{pm}), corresponding to 6 \gls{bgo} blocks. Two possible working modes have been defined for the \gls{bgo} absorber: the collected total charge and time are evaluated on the card, or the \gls{pm} raw signals are sampled and the sampling is sent to the acquisition (\figurename~\ref{chapappA::fig::absDataForm}). Charge and time are then calculated at the analysis stage. This second operating mode can be useful in the test phase but it determines a low acquisition rate, so that it can be used only at low beam intensity.\newline
+The complete sampling is stored in a dedicated buffer.
 
 \begin{figure}[htbp]
 \centering
@@ -439,9 +444,9 @@ The complete sampling is stored in a dedicated buffer (see table 9).
 \end{figure}
 
 \subsection{Beam hodoscope data format}\label{chapappA::subsec::hodoDataFormat}
-The beam tagging hodoscope is composed of two perpendicular planes of 128 scintillating fibers each. Each fiber is read-out on the two sides, for a total of  512 read-out channels. The output signals are send via optical fibers to 8 64-channel PM H8500 by Hamamatsu. 8 FE cards have been developed for the signal collection, one per PM, and are equipped with two custom ASICs (32 channels each) and one FPGA.\newline
-Concerning the \enquote{optimal} mode (1$^{\mathrm{st}}$ operating mode for the hodoscope), the only collected information are the ID of the involved fibers and the interaction time. The ASICs allow for a minimum time resolution of 10 ns; this means that if two particles interacts in the hodoscope within a 10 ns window, they will be considered as part of a single event.\newline
-In test mode, the total collected charge can be calculated. This feature is useful to evaluate the detector aging effect due to radiation exposure. The charge measurement is anyway limited to a single channel per ASIC, so to two channels per PM. The ASIC channel able to measure the charge is identified as "N$^{\circ}$ Fiber charge 1" and "N$^{\circ}$ Fiber charge 2".
+The beam tagging hodoscope is composed of two perpendicular planes of 128 scintillating fibers each. Each fiber is read-out on the two sides, for a total of  512 read-out channels. The output signals are send via optical fibers to 8 64-channel \glspl{pm} H8500 by Hamamatsu. 8 \gls{fe} cards have been developed for the signal collection, one per \gls{pm}, and are equipped with two custom \glspl{asic} (32 channels each) and one \gls{fpga}.\newline
+Concerning the \enquote{optimal} mode (1$^{\mathrm{st}}$ operating mode for the hodoscope), the only collected information are the ID of the involved fibers and the interaction time. The \glspl{asic} allow for a minimum time resolution of 10 ns; this means that if two particles interacts in the hodoscope within a 10 ns window, they will be considered as part of a single event.\newline
+In test mode, the total collected charge can be calculated. This feature is useful to evaluate the detector aging effect due to radiation exposure. The charge measurement is anyway limited to a single channel per \gls{asic}, so to two channels per \gls{pm}. The \gls{asic} channel able to measure the charge is identified as "N$^{\circ}$ Fiber charge 1" and "N$^{\circ}$ Fiber charge 2".
 
 \begin{figure}[htbp]
 \centering
@@ -547,7 +552,7 @@ The Endpoint architecture is composed of three layers:
 
 	\begin{figure} [!hbtp]
 	\centering
-	\caption{Architecture of communication between DAQ cards and \charmu-TCA.}
+	\caption{Architecture of communication between DAQ cards and \gls{utca}.}
 	\label{chapappA::fig::commDAQuTCA}
 	\includegraphics[width=1\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_uTCAImage.pdf}
 	\end{figure}
@@ -622,7 +627,7 @@ If the cargo contains an odd number of bytes, the packet ends without any contro
 
 \subsubsection{Possible control symbols}\label{chapappA::subsubsec::ctrlSymbols}
 
-In the following table, all the possible control symbols are listed (defined by Carlos Abellan).
+In \tablename~\ref{chapappA::tab::ControlSymbol}, all the possible control symbols are listed (defined by Carlos Abellan).
 
 \begin{table} [!htbp]
 \centering
@@ -657,7 +662,7 @@ In the following table, all the possible control symbols are listed (defined by 
 This kind of packet is used to check the link and for the control/command operations.
 \begin{itemize}
 \item For the link check, two kinds of packets are used: synchronization packet and IDLE packet.
-\item For the control/command operations, here are some examples: register configuration,  FPGA dynamical programming, monitoring, etc.\newline
+\item For the control/command operations, here are some examples: register configuration,  \gls{fpga} dynamical programming, monitoring, etc.\newline
 \end{itemize}
 
 \underline{Control symbol for control} :
@@ -683,9 +688,9 @@ This kind of packet is used to check the link and for the control/command operat
 \end{table}
 
 
-\underline{Acknowledgement packet (Front End cards $\rightarrow$ \charmu-TCA)}\newline
+\underline{Acknowledgement packet (Front End cards $\rightarrow$ \gls{utca})}\newline
 
-This packet is sent by the FE cards and interpreted as an acknowledgement by the \charmu-TCA. If a part is missing, it is set to zero.
+This packet is sent by the \gls{fe} cards and interpreted as an acknowledgement by the \gls{utca}. If a part is missing, it is set to zero.
 \begin{itemize}
 	\item If 0 = validation
 	\item If 1 = problem detected
@@ -712,9 +717,9 @@ This packet is sent by the FE cards and interpreted as an acknowledgement by the
 
 \subsubsection{Configuration packets}\label{chapappA::subsubsec::confPackets}
 
-\underline{Writing register process (\charmu-TCA $\rightarrow$ Front End cards)}\newline
+\underline{Writing register process (\gls{utca} $\rightarrow$ Front End cards)}\newline
 
-The process starts with a packet sent by the \charmu-TCA asking for the register writing. The receiver (FE card) sends back an acknowledgement packet to finish the process. In the following table the format of this writing register packet is reported.
+The process starts with a packet sent by the \gls{utca} asking for the register writing. The receiver (\gls{fe} card) sends back an acknowledgement packet to finish the process. In \tablename~\ref{chapappA::tab::WriteRegister} the format of this writing register packet is reported.
 
 \begin{table} [!htbp]
 \centering
@@ -739,11 +744,11 @@ N+4				 & \multicolumn{2}{M{5cm}}{CRC composed of the \enquote{xor} of all bits 
 \end{table}
 
 
-\underline{Reading register process (\charmu-TCA $\rightarrow$ Front End cards)}\newline
+\underline{Reading register process (\gls{utca} $\rightarrow$ Front End cards)}\newline
 
-The process starts with a packet sent by the \charmu-TCA asking for the register reading. The receiver (FE card) sends back the \enquote{measure packet} (Table 10) if the command is correct, an acknowledgement packet if it is not.\newline
-At the beginning of the slow control, the physical addresses on the FE cards are read at the address 0 (Table 9).\newline
-In the following table the format of this reading register packet is reported.
+The process starts with a packet sent by the \gls{utca} asking for the register reading. The receiver (\gls{fe} card) sends back the \enquote{measure packet} if the command is correct, an acknowledgement packet if it is not.\newline
+At the beginning of the slow control, the physical addresses on the \gls{fe} cards are read at the address 0.\newline
+In \tablename~\ref{chapappA::tab::readRegPacket} the format of this reading register packet is reported.
 
 \begin{table} [!htbp]
 \centering
@@ -767,7 +772,7 @@ In the following table the format of this reading register packet is reported.
 
 \begin{table} [!htbp]
 \centering
-\caption{Two special registers(\charmu-TCA $\rightarrow$  Front End cards)}
+\caption{Two special registers(\gls{utca} $\rightarrow$  Front End cards)}
 \label{chapaapA::tab::twoSpecReg}
 \begin{tabular}{m{1.5cm} M{5.25cm} M{5.25cm} }
 \toprule
@@ -776,11 +781,11 @@ In the following table the format of this reading register packet is reported.
 \midrule
 0				&	Front End number		&  No writing rights: register in read-only mode. Hard coded on DAQ card.\\
 \cmidrule{2-3}
-1				&    It defines the working modes (Table 1)  & Optimal mode, test mode, collimated camera mode, Compton camera mode, individual detector section test. It is possible to write in the register.  \\
+1				&    It defines the working modes & Optimal mode, test mode, collimated camera mode, Compton camera mode, individual detector section test. It is possible to write in the register.  \\
 \cmidrule{2-3}
 2				& It defines the detector to test (in single detector test mode)		& Scatterer, absorber, hodoscope.\\
 \cmidrule{2-3}
-3 				& BGO number of sampling		& For test mode with the BGO blocks signal sampling.\\
+3 				& \gls{bgo} number of sampling		& For test mode with the \gls{bgo} blocks signal sampling.\\
 \cmidrule{2-3}
 4				& Silicon number of sampling	& For test mode with the silicon layers signal sampling.\\
 \bottomrule
@@ -790,7 +795,7 @@ In the following table the format of this reading register packet is reported.
 
 \begin{table} [!htbp]
 \centering
-\caption{Measurement packet (Front End cards $\rightarrow$ \charmu-TCA)}
+\caption{Measurement packet (Front End cards $\rightarrow$ \gls{utca})}
 \label{chapappA::tab::measPacket}
 \begin{tabular}{m{1.5cm} M{2cm} M{3cm} M{5.5cm}}
 \toprule
@@ -811,9 +816,9 @@ N+4				 & \multicolumn{2}{M{5cm}}{CRC composed of the \enquote{xor} of all bits 
 \end{table}
 
 
-\subsubsection{Monitoring process (Front End cards $\rightarrow$ \charmu-TCA)}\label{chapappA::subsubsec::monitorProcess}
+\subsubsection{Monitoring process (Front End cards $\rightarrow$ \gls{utca})}\label{chapappA::subsubsec::monitorProcess}
 
-In case of issues, for example when the temperature of a card go beyond a fixed threshold, the DAQ card sends a \enquote{monitoring} packet to the \charmu-TCA. There is not a corresponding acknowledgement from the \charmu-TCA.\newline
+In case of issues, for example when the temperature of a card go beyond a fixed threshold, the DAQ card sends a \enquote{monitoring} packet to the \gls{utca}. There is not a corresponding acknowledgement from the \gls{utca}.\newline
 
 
 \begin{table} [!htbp]
@@ -825,9 +830,9 @@ In case of issues, for example when the temperature of a card go beyond a fixed 
 \rowcolor{myColorMainA!20}
 \textbf{Word}  			& 	\textbf{1$\mathrm{^{st}}$ byte}	& \textbf{2$\mathrm{^{nd}}$ byte} & \textbf{Comment} \\
 \midrule
-	1				&	K.28.4.		& Front End number + 1 parity bit & Message in \tablename~\ref{tab::monitoringMess}.\\
+	1				&	K.28.4.		& Front End number + 1 parity bit & Message in \tablename~\ref{chapappA::tab::monitoringMess}.\\
 \cmidrule{2-4}
-	2				&	 \multicolumn{2}{M{5cm}}{15 bits for the message + 1 parity bit} 	& Message in \tablename~\ref{tab::monitoringMess}.\\
+	2				&	 \multicolumn{2}{M{5cm}}{15 bits for the message + 1 parity bit} 	& Message in \tablename~\ref{chapappA::tab::monitoringMess}.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -843,7 +848,7 @@ In case of issues, for example when the temperature of a card go beyond a fixed 
 \midrule
 				&						& \multicolumn{6}{M{5.cm}}{Message type} & \multicolumn{3}{M{2.4cm}}{Further information} & \\
 \cmidrule{3-11}
-1				&	FPGA reconfiguration error 			&0&0&	0	& 0&0&1&0&0&0& N/A	\\
+1				&	\gls{fpga} reconfiguration error 			&0&0&	0	& 0&0&1&0&0&0& N/A	\\
 \cmidrule{3-11}
 2				&	Tem\-pe\-ra\-tu\-re alarm 			&0&0&	0	& 0&1&0&x&x&x& Bit \enquote{x} is 1 if the corresponding detector goes beyond the threshold (0 elsewhere)\\
 \cmidrule{3-11}
@@ -855,9 +860,9 @@ In case of issues, for example when the temperature of a card go beyond a fixed 
 \end{table}
 
 
-\subsubsection{Special command process (\charmu-TCA $\rightarrow$ Front End cards)}\label{chapappA::subsec::specCmdProcess}
+\subsubsection{Special command process (\gls{utca} $\rightarrow$ Front End cards)}\label{chapappA::subsec::specCmdProcess}
 
-This process is designed to allow the \charmu-TCA to send special commands to the FE cards.
+This process is designed to allow the \gls{utca} to send special commands to the \gls{fe} cards.
 
 \begin{table} [!htbp]
 \centering
@@ -888,15 +893,15 @@ This process is designed to allow the \charmu-TCA to send special commands to th
 	2				&	Counter reset			& "0000 0000 0001  000"  	& Acknowledgement packet needed \\
 	3				&	Start run					& "0000 0000 0000  100"  	& Acknowledgement packet needed\\
 	4				&	Stop run					& "0000 0000 0000  101" 	& Acknowledgement packet needed\\
-	5				&	Dynamical FPGA configuration		& "0000 0000 0000  010" 	& Acknowledgement packet needed\\
-	6				&	Veto						& "0000 0000 0000  011" 	& Example: \charmu-TCA cannot receive the data. Acknowledgement packet needed\\
+	5				&	Dynamical \gls{fpga} configuration		& "0000 0000 0000  010" 	& Acknowledgement packet needed\\
+	6				&	Veto						& "0000 0000 0000  011" 	& Example: \gls{utca} cannot receive the data. Acknowledgement packet needed\\
 \bottomrule
 \end{tabular}
 \end{table}
 
 A register database (containing the operating mode identification) must be fixed and shared between all the detectors.
 
-\subsection{Data packets (Front End card $\rightarrow$ \charmu-TCA)}\label{chapappA::subsec::dataPackets}
+\subsection{Data packets (Front End card $\rightarrow$ \gls{utca})}\label{chapappA::subsec::dataPackets}
 
 In the section the packets concerning trigger, pre-trigger and physical data are described.\newline
 No acknowledgement is demanded for this kind of packets.
@@ -910,17 +915,17 @@ No acknowledgement is demanded for this kind of packets.
 \rowcolor{myColorMainA!20}
 \textbf{Item}  			& 	\textbf{Name}	& \textbf{Control code} & \textbf{Comment} \\
 \midrule
-	1				&	K.28.7	& 0xFC  	& The pre-trigger is generated by the THOR card and sent to the \charmu-TCA who shares it with the silicon layers cards. \\
-	2				&	K.23.7	& 0xF7  	& The trigger is generated by a single silicon layer card and sent to the \charmu-TCA who shares it with all the FE cards.\\
+	1				&	K.28.7	& 0xFC  	& The pre-trigger is generated by the \gls{thor} card and sent to the \gls{utca} who shares it with the silicon layers cards. \\
+	2				&	K.23.7	& 0xF7  	& The trigger is generated by a single silicon layer card and sent to the \gls{utca} who shares it with all the \gls{fe} cards.\\
 
-	5				&	K.30.7	& 0xFE	& The FE cards send the data.  \\
+	5				&	K.30.7	& 0xFE	& The \gls{fe} cards send the data.  \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \underline{Pre-trigger format\newline}
 
-This packet is sent to the \charmu-TCA by the THOR card. The \charmu-TCA then shares it with all the silicon FE cards.\newline
+This packet is sent to the \gls{utca} by the \gls{thor} card. The \gls{utca} then shares it with all the silicon \gls{fe} cards.\newline
 
 \begin{table} [!htbp]
 \centering
@@ -938,7 +943,7 @@ This packet is sent to the \charmu-TCA by the THOR card. The \charmu-TCA then sh
 
 \underline{Trigger format\newline}
 
-This packet is sent back to the \charmu-TCA if a silicon FE card finds an interaction in coincidence after the reception of the pre-trigger packet. The trigger is always sent before the physical data packets. The  \charmu-TCA then sends the trigger packet to all the FE cards (scatterer, absorber, hodoscope).
+This packet is sent back to the \gls{utca} if a silicon \gls{fe} card finds an interaction in coincidence after the reception of the pre-trigger packet. The trigger is always sent before the physical data packets. The  \gls{utca} then sends the trigger packet to all the \gls{fe} cards (scatterer, absorber, hodoscope).
 
 \begin{table} [!htbp]
 \centering
@@ -956,7 +961,7 @@ This packet is sent back to the \charmu-TCA if a silicon FE card finds an intera
 
 \underline{Physical data packet format\newline}
 
-This packet sends the \enquote{useful} data to the \charmu-TCA. The data format (cargo) is defined in chapter 3.
+This packet sends the \enquote{useful} data to the \gls{utca}. The data format (cargo) is defined in chapter 3.
 
 \begin{table} [!htbp]
 \centering
@@ -974,7 +979,7 @@ This packet sends the \enquote{useful} data to the \charmu-TCA. The data format 
 
 \section{UDP packets format}\label{chapappA::sec::UDPpackForm}
 
-Once the \charmu-TCA receives the data from the FE cards, a physical event is generated and stored in dedicated buffers. The buffers are then sent to the acquisition PC via UDP packets. Each detector section has its own UDP socket, and three receiving ports are used for the three data fluxes: 60001 for the hodoscope, 60002 for the absorber, 60003 for the scatterer. The content of the data buffers are sent in order to avoid to divide events in different packets, so that each UDP packet is completely independent from the others and contains complete events. The maximum size of a packet is set to 1500 (UDP data = 1472), or to 9000 for the so called \enquote{jumbo frames}, used for high speed acquisitions.\newline
+Once the \gls{utca} receives the data from the \gls{fe} cards, a physical event is generated and stored in dedicated buffers. The buffers are then sent to the acquisition PC via UDP packets. Each detector section has its own UDP socket, and three receiving ports are used for the three data fluxes: 60001 for the hodoscope, 60002 for the absorber, 60003 for the scatterer. The content of the data buffers are sent in order to avoid to divide events in different packets, so that each UDP packet is completely independent from the others and contains complete events. The maximum size of a packet is set to 1500 (UDP data = 1472), or to 9000 for the so called \enquote{jumbo frames}, used for high speed acquisitions.\newline
 Each UDP packet has a custom defined header, composed of:
 \begin{itemize}
 \item 32 bits: packet number, starting from 0;
@@ -1001,18 +1006,18 @@ As shown by the simulation results, the Compton camera can not be used for an on
 Detectors sizes:
 \begin{itemize}
 	\item Silicon scatterer : 7 silicon layers, 9.6$\times$9.6$\times$0.2 cm$\mathrm{^{3}}$ (first layer 20 cm far from the beam line)
-	\item BGO absorber: BGO block 3.5$\times$3.8$\times$3.0 cm$\mathrm{^{3}}$ (67.5 cm far from the beam line - center of the block)\newline
+	\item \gls{bgo} absorber: \gls{bgo} block 3.5$\times$3.8$\times$3.0 cm$\mathrm{^{3}}$ (67.5 cm far from the beam line - center of the block)\newline
 \end{itemize}
-PMMA target size: cylindrical shape, diameter 15 cm,  20 cm length along the beam direction.
+\gls{pmma} target size: cylindrical shape, diameter 15 cm,  20 cm length along the beam direction.
 
 
 \subsection{Coincidence rate}\label{chapappA::subsec::coincRate}
 
-In the following table the coincidence and single (pre-trigger) rates expected for the different detector section are listed according to the beam kind and intensity. This values correspond the Compton camera, while for the collimated camera a reduced rate is expected for the absorber due to the presence of the physical collimator.
+In \tablename~\ref{chapappA::tab::coincSingleRate} the coincidence and single (pre-trigger) rates expected for the different detector section are listed according to the beam kind and intensity. This values correspond the Compton camera, while for the collimated camera a reduced rate is expected for the absorber due to the presence of the physical collimator.
 
 \begin{table} [!htbp]
 \centering
-\caption{Coincidence and single rate as a function of the beam intensity. The BGO single rate corresponds to the pre-trigger rate.}
+\caption{Coincidence and single rate as a function of the beam intensity. The \gls{bgo} single rate corresponds to the pre-trigger rate.}
 \label{chapappA::tab::coincSingleRate}
 \begin{tabular}{m{3.2cm} c c c c c c}
 \toprule
@@ -1024,9 +1029,9 @@ In the following table the coincidence and single (pre-trigger) rates expected f
 \textbf{Intensity(ions/s)}		& $2\times10^{10}$	&$5\times10^{7}$  & $1\times10^{8}$& $5\times10^{6}$ &$2\times10^{10}$& $5\times10^{7}$ \\
 \textbf{Coincidence rate per incident ion}		& $9\times10^{-4}$&  $8\times10^{-4}$&  $9\times10^{-4}$& $8\times10^{-4}$& / &  / \\
 \textbf{Coincidence rate (Hz)}		& $1,8\times10^{7}$&  $4\times10^{4}$&  9$\times10^{4}$& $4\times10^{3}$& / &  / \\
-\textbf{Single rate BGO (Hz) - 96 blocks}		& 	$7,8\times10^{7}$& $1,4\times10^{6}$ & $3,9\times10^{5}$&$1,4\times10^{5}$ &/&/\\
-\textbf{Single rate BGO (Hz) - 1 block}		& 	$8,1\times10^{5}$& $1,5\times10^{4}$ & $4\times10^{3}$&$1,5\times10^{3}$ &/&/\\
-\textbf{Single rate BGO (Hz) - 1 ASM card (6 blocks)}		& 	$6,5\times10^{6}$& $1,2\times10^{5}$ & $3,2\times10^{4}$&$1,2\times10^{4}$ &/&/\\
+\textbf{Single rate \gls{bgo} (Hz) - 96 blocks}		& 	$7,8\times10^{7}$& $1,4\times10^{6}$ & $3,9\times10^{5}$&$1,4\times10^{5}$ &/&/\\
+\textbf{Single rate \gls{bgo} (Hz) - 1 block}		& 	$8,1\times10^{5}$& $1,5\times10^{4}$ & $4\times10^{3}$&$1,5\times10^{3}$ &/&/\\
+\textbf{Single rate \gls{bgo} (Hz) - 1 \gls{asm} card (6 blocks)}		& 	$6,5\times10^{6}$& $1,2\times10^{5}$ & $3,2\times10^{4}$&$1,2\times10^{4}$ &/&/\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1034,12 +1039,12 @@ In the following table the coincidence and single (pre-trigger) rates expected f
 
 The application of the Compton camera at clinical intensity seems not feasible. The caemra distance with respect to the beam line should be increased to lower the rate to 1$\mathrm{\times10^{5}}$ Hz (which means to put the 1$\mathrm{^{st}$ silicon layer 1 m far from the beam line).
 For a carbon ion beam at $5\times10^{7}$ Hz, the estimated coincidence rate is $4\times10^{4}$ Hz, with $1,4\times10^{6}$ single rate on the absorber (measurements of coincidence rate on the HIT accelerator adapted to a real camera size with a 40 ns coincidence window, Krimmer ANIMMA 2013).
-The data flow between the \charmu-TCA and the acquisition PC corresponds to the coincidence rate, due to the fact that only coincidence events are stored.
+The data flow between the \gls{utca} and the acquisition PC corresponds to the coincidence rate, due to the fact that only coincidence events are stored.
 
 
-\subsection{Data flow (Front End cards  $\rightarrow$ \charmu-TCA)\newline}\label{chapappA::subsec::dataFlow}
+\subsection{Data flow (Front End cards  $\rightarrow$ \gls{utca})\newline}\label{chapappA::subsec::dataFlow}
 
-The data format previously described has been used to evaluate the data flow between each FE card and the \charmu-TCA. The calculation is performed according to the \enquote{optimal} mode of each detector. For the BGO, we only consider events where the 4 PMs are involved. For the silicon layers, two cases are considered:
+The data format previously described has been used to evaluate the data flow between each \gls{fe} card and the \gls{utca}. The calculation is performed according to the \enquote{optimal} mode of each detector. For the \gls{bgo}, we only consider events where the 4 \glspl{pm} are involved. For the silicon layers, two cases are considered:
 \begin{itemize}
 	\item Case 1 : one single layer with 6 involved strips;
 	\item Case 2 : all the 7 layers involved with 6 hit strips per layer.
@@ -1049,7 +1054,7 @@ The 8bits/10bits encoding in included in the calculation.
 
 \begin{table} [!htbp]
 \centering
-\caption{Data flux between FE cards and \charmu-TCA.}
+\caption{Data flux between \gls{fe} cards and \gls{utca}.}
 \label{chapappA::tab::dataFlowFEuTCA}
 \begin{tabular}{m{3.5cm} c c c c}
 \toprule
@@ -1061,9 +1066,9 @@ The 8bits/10bits encoding in included in the calculation.
 \textbf{Intensity (ions/s)}		& $2\times10^{10}$	&$5\times10^{7}$  & $1\times10^{8}$& $5\times10^{6}$  \\
 \textbf{Pre-trigger flux (Mbits/s)}		& 	$2,5\times10^{3}$& 47,6 &  13,3&4,76 \\
 \textbf{Trigger flux (Mbits/s)}		& 	612& 1,4 & 3,1&0,1\\
-\textbf{BGO data flux (Mbits/s) - 96 blocks}		& 	$1,7\times10^{5}$& 373 & 873&37,3\\
-\textbf{BGO data flux (Mbits/s)- 1 block}		& 	$1,7\times10^{3}$& 3,88 & 8,73&0,3 \\
-\textbf{BGO data flux (Mbits/s) - 1 carte ASM}		& 	$1,4\times10^{4}$& 31,1 & 69,9&3,1\\
+\textbf{\gls{bgo} data flux (Mbits/s) - 96 blocks}		& 	$1,7\times10^{5}$& 373 & 873&37,3\\
+\textbf{\gls{bgo} data flux (Mbits/s)- 1 block}		& 	$1,7\times10^{3}$& 3,88 & 8,73&0,3 \\
+\textbf{\gls{bgo} data flux (Mbits/s) - 1 carte \gls{asm}}		& 	$1,4\times10^{4}$& 31,1 & 69,9&3,1\\
 \textbf{Silicon data flux (Mbits/s) - case 1}		& 	$2,3\times10^{5}$& 522 & $1,2\times10^{3}$ & 52,2 \\
 \textbf{Silicon data flux (Mbits/s) - case 2}		& 	$1,6\times10^{6}$&  $ 3,7\times10^{3}$ &  $8,2\times10^{3}$&366 \\
 \textbf{Hodosocpe data flux (Mbits/s)}		& 	$8,1\times10^{4}$& 180 & 404 &18\\
@@ -1073,13 +1078,13 @@ The 8bits/10bits encoding in included in the calculation.
 
 
 
-\subsection{Acquisition data flow (\charmu-TCA $\rightarrow$ Acquisition PC)}\label{chapappA::subsec::daqDataFlow}
+\subsection{Acquisition data flow (\gls{utca} $\rightarrow$ Acquisition PC)}\label{chapappA::subsec::daqDataFlow}
 
-The data flow from the \charmu-TCA to the acquisition PC is detailed here. The UDP encoding is included in the calculation.
+The data flow from the \gls{utca} to the acquisition PC is detailed here. The UDP encoding is included in the calculation.
 
 \begin{table} [!htbp]
 \centering
-\caption{Data flow between \charmu-TCA and acquisition PC.}
+\caption{Data flow between \gls{utca} and acquisition PC.}
 \label{chapappA::tab::dataFlowuTCAPC}
 \begin{tabular}{m{3.5cm} c c c c}
 \toprule
