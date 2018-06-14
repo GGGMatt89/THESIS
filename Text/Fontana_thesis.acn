@@ -484,179 +484,185 @@
 \glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{56}
 \glossaryentry{IPNL?\glossentry{ipnl}|setentrycounter[]{page}\glsnumberformat}{56}
 \glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{56}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{56}
-\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{60}
-\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{60}
-\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{60}
-\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{60}
-\glossaryentry{PET?\glossentry{pet}|setentrycounter[]{page}\glsnumberformat}{60}
-\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{61}
-\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{61}
-\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{61}
-\glossaryentry{GEANT4?\glossentry{geant4}|setentrycounter[]{page}\glsnumberformat}{61}
-\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{61}
-\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{61}
-\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{61}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{63}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{63}
-\glossaryentry{ENC?\glossentry{enc}|setentrycounter[]{page}\glsnumberformat}{63}
-\glossaryentry{FWHM?\glossentry{fwhm}|setentrycounter[]{page}\glsnumberformat}{63}
-\glossaryentry{GANIL?\glossentry{ganil}|setentrycounter[]{page}\glsnumberformat}{63}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{63}
-\glossaryentry{FWHM?\glossentry{fwhm}|setentrycounter[]{page}\glsnumberformat}{63}
-\glossaryentry{FWHM?\glossentry{fwhm}|setentrycounter[]{page}\glsnumberformat}{63}
-\glossaryentry{GANIL?\glossentry{ganil}|setentrycounter[]{page}\glsnumberformat}{63}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{64}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{64}
-\glossaryentry{LM-MLEM?\glossentry{lm-mlem}|setentrycounter[]{page}\glsnumberformat}{64}
-\glossaryentry{MEGAlib?\glossentry{megalib}|setentrycounter[]{page}\glsnumberformat}{64}
-\glossaryentry{LM-MLEM?\glossentry{lm-mlem}|setentrycounter[]{page}\glsnumberformat}{64}
-\glossaryentry{CREATIS?\glossentry{creatis}|setentrycounter[]{page}\glsnumberformat}{64}
-\glossaryentry{FWHM?\glossentry{fwhm}|setentrycounter[]{page}\glsnumberformat}{64}
-\glossaryentry{FWHM?\glossentry{fwhm}|setentrycounter[]{page}\glsnumberformat}{64}
-\glossaryentry{CdTe?\glossentry{cdte}|setentrycounter[]{page}\glsnumberformat}{64}
-\glossaryentry{GATE?\glossentry{gate}|setentrycounter[]{page}\glsnumberformat}{65}
-\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{65}
-\glossaryentry{NaI(Tl)?\glossentry{naitl}|setentrycounter[]{page}\glsnumberformat}{65}
-\glossaryentry{HEGP?\glossentry{hegp}|setentrycounter[]{page}\glsnumberformat}{66}
-\glossaryentry{NaI(Tl)?\glossentry{naitl}|setentrycounter[]{page}\glsnumberformat}{66}
-\glossaryentry{NaI(Tl)?\glossentry{naitl}|setentrycounter[]{page}\glsnumberformat}{66}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{56}
+\glossaryentry{IPNL?\glossentry{ipnl}|setentrycounter[]{page}\glsnumberformat}{56}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{56}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{56}
+\glossaryentry{AMC?\glossentry{amc}|setentrycounter[]{page}\glsnumberformat}{56}
+\glossaryentry{DSSD?\glossentry{dssd}|setentrycounter[]{page}\glsnumberformat}{56}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{57}
+\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{62}
+\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{62}
+\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{62}
+\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{62}
+\glossaryentry{PET?\glossentry{pet}|setentrycounter[]{page}\glsnumberformat}{62}
+\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{63}
+\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{63}
+\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{63}
+\glossaryentry{GEANT4?\glossentry{geant4}|setentrycounter[]{page}\glsnumberformat}{63}
+\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{63}
+\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{63}
+\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{63}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{65}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{65}
+\glossaryentry{ENC?\glossentry{enc}|setentrycounter[]{page}\glsnumberformat}{65}
+\glossaryentry{FWHM?\glossentry{fwhm}|setentrycounter[]{page}\glsnumberformat}{65}
+\glossaryentry{GANIL?\glossentry{ganil}|setentrycounter[]{page}\glsnumberformat}{65}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{65}
+\glossaryentry{FWHM?\glossentry{fwhm}|setentrycounter[]{page}\glsnumberformat}{65}
+\glossaryentry{FWHM?\glossentry{fwhm}|setentrycounter[]{page}\glsnumberformat}{65}
+\glossaryentry{GANIL?\glossentry{ganil}|setentrycounter[]{page}\glsnumberformat}{65}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{66}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{66}
+\glossaryentry{LM-MLEM?\glossentry{lm-mlem}|setentrycounter[]{page}\glsnumberformat}{66}
+\glossaryentry{MEGAlib?\glossentry{megalib}|setentrycounter[]{page}\glsnumberformat}{66}
+\glossaryentry{LM-MLEM?\glossentry{lm-mlem}|setentrycounter[]{page}\glsnumberformat}{66}
+\glossaryentry{CREATIS?\glossentry{creatis}|setentrycounter[]{page}\glsnumberformat}{66}
+\glossaryentry{FWHM?\glossentry{fwhm}|setentrycounter[]{page}\glsnumberformat}{66}
+\glossaryentry{FWHM?\glossentry{fwhm}|setentrycounter[]{page}\glsnumberformat}{66}
+\glossaryentry{CdTe?\glossentry{cdte}|setentrycounter[]{page}\glsnumberformat}{66}
+\glossaryentry{GATE?\glossentry{gate}|setentrycounter[]{page}\glsnumberformat}{67}
+\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{67}
 \glossaryentry{NaI(Tl)?\glossentry{naitl}|setentrycounter[]{page}\glsnumberformat}{67}
-\glossaryentry{NaI(Tl)?\glossentry{naitl}|setentrycounter[]{page}\glsnumberformat}{67}
-\glossaryentry{NaI(Tl)?\glossentry{naitl}|setentrycounter[]{page}\glsnumberformat}{67}
-\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{71}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{72}
-\glossaryentry{LM-MLEM?\glossentry{lm-mlem}|setentrycounter[]{page}\glsnumberformat}{73}
-\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{75}
-\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{76}
+\glossaryentry{HEGP?\glossentry{hegp}|setentrycounter[]{page}\glsnumberformat}{68}
+\glossaryentry{NaI(Tl)?\glossentry{naitl}|setentrycounter[]{page}\glsnumberformat}{68}
+\glossaryentry{NaI(Tl)?\glossentry{naitl}|setentrycounter[]{page}\glsnumberformat}{68}
+\glossaryentry{NaI(Tl)?\glossentry{naitl}|setentrycounter[]{page}\glsnumberformat}{69}
+\glossaryentry{NaI(Tl)?\glossentry{naitl}|setentrycounter[]{page}\glsnumberformat}{69}
+\glossaryentry{NaI(Tl)?\glossentry{naitl}|setentrycounter[]{page}\glsnumberformat}{69}
+\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{73}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{74}
+\glossaryentry{LM-MLEM?\glossentry{lm-mlem}|setentrycounter[]{page}\glsnumberformat}{75}
 \glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{77}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{83}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{83}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{83}
-\glossaryentry{TDC?\glossentry{tdc}|setentrycounter[]{page}\glsnumberformat}{83}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{83}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{83}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{83}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{83}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{84}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{85}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{85}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{85}
-\glossaryentry{THOR?\glossentry{thor}|setentrycounter[]{page}\glsnumberformat}{85}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{85}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{85}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{85}
-\glossaryentry{THOR?\glossentry{thor}|setentrycounter[]{page}\glsnumberformat}{85}
+\glossaryentry{SPECT?\glossentry{spect}|setentrycounter[]{page}\glsnumberformat}{78}
+\glossaryentry{CLaRyS?\glossentry{clarys}|setentrycounter[]{page}\glsnumberformat}{79}
 \glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{85}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{85}
 \glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{85}
+\glossaryentry{TDC?\glossentry{tdc}|setentrycounter[]{page}\glsnumberformat}{85}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{85}
 \glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{85}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{85}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{85}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{86}
 \glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
-\glossaryentry{THOR?\glossentry{thor}|setentrycounter[]{page}\glsnumberformat}{86}
-\glossaryentry{THOR?\glossentry{thor}|setentrycounter[]{page}\glsnumberformat}{86}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{86}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{86}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{86}
 \glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{87}
 \glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{87}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{87}
-\glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{87}
-\glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{87}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{87}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{87}
 \glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{87}
-\glossaryentry{PM?\glossentry{pm}|setentrycounter[]{page}\glsnumberformat}{87}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{87}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{87}
-\glossaryentry{PM?\glossentry{pm}|setentrycounter[]{page}\glsnumberformat}{87}
-\glossaryentry{PM?\glossentry{pm}|setentrycounter[]{page}\glsnumberformat}{90}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{90}
-\glossaryentry{PM?\glossentry{pm}|setentrycounter[]{page}\glsnumberformat}{90}
-\glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{90}
-\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{90}
-\glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{90}
-\glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{90}
-\glossaryentry{PM?\glossentry{pm}|setentrycounter[]{page}\glsnumberformat}{90}
-\glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{90}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{91}
-\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{93}
+\glossaryentry{THOR?\glossentry{thor}|setentrycounter[]{page}\glsnumberformat}{87}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{87}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{87}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{87}
+\glossaryentry{THOR?\glossentry{thor}|setentrycounter[]{page}\glsnumberformat}{87}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{87}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{87}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{87}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{87}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{88}
+\glossaryentry{THOR?\glossentry{thor}|setentrycounter[]{page}\glsnumberformat}{88}
+\glossaryentry{THOR?\glossentry{thor}|setentrycounter[]{page}\glsnumberformat}{88}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{88}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{88}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{88}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{89}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{89}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{89}
+\glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{89}
+\glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{89}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{89}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{89}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{89}
+\glossaryentry{PM?\glossentry{pm}|setentrycounter[]{page}\glsnumberformat}{89}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{89}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{89}
+\glossaryentry{PM?\glossentry{pm}|setentrycounter[]{page}\glsnumberformat}{89}
+\glossaryentry{PM?\glossentry{pm}|setentrycounter[]{page}\glsnumberformat}{92}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{92}
+\glossaryentry{PM?\glossentry{pm}|setentrycounter[]{page}\glsnumberformat}{92}
+\glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{92}
+\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{92}
+\glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{92}
+\glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{92}
+\glossaryentry{PM?\glossentry{pm}|setentrycounter[]{page}\glsnumberformat}{92}
+\glossaryentry{ASIC?\glossentry{asic}|setentrycounter[]{page}\glsnumberformat}{92}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{93}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{94}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{94}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{94}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{94}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{94}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{94}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{94}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{95}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{95}
+\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{95}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{95}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{95}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{95}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{96}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{96}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{96}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{96}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{96}
-\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{97}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{97}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{97}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{96}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{96}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{96}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{96}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{97}
 \glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{97}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{97}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{97}
-\glossaryentry{THOR?\glossentry{thor}|setentrycounter[]{page}\glsnumberformat}{97}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{97}
-\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{98}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{98}
-\glossaryentry{THOR?\glossentry{thor}|setentrycounter[]{page}\glsnumberformat}{98}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{98}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{98}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{98}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{98}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{98}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{98}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{99}
+\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{99}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{99}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{99}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{99}
 \glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{99}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{99}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{99}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{99}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{100}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{100}
-\glossaryentry{PMMA?\glossentry{pmma}|setentrycounter[]{page}\glsnumberformat}{100}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{101}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{101}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{101}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{101}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{101}
+\glossaryentry{THOR?\glossentry{thor}|setentrycounter[]{page}\glsnumberformat}{99}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{99}
+\glossaryentry{FPGA?\glossentry{fpga}|setentrycounter[]{page}\glsnumberformat}{100}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{100}
+\glossaryentry{THOR?\glossentry{thor}|setentrycounter[]{page}\glsnumberformat}{100}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{100}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{100}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{100}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{100}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{101}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{101}
 \glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{101}
 \glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{101}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{101}
-\glossaryentry{PM?\glossentry{pm}|setentrycounter[]{page}\glsnumberformat}{101}
-\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{102}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{102}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{101}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{101}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{101}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{101}
 \glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{102}
 \glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{102}
-\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{102}
-\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{102}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{102}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{102}
-\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{102}
+\glossaryentry{PMMA?\glossentry{pmma}|setentrycounter[]{page}\glsnumberformat}{102}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{103}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{103}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{103}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{103}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{103}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{103}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{103}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{103}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{103}
+\glossaryentry{PM?\glossentry{pm}|setentrycounter[]{page}\glsnumberformat}{103}
+\glossaryentry{FE?\glossentry{fe}|setentrycounter[]{page}\glsnumberformat}{104}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{104}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{104}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{104}
+\glossaryentry{BGO?\glossentry{bgo}|setentrycounter[]{page}\glsnumberformat}{104}
+\glossaryentry{ASM?\glossentry{asm}|setentrycounter[]{page}\glsnumberformat}{104}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{104}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{104}
+\glossaryentry{\charmu -TCA?\glossentry{utca}|setentrycounter[]{page}\glsnumberformat}{104}
