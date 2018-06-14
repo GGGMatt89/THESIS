@@ -224,9 +224,6 @@ During the development of the final camera acquisition system based on the \gls{
 \label{chap5::fig::AbsorberDevelCards}
 \end{figure}
 
-         
- 
-
 \subsubsection{Absorber mechanical support}\label{chap3::subsubsec::AbsorberMechanics}
 
 A first mechanical structure for the absorber detector was initially conceived by the \gls{lpc} group in order to hold up to 100 modules, foreseen by the original camera design. The reduction of the number of available blocks caused by the \enquote{reconditioning} process failure make necessary an adaptation of such a support. The new design has been carried out by the mechanics group of the \gls{ipnl} in order to be compact and flexible in terms of detection modules setup. \figurename~\ref{chap3::fig::absorber_scheme} displays both a picture and a scheme of the absorber configuration with its mechanical support. The two lateral sides are built with \gls{pmma} boards connected by metal bars, and the \gls{bgo} blocks can be arranged in up to 5 rows of variable size, ranging from 3 to 7 blocks. Each block row is supported by a thin metal foil, designed to reduce at minimum the blocks separation and to respect the original ring geometry deriving from the SIEMENS \gls{pet} system. The blocks composing a row are then laterally pressed via two screws on the two sides of the structure, which can also be used to adapt the rows relative position horizontally. On the back side, a metal bar is added to avoid undesired movements, and the \gls{fe} cards are fixed with plastic pillars. The realized support results to be versatile, compact and adapted to the prototype tests for both the Compton camera (where a squared setup is preferred) and the multi-collimated one (where the collimator geometry must be fit by the absorber geometrical configuration).       
@@ -473,82 +470,10 @@ As detailed in the previous sections, the \gls{clarys} \gls{tof} gamma cameras a
 I mostly worked on the beam tagging hodoscope and on the \gls{bgo} absorber, and in the next paragraphs the performed measurements are described in details. Concerning the scatterer stack, the results achieved before the beginning of my PhD thesis are briefly described for the sake of completeness.\\
 The results presented in this section also introduce the following one (~\ref{chap3::sec::Next}), where all the development steps still needed for a clinical implementation of the cameras are explained.\\
 
-\subsection{Hodoscope \glspl{pm} characterization}\label{chap3::subsec::hodoPMchar}         
-
-The beam tagging hodoscope read-out is performed via 8 multi-anode \glspl{pm}, Hamamatsu H8500~\parencite{Hamamatsu2006}, shown in \figurename~\ref{chap3::fig::PMH8500}. In order to guarantee a uniform response of the whole detector active area, composed of 256 scintillating fibers, the \glspl{pm} must be previously characterized in terms of gain with a light source of fixed and known wave-length and intensity. The source selected for the measurements is a blue \gls{led} (Hewlett-Packard HLMP-CB), installed on the test-bench shown in \figurename~\ref{chap3::fig::hodo_testBenchPM} and described in the following. The test-bench has been developed by the \gls{lpc} group (see~\cite{Gaglione2013}) and adapted at the \gls{ipnl} to a different acquisition system.\\
-The goal of the characterization measurements is to trace a gain map of the whole \gls{pm} surface, with the aim of storing calibration data to be used to both tune the \gls{pm} working parameters (supply voltage and threshold) and correct the collected data. This is achieved by scanning the \gls{pm} photo-cathode surface with the \gls{led}. The \gls{led} is so mounted on a motorized double-axis table, controlled by two G203V stepper modules provided by GeckoDrive Motor Controls~\parencite{GeckoDrive2010}. The two axes have a total range of 20~cm each, and the step resolution achieved by the controllers is 20~\charmum. A metal support is set on the table in order to fix the \gls{led}. It produces light pulses synchronized with a pulse generator, which is also used as trigger signal for the acquisition system, as detailed later. The light pulse produced by the \gls{led} is split into two pulses with a 45\textdegree{} mirror: one pulse is sent to the H8500 \gls{pm} to be tested via optical fiber, in order to obtain a light beam perpendicular to the cathode surface (\gls{fwhm} beam width estimated in 0.5~mm), the second one is detected by an Hamamatsu R5600 \gls{pm}~\parencite{Hamamatsu1995}, used as reference for the correction of \gls{led} temperature fluctuations. The \gls{pm} under tests if fixed below the optical fiber output with a plastic support, not connected to the moving table. The whole described system is contained in a black box for external light shielding.\\
-The output signals from the H8500 \gls{pm} are initially amplified by custom pre-amplification cards: 8 cards are available and have been characterized in terms of amplification gain. Once amplified, the signals H8500 \gls{pm}, together with the output of the reference \gls{pm}, are sent to the acquisition system composed of a National Instrument PXI Express 1082~\parencite{NationalInstruments2010} equipped with two 8-channel flash \gls{adc} modules (NI PXI-5105) and a two-channel ultra-fast digitizer (NI PXI-5154). The flash \gls{adc} modules have a maximum sampling rate of 60~MHz and are used for the read-out of the H8500 \gls{pm} signals, while the ultra-fast digitizer, able to sample at a frequency up to 1~GHz, is used for the reference \gls{pm}.\\
-The acquisition and control software is developed with LabVIEW (2009) installed on the PXI; a picture of the software user interface is shown in \figurename~\ref{chap3::fig::hodo_LabView}. The PXI receives the signals form the two \glspl{pm} and is also connected to the table stepper modules, so that the LabVIEW software can handle and synchronized data acquisition and table movements. The table movements can be automatized via LabVIEW macros, where step size, number and direction are stored and then used for the acquisition. The acquisition trigger, as mentioned, is given by the pulse generator which also control the light pulses of the \gls{led}; in this way, a fixed number of pulses per table position can be recorded, and the measurement process is completely automatic. During the acquisition, the LabVIEW software automatically correct the collected data according to the reference \gls{pm} signal amplitude and to the pre-amplification card gain.\\
-Given the limited number of flash \gls{adc} channels, only 16 \gls{pm} pixels can be characterized per acquisition; four acquisitions are needed to scan the complete \gls{pm} surface.\\
- 
-\begin{figure}
-\begin{subfigure}[t]{1\textwidth}
-\centering
-\includegraphics[width=0.7\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/testBenchPM.jpg}
-\caption{Overview of the test-bench setup for the Hamamatsu \glsps{pm} characterization.}
-\label{chap3::fig::hodo_testBenchPM}
-\end{subfigure}
-\newline
-\begin{subfigure}[t]{.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth, height = 5.cm]{03_GraphicFiles/chapter3_CLaRySproto/Electronics_Acquisition/PXI_ipnl.jpg}
-\caption{National Instruments PXIe acquisition system.}
-\label{chap3::fig::PXI_NI}
-\end{subfigure}
-\begin{subfigure}[t]{.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth, height = 5.cm]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/hodoTests.jpg}
-\caption{Example of LabVIEW software interface for the Hamamatsu 	\glspl{pm} characterization.}
-\label{chap3::fig::hodo_LabView}
-\end{subfigure}
-\caption{Test-bench and tools for the characterization measurements performed on the Hamamatsu \glspl{pm} of the beam tagging hodoscope.}
-\label{chap3::fig::hodoPMtest}
-\end{figure}
-
-Each performed acquisition is set to scan a matrix of 4$\times$4 \gls{pm} pixels, and safety margins are arranged on the \gls{pm} sides in order to ensure a complete surface irradiation. As shown in the schematic view of the \gls{pm} in \figurename~\ref{chap3::fig::hodoPMscheme}, the total \gls{pm} size is 52$\times$52~mm$^{2}$, for an active area of about 49$\times$49~mm$^{2}$. The active area of the pixels on the borders is slightly wider than the central ones. In order to optimize the measurement process, a preliminary analysis has been done for the definition of the needed step length, and the details are reported in~\cite{Coudurier2015}. A trade-off between measurement accuracy, required time and collected data size has been found with a step of 800~\charmum, so that each pixel is scanned with approximately 64 measurement points and the transition between neighboring pixels can be appreciated. To be noticed that for each irradiated point, 100 \gls{led} pulses are sent to the detector and the average amplitude value is  calculated and collected.\\  
-The 8 Hamamatsu \glspl{pm} have been completely scanned with and without the optical fiber mask used in the hodoscope and shown in \figurename~\ref{chap3::fig::PMmask}, and the results are shown here for one reference \gls{pm}. A complete result database has been created for calibration purpose.\\
-
-\begin{figure}
-\begin{subfigure}[t]{.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PM_specs_mod.pdf}
-\caption{Scheme and quotation of the Hamamatsu H8500 multi-anode \glspl{pm}.}
-\label{chap3::fig::hodoPMscheme}
-\end{subfigure}
-\begin{subfigure}[t]{.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/scan_logic.pdf}
-\caption{Scheme of the scan performed for the Hamamatsu \gsl{pm} characterization measurements.}
-\label{chap3::fig::hodoPMscanScheme}
-\end{subfigure}
-\caption{Details of the hodoscope \glspl{pm} and of the performed characterization measurements.}
-\label{chap3::fig::hodoScanDetails}
-\end{figure}
+\subsection{Scatterer silicon layer characterization}\label{chap3::subsec::scattSichar}
 
 
-\begin{figure}
-\begin{subfigure}[t]{.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth, height = 5.8cm ]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/2Dmap_noMask.pdf}
-\caption{2D map without fiber mask.}
-\label{chap3::fig::hodoPMchar2DnoMask}
-\end{subfigure}
-\begin{subfigure}[t]{.5\textwidth}
-\centering
-\includegraphics[width=1\textwidth, height = 5.8cm ]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/2Dmap_withMask.pdf}
-\caption{2D map with fiber mask.}
-\label{chap3::fig::hodoPMchar2DnoMask}
-\end{subfigure}
-\caption{Two-dimensional response maps of one of the Hamamatsu \glspl{pm} for the scintillating fiber hodoscope readout, obtained with the irradiation with a blue 	\gls{led}.}
-\label{chap3::fig::hodoPMchar2Dmaps}
-\end{figure}
-
-
-
-
-
-\subsection{Hodoscope fiber test with electron source}\label{chap3::subsec::hodoBetatest}
-
+\newpage
 
 \subsection{Absorber \gls{bgo} blocks characterization}\label{chap3::subsec::absBGOchar}
 
@@ -950,7 +875,7 @@ Figures~\ref{chap3::fig::abseffLE} and~\ref{chap3::fig::abseffHE} show that the 
 \subsubsection{Results for the 30 blocks}\label{chap3::subsubsec::30blocksRes}
 
 In \tablename~\ref{chap3::tab::absresults30Blocks} the results obtained for the calibration and characterization of a set of 10 blocks are listed.
-The characterized blocks shows very uniform results, with an average energy resolution of 25\% \gls{fwhm} at 511~keV and 20\% \gls{fwhm} at 1275~keV and an average time resolution of 4.42~ns \gls{fwhm} tested with coincidences of 511~keV photons. Both the energy and time resolution are expected to be improved for the detection of photons in the prompt-gamma energy range, in particular above 1~MeV.
+The characterized blocks show very uniform results, with an average energy resolution of 25\% \gls{fwhm} at 511~keV and 20\% \gls{fwhm} at 1275~keV and an average time resolution of 4.42~ns \gls{fwhm} tested with coincidences of 511~keV photons. Both the energy and time resolution are expected to be improved for the detection of photons in the prompt-gamma energy range, in particular above 1~MeV.
 
 \begin{table}[!htbp]
 \centering
@@ -994,12 +919,11 @@ The characterized blocks shows very uniform results, with an average energy reso
 14676 & 25& 19& 5.1\\
 31210 & 25& 21& 4.8\\
 \midrule
-3375 & & & 1 pixel not found, timing 6.4\\
-3252 & & & problem PM 0, timing 5.8\\
-7644 & & & problem PM 2\\
-21097 & & & problem PM 2\\
-7653 & & & 1 pixel not found, timing 2.3\\
-
+3252 & \multicolumn{3}{c}{problem with \gls{pm} 0}\\
+3375 & \multicolumn{2}{c}{1 pseudo-pixel missing} & 6.4\\
+7644 & \multicolumn{3}{c}{problem with \gls{pm} 2}\\
+7653 & \multicolumn{2}{c}{1 pseudo-pixel missing} & 2.3\\
+21097 & \multicolumn{3}{c}{problem with \gls{pm} 2}\\
 
 \midrule
 \textbf{Complete set} & 25 $\varpm$ 1& 20 $\varpm$ 2& 4.4 $\varpm$ 0.5\\
@@ -1007,21 +931,193 @@ The characterized blocks shows very uniform results, with an average energy reso
 \end{tabular}
 \end{table}
 
-%The CLaRyS collaboration is developing in parallel two gamma cameras for ion beam therapy monitoring and nuclear medicine applications. At present, the detector components are being tested separately for characterization purposes. We described here the method developed to calibrate and characterize the response of the bismuth germanate blocks composing the absorber of the two cameras, and we presented the results for a reference set of blocks. The test method has been inspired by previous works, in particular by the work reported in~\cite{m}. In addition to the \gls{pm} gain equilibration and to the pixel-based energy calibration, we added here an automatic algorithm for the pseudo-pixel position identification and an improved method to assign each interaction to the proper pseudo-pixel. This algorithm also allowed us to analyze the efficiency of the studied blocks in different zones. Finally, we estimated the time resolution of the studied blocks. 
+The last five blocks in the list of \tablename~\ref{chap3::tab::absresults30Blocks} showed detection problems, due to very low signal level on the read-out \glspl{pm} or a poor spatial reconstruction accuracy with one missing pseudo-pixel on the two-dimensional map, probably due to crystal aging. The blocks with \glspl{pm} issues will not be employed in the final absorber configuration, while the other two will be probably placed in the peripheral area in order to keep a wide active detection surface.   
 
-%The retrieved energy and time resolutions respect the design expectations; they have been extracted here with relatively low energy photons, and they are expected to improve for the detection of photons in the prompt-gamma energy range. The detection efficiency is generally lower on the block borders, in particular in the four angles, and it decreases at increasing incident gamma energy. It must be noticed that the tested blocks have been produced and optimized for PET applications, and so to detect 511~keV photons. At higher energy, not only the detection efficiency is reduced, by the depth of interaction probably plays a major role and the light sharing ensured by the block streaked structure results less performing; as a result, the event reconstruction and assignment to the proper pixel is less accurate. In order to properly estimate the absolute detection efficiency on a single pixel basis, a collimated photon irradiation is needed.
+\newpage
 
-%All the tests shown here have been performed with a temporary acquisition system, while the final acquisition of the camera is still under test for optimization. The calibration factors used in this phase can be easily adapted with the final acquisition, which makes use of the same pre-amplification cards described in~\ref{sec:MatMeth} and shown in figure~\ref{fig:FEcard}.
+\subsection{Hodoscope \glspl{pm} characterization}\label{chap3::subsec::hodoPMchar}         
 
-%The presented calibration method can be further improved, mostly for what concerns the assignment of the reconstructed events to a single pseudo-pixel. More complex algorithms can be implemented, but the present one is a good trade-off between accuracy and calculation time.
+The beam tagging hodoscope read-out is performed via 8 multi-anode \glspl{pm}, Hamamatsu H8500~\parencite{Hamamatsu2006}, shown in \figurename~\ref{chap3::fig::PMH8500}. In order to guarantee a uniform response of the whole detector active area, composed of 256 scintillating fibers, the \glspl{pm} must be previously characterized in terms of gain with a light source of fixed and known wave-length and intensity. The source selected for the measurements is a blue \gls{led} (Hewlett-Packard HLMP-CB), installed on the test-bench shown in \figurename~\ref{chap3::fig::hodo_testBenchPM} and described in the following. The test-bench has been developed by the \gls{lpc} \gls{avirm} group (see~\cite{Gaglione2013}) and adapted at the \gls{ipnl} to a different acquisition system.\\
+The goal of the characterization measurements is to trace a gain map of the whole \gls{pm} surface, with the aim of storing calibration data to be used to both tune the \gls{pm} working parameters (supply voltage and threshold) and correct the collected data. This is achieved by scanning the \gls{pm} photo-cathode surface with the \gls{led}. The \gls{led} is so mounted on a motorized double-axis table, controlled by two G203V stepper modules provided by GeckoDrive Motor Controls~\parencite{GeckoDrive2010}. The two axes have a total range of 20~cm each, and the step resolution achieved by the controllers is 20~\charmum. A metal support is set on the table in order to fix the \gls{led}. It produces light pulses synchronized with a pulse generator, which is also used as trigger signal for the acquisition system, as detailed later. The light pulse produced by the \gls{led} is split into two pulses with a 45\textdegree{} mirror: one pulse is sent to the H8500 \gls{pm} to be tested via optical fiber, in order to obtain a light beam perpendicular to the cathode surface (\gls{fwhm} beam width estimated in 0.5~mm), the second one is detected by an Hamamatsu R5600 \gls{pm}~\parencite{Hamamatsu1995}, used as reference for the correction of temperature fluctuations. The \gls{pm} under tests is fixed below the optical fiber output with a plastic support, not connected to the moving table. The whole described system is contained in a black box for external light shielding.\\
+The output signals from the H8500 \gls{pm} are initially amplified by custom pre-amplification cards: 8 cards are available and have been characterized in terms of amplification gain. Once amplified, the signals of the H8500 \gls{pm}, together with the output of the reference \gls{pm}, are sent to the acquisition system composed of a National Instrument PXI Express 1082~\parencite{NationalInstruments2010} equipped with two 8-channel flash \gls{adc} modules (NI PXI-5105) and a two-channel ultra-fast digitizer (NI PXI-5154). The flash \gls{adc} modules have a maximum sampling rate of 60~MHz and are used for the read-out of the H8500 \gls{pm} signals, while the ultra-fast digitizer, able to sample at a frequency up to 1~GHz, is used for the reference \gls{pm}.\\
+The acquisition and control software is developed with LabVIEW (2009) installed on the PXI; a picture of the software user interface is shown in \figurename~\ref{chap3::fig::hodo_LabView}. The PXI receives the signals from the two \glspl{pm} and is also connected to the table stepper modules, so that the LabVIEW software can handle and synchronize data acquisition and table movements. The table movements can be automatized via LabVIEW macros, where step size, number and direction are stored and then used for the acquisition. The acquisition trigger, as mentioned, is given by the pulse generator which also control the light pulses of the \gls{led}; in this way, a fixed number of pulses per table position can be recorded, and the measurement process is completely automatic. During the acquisition, the LabVIEW software automatically corrects the collected data according to the reference \gls{pm} signal amplitude and to the pre-amplification card gain.\\
+Given the limited number of flash \gls{adc} channels, only 16 \gls{pm} pixels can be characterized per acquisition; four acquisitions are needed to scan the complete \gls{pm} surface.\\
+ 
+\begin{figure}
+\begin{subfigure}[t]{1\textwidth}
+\centering
+\includegraphics[width=0.7\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/testBenchPM.jpg}
+\caption{Overview of the test-bench setup for the Hamamatsu \glsps{pm} characterization.}
+\label{chap3::fig::hodo_testBenchPM}
+\end{subfigure}
+\newline
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth, height = 5.cm]{03_GraphicFiles/chapter3_CLaRySproto/Electronics_Acquisition/PXI_ipnl.jpg}
+\caption{National Instruments PXIe acquisition system.}
+\label{chap3::fig::PXI_NI}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth, height = 5.cm]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/hodoTests.jpg}
+\caption{Example of LabVIEW software interface for the Hamamatsu 	\glspl{pm} characterization.}
+\label{chap3::fig::hodo_LabView}
+\end{subfigure}
+\caption{Test-bench and tools for the characterization measurements performed on the Hamamatsu \glspl{pm} of the beam tagging hodoscope.}
+\label{chap3::fig::hodoPMtest}
+\end{figure}
 
-%The whole set of \gls{bgo} blocks composing the absorber detector will be tested and characterized with this method, and the whole system will be tested on beam in the next future after verification of the acquisition chain.
+Each performed acquisition is set to scan a matrix of 4$\times$4 \gls{pm} pixels, and safety margins are arranged on the \gls{pm} sides in order to ensure a complete surface irradiation. As shown in the schematic view of the \gls{pm} in \figurename~\ref{chap3::fig::hodoPMscheme}, the total \gls{pm} size is 52$\times$52~mm$^{2}$, for an active area of about 49$\times$49~mm$^{2}$. The active area of the pixels on the borders is slightly wider than the central ones. In order to optimize the measurement process, a preliminary analysis has been done for the definition of the needed step length, and the details are reported in~\cite{Coudurier2015}. A trade-off between measurement accuracy, required time and stored data file size has been found with a step of 800~\charmum, so that each pixel is scanned with approximately 64 measurement points and the transition between neighboring pixels can be appreciated. A schematic of a table reference movement is presented in \figurename~\ref{chap3::fig::hodoPMscanScheme}. To be noticed that for each irradiated point, 100 \gls{led} pulses are sent to the detector and the average amplitude value is calculated and collected.\\  
+The 8 Hamamatsu \glspl{pm} have been completely scanned without the optical fiber mask used in the hodoscope and shown in \figurename~\ref{chap3::fig::PMmask}, and the results are shown here for one reference \gls{pm}. Some tests have been also performed with the fiber mask, in order to test the \gls{pm} response mainly in terms of expected cross-talk between neighboring pixels. A complete result database has been created for calibration purpose.\\
+
+\begin{figure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PM_specs_mod.pdf}
+\caption{Scheme and quotation of the Hamamatsu H8500 multi-anode \glspl{pm}.}
+\label{chap3::fig::hodoPMscheme}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/scan_logic.pdf}
+\caption{Scheme of the scan performed for the Hamamatsu \gls{pm} characterization measurements.}
+\label{chap3::fig::hodoPMscanScheme}
+\end{subfigure}
+\caption{Details of the hodoscope \glspl{pm} and of the performed characterization measurements.}
+\label{chap3::fig::hodoScanDetails}
+\end{figure}
+
+\figurename~\ref{chap3::fig::hodoPMchar2DnoMask} shows the two-dimensional maps of a reference \gls{pm} response for a complete irradiation, obtained with four separated acquisitions without the plastic fiber mask. \figurename~\ref{chap3::fig::hodoPMchar2DwithMask} shows the response of the same \gls{pm} with the plastic fiber mask fixed on its surface. The reported signal amplitude has been normalized to the reference \gls{pm} Hamamatsu R5600 for temperature oscillation correction, but the relative difference between the two irradiation is maintained to show the signal attenuation caused by the fiber mask, resulting in a factor 3-4 depending on the pixel.\\ 
+
+\begin{figure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth, height = 5.8cm ]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/Maps_noMask/2DMap_PM2_notNorm.png}
+\caption{2D map without fiber mask.}
+\label{chap3::fig::hodoPMchar2DnoMask}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth, height = 5.8cm ]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/Maps_withMask/2DMap_PM2_notNorm.png}
+\caption{2D map with fiber mask.}
+\label{chap3::fig::hodoPMchar2DwithMask}
+\end{subfigure}
+\caption{Two-dimensional response maps of one of the Hamamatsu \glspl{pm} for the scintillating fiber hodoscope readout, obtained with the irradiation with a blue 	\gls{led}. The signal amplitude is normalized to the reference \gls{pm} response.}
+\label{chap3::fig::hodoPMchar2Dmaps}
+\end{figure}
+
+
+\begin{figure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/Maps_noMask/2DMap_PM1_Norm.png}
+\caption{\gls{pm} 1 2D map without fiber mask.}
+\label{chap3::fig::hodoPMchar2DnoMask_pm1}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/Maps_noMask/2DMap_PM2_Norm.png}
+\caption{\gls{pm} 2 2D map without fiber mask.}
+\label{chap3::fig::hodoPMchar2DnoMask_pm2}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/Maps_noMask/2DMap_PM3_Norm.png}
+\caption{\gls{pm} 3 2D map without fiber mask.}
+\label{chap3::fig::hodoPMchar2DnoMask_pm3}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/Maps_noMask/2DMap_PM4_Norm.png}
+\caption{\gls{pm} 4 2D map without fiber mask.}
+\label{chap3::fig::hodoPMchar2DnoMask_pm4}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/Maps_noMask/2DMap_PM5_Norm.png}
+\caption{\gls{pm} 5 2D map without fiber mask.}
+\label{chap3::fig::hodoPMchar2DnoMask_pm5}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/Maps_noMask/2DMap_PM6_Norm.png}
+\caption{\gls{pm} 6 2D map without fiber mask.}
+\label{chap3::fig::hodoPMchar2DnoMask_pm6}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/Maps_noMask/2DMap_PM7_Norm.png}
+\caption{\gls{pm} 7 2D map without fiber mask.}
+\label{chap3::fig::hodoPMchar2DnoMask_pm7}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=0.8\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/Maps_noMask/2DMap_PM8_Norm.png}
+\caption{\gls{pm} 8 2D map without fiber mask.}
+\label{chap3::fig::hodoPMchar2DnoMask_pm8}
+\end{subfigure}
+\caption{Two-dimensional response maps of the Hamamatsu \glspl{pm} for the scintillating fiber hodoscope readout, obtained with the irradiation with a blue 	\gls{led}. The signal amplitude is normalized to the reference \gls{pm} response and then to each \gls{pm} maximum detected amplitude.}
+\label{chap3::fig::hodoPMchar2Dmaps_allPM}
+\end{figure}
+
+In \figurename~\ref{chap3::fig::hodoPMchar2Dmaps_allPM} the two-dimensional response map for the 8 \glspl{pm} are shown. In order to obtain a visual uniformity, the amplitude values have been normalized to the maximum value of each \gls{pm}. We can observe response dis-uniformity on each \gls{pm} surface, estimated in a factor ranging between 2 and 3. The retrieved response of each pixel will be useful for the calibration of the hodoscope final acquisition chain, in particular for what concerns the electronics \gls{fe} settings (threshold and gain of each channel). In addition to this, these calibration measurements will allow for a proper data correction at the analysis stage.\\
+The irradiation performed with the fiber plastic mask are also used to study the signal cross-talk between neighboring pixels, which is expected to be negligible according to the provider specifications, given for similar measurements and shown in \figurename~\ref{chap3::fig::hodoPMcharcross-talkSpec}. The analysis results for one of the studied \glspl{pm} are shown in \figurename~\ref{chap3::fig::hodoPMcharcross-talkMeas} as reference.
+      
+\begin{figure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth, trim={0 6cm 0 6cm}, clip=true]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/cross_talk_spec.pdf}
+\caption{Signal cross-talk provided by Hamamatsu for the \gls{pm} H8500~\parencite{Hamamatsu2006}. The measurements have been performed with a 1~mm diameter optical fiber; the irradiated anode is in the light blue box, and the cross-talk on the neighboring ones is expressed in \%.}
+\label{chap3::fig::hodoPMcharcross-talkSpec}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/PMchar/cross_talk_join_PM2_withMask.png}
+\caption{Signal cross-talk on a reference \gls{pm} measured with a blue \gls{led} irradiation through the plastic fiber mask. The irradiated anode is in the light blue box, and the cross-talk on the neighboring ones is expressed in \%.}
+\label{chap3::fig::hodoPMcharcross-talkMeas}
+\end{subfigure}
+\caption{Cross-talk study on neighboring \gls{pm} pixels. The experimental results obtained with the irradiation with a blue \gls{led} through the plastic fiber mask on a reference \gls{pm} (right) are compared to the specifications provided by the producer, measured in similar conditions (left). The cross-talk is expressed in \% with respect to the irradiated anode, which is represented by the light-blue cell with 100\% of the signal.}
+\label{chap3::fig::hodoPMcharCross-Talk}
+\end{figure}
+
+The retrieved cross-talk is more important with respect to the provider specifications (to be noticed that the measurement conditions are slightly different), but always below 3\% for the tested anodes. This cross-talk level is negligible and can be easily suppressed by a proper threshold setting.\\
+
+\subsection{Hodoscope fiber test with electron source}\label{chap3::subsec::hodoBetatest}
+
+After the complete characterization of the Hamamatsu multi-anode \glspl{pm}, they have been installed in the black boxes connected to the optical fibers of the hodoscope prototype, and the complete detection chain have been qualitatively tested to check the scintillating fiber light transmission to the optical fibers and to the read-out \glspl{pm}. The observations have been performed by directly checking the pre-amplified \gls{pm} output signal (with the same custom cards mentioned in the previous section) on an oscilloscope. A mechanical intervention has been necessary to fix some of the optical fibers not properly pasted to the plastic mask on the \gls{pm} surface. In addition to this, a layer of black silicone has been added on the plastic mask surface to improve the light isolation on the only side where it is impossible to place the isolating black tape.\\
+The hodoscope prototype has been then tested with a beta source ($^{90}$Sr) for verification, and the obtained signal distributions (retrieved as before with an oscilloscope acquisition after signal pre-amplification) have been compared to simulation study performed by an internship Master 1 student~\parencite{Vallois2016}. He tested in simulation the irradiation of the whole hodoscope surface with an equivalent $^{90}$Sr source to retrieve the deposited energy distribution on the scintillating fibers. This distribution can be compared to the collected signals amplitude distribution obtained with the experimental tests, in order to calibrate the relationship signal amplitude-deposited energy. The distance between the source and the fiber was set to 3 mm in the simulation code, to reproduce the gap created by the plastic box of the real source, which was directly  on the fiber for the experimental measurements. In \figurename~\ref{chap3::fig::hodoSimuData} the results for a reference fiber are shown. The distribution entries have been normalized to the total number of events for visualization purpose.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.8\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Hodoscope/dEdistrComparison.pdf}
+\caption{Comparison of the simulated distribution of energy deposited by electrons from the $^{90}$Sr source on a single hodoscope fiber to the experimental signal amplitude distribution from a scintillating fiber irradiated with the $^{90}$Sr source.}
+\label{chap3::fig::hodoSimuData}
+\end{figure}
+
+The comparison presented in \figurename~\ref{chap3::fig::hodoSimuData} can be useful as estimate of the expected signal for a given energy deposited by a ionizing particle (about 50~mV for about 200~keV of energy deposited). Knowing the applied amplification factor (given by the per-amplification card characterization) and the relative gain of each \gls{pm} pixel, the expected raw signal integral can be estimated.\\
+A complete characterization of the hodoscope acquisition chain will be necessary on proton and carbon beams in order to verify the beam primaries energy deposit on the scintillating fibers and tune the working parameters. In particular, the increased energy deposit expected for proton and carbons with respect to electrons should allow for a reduction of the high voltage applied to the \gls{pm}. With reduced voltage, the detection rate capability would be improved. All these assumption will be tested on beam in the next future.
+
+ADD HERE THE RESULTS OF THE SUMMER ABOUT THE ASIC GAIN AND THRESHOLD CHARACTERIZATION, AND COMMENT LINKING TO CHAPTER 6 FOR THE BEAM TESTS. 
 
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   NEXT  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Next steps and perspectives}\label{chap3::sec::Next}
+\section{Summary and perspectives}\label{chap3::sec::Next}
+
+The \gls{clarys} collaboration is developing in parallel two gamma cameras for ion beam therapy monitoring and nuclear medicine applications. At present, the detector components are being tested separately for characterization purposes at the \gls{ipnl}. I presented in this chapter a complete description of the detector components with the related \gls{fe} electronics, mechanical support, acquisition system and software tools, together with the all the characterization measurements I performed on the various detector sections. In the following, in addition to a short summary of the present status of the instrumental development of each camera component, I list the main task to be accomplished for the final integration a complete operation of the whole camera. 
+
+\subsection{Silicon scatterer}\label{chap3::subsec::scattNext}
+Among the 10 \gls{dssd} layer provided by the seller, only 7 respected the design requirements and have been selected for the use in the Compton camera prototype. The 7 selected layer have been characterized in terms of leakage current with an acquisition system specifically developed for this purpose. Temperature cycles have been performed in order to precisely define the cooling performance needed to obtained the required noise level. These measurements allow to fix the working temperature to -20\textdegree{} and lead to the conception and production of a thermal regulated box, working with cold air and so adapted to the clinical use. A modular mechanical support has been fixed inside the camera to sustain the silicon layers with their \gls{fe} cards. The \gls{fe} card has been designed and tested at the \gls{ipnl}, and includes a custom \gls{asic} which have been optimized with three different developed versions. The final version of the whole board have been produced in 7 copies in 2017 and they are now available for the next test stages.\\
+   
+
+\subsection{\gls{bgo} absorber}\label{chap3::subsec::absNext}
+
+\subsection{Scintillating fiber hodoscope}\label{chap3::subsec::hodoNext}
+
+\subsection{Electronics and acquisition}\label{chap3::subsec::daqNext}
+
+%\subsection{}\label{chap3::subsec::}
 
 
 
