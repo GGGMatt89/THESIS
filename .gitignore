@@ -21,6 +21,7 @@
 *.synctex.gz
 *.xml
 **.DS_Store
+*Fontana_thesis.pdf
 various_fromMasterThesis/
 titlePage_templates/
 page_de_garde_latex/
