@@ -472,7 +472,15 @@ The results presented in this section also introduce the following one (~\ref{ch
 
 \subsection{Scatterer silicon layer characterization}\label{chap3::subsec::scattSichar}
 
+The 7 \glspl{dssd} selected for the application in the Compton camera system among the 10 provided by the producer have been characterized in terms of leakage current. The measurements have been performed by colleagues before the beginning of my PhD thesis, and are summarized here for the sake of completeness. The complete description of the employed test-bench, the performed tests and the results are presented in~\ref{Ley2015}.\\
+The leakage current is an evaluation of the systematic uncertainty expected on each read-out channel, corresponding to a background current detected without an energy deposit in the depletion region. The 7 layers have been tested at the complete depletion voltage of -750~V with a test-bench developed at the \gls{ipnl} specifically for these measurements. It is composed of a custom electronics card which is used to supply the detector with the depletion voltage and to the current read-out via the connection to a nano-amperometer (\gls{nim} module with 0.1~nA resolution).  Moreover, temperature cycles in the range -40\textdegree{} - +40\textdegree{} have been realized with an automatic system. The detectors and read-out card have been placed in  a temperature programmable chamber Weiss WTL 64~\parencite{WeissTechnik2017}, and the temperature variations, the channel selection and the data acquisition are handled by a Raspberry Pi. The temperature step has been fixed to 5\textdegree{}.\\
+The leakage currents measured at room temperature (+25\textdegree{}) are homogeneous on all the strips, with some local exceptions. The average detected value is about 20~nA. Concerning the measurements at -40\textdegree{}, the average value for the n strips is close to 0~nA, while a current of 3-4~nA is still detected on the p strips. On each layer, a maximum of 3 strips show higher leakage current value; this is acceptable for the final application in the Compton camera. Moving from -40\textdegree{} to +40\textdegree{}, the leakage currents respect, on average, the expected trend defined by equation~\ref{chap3::eq::leakCurrentTemp}~\parencite{Spieler1998}.\\
 
+\begin{equation}
+I_p(T) \propto T^2 \times e^{-\frac{E}{2k_{B}T}}
+\label{chap3::eq::leakCurrentTemp}
+\end{equation}  
+where $I_{p}(T)$ is the leakage current as a function of the temperature, T is the temperature in Kelvin, E the silicon energy gap energy in eV, $k_B$ the Boltzmann constant (8.617$\times$10$^{5}$~eV K$^{-1}$).\\
 
 \newpage
 
