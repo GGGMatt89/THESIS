@@ -460,8 +460,6 @@ In \figurename~\ref{chap3::fig::cameraAllPicture} we show a view of the three de
 \label{chap3::fig::cameraAllPicture}
 \end{figure}
 
-\newpage
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   CHARACTERIZATION MEASUREMENTS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Camera component characterization and development status}\label{chap3::sec::charMeasurements}
@@ -472,9 +470,9 @@ The results presented in this section also introduce the following one (~\ref{ch
 
 \subsection{Scatterer silicon layer characterization}\label{chap3::subsec::scattSichar}
 
-The 7 \glspl{dssd} selected for the application in the Compton camera system among the 10 provided by the producer have been characterized in terms of leakage current. The measurements have been performed by colleagues before the beginning of my PhD thesis, and are summarized here for the sake of completeness. The complete description of the employed test-bench, the performed tests and the results are presented in~\ref{Ley2015}.\\
-The leakage current is an evaluation of the systematic uncertainty expected on each read-out channel, corresponding to a background current detected without an energy deposit in the depletion region. The 7 layers have been tested at the complete depletion voltage of -750~V with a test-bench developed at the \gls{ipnl} specifically for these measurements. It is composed of a custom electronics card which is used to supply the detector with the depletion voltage and to the current read-out via the connection to a nano-amperometer (\gls{nim} module with 0.1~nA resolution).  Moreover, temperature cycles in the range -40\textdegree{} - +40\textdegree{} have been realized with an automatic system. The detectors and read-out card have been placed in  a temperature programmable chamber Weiss WTL 64~\parencite{WeissTechnik2017}, and the temperature variations, the channel selection and the data acquisition are handled by a Raspberry Pi. The temperature step has been fixed to 5\textdegree{}.\\
-The leakage currents measured at room temperature (+25\textdegree{}) are homogeneous on all the strips, with some local exceptions. The average detected value is about 20~nA. Concerning the measurements at -40\textdegree{}, the average value for the n strips is close to 0~nA, while a current of 3-4~nA is still detected on the p strips. On each layer, a maximum of 3 strips show higher leakage current value; this is acceptable for the final application in the Compton camera. Moving from -40\textdegree{} to +40\textdegree{}, the leakage currents respect, on average, the expected trend defined by equation~\ref{chap3::eq::leakCurrentTemp}~\parencite{Spieler1998}.\\
+The 7 \glspl{dssd} selected for the application in the Compton camera system among the 10 provided by the producer have been characterized in terms of leakage current. The measurements have been performed by colleagues before the beginning of my PhD thesis, and are summarized here for the sake of completeness. The extended description of the employed test-bench, the performed tests and the results is presented in~\cite{Ley2015}.\\
+The leakage current is an evaluation of the systematic uncertainty expected on each read-out channel, corresponding to a background current detected without an energy deposit in the depletion region. The 7 layers have been tested at the complete depletion voltage of -750~V with a test-bench developed at the \gls{ipnl} specifically for these measurements. It is composed of a custom electronics card which is used to supply the detector with the depletion voltage and to the current read-out via the connection to a nano-amperometer (\gls{nim} module with 0.1~nA resolution).  Moreover, temperature variations in the range -40\textdegree{} - +40\textdegree{} have been realized with an automatic system, with the detectors and read-out card placed in a temperature programmable chamber Weiss WTL 64~\parencite{WeissTechnik2017}. The temperature variations, the channel selection and the data acquisition are handled by a Raspberry Pi. The temperature step has been fixed to 5\textdegree{}. Finally, temperature cycles have been carried out in order to study the detector response to rapid temperature variations and the time required to stabilize the leakage current at the working temperature, with temperature steps between -20\textdegree{} (working temperature) and +25\textdegree{} (room temperature).\\
+The leakage currents measured at room temperature (+25\textdegree{}) are homogeneous on all the strips, with some local exceptions. The average detected value is about 20~nA. Concerning the measurements at -40\textdegree{}, the average value for the n strips is close to 0~nA, while a current of 3-4~nA is still detected on the p strips. On each layer, a maximum of 3 strips show higher leakage current values; this is acceptable for the final application in the Compton camera. Moving from -40\textdegree{} to +40\textdegree{}, the leakage currents respect, on average, the expected trend defined by equation~\ref{chap3::eq::leakCurrentTemp}~\parencite{Spieler1998}.\\
 
 \begin{equation}
 I_p(T) \propto T^2 \times e^{-\frac{E}{2k_{B}T}}
@@ -482,7 +480,13 @@ I_p(T) \propto T^2 \times e^{-\frac{E}{2k_{B}T}}
 \end{equation}  
 where $I_{p}(T)$ is the leakage current as a function of the temperature, T is the temperature in Kelvin, E the silicon energy gap energy in eV, $k_B$ the Boltzmann constant (8.617$\times$10$^{5}$~eV K$^{-1}$).\\
 
-\newpage
+The leakage current is generally stable or is slightly increasing for temperatures below 0\textdegree{}, with values always below 10~nA. Beyond 0\textdegree{}, it rapidly increases reaching some tens of nA at 40\texdegree{}, depending on the specific strip. This observation justify the need of the described thermal regulated box, which is able to maintain a constant temperature of -20\textdegree{} during the detector operation, placing them in a minimum and stable leakage current regime.\\
+The application of quick temperature variation steps between -20\textdegree{} and +25\textdegree{} allowed to estimate the time required by the detector to re-establish the working regime with minimal leakage current. When moving from -20\textdegree{} to +25\textdegree{}, the leakage current increases rapidly up to the values already detected during the slow temperature variations, with a transition time of the order of less then ten minutes. Approximately the same time is required to stabilize the leakage current after the cooling down to -20\textdegree{}.\\
+In addition to the described leakage current measurements carried out with the 7 10$\times$10~cm$^{2}$ \glspl{dssd}, a small silicon layer prototype (8$\times$8 strips) has been tested with the first version of the \gls{fe} card \gls{asic}. The first version of the card allowed for the read-out of 8 channels, so that the 8 p strips have been characterized with this read-out system, while the n strip data have been collected with \gls{nim} modules. The data treatment has been performed thanks to \gls{vme} modules.\\
+The detector has been exposed to $^{22}$Na and $^{57}$Co radioactive sources: the $^{22}$Na source, producing two back-to-back 511~keV gammas as a result of the $\beta^{+}$ annihilation, has been used for timing measurements in coincidence with a \gls{labr3} crystal, while the 122~keV photons of the $^{57}$Co source are used to characterize the energy response by photoelectric absorption.\\
+The detected time resolution has been estimated to be in the range 13-23~ns \gls{fwhm} for the p strips, and between 30 and 80~ns \gls{fwhm} for the n strips (knowing that the \enquote{hole} drift time is about 3-4 times more than the electron one). The energy resolution is between 10 and 20~\% \gls{fwhm} for the tested strips. This test also allowed to verify the first version of the card and move forward with the development of the second and third version at present available for the final detector.\\
+Thanks to the summarized measurements, a calibration database is available for the 7 silicon layers, which showed overall stable and acceptable performance. The final version of the card must be tested in order to check these results, validate the board behavior and move to the first detector tests on beam. All the details concerning the next development steps are presented in section~\ref{chap3::subsec::scattNext}.    
+
 
 \subsection{Absorber \gls{bgo} blocks characterization}\label{chap3::subsec::absBGOchar}
 
@@ -942,7 +946,6 @@ The characterized blocks show very uniform results, with an average energy resol
 
 The last five blocks in the list of \tablename~\ref{chap3::tab::absresults30Blocks} showed detection problems, due to very low signal level on the read-out \glspl{pm} or a poor spatial reconstruction accuracy with one missing pseudo-pixel on the two-dimensional map, probably due to crystal aging. The blocks with \glspl{pm} issues will not be employed in the final absorber configuration, while the other two will be probably placed in the peripheral area in order to keep a wide active detection surface.   
 
-\newpage
 
 \subsection{Hodoscope \glspl{pm} characterization}\label{chap3::subsec::hodoPMchar}         
 
@@ -1108,7 +1111,6 @@ A complete characterization of the hodoscope acquisition chain will be necessary
 
 ADD HERE THE RESULTS OF THE SUMMER ABOUT THE ASIC GAIN AND THRESHOLD CHARACTERIZATION, AND COMMENT LINKING TO CHAPTER 6 FOR THE BEAM TESTS. 
 
-\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   NEXT  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
