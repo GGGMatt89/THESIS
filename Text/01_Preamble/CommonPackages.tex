@@ -19,6 +19,8 @@
 \hyphenation{tem-pe-ra-tu-re}
 \hyphenation{re-la-ti-ve}
 
+% For nice ordering numbers 
+\usepackage[super]{nth}
 
 % Doing calculations with LaTeX units -- needed for the vertical line in the footer
 % CTAN: http://www.ctan.org/pkg/calc
@@ -32,6 +34,11 @@
 % Extendes support for floating objects (tables, figures), adds the [H] placing option (\begin{figure}[H]) which palces it "Here" (without any doubt).
 % CTAN: http://www.ctan.org/pkg/float
 \usepackage{float}
+
+%for rotation of graphic environments (tables in particular)
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{multirow}
 
 % Support for captions, subcaptions and subfigures
 \usepackage[margin=20pt]{subcaption}
@@ -145,6 +152,7 @@
 \usepackage{longtable}
 \usepackage{rotating}
 \usepackage{tabularx}
+\usepackage{makecell}
 
 \newcolumntype{s}{>{\hsize=.5\hsize}X}
 

@@ -1106,3 +1106,128 @@ The data flow from the \gls{utca} to the acquisition PC is detailed here. The UD
 
 As already mentioned, the Compton camera application is not feasible at clinical beam intensities. \newline
 In order to have an online monitoring of the beam range, a reduced intensity must be foreseen. The main limitation is the rate of random coincidences detected at high intensity, while from the technological point of view no limitations are highlighted by this study. In the collimated camera configuration, where no coincidences are required and the random coincidences limitation is removed, we can then expect to be able to work at real clinical intensity.
+
+
+
+\afterpage{%
+\clearpage% Flush earlier floats (otherwise order might not be correct)
+\newgeometry{margin=1cm}
+\begin{landscape}% Landscape page
+\thispagestyle{empty}% empty page style (?)  
+\begin{table} [!htbp]       
+\footnotesize  
+\begin{center}
+%\vspace*{-3cm}
+\caption{Acquisition format of the Compton camera data.}
+\label{chapappA::tab::DAQdata}
+\begin{tabular}{m{6cm} | c c c m{8cm}}
+		\toprule
+		\rowcolor{myColorMainA!20}
+		\multicolumn{5}{c}{\textbf{COMPTON CAMERA ACQUISITION DATA FORMAT}} \\
+		&\textbf{Description} &\textbf{Size (bytes)} & \textbf{Size (bits)} & \textbf{Details} \\
+\midrule
+\multirow{3}{*}{\makecell[l]{\textbf{Beginning of file} \\ (10 bytes)}}	&File start ID & 2& 16 &  F0F0 (hex) fixed ID\\
+														& Run number & 4 & 32 & Automatically increasing in DAQ software - it can be manually fixed \\
+														& Total number of events & 4 & 32 & Fixed at the beginning of the acquisition, it defines the file size \\
+\midrule
+\multirow{4}{*}{\makecell[l]{\textbf{Event header} \\ (11 bytes) \\ $\times$ total number of events}} & Event start ID & 2 & 16 & ABCD (hex) fixed ID \\
+														& Event number & 4 & 32 & Automatically increasing in \gls{utca} data format\\
+														& Trigger number & 3 & 24 & Automatically increasing in \gls{utca} data format  \\
+														& Number of hits in trigger & 2 & 16 &  \\
+\midrule														
+\multirow{5}{*}{\makecell[l]{\textbf{Data header} \\ (7 bytes) \\ $\times$ number of hits in trigger}} & Hit start ID & 1 & 8 & EB (hex) fixed ID \\
+														& \gls{fe} number & 1 & 8 &  see \tablename~\ref{chapappA::tab::FE_numbers}\\
+														& Trigger number  & 3 & 24 &  repeated from Event Header\\
+														& Mode number  & 1 & 8 &  see figure~\ref{chapappA::fig::hodoDataForm} (7 or 8 for the hodoscope - 7 = optimal, 8 = test)\\
+														& Number of involved fibers & 1 & 8 &  \\
+\midrule														
+\multirow{3}{*}{\makecell[l]{\textbf{Hit structure scatterer} \\ (7 bytes - mode 1, 9 bytes - mode 2, \\ mode 3 and 4 with signal sampling) \\ $\times$ number of involved strips \\ (mode 1 and 3) or tracks \\ (mode 2 and 4)}}  										& Strip number & 1 & 8 & mode 1 and 3 \\
+														& Position & 2 & 16 & mode 2 and 4 \\
+														& Time & 4 & 32 & all modes \\
+														& Charge & 2 & 16 & mode 1 and 2 \\
+														& Signal samples & 2 & 16 & mode 3 and 4 - size per sample - n samples, with n selected in acquisition code\\
+\midrule	
+\multirow{3}{*}{\makecell[l]{\textbf{Hit structure absorber} \\ (17 bytes - mode 5, \\ mode 6 with signal sampling) \\ $\times$ number of involved blocks}}  & Block number & 1 & 8 & both modes\\
+														& Time & 4 & 32 & both modes\\
+														& Charge PM 1-4 & 3 & 24 & mode 5 - size per \gls{pm} - 4 \glspl{pm} per block \\		
+														& Signal samples & 2 & 16 & mode 6 - size per sample per \gls{pm} - n samples, with n selected in acquisition code, 4 \glspl{pm} per block\\																										
+\midrule														
+\multirow{3}{*}{\makecell[l]{\textbf{Hit structure hodoscope} \\ (5 bytes - mode 7, 7 bytes - mode 8) \\ $\times$ number of involved fibers}}  & Fiber number & 1 & 8 & ranges from 0 to 128 \\
+														& Time & 4 & 32 & in both modes 7 and 8 \\
+														& Charge & 2 & 16 & only for mode 8 \\
+\midrule																													
+\multirow{3}{*}{\makecell[l]{\textbf{End of file} \\ (10 bytes)}} & File end ID & 2 & 16 & F1F1 (hex) fixed ID \\
+														& Number of events in file & 4 & 32 &  for verification and debugging \\
+														& Number of octets in file & 4 & 32 &  for verification and debugging \\
+\bottomrule
+\end{tabular} 
+\end{center}     
+\end{table}
+\end{landscape}
+\clearpage% Flush page
+}
+
+
+%\afterpage{%
+%\clearpage% Flush earlier floats (otherwise order might not be correct)
+%\thispagestyle{empty}% empty page style (?)
+%\begin{landscape}% Landscape page
+%\begin{table} [!htbp]
+%
+%\vspace{-3.4cm}
+%
+%\centering
+%\caption{\small Acquisition format of the Compton camera data.}
+%\label{chapappA::tab::DAQdata}
+%\begin{tabular}{m{6cm} | c c c m{8cm}}
+%		\toprule
+%		\rowcolor{myColorMainA!20}
+%		\multicolumn{5}{c}{\textbf{ACQUISITION DATA FORMAT}} \\
+%		&\textbf{Description} &\textbf{Size (bytes)} & \textbf{Size (bits)} & \textbf{Details} \\
+%\midrule
+%
+%\multirow{3}{*}{\makecell[l]{\textbf{Beginning of file} \\ (10 bytes)}}	&File start ID & 2& 16 &  F0F0 (hex) fixed ID\\
+%														& Run number & 4 & 32 & Automatically increasing in DAQ software - it can be manually fixed \\
+%														& Total number of events & 4 & 32 & Fixed at the beginning of the acquisition, it defines the file size \\
+%\midrule
+%\multirow{4}{*}{\makecell[l]{\textbf{Event header} \\ (11 bytes) \\ $\times$ total number of events}} & Event start ID & 2 & 16 & ABCD (hex) fixed ID \\
+%														& Event number & 4 & 32 & Automatically increasing in \gls{utca} data format\\
+%														& Trigger number & 3 & 24 & Automatically increasing in \gls{utca} data format  \\
+%														& Number of hits in trigger & 2 & 16 &  \\
+%\midrule														
+%\multirow{5}{*}{\makecell[l]{\textbf{Data header} \\ (7 bytes) \\ $\times$ number of hits in trigger}} & Hit start ID & 1 & 8 & EB (hex) fixed ID \\
+%														& \gls{fe} number & 1 & 8 &  see \tablename~\ref{chapappA::tab::FE_numbers}\\
+%														& Trigger number  & 3 & 24 &  repeated from Event Header\\
+%														& Mode number  & 1 & 8 &  see figure~\ref{chapappA::fig::hodoDataForm} (7 or 8 for the hodoscope - 7 = optimal, 8 = test)\\
+%														& \makecell{Number of involved modules \\ (fibers / Si strips / \gls{bgo} blocks) }& 1 & 8 &  \\
+%\midrule														
+%\multirow{3}{*}{\makecell[l]{\textbf{Hit structure scatterer} \\ (7 bytes - mode 1, 9 bytes - mode 2, \\ mode 3 and 4 with signal sampling) \\ $\times$ number of involved strips \\ (mode 1 and 3) or tracks \\ (mode 2 and 4)}}  										& Strip number & 1 & 8 & mode 1 and 3 \\
+%														& Position & 2 & 16 & mode 2 and 4 \\
+%														& Time & 4 & 32 & all modes \\
+%														& Charge & 2 & 16 & mode 1 and 2 \\
+%														& Signal samples & 2 & 16 & mode 3 and 4 - size per sample - n samples, with n selected in acquisition code\\
+%														
+%\midrule														
+%\multirow{3}{*}{\makecell[l]{\textbf{Hit structure absorber} \\ (17 bytes - mode 5, \\ mode 6 with signal sampling) \\ $\times$ number of involved blocks}}  & Block number & 1 & 8 & both modes\\
+%														& Time & 4 & 32 & both modes\\
+%														& Charge PM 1-4 & 3 & 24 & mode 5 - size per \gls{pm} - 4 \glspl{pm} per block \\		
+%														& Signal samples & 2 & 16 & mode 6 - size per sample per \gls{pm} - n samples, with n selected in acquisition code, 4 \glspl{pm} per block\\																										
+%\midrule														
+%\multirow{3}{*}{\makecell[l]{\textbf{Hit structure hodoscope} \\ (5 bytes - mode 7, 7 bytes - mode 8) \\ $\times$ number of involved fibers}}  & Fiber number & 1 & 8 & ranges from 0 to 128 \\
+%														& Time & 4 & 32 & in both modes 7 and 8 \\
+%														& Charge & 2 & 16 & only for mode 8 \\
+%\midrule														
+%\multirow{3}{*}{\makecell[l]{\textbf{End of file} \\ (10 bytes)}} & File end ID & 2 & 16 & F1F1 (hex) fixed ID \\
+%														& Number of events in file & 4 & 32 &  for verification and debugging \\
+%														& Number of octets in file & 4 & 32 &  for verification and debugging \\
+%\bottomrule
+%\end{tabular}
+%\end{table}
+%\end{landscape}
+%\clearpage% Flush page
+%
+%}
+
+
+
+
