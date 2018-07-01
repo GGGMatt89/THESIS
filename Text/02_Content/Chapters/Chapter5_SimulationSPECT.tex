@@ -112,7 +112,7 @@ Two sets of data are produced as output of this analysis, one for the scatterer 
 
 The scatterer energy resolution and the source activity have been fixed for the benchmark study. The choice of their values is discussed in section~\ref{chap5::sec::Results_CC_SPECT}. 
 
-Finally, with the same scatterer energy resolution and the source activity, the design of the Compton camera has been tested for this specific application, in particular for what concerns the number of employed scatterer planes. In addition to the original design configuration with seven \glspl{dssd}, additional sets of simulations have been performed at four reference primary gamma energy reducing the number of layers in each set, in order to assess the camera optimal configuration as a function of the gamma energy. The results are shown in section~\ref{chap5::subsec::Results_CC_SPECT_desing} and are expressed according to the figures of merit used for the benchmark study (see section~\ref{chap5::subsec::fom}). 
+Finally, with the same scatterer energy resolution and the source activity, the design of the Compton camera has been tested for this specific application, in particular for what concerns the number of employed scatterer planes. In addition to the original design configuration with seven \glspl{dssd}, additional sets of simulations have been performed at four reference primary gamma energy reducing the number of layers in each set, in order to assess the camera optimal configuration as a function of the gamma energy. The results are shown in section~\ref{chap5::subsec::Results_CC_SPECT_design} and are expressed according to the figures of merit used for the benchmark study (see section~\ref{chap5::subsec::fom}). 
 
 \subsection{Anger camera simulation and data analysis}\label{chap5::subsec::Anger_descr}
 
@@ -309,20 +309,20 @@ At 200~MBq source activity, the same amount of true and random coincidences is o
 For the further analysis and the final detector comparison, the source activity has been then set to 200~MBq, and the number of random coincidences is studied as a function of the source energy. \figurename~\ref{chap5::fig::timig_en_coinc}~(right) shows the ratio of detected random coincidences over the total number of reconstructed coincidences (see Section~\ref{chap5::subsubsec::CC_analysis}) as a function of energy for a fixed activity of 200~MBq. The ratio decreases for increasing energies, because the product of independent interaction probabilities in two detectors decreases faster than the true coincidence one. Therefore, an increasing reconstruction efficiency with \gls{lm-mlem} is verified (see Section~\ref{chap5::sec::Results_benchmark}).
 
 \subsection{Compton camera desing study}\label{chap5::subsec::Results_CC_SPECT_design}
-The reconstructed events efficiency for four reference primary gamma energies is shown in figure~\ref{chap5::fig::desing_eff} for five different scatterer configurations: starting from the original design with seven silicon layers, one layer has been removed for each simulation set, until a minimal scatterer stack composed of only three layers. \figurename~\ref{chap5::fig::design_rms} and \figurename~\ref{chap5::fig::design_SONR} show the results of the same sets of simulations for what concerns the reconstructed event radial distribution \gls{rms} and the signal-to-background ratio, respectively.  
+The reconstructed events efficiency for four reference primary gamma energies is shown in figure~\ref{chap5::fig::design_eff} for five different scatterer configurations: starting from the original design with seven silicon layers, one layer has been removed for each simulation set, until a minimal scatterer stack composed of only three layers. \figurename~\ref{chap5::fig::design_rms} and \figurename~\ref{chap5::fig::design_SONR} show the results of the same sets of simulations for what concerns the reconstructed event radial distribution \gls{rms} and the signal-to-background ratio, respectively.  
 
 \begin{figure}[h!]
 \begin{subfigure}[t]{1\textwidth}
 \centering
 \includegraphics[scale=0.5]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/compton/geometry/rmsVSenergy_NSiplanes.png}
 \caption{Detection efficiency as a function of the source energy for five configurations of the scatterer stack: one layer has been removed for each simulation set. Source activity~=~200~MBq, Compton camera silicon detector $\mathrm{\sigma_{E}\,=\,2\,keV}$.}
-\label{chap5::fig::desing_eff}
+\label{chap5::fig::design_eff}
 \end{subfigure} \\ 
 \begin{subfigure}[t]{.5\textwidth}
 \centering
   \includegraphics[width=.95\linewidth]{03_GraphicFiles/chapter5_SPECTsimu/SPECT/compton/geometry/rmsVSenergy_NSiplanes.png}
   \caption{Standard deviation of the radial event distributions as a function of the source energy for five configurations of the scatterer stack: one layer has been removed for each simulation set. Source activity~=~200~MBq, Compton camera silicon detector $\mathrm{\sigma_{E}\,=\,2\,keV}$.}
-  \label{chap5::fig::desing_rms}
+  \label{chap5::fig::design_rms}
 \end{subfigure}
 \begin{subfigure}[t]{.5\textwidth}
 \centering
@@ -334,8 +334,8 @@ The reconstructed events efficiency for four reference primary gamma energies is
 \label{chap5::fig::design}
 \end{figure} 
 
-Concerning the reconstructed events efficiency, an overall efficiency drop is observed for the scatterer configurations with more than four layers at 245~keV photon energy: this probably reveals an effect of total gamma absorption in the scatterer detector section, in parallel to an increased number of events deflected with large Compton angles which escape the absorber field of view. This effect is not confirmed at increasing gamma energy, already at 555~keV. In this energy range, the expected reduction of the overall efficiency for reduced number of scatterer layers (due to the reduced Compton effect probability) is verified. Radial distribution standard deviation and signal-to.background ratio show minimal variations for the different tested configurations.\\
-At very low gamma energy a scatterer configuration with four silicon scatterer planes appears to be the optimal solution. This is the energy range for which the Compton camera advantages with respect to the commercial Anger cameras are less remarkable, as explained in the next sessions. At increasing energy, relevant to profit of the Compton camera advantageous features, the original \gls{clarys} camera design is confirmed as the optimal configuration; this setup has been implemented for the benchmark study presented in the following sections.   
+Concerning the reconstructed events efficiency, an overall efficiency drop is observed for the scatterer configurations with more than four layers at 245~keV photon energy: this probably reveals an effect of total gamma absorption in the scatterer detector section, in parallel to an increased number of events deflected with large Compton angles which escape the absorber field of view. This effect is not confirmed at increasing gamma energy, already at 555~keV. In this energy range, the expected reduction of the overall efficiency for reduced number of scatterer layers (due to the diminished Compton effect probability) is verified. Radial distribution standard deviation and signal-to.background ratio show minimal variations for the different tested configurations.\\
+At very low gamma energy a scatterer configuration with four silicon scatterer planes appears to be the optimal solution. This is the energy range for which the Compton camera advantages with respect to the commercial Anger cameras are expected to be less remarkable, as explained and verified in the next sessions. At increasing energy, relevant to profit of the Compton camera advantageous features, the original \gls{clarys} camera design is verified to be the best configuration; this setup has been implemented for the benchmark study.   
 
 
 \section{Results: Benchmark of Compton camera and Anger camera performance}\label{chap5::sec::Results_benchmark}
