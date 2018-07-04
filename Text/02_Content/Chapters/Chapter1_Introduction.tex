@@ -8,9 +8,9 @@
 
 \glsresetall
 
-The application of physics concepts and techniques to the field of health-care is nowadays well-established in the clinical routine. Even if physical techniques have been used in medicine from the earliest time\parencite{Duck2014}, the discipline today known as \enquote{medical physics} emerged and grown in the past century thanks to the increasing knowledge and use of ionizing radiations both for diagnosis and disease treatment. In the late \nth{19} century, the x-ray discovery by R\"{o}ntgen, the radioactivity discovery by Henri Becquerel and the radium and radioactive isotopes studies by Pierre and Marie Curie paved the way to the whole medical physics practice of the next century, where x-ray imaging and radiotherapy were soon established. Following the first successes, more attention were given to radio-protection and dosimetry studies, and the investigations focused on new ways to use radioactive tracers for imaging purpose; this finally led to the birth of nuclear medicine, with the clinical use of the radioisotope \gls{ind131} in 1939~\parencite{Kereiakes1987}. Nuclear medicine rapidly gained importance in the diagnosis clinical panorama, also thanks to the introduction of new detectors, such as the Anger camera introduced in the '60s, and new imaging techniques, such as the detection of photons from positron annihilation (\gls{pet}). Moreover, several alternative methods were proposed or implemented for diagnosis (\gls{mri}, ultrasounds, etc.) and more refined treatment techniques were introduced with the development of particle accelerators after World War 2~\parencite{Keevil2012}.  
+The application of physics concepts and techniques to the field of health-care is nowadays well-established in the clinical routine. Even if physical techniques have been used in medicine from the earliest time\parencite{Duck2014}, the discipline today known as \enquote{medical physics} emerged and grown in the past century thanks to the increasing knowledge and use of ionizing radiations both for diagnosis and disease treatment. In the late \nth{19} century, the x-ray discovery by R\"{o}ntgen, the radioactivity discovery by Henri Becquerel, and the radium and radioactive isotopes studies by Pierre and Marie Curie paved the way to the whole medical physics practice of the next century, where x-ray imaging and radiotherapy were soon established. Following the first successes, more attention were given to radio-protection and dosimetry studies, and the investigations focused on new ways to use radioactive tracers for imaging purpose; this finally led to the birth of nuclear medicine, with the clinical use of the radioisotope \gls{ind131} in 1939~\parencite{Kereiakes1987}. Nuclear medicine rapidly gained importance in the diagnosis clinical panorama, also thanks to the introduction of new detectors, such as the Anger camera introduced in the '60s, and new imaging techniques, such as the detection of photons from positron annihilation (\gls{pet}). Moreover, several alternative methods were proposed or implemented for diagnosis (\gls{mri}, ultrasounds, etc.) and more refined treatment techniques were introduced with the development of particle accelerators after World War 2~\parencite{Keevil2012}.  
 
-At present days, the medical physics progress strongly relies on technological development and computer science, which already revolutionized several fields of science. In particular, cancer research is now a key area for technical and technological development, concerning both diagnosis and treatment\parencite{Webb2009}. The last two decades saw important improvements in radiotherapy techniques and machines, with more precise dose planning and delivery, which strongly reduced the impact of radiations on healthy tissues. This was possible also thanks to refined imaging technologies, allowing for an accurate tumor volume definition, as well as for image-guided treatments. In this scenario, ion beam therapy, already proposed in the middle of the past century, is rapidly spreading thanks to novel beam delivery technologies, able to relatively reduce the treatment costs and allowing for a commercial diffusion of this treatment method (which is still very limited with respect to standard radiotherapy). Notwithstanding the remarkable steps forward disclosed in the last years, there is still wide room for improvements in this fields, which mainly requires strong imaging basis in order to fully profit of the treatment technique potential.
+At present days, the medical physics progress strongly relies on technological development and computer science, which already revolutionized several fields of science. In particular, cancer research is now a key area for technical and technological development, concerning both diagnosis and treatment\parencite{Webb2009}. Cancer continues to be one of the major issue in the medical scenario: it is at present the second cause of death worldwide, but it is expected to surpass heart diseases and become the main killer in the next tens of years~\parecite{}. The last two decades saw important improvements in radiotherapy techniques and machines, with more precise dose planning and delivery, which strongly reduced the impact of radiations on healthy tissues. This was possible also thanks to refined imaging technologies, allowing for an accurate tumor volume definition, as well as for image-guided treatments. In this scenario, ion beam therapy, already proposed in the middle of the past century, is rapidly spreading thanks to novel beam delivery technologies, able to relatively reduce the treatment costs and allowing for a commercial diffusion of this treatment method (which is still very limited with respect to standard radiotherapy). Notwithstanding the remarkable steps forward disclosed in the last years, there is still wide room for improvements in this fields, which mainly requires strong imaging basis in order to fully profit of the treatment technique potential.
 
 The work presented in this document have been carried out in this context and deals with the development of gamma imaging detectors to be applied in the field of quality assurance for ion beam treatment. Furthermore, the same detectors have been applied to the nuclear medicine field in simulation, with the aim of assessing its possible clinical implementation for a future development of the nuclear medicine clinical routine. 
 
@@ -19,7 +19,7 @@ In the following sections, a general overview of the two main domains concerned 
 
 \section{Ion beam therapy}\label{chap1::sec::ionBeamTher}
 
-Radiation treatment is an essential component of the tumor therapy, being the second most applied and successful kind of therapy after surgery~\parencite{Schardt2010}. The most of the patients treated with radio-therapy techniques receives standard photon treatments, with x-rays coming from linear electron accelerators, while a small percentage undergoes specialized gamma treatments like brachytherapy or gamma knife irradiations. About 1~\% of the radiotherpay patients are irradiated with charged particle beams, with the so-called ion beam therapy~\parencite{Durante2016}.
+Radiation treatment is an essential component of the tumor therapy, being the second most applied and successful kind of therapy after surgery~\parencite{Schardt2010}. The majority of patiens with localized malignant tumors are treated with radiations~\parencite{Durante2009, Baskar2012, Moding2013}, applied in several fractions in different days in order to reduce the damages to normal tissues~\parencite{Bentzen2006}. The most of the patients treated with radio-therapy techniques receives standard photon treatments, with x-rays coming from linear electron accelerators, while a small percentage undergoes specialized gamma treatments like brachytherapy or gamma knife irradiations. About 1~\% of the radiotherpay patients are irradiated with charged particle beams, with the so-called ion beam therapy~\parencite{Durante2016}.
 Ion beam therapy, or \enquote{hadrontherapy}, is a cancer radiation treatment method based on light ion beams instead of photons. It was first proposed by Wilson in 1946~\parencite{Wilson1946}; the author highlighted the physical principles and the possible benefits driven by the implementation of such a kind of radiation in clinical treatments, with particular focus on the simple case of protons and some considerations about heavier ions, like alpha particles. At that time, the accelerator technologies were still under development and the treatment required beam energy were about to be reached; the first patients have been treated almost ten years later in the USA by Lawrence and Larson~\parencite{Tobias1955, Tobias1958} with protons and, later on, with He ions~\parencite{Halperin2006}. Nowadays clinical adapted machines are well-established on the market, making ion beam therapy emerging as a wide-spread technique in the every-day cancer treatment routine all over the world. An intense research effort has been dedicated to this field in the last decades; in addition to considerable improvements achieved in the accelerator technologies, new and refined imaging techniques allowed for important enhancement in the treatment planning, also supported by the continuous development of computer science and the growth of calculation power. In parallel, the biological implications of ion irradiation has been deeply investigated~\parencite{Tobias1982, Brahme2004, Friedrich2012, }. Moreover, since more and more patient are treated every year with this technique, more clinical data are at present available for further study and the connection between physicists and physicians is strongly progressing both in the research field and in treatment practice. Several advancements are expected in the next years, following the extensive research work carried out by several groups in the world. In the following paragraph, the basic physical principles and features of this treatment method are explained, and advantages and drawbacks with respect to standard radiotherapy techniques are analyzed. After that, the need of ion range verification is discussed and detailed in order to reach the main topic for this thesis: the prompt-gamma detection.   
 
 \subsection{Physics of ion beam therapy}\label{chap1::subsec::Physics}
@@ -31,6 +31,8 @@ High-energy beams of charged nuclear particles show a characteristic depth-dose 
 \caption{Relative dose as a function of the particle depth in water for photons at different energies, protons, and carbon ions.}
 \label{chap1::fig::Depth-doseProf}
 \end{figure} 
+
+\vspace{-1cm}
 
 \begin{figure}[!htbp]
 \centering
@@ -111,7 +113,7 @@ The projectile velocity determines the velocity of the secondary fragments, whic
 \end{subfigure}
 \begin{subfigure}[t]{.5\textwidth}
 \centering
-\includegraphics[width=0.9\textwidth]{03_GraphicFiles/chapter1_Introduction/tailBragg.pdf}	
+\includegraphics[width=0.92\textwidth]{03_GraphicFiles/chapter1_Introduction/tailBragg.pdf}	
 \caption{Measured relative ionizations for carbon ion beams stopping in water (in~\cite{Schardt2008}).}
 \label{chap1::fig::TailBragg}
 \end{subfigure}
@@ -127,7 +129,36 @@ Focusing on neutrons, which are produced in large quantities and over a wide ene
 
 \subsection{Biological effects of ion beam therapy}\label{chap1::subsec::bioEffects} 
 
+In addition to the already presented physical differences between photon radiation therapy and ion beam therapy treatments, a fundamental aspect of the game  lies in the biological effect of such radiations. In the following the main biological implications of radiation therapy are summarized with the aim of highlighting the favorable contribution given by charged particles with respect to photons and, at the same, discuss some controversial points~\parencite{Paganetti2013}.\\
+   
 
+Absorbed dose, defined in ~\cite{ICRU1980, ICRU1998} as 
+
+\begin{equation}
+\mathrm{D} = \frac{d\overline{\epsilon}}{dm}
+\label{chap1::eq::AbsDoseDef}
+\end{equation}
+
+where $d\overline{\epsilon}$ is the mean energy imparted by ionizing radiation to matter of mass $dm$. To be precise, the imparted energy must also be defined: in the same ICRU reports we find that 
+
+
+\begin{equation}
+\epsilon = R_{\mathrm{in}} - R_{\mathrm{out}} + \sum{Q}
+\label{chap1::eq::impEnergyDef}
+\end{equation}
+
+with $R_{\mathrm{in}}$ and $R_{\mathrm{out}}$ the sum of the energies of all ionizing particles entering or leaving the volume, respectively, $ \sum{Q}$ the sum of all changes of the rest mass energy of nuclei and elementary particles in any nuclear transformations occurred in the volume due to the ionizing radiation.
+
+LET TO BE DEFINED: number of ionizations which radiation causes per unit distance as it traverses the target.
+
+In order to transfer the experience from photon data to ion irradiation and to create a common evaluation parameter, the \gls{rbe} has been introduced and defined as the ratio between the photon and ion equivalent dose:\\
+
+\begin{equation}
+\mathrm{RBE} = \frac{D_{\mathrm{photon}}}{D_{\mathrm{ion}}}
+\label{chap1::eq::rbeDef}
+\end{equation}
+
+where $D_{\mathrm{photon}}$ and $D_{\mathrm{ion}}$ are the absorbed dose for photon and ion irradiation causing the same biological effect. Notwithstanding the apparently simple definition, \gls{rbe} results to be a very complex quantity, but for the moment the only one really used in clinics: it depends on the particle type, energy, on the biological target, as well as on dose and \gls{let}.
 
 \subsection{Advantages and drawbacks with respect to standard radiotherapy}\label{chap1::subsec::ProContro}
 
