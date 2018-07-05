@@ -28,6 +28,9 @@
 }
 
 
-\newcommand{\heading}[1]{\centering{\textbf{#1}}}
+%\newcommand{\heading}[1]{\centering{\textbf{#1}}}
 \newcommand{\xvarpm}[2]{\ooalign{\raisebox{-.5\height}{$#1-$}\cr\raisebox{.2\height}{$#1+$}\cr}}
 \newcommand{\varpm}{\mathbin{\mathpalette\xvarpm\relax}}
+
+
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
