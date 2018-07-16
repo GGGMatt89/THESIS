@@ -6,15 +6,11 @@
 
 
 \section{Introduction}\label{chapappA::sec::Intro}
-
 This document aims to formalize and fix the Compton camera data format. The structure of the data sent by each detector section (scatterer, absorber and beam hodoscope) to the acquisition card is detailed, as well as the structure of the events sent to the acquisition PC.
 
 
 \section{General features}\label{chapappA::sec::GenFeat}
-
-
 \subsection{Common information}\label{chapappA::subsec::cmnInfo}
-
 The detector \gls{fe} cards are connected to the \gls{utca} via optical links, with a speed of 3.0~Gbit/s. The transfer frequency is 150~MHz.\newline
 All the \gls{fe} card \glspl{tdc} share the same synchronized clock, at a 40~MHz frequency, which is sent to the cards through an external link.\newline
 Every data packet sent to the \gls{utca} by the Front End cards starts with the following information:
@@ -26,7 +22,6 @@ Every data packet sent to the \gls{utca} by the Front End cards starts with the 
 \end{itemize}
 
 \subsubsection{Front End number}\label{chapappA::subsubsec::FEnum}
-
 The \gls{fe} number is the identification code of each \gls{fe} card. A mechanical switch on the card defines the ID which is sent in the data packet header.
 \newline
 In \tablename~\ref{chapappA::tab::FE_numbers} the \gls{fe} number IDs are listed with the corresponding cards.
@@ -87,7 +82,6 @@ In \tablename~\ref{chapappA::tab::FE_numbers} the \gls{fe} number IDs are listed
 \glsreset{asm}
 
 \subsubsection{Pre-trigger and trigger}\label{chapappA::subsubsec::trigger}
-
 The trigger number identifies each event, where an event is generated every time a coincidence is detected between a \gls{bgo} block and a silicon layer. Once an interaction is detected in a \gls{bgo} block, the associated \gls{asm} card generates a pre-trigger signal which is sent to the \gls{thor} card. This intermediate card shares the pre-trigger signal with the silicon \gls{fe} cards; if an interaction with a compatible time stamp is found in one of the silicon layer, a trigger signal is generated and sent to all the silicon \gls{fe} card, as well as to the \gls{asm} and hodoscope cards via the \gls{thor} card. The trigger signal validates the event, and each \gls{fe} card sends the collected data to the \gls{utca} system. The trigger number allows for a complete event reconstruction by the event builder on the acquisition PC. In \figurename~\ref{chapappA::fig::triggerGeneratio} the trigger generation process is sketched.\newline
 To be noticed that each \gls{fe} cards sends the collected data independently from the others.\newline
 
@@ -148,7 +142,6 @@ This same trigger number is sent at the beginning of each data packet and is use
 
 
 \subsubsection{Mode number}\label{chapappA::subsubsec::modeN}
-
 The Compton camera detector components can work in different mode, according to the application requirements. At least two working modes are possible for every detector section: an \enquote{optimal} mode, corresponding to the final camera configuration; a \enquote{test} mode, allowing for the collection of more raw information. Every operating mode presents a peculiar data format, so that the data packets size is not fixed. In order to fix the acquisition tuning, the mode number is defined before its beginning.\newline
 The operating mode are identified as following: \newline
 \begin{itemize}
@@ -166,13 +159,11 @@ The operating mode are identified as following: \newline
 
 
 \section{Physical data format}\label{chapappA::sec::physDataFormat}
-
 %\subsection{Format spécifique pré-trigger et trigger}
 
 %Le format pour ces deux informations est simplement constitué d'une information: le time stamp.
 
 \subsection{Scatterer detector data format}\label{chapappA::subsec::scattDataFormat}
-
 Four different data formats, corresponding to four working modes, have been defined for the silicon scatterer operation (\figurename~\ref{chapappA::fig::scattDataForm}). For mode 1 and 2, the collected total charge is directly evaluated on the \gls{fe} card via the slow shaper output and one \gls{asic}, while for mode 3 and 4 the \gls{asic} pre-amplifier output directly sends a sampling of the raw signal.  In this last case, the number of samples can be tuned and each sample corresponds to 10 ns. The complete sampling is stored in a dedicated buffer.\newline\newline
 \underline{Modes 1 and 3}\newline
 In mode 1 and 3, for each detector strip involved in the interaction, the strip ID, total collected charge and time are stored. The interaction position will be calculated via a center of gravity algorithm at the analysis stage. The raw information about the number of involved strips is useful for the evaluation of the signal dispersion in the detector.\newline
@@ -540,9 +531,7 @@ In test mode, the total collected charge can be calculated. This feature is usef
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Slow control, trigger and monitoring data format}\label{chapappA::sec::slowCTrigMonDataFormat}
-
 \subsection{Communication architecture}\label{chapappA::subsec::commArch}
-
 The Endpoint architecture is composed of three layers:
 \begin{itemize}
 	\item application layer
@@ -559,7 +548,6 @@ The Endpoint architecture is composed of three layers:
 
 
 \subsection{Transport protocol and processor packets}\label{chapappA::subsec::transport}
-
 \subsubsection{Definitions}\label{chapappA::subsubsec::transpDefs}
 	It is worth to define some useful terms for the following part of the document:
 
@@ -583,7 +571,6 @@ For the transport layer, the data structure is created via the addition of a pac
 The data are 8 bits/10 bits encoded. This standard 8 bits/10 bits encoding ensures sufficient data transitions for clock recovery.
 
 \subsubsection{Packets format}\label{chapappA::subsubsec::transpPackForm}
-
 All the data packets have the same structure. A K byte (control symbol) is followed by the cargo to be sent. The end of the packets changes according to the cargo parity.\newline
 If the cargo contains an even number of bytes, the packet ends with K.28.6.
 
@@ -626,7 +613,6 @@ If the cargo contains an odd number of bytes, the packet ends without any contro
 
 
 \subsubsection{Possible control symbols}\label{chapappA::subsubsec::ctrlSymbols}
-
 In \tablename~\ref{chapappA::tab::ControlSymbol}, all the possible control symbols are listed (defined by Carlos Abellan).
 
 \begin{table} [!htbp]
@@ -656,9 +642,7 @@ In \tablename~\ref{chapappA::tab::ControlSymbol}, all the possible control symbo
 
 
 \subsection{Transport layer}\label{chapappA::subsec::transpLayer}
-
 \subsubsection{Control packet}\label{chapappA::subsubsec::ctrlPacket}
-
 This kind of packet is used to check the link and for the control/command operations.
 \begin{itemize}
 \item For the link check, two kinds of packets are used: synchronization packet and IDLE packet.
@@ -716,7 +700,6 @@ This packet is sent by the \gls{fe} cards and interpreted as an acknowledgement 
 \end{table}
 
 \subsubsection{Configuration packets}\label{chapappA::subsubsec::confPackets}
-
 \underline{Writing register process (\gls{utca} $\rightarrow$ Front End cards)}\newline
 
 The process starts with a packet sent by the \gls{utca} asking for the register writing. The receiver (\gls{fe} card) sends back an acknowledgement packet to finish the process. In \tablename~\ref{chapappA::tab::WriteRegister} the format of this writing register packet is reported.
@@ -817,7 +800,6 @@ N+4				 & \multicolumn{2}{M{5cm}}{CRC composed of the \enquote{xor} of all bits 
 
 
 \subsubsection{Monitoring process (Front End cards $\rightarrow$ \gls{utca})}\label{chapappA::subsubsec::monitorProcess}
-
 In case of issues, for example when the temperature of a card go beyond a fixed threshold, the DAQ card sends a \enquote{monitoring} packet to the \gls{utca}. There is not a corresponding acknowledgement from the \gls{utca}.\newline
 
 
@@ -861,7 +843,6 @@ In case of issues, for example when the temperature of a card go beyond a fixed 
 
 
 \subsubsection{Special command process (\gls{utca} $\rightarrow$ Front End cards)}\label{chapappA::subsec::specCmdProcess}
-
 This process is designed to allow the \gls{utca} to send special commands to the \gls{fe} cards.
 
 \begin{table} [!htbp]
@@ -902,7 +883,6 @@ This process is designed to allow the \gls{utca} to send special commands to the
 A register database (containing the operating mode identification) must be fixed and shared between all the detectors.
 
 \subsection{Data packets (Front End card $\rightarrow$ \gls{utca})}\label{chapappA::subsec::dataPackets}
-
 In the section the packets concerning trigger, pre-trigger and physical data are described.\newline
 No acknowledgement is demanded for this kind of packets.
 
@@ -978,7 +958,6 @@ This packet sends the \enquote{useful} data to the \gls{utca}. The data format (
 \end{table}
 
 \section{UDP packets format}\label{chapappA::sec::UDPpackForm}
-
 Once the \gls{utca} receives the data from the \gls{fe} cards, a physical event is generated and stored in dedicated buffers. The buffers are then sent to the acquisition PC via UDP packets. Each detector section has its own UDP socket, and three receiving ports are used for the three data fluxes: 60001 for the hodoscope, 60002 for the absorber, 60003 for the scatterer. The content of the data buffers are sent in order to avoid to divide events in different packets, so that each UDP packet is completely independent from the others and contains complete events. The maximum size of a packet is set to 1500 (UDP data = 1472), or to 9000 for the so called \enquote{jumbo frames}, used for high speed acquisitions.\newline
 Each UDP packet has a custom defined header, composed of:
 \begin{itemize}
@@ -988,9 +967,7 @@ Each UDP packet has a custom defined header, composed of:
 The data structures are then in a list one after the other with the already described format.
 
 \section{Data throughput expected in clinical conditions}\label{chapappA::sec::dataThroughputClinic}
-
 \subsection{Clinical intensities}\label{chapappA::subsec::clinIntensity}
-
 In clinical standards, the beam maximum intensity is:
 \begin{itemize}
 	\item protons : $10^{10}$ protons/s
@@ -1002,7 +979,6 @@ The Compton camera must be designed in order to be able to handle the whole rang
 As shown by the simulation results, the Compton camera can not be used for an online monitoring at the maximum beam intensity for both proton and carbon ion beams. The main limitation comes from the amount of random coincidences detected by the camera for high intensity beams. One possible solution is to deliver a lower intensity beam for the range monitoring before the beginning of the treatment. The results shown here relates to a reduced intensity, corresponding to the one selected via the simulation studies.
 
 \subsubsection{Review: detector and target sizes}\label{chapappA::subsubsec::revDetTargetSize}
-
 Detectors sizes:
 \begin{itemize}
 	\item Silicon scatterer : 7 silicon layers, 9.6$\times$9.6$\times$0.2 cm$\mathrm{^{3}}$ (first layer 20 cm far from the beam line)
@@ -1012,7 +988,6 @@ Detectors sizes:
 
 
 \subsection{Coincidence rate}\label{chapappA::subsec::coincRate}
-
 In \tablename~\ref{chapappA::tab::coincSingleRate} the coincidence and single (pre-trigger) rates expected for the different detector section are listed according to the beam kind and intensity. This values correspond the Compton camera, while for the collimated camera a reduced rate is expected for the absorber due to the presence of the physical collimator.
 
 \begin{table} [!htbp]
@@ -1043,7 +1018,6 @@ The data flow between the \gls{utca} and the acquisition PC corresponds to the c
 
 
 \subsection{Data flow (Front End cards  $\rightarrow$ \gls{utca})\newline}\label{chapappA::subsec::dataFlow}
-
 The data format previously described has been used to evaluate the data flow between each \gls{fe} card and the \gls{utca}. The calculation is performed according to the \enquote{optimal} mode of each detector. For the \gls{bgo}, we only consider events where the 4 \glspl{pm} are involved. For the silicon layers, two cases are considered:
 \begin{itemize}
 	\item Case 1 : one single layer with 6 involved strips;
@@ -1079,7 +1053,6 @@ The 8bits/10bits encoding in included in the calculation.
 
 
 \subsection{Acquisition data flow (\gls{utca} $\rightarrow$ Acquisition PC)}\label{chapappA::subsec::daqDataFlow}
-
 The data flow from the \gls{utca} to the acquisition PC is detailed here. The UDP encoding is included in the calculation.
 
 \begin{table} [!htbp]
@@ -1103,72 +1076,71 @@ The data flow from the \gls{utca} to the acquisition PC is detailed here. The UD
 \end{table}
 
 \subsection{Conclusions}\label{chapappA::subsec::conclusions}
-
 As already mentioned, the Compton camera application is not feasible at clinical beam intensities. \newline
 In order to have an online monitoring of the beam range, a reduced intensity must be foreseen. The main limitation is the rate of random coincidences detected at high intensity, while from the technological point of view no limitations are highlighted by this study. In the collimated camera configuration, where no coincidences are required and the random coincidences limitation is removed, we can then expect to be able to work at real clinical intensity.
 
 
 %
-%\afterpage{%
-%\clearpage% Flush earlier floats (otherwise order might not be correct)
-%\newgeometry{margin=1cm}
-%\begin{landscape}% Landscape page
-%\thispagestyle{empty}% empty page style (?)  
-%\begin{table} [!htbp]       
-%\footnotesize  
-%\begin{center}
-%%\vspace*{-3cm}
-%\caption{Acquisition format of the Compton camera data.}
-%\label{chapappA::tab::DAQdata}
-%\begin{tabular}{m{6cm} | c c c m{8cm}}
-%		\toprule
-%		\rowcolor{myColorMainA!20}
-%		\multicolumn{5}{c}{\textbf{COMPTON CAMERA ACQUISITION DATA FORMAT}} \\
-%		&\textbf{Description} &\textbf{Size (bytes)} & \textbf{Size (bits)} & \textbf{Details} \\
-%\midrule
-%\multirow{3}{*}{\makecell[l]{\textbf{Beginning of file} \\ (10 bytes)}}	&File start ID & 2& 16 &  F0F0 (hex) fixed ID\\
-%														& Run number & 4 & 32 & Automatically increasing in DAQ software - it can be manually fixed \\
-%														& Total number of events & 4 & 32 & Fixed at the beginning of the acquisition, it defines the file size \\
-%\midrule
-%\multirow{4}{*}{\makecell[l]{\textbf{Event header} \\ (11 bytes) \\ $\times$ total number of events}} & Event start ID & 2 & 16 & ABCD (hex) fixed ID \\
-%														& Event number & 4 & 32 & Automatically increasing in \gls{utca} data format\\
-%														& Trigger number & 3 & 24 & Automatically increasing in \gls{utca} data format  \\
-%														& Number of hits in trigger & 2 & 16 &  \\
-%\midrule														
-%\multirow{5}{*}{\makecell[l]{\textbf{Data header} \\ (7 bytes) \\ $\times$ number of hits in trigger}} & Hit start ID & 1 & 8 & EB (hex) fixed ID \\
-%														& \gls{fe} number & 1 & 8 &  see \tablename~\ref{chapappA::tab::FE_numbers}\\
-%														& Trigger number  & 3 & 24 &  repeated from Event Header\\
-%														& Mode number  & 1 & 8 &  see figure~\ref{chapappA::fig::hodoDataForm} (7 or 8 for the hodoscope - 7 = optimal, 8 = test)\\
-%														& Number of involved fibers & 1 & 8 &  \\
-%\midrule														
-%\multirow{3}{*}{\makecell[l]{\textbf{Hit structure scatterer} \\ (7 bytes - mode 1, 9 bytes - mode 2, \\ mode 3 and 4 with signal sampling) \\ $\times$ number of involved strips \\ (mode 1 and 3) or tracks \\ (mode 2 and 4)}}  										& Strip number & 1 & 8 & mode 1 and 3 \\
-%														& Position & 2 & 16 & mode 2 and 4 \\
-%														& Time & 4 & 32 & all modes \\
-%														& Charge & 2 & 16 & mode 1 and 2 \\
-%														& Signal samples & 2 & 16 & mode 3 and 4 - size per sample - n samples, with n selected in acquisition code\\
-%\midrule	
-%\multirow{3}{*}{\makecell[l]{\textbf{Hit structure absorber} \\ (17 bytes - mode 5, \\ mode 6 with signal sampling) \\ $\times$ number of involved blocks}}  & Block number & 1 & 8 & both modes\\
-%														& Time & 4 & 32 & both modes\\
-%														& Charge PM 1-4 & 3 & 24 & mode 5 - size per \gls{pm} - 4 \glspl{pm} per block \\		
-%														& Signal samples & 2 & 16 & mode 6 - size per sample per \gls{pm} - n samples, with n selected in acquisition code, 4 \glspl{pm} per block\\																										
-%\midrule														
-%\multirow{3}{*}{\makecell[l]{\textbf{Hit structure hodoscope} \\ (5 bytes - mode 7, 7 bytes - mode 8) \\ $\times$ number of involved fibers}}  & Fiber number & 1 & 8 & ranges from 0 to 128 \\
-%														& Time & 4 & 32 & in both modes 7 and 8 \\
-%														& Charge & 2 & 16 & only for mode 8 \\
-%\midrule																													
-%\multirow{3}{*}{\makecell[l]{\textbf{End of file} \\ (10 bytes)}} & File end ID & 2 & 16 & F1F1 (hex) fixed ID \\
-%														& Number of events in file & 4 & 32 &  for verification and debugging \\
-%														& Number of octets in file & 4 & 32 &  for verification and debugging \\
-%\bottomrule
-%\end{tabular} 
-%\end{center}     
-%\end{table}
-%\end{landscape}
-%\restoregeometry
-%\clearpage% Flush page
-%}
+\afterpage{%
+\clearpage% Flush earlier floats (otherwise order might not be correct)
+\newgeometry{margin=1cm}
+\begin{landscape}% Landscape page
+\thispagestyle{empty}% empty page style (?)  
+\begin{table} [!htbp]       
+\footnotesize  
+\begin{center}
+%\vspace*{-3cm}
+\caption{Acquisition format of the Compton camera data.}
+\label{chapappA::tab::DAQdata}
+\begin{tabular}{m{6cm} | c c c m{8cm}}
+		\toprule
+		\rowcolor{myColorMainA!20}
+		\multicolumn{5}{c}{\textbf{COMPTON CAMERA ACQUISITION DATA FORMAT}} \\
+		&\textbf{Description} &\textbf{Size (bytes)} & \textbf{Size (bits)} & \textbf{Details} \\
+\midrule
+\multirow{3}{*}{\makecell[l]{\textbf{Beginning of file} \\ (10 bytes)}}	&File start ID & 2& 16 &  F0F0 (hex) fixed ID\\
+														& Run number & 4 & 32 & Automatically increasing in DAQ software - it can be manually fixed \\
+														& Total number of events & 4 & 32 & Fixed at the beginning of the acquisition, it defines the file size \\
+\midrule
+\multirow{4}{*}{\makecell[l]{\textbf{Event header} \\ (11 bytes) \\ $\times$ total number of events}} & Event start ID & 2 & 16 & ABCD (hex) fixed ID \\
+														& Event number & 4 & 32 & Automatically increasing in \gls{utca} data format\\
+														& Trigger number & 3 & 24 & Automatically increasing in \gls{utca} data format  \\
+														& Number of hits in trigger & 2 & 16 &  \\
+\midrule														
+\multirow{5}{*}{\makecell[l]{\textbf{Data header} \\ (7 bytes) \\ $\times$ number of hits in trigger}} & Hit start ID & 1 & 8 & EB (hex) fixed ID \\
+														& \gls{fe} number & 1 & 8 &  see \tablename~\ref{chapappA::tab::FE_numbers}\\
+														& Trigger number  & 3 & 24 &  repeated from Event Header\\
+														& Mode number  & 1 & 8 &  see figure~\ref{chapappA::fig::hodoDataForm} (7 or 8 for the hodoscope - 7 = optimal, 8 = test)\\
+														& Number of involved fibers & 1 & 8 &  \\
+\midrule														
+\multirow{3}{*}{\makecell[l]{\textbf{Hit structure scatterer} \\ (7 bytes - mode 1, 9 bytes - mode 2, \\ mode 3 and 4 with signal sampling) \\ $\times$ number of involved strips \\ (mode 1 and 3) or tracks \\ (mode 2 and 4)}}  										& Strip number & 1 & 8 & mode 1 and 3 \\
+														& Position & 2 & 16 & mode 2 and 4 \\
+														& Time & 4 & 32 & all modes \\
+														& Charge & 2 & 16 & mode 1 and 2 \\
+														& Signal samples & 2 & 16 & mode 3 and 4 - size per sample - n samples, with n selected in acquisition code\\
+\midrule	
+\multirow{3}{*}{\makecell[l]{\textbf{Hit structure absorber} \\ (17 bytes - mode 5, \\ mode 6 with signal sampling) \\ $\times$ number of involved blocks}}  & Block number & 1 & 8 & both modes\\
+														& Time & 4 & 32 & both modes\\
+														& Charge PM 1-4 & 3 & 24 & mode 5 - size per \gls{pm} - 4 \glspl{pm} per block \\		
+														& Signal samples & 2 & 16 & mode 6 - size per sample per \gls{pm} - n samples, with n selected in acquisition code, 4 \glspl{pm} per block\\																										
+\midrule														
+\multirow{3}{*}{\makecell[l]{\textbf{Hit structure hodoscope} \\ (5 bytes - mode 7, 7 bytes - mode 8) \\ $\times$ number of involved fibers}}  & Fiber number & 1 & 8 & ranges from 0 to 128 \\
+														& Time & 4 & 32 & in both modes 7 and 8 \\
+														& Charge & 2 & 16 & only for mode 8 \\
+\midrule																													
+\multirow{3}{*}{\makecell[l]{\textbf{End of file} \\ (10 bytes)}} & File end ID & 2 & 16 & F1F1 (hex) fixed ID \\
+														& Number of events in file & 4 & 32 &  for verification and debugging \\
+														& Number of octets in file & 4 & 32 &  for verification and debugging \\
+\bottomrule
+\end{tabular} 
+\end{center}     
+\end{table}
+\end{landscape}
+\restoregeometry
+\clearpage% Flush page
+}
 
-\clearpage
+%\clearpage
 
 
 

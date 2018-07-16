@@ -66,7 +66,37 @@
 \pgfplotsset{compat=1.11}
 
 %Create appendix
-\usepackage[toc,page]{appendix}
+\usepackage[toc, page, titletoc]{appendix}
+
+\makeatletter
+\renewcommand{\@chap@pppage}{%
+  \clear@ppage
+  \thispagestyle{plain}%
+  \if@twocolumn\onecolumn\@tempswatrue\else\@tempswafalse\fi
+  \null\vfil
+  \markboth{}{}%
+  {\centering
+   \interlinepenalty \@M
+   \fontsize{40}{48}\selectfont 
+   \sffamily
+   \textbf{
+   \textcolor{myColorMainA} {\appendixpagename}} \par}%
+  \if@dotoc@pp
+    \addappheadtotoc
+  \fi
+  \vfil\newpage
+  \if@twoside
+    \if@openright
+      \null
+      \thispagestyle{empty}%
+      \newpage
+    \fi
+  \fi
+  \if@tempswa
+    \twocolumn
+  \fi
+}
+\makeatother
 
 % Create table of contents for each chapter
 % CTAN: http://www.ctan.org/pkg/minitoc

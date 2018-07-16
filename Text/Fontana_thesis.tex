@@ -141,7 +141,7 @@
 \input{02_Content/Abstract_preThesis/Prologue.tex}
 
 % Introduction
-%\input{02_Content/Chapters/Chapter1_Introduction.tex}
+\input{02_Content/Chapters/Chapter1_Introduction.tex}
 
 % Main Part
 \input{02_Content/Chapters/Chapter2_GammaCameras.tex}
@@ -171,6 +171,15 @@
 %%GLOSSARY and list of ACRONYMS
 \cleardoublepage
 \newpage
+
+\newgeometry{% siehe geometry.pdf (Figure 1)
+	bottom=30mm,
+	showframe=false, % For debugging: try true and see the layout frames
+	%showframe=true, % For debugging: try true and see the layout frames
+	margin=30mm,
+	marginparsep=3mm,
+	marginparwidth=20mm
+}
 
 %\printglossaries
 \setglossarystyle{mystyle}
