@@ -6,7 +6,7 @@
 \newcommand{\myMarginnote}[1]{%
 	\marginnote{% needs marginnote package
 		\ifthispageodd{\RaggedRight}{\RaggedLeft}% needs ragged2e package
-		\color{myColorMainB}%
+		\color{myColorMainA}%
 		\lineskiplimit=-\maxdimen% 
 		\normalfont\sffamily\scriptsize%
 		#1}%
@@ -117,7 +117,7 @@
 
 
 \titlespacing*{\chapter}{0cm}{-1.cm}{-40pt}%pbk
-\titleformat{\chapter}[display]{\Huge\filleft\sffamily\upshape\bfseries\color{myColorMainA}}{\color{myColorMainA}\normalfont\bf\fontfamily{put}\fontseries{b}\fontsize{95pt}{0pt}\selectfont\thechapter}{20pt}{}[\vspace{2ex}\filright\vspace{2ex}]
+\titleformat{\chapter}[display]{\Huge\filleft\sffamily\upshape\bfseries\color{myColorMainA}}{\color{myColorMainA}\normalfont\bf\fontfamily{put}\fontseries{b}\fontsize{95pt}{0pt}\selectfont\thechapter}{20pt}{}[\vspace{2ex}\filright\vspace{2ex}\glsresetall]
 %\filleft\scshape
 
 

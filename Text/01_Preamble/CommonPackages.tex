@@ -146,16 +146,17 @@
 
 %Create list of abbreviations and glossary
 \usepackage[acronym, toc]{glossaries-extra}
-\newglossarystyle{mystyle}{%
-    \setglossarystyle{index}% base this style on the list style
- 
+\setabbreviationstyle[acronym]{long-short}
+%\newglossarystyle{mystyle}{%
+   % \setglossarystyle{index}% base this style on the list style
+ 	%\setabbreviationstyle[acronym]{long-short}
     %
     %
     %
-    \renewcommand*{\glossentry}[2]{%
-    \item\color{myColorMainA}\parbox[t]{3cm}{\bfseries{[\glsentryitem{##1} %
-    \glstarget{##1}{\glossentryname{##1}}]}} \hspace{\stretch{1}} \color{black}\parbox[t]{6.8cm}{\glossentrydesc{##1}\glspostdescription} \hspace{\stretch{1}} \parbox[t]{4.5cm}{see p.\space ##2} \\}%
-}
+    %\renewcommand*{\glossentry}[2]{%
+   % \item\color{myColorMainA}\parbox[t]{3cm}{\bfseries{[\glsentryitem{##1} %
+    %\glstarget{##1}{\glossentryname{##1}}]}} \hspace{\stretch{1}} \color{black}\parbox[t]{6.8cm}{\glossentrydesc{##1}\glspostdescription} \hspace{\stretch{1}} \parbox[t]{4.5cm}{see p.\space ##2} \\}%
+%}
 
 
 %Create analytical index
