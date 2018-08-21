@@ -29,6 +29,7 @@
 *.xml
 **.DS_Store
 *Fontana_thesis.pdf
+*Fontana_thesis_BKP.pdf
 various_fromMasterThesis/
 titlePage_templates/
 page_de_garde_latex/
