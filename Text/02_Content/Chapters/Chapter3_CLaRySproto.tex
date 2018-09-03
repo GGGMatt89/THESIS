@@ -633,9 +633,7 @@ The space and energy calibration process is mainly divided into three stages:
 It is worth noticing that the \gls{cob60} irradiation is useful for the pixel identification given the high energy and narrow energy range of the emitted photons. The equalization factors obtained with the \gls{sod22} source irradiation have been verified to be consistent with the \gls{cob60} irradiation data, as expected. The whole method results to be robust.
 
 \subsubsection{Qualitative test of spatial reconstruction accuracy}\label{chap3::subsubsec::test_spatial_scan}
-Specific acquisitions have been devoted to the test of the block spatial accuracy potential. The detector is expected to be able to locate the collected interaction on the pseudo-pixel grid, but the possible sub-pixel accuracy can be tested with a collimated source scan of the block surface. The \gls{cob60} source has been employed for this purpose, with the linear aperture. The block has been placed on a moving table with no distance between its entrance surface and the collimator aperture. The whole surface has been irradiated with horizontal and vertical movements of 1~mm and 2~mm per step. The collected data have been calibrated with the factors obtained with the homogeneous \gls{sod22} irradiation, as explained in the previous section. We present and qualitatively discuss the results in section~\ref{chap3::subsubsec::absBlockSpatialAcc}. 
-
-PUT ALSO POINT-LIKE SCAN ????
+Specific acquisitions have been devoted to the test of the block spatial accuracy potential. The detector is expected to be able to locate the collected interaction on the pseudo-pixel grid, but the possible sub-pixel accuracy can be tested with a collimated source scan of the block surface. The \gls{cob60} source has been employed for this purpose, with the linear and point-like aperture. The block has been placed on a moving table with no distance between its entrance surface and the collimator aperture. The whole surface has been irradiated with horizontal and vertical movements of 1~mm and 2~mm per step with the linear collimator aperture. Concerning the point-like aperture test, only part of the block surface has been irradiated for further verification of the spatial accuracy results, with horizontal 1~mm step movements of the table in 1~mm vertically separated lines. The collected data have been calibrated with the factors obtained with the homogeneous \gls{sod22} irradiation, as explained in the previous section. We present and qualitatively discuss the results in section~\ref{chap3::subsubsec::absBlockSpatialAcc}. 
 
 \subsubsection{Pixel identification and energy calibration algorithm}\label{chap3::subsubsec::absPixel_ID_algo}
 %An automatic algorithm has been developed to identify the block pseudo-pixel positions starting from the calibrated and reconstructed data. Starting from the integrated mono-dimensional spatial projections along the two axes obtained from the calibrated flood map, the distributions peaks and valleys are derived with the ROOT methods included in the TSpectrum class and simple analytic calculations. With the resulting valley positions, a grid is created on the flood map with a pixel-by-pixel center of gravity calculation: each grid portion should contain a single peak, corresponding to the center of the related pseudo-pixel. Spatial reconstruction artifacts can determine a non complete identification of the 64 pseudo-pixels, and the algorithm is able to check for errors of this kind. In case the identified valleys are less then seven on each axis (corresponding to a 8$\times$8 pseudo-pixel array), the projection of each identified region (rows and columns) on the two axis is created and re-analyzed looking for peaks and valleys as before. The values obtained for the rows and columns are compared and a new, fine-tuned grid is produced. This process can be iterated a given number of times if a complete grid is not obtained. Once the pseudo-pixels grid is fixed, the maximum of each region is automatically identified and its position defines the pseudo-pixel center relative position in the map. The event data are then assigned to the pseudo-pixels with the application of the following process. A new grid composed of the average points on the borders between pixels is created and the reconstructed event position is compared to each point of this map to identify the most likely pseudo-pixel. This is done by calculating the minimal distance between a column and a row average point with respect to the reconstructed event and then calculating two external products, between the vector connecting the reconstructed point and closest column (row) average point and the vector connecting this average point to the previous or next one on the same column (row). The sign of the products defines the column (row) where to assign the interaction. 
@@ -822,7 +820,7 @@ As shown by Figures~\ref{chap3::fig::absPM_amp} to~\ref{chap3::fig::absFloodMap}
 
 \figurename~\ref{chap3::fig::ScanFloodMap} shows four consecutive steps of the \gls{cob60} source collimated irradiation, with a 2-mm step movement from left to right and the linear aperture (2$\times$50~mm$^2$) set in vertical position. A qualitative analysis is enough to appreciate the block spatial precision limitation. The presented four points of the scan irradiated a total of three pseudo-pixel columns, moving from the left geometrical border of one column to the center of the next one. As shown by \figurename~\ref{chap3::fig::scan_map2} and~\ref{chap3::fig::scan_map4}, as the collimator aperture position is in front of the center of a pixel column, the whole pseudo-pixel surface is reconstructed: no difference is observed with respect to the same column in \figurename~\ref{chap3::fig::abscal_floodMap}, obtained with the homogeneous irradiation. In case the aperture faces the border between two pixel columns (\figurename~\ref{chap3::fig::scan_map1} and~\ref{chap3::fig::scan_map3}), the events are shared between the two. This could show a possibility of sub-pixel resolution for integrated measurements, which is anyway not reproducible on a single event basis. The same behavior has been verified with a vertical scan (shown from \figurename~\ref{chap3::fig::scan_map1_vert} to \figurename~\ref{chap3::fig::scan_map4_vert}); the collimator and table configurations has been kept unchanged, while the block has been turned of 90\textdegree. To be noticed that the slit position reported in the presented figures is the geometrical one, while the two-dimensional maps represent the response of the tested block: the spatial reconstruction distortions lead to the mismatch with respect to the real position, which will be corrected at the data treatment stage.   
  
-In order to further confirm these results, a scan with reduced step size (1~mm) has been performed with the same collimator aperture, and no modifications have been detected in the spatial distribution of events for the steps centered on the same pseudo-pixel column. As before, when the collimator aperture faces the limit between two pseudo-pixels columns, the events are equally distributed on the two. 9 measurement positions for this 1~mm scan are shown from \figurename~\ref{chap3::fig::scan_map1_1mm} to \figurename~\ref{chap3::fig::scan_map9_1mm}.
+In order to further confirm these results and test the possibility of a sub-pixel resolution, a scan with reduced step size (1~mm) has been performed with the same collimator aperture, and no modifications are visually observed in the spatial distribution of events for the steps centered on the same pseudo-pixel column. As before, when the collimator aperture faces the limit between two pseudo-pixels columns, the events are equally distributed on the two. 9 measurement positions for this 1~mm scan are shown from \figurename~\ref{chap3::fig::scan_map1_1mm} to \figurename~\ref{chap3::fig::scan_map9_1mm}.
  
 
 \begin{figure}
@@ -887,8 +885,70 @@ In order to further confirm these results, a scan with reduced step size (1~mm) 
 \label{chap3::fig::ScanFloodMap_1mm}
 \end{figure}
 
-All these sets of data verify that the spatial reconstruction accuracy of the employed blocks is limited to the pseudo-pixel size, and a sub-pixel resolution is not achievable on a single event basis. 
+\figurename~\ref{chap3::fig::profilesSuper} shows the superposition of the mono-dimensional position profiles integrated along the vertical axis for 5 positions of the 1-mm line-aperture scan: the differences between the distribution peaks related to neighboring positions of the aperture are of the order of 10-20\%, and demonstrate how a sub-pixel position accuracy is achievable for integrated measurements, even if it was not evident on the two-dimensional maps.
 
+\begin{figure} [!h]
+\centering
+\includegraphics[width=0.7\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/line_1mm/superpositionProfiles.pdf}
+\caption{Superposition of the event reconstructed position profiles integrated along the vertical axis for 5 points of the 1-mm step scan performed with the  \gls{cob60} source with the line aperture. The 5 positions correspond to the two-dimensional maps in Figures~\ref{chap3::fig::scan_map1_1mm},~\ref{chap3::fig::scan_map2_1mm},~\ref{chap3::fig::scan_map3_1mm},~\ref{chap3::fig::scan_map4_1mm}, and~\ref{chap3::fig::scan_map5_1mm}.}
+\label{chap3::fig::profilesSuper}
+\end{figure}
+
+This result has been also tested with a point-like collimation scan of part of the studied block surface, with 1~mm step movements. The flood maps in \figurename~\ref{chap3::fig::ScanFloodMap_1mm_point} show 6 reference points of the scan with the point-like aperture, during an horizontal movement from left to right of the table and the center of the aperture vertically centered on one pseudo-pixel line. The reported movement represents the transition from the center of a pseudo-pixel to the right limit of the next one. The aperture physical position is not highlighted on the maps in order to better show the event position distribution. 
+
+\begin{figure}
+\centering
+\begin{subfigure}[t]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/point_1mm/run00263_floodMap.pdf}
+\caption{Aperture center relative X position: \\ -0.227}
+\label{chap3::fig::scan_map1_1mm_point}
+\end{subfigure}
+\begin{subfigure}[t]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/point_1mm/run00264_floodMap.pdf}
+\caption{Aperture center relative X position: \\ -0.170}
+\label{chap3::fig::scan_map2_1mm_point}
+\end{subfigure}
+\begin{subfigure}[t]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/point_1mm/run00265_floodMap.pdf}
+\caption{Aperture center relative X position: \\ -0.112}
+\label{chap3::fig::scan_map3_1mm_point}
+\end{subfigure}
+\newline
+\begin{subfigure}[t]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/point_1mm/run00266_floodMap.pdf}
+\caption{Aperture center relative X position: \\ -0.055}
+\label{chap3::fig::scan_map4_1mm_point}
+\end{subfigure}
+\begin{subfigure}[t]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/point_1mm/run00267_floodMap.pdf}
+\caption{Aperture center relative X position: \\ 0.002}
+\label{chap3::fig::scan_map5_1mm_point}
+\end{subfigure}
+\begin{subfigure}[t]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/point_1mm/run00268_floodMap.pdf}
+\caption{Aperture center relative X position: \\ 0.059}
+\label{chap3::fig::scan_map6_1mm_point}
+\end{subfigure}
+\caption{2D reconstructed position maps during a 1-mm step scan performed with the \gls{cob60} source with the point-like aperture. 6 reference measurements points, the relative X position of the aperture is reported in the caption of each figure. In the vertical dimension, the aperture is centered on the center of the pseudo-pixel line.}
+\label{chap3::fig::ScanFloodMap_1mm_point}
+\end{figure}
+
+As for the linear aperture test, the mono-dimensional integrated distributions, reported in \figurename~\ref{chap3::fig::profilesSuper_point}, better show the differences between the various scanned point, approximately in the range 5-20\%. As before, these distributions verify how a millimeter accuracy is possible with the integrated analysis of sufficient event statistics.
+
+\begin{figure} [!h]
+\centering
+\includegraphics[width=0.7\textwidth]{03_GraphicFiles/chapter3_CLaRySproto/Absorber/images_scan/point_1mm/superpositionProfiles_point.pdf}
+\caption{Superposition of the event reconstructed position profiles integrated along the vertical axis for 6 points of the 1-mm step scan performed with the \gls{cob60} source with the point-like aperture. The 6 positions correspond to the two-dimensional maps in Figures~\ref{chap3::fig::scan_map1_1mm_point},~\ref{chap3::fig::scan_map2_1mm_point},~\ref{chap3::fig::scan_map3_1mm_point},~\ref{chap3::fig::scan_map4_1mm_point},~\ref{chap3::fig::scan_map5_1mm_point}, and~\ref{chap3::fig::scan_map6_1mm_point}.}
+\label{chap3::fig::profilesSuper_point}
+\end{figure} 
+
+In conclusion, all these sets of data verify that the spatial reconstruction accuracy of the employed blocks is limited to the pseudo-pixel size, and a sub-pixel resolution is not achievable on a single event basis.  However, with integrated analysis a millimeter position accuracy can be obtained with both linear and point-like irradiation of the block. 
 
 \subsubsection{Pixel identification}\label{chap3::subsubsec::absPixelID}
 
@@ -1261,7 +1321,7 @@ ADD HERE THE RESULTS OF THE SUMMER ABOUT THE ASIC GAIN AND THRESHOLD CHARACTERIZ
 The \gls{clarys} collaboration is developing in parallel two gamma cameras for ion beam therapy monitoring and nuclear medicine applications. At present, the detector components are being tested separately for characterization purposes at the \gls{ipnl}. I presented in this chapter a complete description of the detector components with the related \gls{fe} electronics, mechanical support, acquisition system and software tools, together with all the characterization measurements I performed on the various detector sections. In the following, in addition to a short summary of the present status of the instrumental development of each camera component, I list the main tasks to be accomplished for the final integration a complete operation of the whole camera. 
 
 \subsection{Silicon scatterer}\label{chap3::subsec::scattNext}
-Among the 10 \gls{dssd} layer provided by the seller, only 7 respected the design requirements and have been selected for the use in the Compton camera prototype. The 7 selected layer have been characterized in terms of leakage current with an acquisition system specifically developed for this purpose. Temperature cycles have been performed in order to precisely define the cooling performance needed to obtained the required noise level. These measurements allow to fix the working temperature to -20\textdegree{}C and lead to the conception and production of a thermal regulated box, working with cold air and so adapted to the clinical use. A modular mechanical support has been fixed inside the camera to sustain the silicon layers with their \gls{fe} cards. The \gls{fe} card has been designed and tested at the \gls{ipnl}, and includes a custom \gls{asic} which has been optimized with three different developed versions. The final version of the whole board has been produced in 7 copies in 2017 and they are now available for the next test stages.
+Among the 10 \gls{dssd} layers provided by the seller, only 7 respected the design requirements and have been selected for the use in the Compton camera prototype. The 7 selected layer have been characterized in terms of leakage current with an acquisition system specifically developed for this purpose. Temperature cycles have been performed in order to precisely define the cooling performance needed to obtained the required noise level. These measurements allow to fix the working temperature to -20\textdegree{}C and lead to the conception and production of a thermal regulated box, working with cold air and so adapted to the clinical use. A modular mechanical support has been fixed inside the camera to sustain the silicon layers with their \gls{fe} cards. The \gls{fe} card has been designed and tested at the \gls{ipnl}, and includes a custom \gls{asic} which has been optimized with three different developed versions. The final version of the whole board has been produced in 7 copies in 2017 and they are now available for the next test stages.
 
 The development of the \gls{fe} board firmware is at present ongoing at the \gls{ipnl}, and the first tests of data collection with a temporary acquisition system and injected charges have been performed. A further verification and optimization of the code will be carried out in the next future, and the silicon layers will be tested with their \gls{fe} cards by the end 2018 with the \gls{utca} acquisition system. The present \gls{amc}40 firmware performance has never been tested with the scatterer detectors before; some modifications can then be foreseen to optimize the data taking process, for what concerns both the stand-alone test mode and the operation within the complete system.
 
