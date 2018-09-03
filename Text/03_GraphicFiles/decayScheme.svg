@@ -16,7 +16,10 @@
    version="1.1"
    viewBox="0 0 210 210"
    height="210mm"
-   width="210mm">
+   width="210mm"
+   inkscape:export-filename="/Users/mattia.fontana/Dropbox/PhD_Lyon_IPNL/THESIS/Text/03_GraphicFiles/chapter1_introduction/decayScheme.pdf.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
   <defs
      id="defs61">
     <marker
@@ -232,14 +235,14 @@
   <sodipodi:namedview
      inkscape:window-maximized="0"
      inkscape:window-y="0"
-     inkscape:window-x="263"
+     inkscape:window-x="0"
      inkscape:window-height="708"
      inkscape:window-width="1280"
      showgrid="true"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
      inkscape:cy="383.29843"
-     inkscape:cx="530.09108"
+     inkscape:cx="528.07078"
      inkscape:zoom="0.49497475"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
