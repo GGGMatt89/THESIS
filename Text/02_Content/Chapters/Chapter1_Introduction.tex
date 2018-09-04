@@ -652,7 +652,28 @@ In the next sections, the physics of radioactive decays is briefly reminded to i
 
 Nuclear medicine imaging techniques are based on radio-tracers. A tracer is a chemical compound which transports an unstable isotope (radio-nuclide); this molecule is designed to be involved in specific metabolic processes and, thus, to concentrate in the area to be targeted for imaging purpose. The $\gamma$-rays emitted by the radio-nuclide can be measured as a function of position and time, providing anatomical and metabolic information.  In the following, the main physical aspects of radioactive decays are briefly recalled. 
 
-As mentioned, a radio-nuclide is an unstable isotope of a chemical element which decays towards a stable atomic configuration and loses energy by emitting radiation in the form of particles and electromagnetic rays. The decay can involve several steps, if the resulting \enquote{daughters} are still unstable, and the process continues until a stable nuclide is reached.
+As mentioned, a radio-nuclide is an unstable isotope of a chemical element which decays towards a stable atomic configuration and loses energy by emitting radiation in the form of particles and electromagnetic rays. The decay can involve several steps, if the resulting \enquote{daughters} are still unstable, and the process continues until a stable nuclide is reached. 
+Some general features of radioactive decay processes can be detailed mathematically without regard to a specific mechanism. In particular, the decay rate of a sample of radioactive nuclides depends on the nuclides population $N$, according to a decay constant noted as $\lambda$, as expressed by equation~\ref{chap1::eq::decayRate}. 
+
+\begin{equation}\label{chap1::eq::decayRate}
+\frac{\mathrm{d}N}{\mathrm{d}t} = -\lambda N 
+\end{equation} 
+
+On one hand, the decay constant $\lambda$ is specific of each nuclide, and reflects its degree of instability. The decay rate, on the other hand, is a representation of the sample activity, which is measured in the \gls{si} in Bequerel (1 Bq = 1 disintegration per second) and its multiples, even if an older and still used unit is the curie (Ci) (1 Ci = 3.7 $\times$ 10$^{10}$ disintegration per second). The solution of the differential equation in~\ref{chap1::eq::decayRate} gives the number of parent atoms $N$ at any time $t$, or the activity by multiplying both side by $\lambda$:
+
+\begin{equation}\label{chap1::eq::parentAtoms}
+\begin{split}
+N = N_{0}e^{-\lambda t}  \\
+A = A_{0}e^{-\lambda t}  \\
+\end{split}
+\end{equation} 
+
+with $N_0$ and $A_0$ the original number of parent atoms and the original activity, respectively. Following these first expressions, the physical half-life $T_{1/2}$ of a radioactive nuclide is the time required for the decay of half of the atoms in a sample; its mathematical form is reported in equation~\ref{chap1::eq::half-life}.
+
+\begin{equation}\label{chap1::eq::half-life}
+T_{1/2} = \frac{\mathrm{ln}2}{\lambda} = \frac{0.693}{\lambda}
+\end{equation} 
+
 Several decay modes exist, and they can be divided into three main categories: emission or capture of nucleons (protons and neutrons), emission or capture of $\beta$-particles (electron and positrons), emission of photons. In particular, five main decay channels have been identified:
 \begin{itemize}
 \item $\alpha$-decay;
@@ -661,12 +682,12 @@ Several decay modes exist, and they can be divided into three main categories: e
 \item positron emission - $\beta^+$-decay;
 \item isomeric transition.
 \end{itemize}
-In \figurename~\ref{chap1::fig::decayScheme} the decay scheme of a generic nuclide $^{A}_{Z}X$ is depicted; the $\alpha$-decay produces $^{A-4}_{Z-2}P$, electron capture and positron emission equivalently generate $^{A}_{Z-1}Q$, while $^{A}_{Z+1}R$ originates from electron emission and can be created in a metastable configuration $^{A}_{Z+1}R^*$ which then decays to the stable state via isomeric transition with the emission of a photon.  
+In \figurename~\ref{chap1::fig::decayScheme} the decay scheme of a generic nuclide $^{A}_{Z}X$ is depicted (A is the atomic mass, Z the number of protons); the $\alpha$-decay produces $^{A-4}_{Z-2}P$, electron capture and positron emission equivalently generate $^{A}_{Z-1}Q$, while $^{A}_{Z+1}R$ originates from electron emission and can be created in a metastable configuration $^{A}_{Z+1}R^*$ which then decays to the stable state via isomeric transition with the emission of a photon.  
 
 \begin{figure}[!htbp]
 \begin{subfigure}[t]{.49\textwidth}
 \centering
-\includegraphics[width=0.98\linewidth]{03_GraphicFiles/chapter1_Introduction/decayScheme.pdf}
+\includegraphics[width=0.9\linewidth, trim={0 4cm 0 3cm}, clip]{03_GraphicFiles/chapter1_Introduction/decayScheme.pdf}
 \caption{}
 \label{chap1::fig::decayScheme}
 \end{subfigure}
@@ -680,19 +701,66 @@ In \figurename~\ref{chap1::fig::decayScheme} the decay scheme of a generic nucli
 \label{chap1::fig::radioactiveDecay}
 \end{figure} 
 
-The decay mode involving the emission or capture of nucleons (the $\alpha$-decay) is generally not used for imaging purposes, given the high energy released by the emitted particle which travels very short distances and is absorbed inside the body. As easy to deduce, this characteristic makes it appropriate for therapy, even if the very short decay time is a limiting factor. Only the $\alpha$-decay of a few high-Z elements is actually used, for example, for tumor irradiation in the so-called \enquote{internal radiotherapy} or \enquote{brachytherapy}~\parencite{Suntharalingam2005, Dahiya2016}. 
-The decay modes used in the imaging field entail the emission or capture of electrons or positrons or the photon emission, and will be described in the following. 
+The $\alpha$-decay \myMarginnote{$\alpha$-decay} is the spontaneuous emission of an $\alpha$ particle (i.e. an helium nucleus, consisting of two protons and two neutrons), typically from heavy nuclides (A > 150). It was discovered by Marie and Pierre Curie in 1989~\parencite{Curie1898} and first described by Rutherford one year later~\parencite{Rutherford1899}, who also identified the $\alpha$ particles as helium nuclei, together with Boltwood in 1911~\parencite{Boltwood1911}. The decay can be described by equation~\ref{alphaDec}. Often it is followed by the emission of characteristic x-ray or gammas, accompanied by competing processes of internal conversion and Auger electron emission. The produced $\alpha$ particles have energies in the range 2-10~MeV and are not used for imaging purposes, given the very limited range in tissues (about 100~\charmu ~m). This characteristic makes such a decay appropriate for therapy, even if the very short decay time is a limiting factor. Only the $\alpha$-decay of a few high-Z elements is actually used, for example, for tumor irradiation in the so-called \enquote{internal radiotherapy} or \enquote{brachytherapy}~\parencite{Suntharalingam2005, Dahiya2016}. 
 
-The decay via emission of an electron \myMarginnote{Electron emission} ($\beta^-$-decay) can be seen as the conversion of a neutron in a proton-electron pair, as in the generic reaction reported in equation~\ref{chap1::eq::electronEmiss}.
+\begin{equation}\label{chap1::eq::alphaDec}
+^{A}_{Z}X \, \rightarrow \, ^{A-4}_{Z-2}Y + ^{4}_{2}\mathrm{He} + \mathrm{energy}
+\end{equation} 
+
+The decay via emission of an electron \myMarginnote{Electron emission} ($\beta^-$- or negatron-decay) can be seen as the conversion of a neutron in a proton-electron pair, as in the generic reaction reported in equation~\ref{chap1::eq::electronEmiss}.
 
 \begin{equation}\label{chap1::eq::electronEmiss}
 \begin{split}
-^{A}_{Z}X \, \rightarrow \, ^{A}_{Z+1}Y + e^{-} + \overline{\nu} \\
+^{A}_{Z}X \, \rightarrow \, ^{A}_{Z+1}Y + e^{-} + \overline{\nu} + \mathrm{energy} \\
 n \, \rightarrow \, p + e^{-} + \overline{\nu} 
 \end{split}
-\end{equation}    
+\end{equation}   
+ 
+This decay channel pertains to nuclei with a N/Z ratio (with N the number of neutrons) too high for stability and results in nucleus with Z increased by one, N decreased by one and so the same atomic mass A (isobaric transition) but a different chemical element. $\beta^-$-decay pathways are characterized by specific maximum energies $\mathrm{E_{max}}$, but in most of the cases the emitted electron energy is lower than the maximum, with an average value of approximately 1/3 $\mathrm{E_{max}}$, and the remaining energy is carried away by the anti-neutrino. This results in poly-energetic energy spectra for the emitted electrons. The difference in the energy released during decay and the one possessed by the emitted electron threatened the energy conservation law for years. In 1930, in a letter, Wolfgang Pauli suggested that a second particle was emitted during the decay, explaining the energy, momentum and angular momentum conservation. The name neutrino was attributed to such a particle by Enrico Fermi. 
+Any possible excess energy in the nucleus after the decay (metastable state) is emitted as gamma rays or internal conversion electrons. As for the $\alpha$ particle case, electrons have limited range in matter, thus release dose to the tissues, and have no diagnostic value (but they are used in brachytherapy), but metastable states deriving from $\beta^-$-decays are pure sources of $\gamma$-rays and are so employed for imaging. One of the most diffused tracer is a metastable daughter of $^{99}$Mo, the $^{99m}$Tc; it decays in stable $^{99}$Tc (half life = 6 hours) by emitting a 140~keV photon.   
 
+On the other side of the \enquote{nuclide stability line}, \myMarginnote{Positron emission} neutron-poor radionuclides (with low N/Z ratio) tend to decay by the emission of a positron ($\beta^+$ decay) and to increase the neutron number by one. As shown by equation~\ref{chap1::eq::positronEmiss}, the net result is the conversion of a proton into a neutron with the ejection of a neutrino, in addition to the positron. As in the previous case, the transition is isobaric because the total number of nucleons is unchanged.
 
+ \begin{equation}\label{chap1::eq::positronEmiss}
+\begin{split}
+^{A}_{Z}X \, \rightarrow \, ^{A}_{Z-1}Y + e^{+} + \nu + \mathrm{energy} \\
+p \, \rightarrow \, n + e^{+} + \nu 
+\end{split}
+\end{equation}     
+
+The emission of positrons was discovered in 1933 by the Marie Curie daughter Irene Curie and her husband Frederic Joliet, in bombardments of aluminium by $\alpha$ particles~\parencite{Leone2010}. Even if the reaction principle is similar to $\beta^-$-decay, an important difference resides in the behavior of the decay product. Both electron and positron undergo energy deposition processes by excitation and ionization, but if electrons can be captured by atoms (or absorbed in free electron bands) when they come to rest, positron react with their antiparticle (electron) by annihilation. The entire rest mass of the particle pair is converted to energy and emitted as two back-to-back 511~keV photons for conservation laws. The annihilation takes place in a time window of about 1~ns after the $\beta^+$-decay, and within a few millimeter of the decay site (depending on the medium). This kind of reaction is the basis of one of the most diffused nuclear medicine imaging technique, the \gls{pet}, discussed in section~\ref{chap1::subsec::PET-SPECT}. An example of a positron emitter used in imaging is $^{18}$F, with a half-life of 109 minutes.
+To be noticed that, as for $\beta^-$-decay, the daughter nucleus can further emit photons to lower its energetic level, which can be used in combined imaging techniques (three-$\gamma$ imaging).
+The N/P ratio of neutron deficient nuclides can also be increased via \gls{ec} reactions \myMarginnote{\gls{ec}}; the nucleus can capture and orbital electron and convert a proton into a neutron, with the consequent emission of a neutrino. This phenomenon is described by equation~\ref{chap1::eq::electronCapture}.
+
+ \begin{equation}\label{chap1::eq::electronCapture}
+\begin{split}
+^{A}_{Z}X + e^{-} \, \rightarrow \, ^{A}_{Z-1}Y  + \nu + \mathrm{energy} \\
+p + e^{-}\, \rightarrow \, n  + \nu 
+\end{split}
+\end{equation}     
+
+Most electrons are captured from the K shell, more uncommon are the capturing processing involving L shell or even shells farther from the nucleus. As a result of the capture, a vacancy is created and filled by an electron from an higher-energy shell. This transition leads to a reduction of the atomic rest energy, and the release of characteristic x-rays and/or Auger electrons. As with other modes of decay, further $\gamma$-rays can be emitted if the daughter nucleus is left in an excited state after the capture process. An example of electron capture decay is represented by $^{201}$Tl, which decays to $^{201}$Hg with the emission of K-x-rays of 69-83 keV (98\% abundance) and $\gamma$-rays of 135 and 167~keV in 10\% total abundance. Many nuclei decay by both electron capture and positron emission , as for example the $^{22}$Na.
+As mentioned for the previously described decay modes \myMarginnote{Isomeric transition - $\gamma$-decay}, often the daughter nucleus is formed in an excited state, which is still unstable. The transition towards a condition of stability entails an internal atomic re-arrangement and the emission of $\gamma$-rays at characteristic energies. In general, such a transition is almost instantaneous, but some excited states can persist for longer periods, with half-lives which ranges on several orders of magnitude, between 10$ˆ{-6}$~s and hundreds of years. The decay of this kind of nuclei, called metastable or isomeric, is called isomeric transition, and only results in the $\gamma$-ray emission with no emission or capture of other particles by the nucleus. A complementary pathway for the energy release is represented by the interaction of the nucleus with an atomic electron; this process is called \gls{iconv}, and the involved electron is ejected. This emission is further followed by x-rays and Auger electron emission, so that the atom can resume a stable state. The isomeric transition is described by equation~\ref{chap1::eq::isomericTrans}, where the letter m indicates the metastable state.
+
+ \begin{equation}\label{chap1::eq::isomericTrans}
+^{Am}_{Z}X  \, \rightarrow \, ^{A}_{Z}X  + \mathrm{energy} \\
+\end{equation}        
+
+To be noticed that no radioactive nuclide decays solely by an isomeric transition, which is always preceded by another decay mode. In addition to the already mentioned decay of $^{99m}$Tc, deriving from the previous decay of $^{99}$Mo, also $^{60}$Co decays in excited $^{60}$Ni nuclei which then reach the ground energy state by isomeric transition and with the emission of 1.17 and 1.33~MeV photons. 
+
+Although many naturally occurring radioactive nuclides exist \myMarginnote{Radionuclide production}, all of those commonly administrated to patients in nuclear medicine tracers are produced artificially in order to fit the clinical requirements. Artificial induced radioactivity was introduced by the already mentioned Irene Curie and his husband, who bombarded aluminum targets with $\alpha$ particle~\parencite{Leone2010}. Nowadays, most radionuclides are produced with cyclotrons, nuclear reactors or radionuclide generators. In general, $\beta^-$ emitters are produced by bombarding stable nuclei with neutrons from nuclear reactors, while $\beta^+$-decay nuclides are produced with bombardment with protons, helium ions, deuterons or tritons accelerated with cyclotrons (see section~\ref{chap1::subsubsec::accelerators} for the description of the cyclotron). In other cases, radionuclides are produced as by-products of fission in nuclear reactors, or as decay product of other isotopes produced with one of the listed methods. 
+In the cyclotron-based production, the accelerated ions collide with the target nuclei causing nuclear reactions, presented in section~\ref{chap1::subsubsec::ionInteractions}. As explained, fragmentation processes can create radioactive nuclei, such as $\beta^+$ emitters, employed in \gls{pet} diagnostics. In general, cyclotron facilities must be in close proximity to the hospital where the produced radionuclides will be administrated because of their short half-life. $^{18}$F, created with this technique as product of nuclear reactions with $^{18}$O, is an exception in this sense, with an half-life of 109 minutes. 
+In nuclear reactors, two techniques are exploited: nuclear fission and neutron activation. The absorption of neutrons from nuclear reactors can induces fission processes in heavy nuclei, which split in lighter (often unstable) ones. Its long half-life makes $^{235}$U the most widely used fissile element; when it absorbs a neutron, the resulting state of $^{236}$U is highly unstable and promptly splits into its fission fragments. For example, $^{99}$Mo has already been mentioned as the parent nucleus for the production of  $^{99m}$Tc and derives by the fission of uranium. Another widely used nuclide produced with fission procedure is the $^{131}$I. The creation of the fission fragments is very often accompanied by the emission of secondary neutrons which can be used to create other nuclides by neutron activation. Stable nuclei, indeed, can capture neutrons and produce, in most cases, $\beta^-$ emitters, as the $^{32}$P or the $^{50}$Cr. In some cases, the sample activity reached with such a production technique is not sufficient, because stable nuclei are still present among the parent atoms, and so fission mechanisms are preferred. 
+The last mechanism involves radionuclide generators, particularly interesting for short half-life nuclides. In order to solve the supply problem for short-living isotopes, the sample is often prepared with the longer-living parent nuclide (the so-called \enquote{generator}), which then decays in the desired one continually providing it. This is for example the case of the most important radio-nuclide used in a variety of application, $^{99m}$Tc, result of the decay of $^{99}$Mo. 
+
+Once produced, the radioactive nuclei must be attached \myMarginnote{Radiotracer features} to appropriate substances providing the desired biological properties, for example to be preferentially absorbed in the target region. The final product, ready to be administrated to the patient, is called \enquote{radiotracer}. 
+For diagnostics, the selected radioisotope half-life should be short enough so that a considerable part of the decays occurs during the examination time; any radiation released after the end of the examination is a source of useless dose to the patient. The dose delivered after the end of the treatment can be reduced if the biological excretion, guaranteed by the tracer characteristics, is rapid. Always focusing on diagnosis, the optimal decay scheme is the pure $\gamma$-decay, with an isomer as radionuclide; anyway, the amount of produced non-penetrating radiation should be minimized. The exception is represented by $\beta^+$ emitters, resulting in the positron annihilation 511~keV photons exploited by \gls{pet} techniques. For therapy, on the contrary, non-penetrating radiation are requested and must be maximized. 
+From the biological point of view, \enquote{hot spots} (in which the tracer is more concentrated then in other regions) are desired for therapy, while for diagnosis it is possible to profit from both \enquote{hot} and \enquote{cold spots} {in which the tracer is more concentrated then in other regions}. Several mechanisms can be implemented in order to localize the radiotracer. With active transport techniques, the tracer is concentrated into specific organ against concentration gradients. The tracer size is fundamental in techniques based on the phagocytosis by specialized cells or on traps in specific organs. Very large molecules (20-40~\charmu ~m diameter) can concentrate in capillaries with smaller diameter. An irregular diffusion through tissue membrane can also be used to identify lesions if specific tracers are employed. Finally, the blood flux can be used for blood specific studies.
+
+The choice of the radiotracer depends on the specific organ or region of the body to be examined and on the chosen detection technique. As already detailed, on one side \gls{pet} aims to detect the two back-to-back photons produced by the annihilation of a positron emitted by the radio-isotope and an electron of the patient body. On the other side, \gls{spect} detects single photons, and the spatial localization is given by mechanical collimation systems. In both cases, tomographic reconstruction is foreseen to obtain three-dimensional images.
+The physical basis, historical development and present status of these two techniques are detailed in the following section.  
+ 
+ 
 \subsection{PET and SPECT}\label{chap1::subsec::PET-SPECT}
 
 J-PET \parencite{Niedzwiecki2017}
