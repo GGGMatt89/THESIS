@@ -441,21 +441,43 @@ Figure~\ref{chap4::fig::comparison} shows the results of the reconstruction of t
 \begin{figure}
 \centering
  \begin{subfigure}[t]{.49\textwidth}
- \includegraphics[width=0.5\textwidth,clip=true,trim=0 70 130 90]{03_GraphicFiles/chapter4_HTsimu/projection2D_Z_corr_r20.png}
+ \includegraphics[width=0.9\textwidth,clip=true,trim=0 70 130 90]{03_GraphicFiles/chapter4_HTsimu/new/recon_200pBunch/projection2D_Z_corr_r20.png}
  \caption{}
  \label{}
 \end{subfigure}
  \begin{subfigure}[t]{.49\textwidth}
-\includegraphics[width=0.5\textwidth]{03_GraphicFiles/chapter4_HTsimu/new/recon_profile_line-cone_lowStat_norm.pdf}
+\includegraphics[width=0.9\textwidth]{03_GraphicFiles/chapter4_HTsimu/new/profile_lineCone_200pBunch.pdf}
  \caption{}
  \label{}
 \end{subfigure}
  \begin{subfigure}[t]{.49\textwidth}
-\includegraphics[width=0.5\textwidth]{03_GraphicFiles/chapter4_HTsimu/new/reconstructed_lowStat_profile_norm.pdf}
+\includegraphics[width=0.9\textwidth]{03_GraphicFiles/chapter4_HTsimu/new/profile_MLEM_200pBunch.pdf}
  \caption{}
  \label{}
 \end{subfigure}
 \caption{Line-cone and LM-MLEM reconstruction for a 160~MeV proton beam, $10^{8}$ total incident protons. The beam intensity is 200 proton per bunch. The Compton camera is centered at the expected Bragg peak position, $y=+50\,$mm. The time-of-flight event selection is applied on the collected data set. 20 iterations are performed for the MLEM reconstruction.
+Figure (a) represents the MLEM reconstructed 2D image in the plane $(x,y)$, parallel to the camera entrance surface. The position $x=0\,$mm corresponds to the center of the PMMA phantom and the $y$ direction corresponds to the beam axis, with the target entrance at $y=-100\,$mm and the target end at $y=+100\,$mm.  In figure (b) the 1D profile along the $y$ axis is sketched. The profile fall-off is located at $y=+50\,$mm. Figure (c) shows the profile obtained by means of the line-cone algorithm for the same time-of-flight selected data.}
+\label{chap4::fig::comparison_200pBunch}
+\end{figure}
+
+\begin{figure}
+\centering
+ \begin{subfigure}[t]{.49\textwidth}
+ \includegraphics[width=0.9\textwidth,clip=true,trim=0 70 130 90]{03_GraphicFiles/chapter4_HTsimu/projection2D_Z_corr_r20.png}
+ \caption{}
+ \label{}
+\end{subfigure}
+ \begin{subfigure}[t]{.49\textwidth}
+\includegraphics[width=0.9\textwidth]{03_GraphicFiles/chapter4_HTsimu/new/recon_profile_line-cone_lowStat_norm.pdf}
+ \caption{}
+ \label{}
+\end{subfigure}
+ \begin{subfigure}[t]{.49\textwidth}
+\includegraphics[width=0.9\textwidth]{03_GraphicFiles/chapter4_HTsimu/new/reconstructed_lowStat_profile_norm.pdf}
+ \caption{}
+ \label{}
+\end{subfigure}
+\caption{Line-cone and LM-MLEM reconstruction for a 160~MeV proton beam, $10^{8}$ total incident protons. The beam intensity is 1 proton per bunch. The Compton camera is centered at the expected Bragg peak position, $y=+50\,$mm. The time-of-flight event selection is applied on the collected data set. 20 iterations are performed for the MLEM reconstruction.
 Figure (a) represents the MLEM reconstructed 2D image in the plane $(x,y)$, parallel to the camera entrance surface. The position $x=0\,$mm corresponds to the center of the PMMA phantom and the $y$ direction corresponds to the beam axis, with the target entrance at $y=-100\,$mm and the target end at $y=+100\,$mm.  In figure (b) the 1D profile along the $y$ axis is sketched. The profile fall-off is located at $y=+50\,$mm. Figure (c) shows the profile obtained by means of the line-cone algorithm for the same time-of-flight selected data.}
 \label{chap4::fig::comparison}
 \end{figure}
