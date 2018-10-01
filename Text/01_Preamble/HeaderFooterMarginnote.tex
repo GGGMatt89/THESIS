@@ -1,4 +1,4 @@
-\usepackage{titlesec}
+%\usepackage{titlesec}
 % Custom command fpr the margin notes: \myMarginnote{Your Text}
 % Comment on the \lineskiplimit=-\maxdimen:
 % See http://tex.stackexchange.com/questions/49072/
@@ -7,7 +7,7 @@
 	\marginnote{% needs marginnote package
 		\ifthispageodd{\RaggedRight}{\RaggedLeft}% needs ragged2e package
 		\color{myColorMainA}%
-		\lineskiplimit=-\maxdimen% 
+		\lineskiplimit=-\maxdimen%
 		\normalfont\sffamily\scriptsize%
 		#1}%
 }
@@ -116,8 +116,8 @@
 }% scrplain style (end)
 
 
-\titlespacing*{\chapter}{0cm}{-1.cm}{-40pt}%pbk
-\titleformat{\chapter}[display]{\Huge\filleft\sffamily\upshape\bfseries\color{myColorMainA}}{\color{myColorMainA}\normalfont\bf\fontfamily{put}\fontseries{b}\fontsize{95pt}{0pt}\selectfont\thechapter}{20pt}{}[\vspace{2ex}\filright\vspace{2ex}\glsresetall]
+%\titlespacing*{\chapter}{0cm}{-1.cm}{-40pt}%pbk
+%\titleformat{\chapter}[display]{\Huge\filleft\sffamily\upshape\bfseries\color{myColorMainA}}{\color{myColorMainA}\normalfont\bf\fontfamily{put}\fontseries{b}\fontsize{95pt}{0pt}\selectfont\thechapter}{20pt}{}[\vspace{2ex}\filright\vspace{2ex}\glsresetall]
 %\filleft\scshape
 
 
