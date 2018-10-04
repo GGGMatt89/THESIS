@@ -35,7 +35,7 @@
 \input{01_Preamble/Floating-AND-TOC-AND-ListOf-AND-Headings.tex}
 
 % Customization of the header, footer and teh margin note
-\input{01_Preamble/HeaderFooterMarginnote.tex}
+\input{01_Preamble/HeaderFooterMarginnote_mac.tex}
 
 % Optimize paragraphs (avoid overfull... warnings)
 \input{01_Preamble/ParagraphOptimization.tex}
@@ -140,12 +140,15 @@
 % Prologue
 \input{02_Content/Abstract_preThesis/Prologue.tex}
 
+%\cleardoublepage
+
+\part{Rationale}
 % Introduction
 \input{02_Content/Chapters/Chapter1_Introduction.tex}
 
-% Main Part
 \input{02_Content/Chapters/Chapter2_GammaCameras.tex}
-
+%\cleardoublepage
+\part{Thesis work}
 \input{02_Content/Chapters/Chapter3_CLaRySproto.tex}
 
 \input{02_Content/Chapters/Chapter4_SimulationHT.tex}
@@ -153,7 +156,8 @@
 \input{02_Content/Chapters/Chapter5_SimulationSPECT.tex}
 
 \input{02_Content/Chapters/Chapter6_BeamTests.tex}
-
+%\cleardoublepage
+\part{Conclusion}
 % Final Thoughts
 \input{02_Content/Chapters/Chapter7_Conclusions.tex}
 

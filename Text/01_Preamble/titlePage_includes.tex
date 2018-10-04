@@ -37,7 +37,7 @@
 \coordinate (aux3) at ([xshift=-3.8cm]current page.north east);
 \coordinate (aux4) at ([yshift=-150pt]current page.north east);
 
-\begin{scope}[titlepagecolor,line width=12pt,rounded corners=12pt]
+\begin{scope}[myColorMainA,line width=12pt,rounded corners=12pt]
 \draw
   (aux1) -- coordinate (a)
   ++(225:4) --
@@ -46,7 +46,7 @@
   (aux3) --
   (a) --
   (aux1);
-\draw[opacity=0.3,titlepagecolor,shorten <= -10pt]
+\draw[opacity=0.3,myColorMainA,shorten <= -10pt]
   (b) --
   ++(225:2.2) --
   ++(-45:2.2);
@@ -55,7 +55,7 @@
 %  (aux4) --
  % ++(225:0.8) --
   %++(-45:0.8);
-\begin{scope}[titlepagecolor!70,line width=6pt,rounded corners=8pt]
+\begin{scope}[myColorMainA!70,line width=6pt,rounded corners=8pt]
 \draw[shorten <= -10pt]
   (aux2) --
   ++(225:3) coordinate[pos=0.45] (c) --

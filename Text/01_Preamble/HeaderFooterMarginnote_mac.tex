@@ -116,6 +116,93 @@
 }% scrplain style (end)
 
 
+%\titlespacing*{\part}{0cm}{-1.cm}{-40pt}%pbk
+%\titleformat{\part}[display]{\Huge\filcenter\sffamily\upshape\bfseries\color{myColorMainA}}{\color{myColorMainA}\normalfont\bf\fontfamily{put}\fontseries{b}\fontsize{95pt}{0pt}\selectfont\thechapter}{20pt}{}[\vspace{2ex}\filright\vspace{2ex}\glsresetall]
+\makeatletter
+%\renewcommand\thepart{\arabic{part}}
+\def\@part[#1]#2{%
+    \ifnum \c@secnumdepth >-2\relax
+      \refstepcounter{part}%
+      \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
+    \else
+      \addcontentsline{toc}{part}{#1}%
+    \fi
+    \markboth{}{}%
+  \reset@font
+  \parindent \z@  
+ \vspace{-12.7cm}%
+  \begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
+
+\coordinate (aux1) at ([yshift=-15pt]current page.north east);
+\coordinate (aux2) at ([yshift=-380pt]current page.north east);
+\coordinate (aux3) at ([xshift=-3.8cm]current page.north east);
+\coordinate (aux4) at ([yshift=-150pt]current page.north east);
+
+\begin{scope}[myColorMainA,line width=12pt,rounded corners=12pt]
+\draw
+  (aux1) -- coordinate (a)
+  ++(225:4) --
+  ++(-45:5.1) coordinate (b);
+\draw[shorten <= -10pt]
+  (aux3) --
+  (a) --
+  (aux1);
+\draw[opacity=0.3,myColorMainA,shorten <= -10pt]
+  (b) --
+  ++(225:2.2) --
+  ++(-45:2.2);
+\end{scope}
+%\draw[titlepagecolor,line width=8pt,rounded corners=8pt,shorten <= -10pt]
+%  (aux4) --
+ % ++(225:0.8) --
+  %++(-45:0.8);
+%\begin{scope}[myColorMainA!70,line width=6pt,rounded corners=8pt]
+%\draw[shorten <= -10pt]
+  %(aux2) --
+  %++(225:3) coordinate[pos=0.45] (c) --
+ % ++(-45:3.1);
+%\draw
+ % (aux2) --
+ % (c) --
+ % ++(135:2.5) --
+ % ++(45:2.5) --
+ % ++(-45:2.5) coordinate[pos=0.3] (d);
+%\draw
+ % (d) -- +(45:1);
+%\end{scope}
+\end{tikzpicture}%
+
+    \begin{tikzpicture}[x=0.55mm,y=0.5mm]
+    \coordinate (a1);
+    \coordinate[right=22 of a1](a2);
+    \coordinate[below=500 of a1](a3);
+    \coordinate[right=22 of a3](a4);
+    %% 
+    \begin{scope}[myColorMainA,line width=4pt,rounded corners=8pt]
+    \draw[fill=myColorMainA]($(a4)-(20,80)$) rectangle +(20*2,80*2);%Rectangle rounded
+    \end{scope}    
+    \end{tikzpicture}
+
+  %\hbox{%
+    \vbox{%
+      \hsize=7mm%
+      \begin{tabular}{@{}p{23mm}@{}}
+       \vspace{-7.2cm}\centering \makebox[10mm]{\scshape\strut\Huge\sffamily\upshape\bfseries\color{white}\partname }\\
+       \makebox[10mm]{\Huge\color{white}\bfseries\strut\thepart\rule[-4cm]{0pt}{4cm}}%
+      \end{tabular}%
+      %\makebox(0,0){\put(-10,-100){\fbox{\phantom{\color{myColorMainA}\rule[-4cm]{7mm}{4cm}}}}}
+     }%
+    %\kern-2pt
+    \vspace{-4cm}
+    \hspace{2cm}\vbox to 0pt{%
+       \tabular[t]{@{}p{1cm}p{\dimexpr\hsize-2.1cm}@{}}%\hline
+          & \color{myColorMainA}\sffamily\upshape\bfseries\fontsize{40pt}{0pt}\selectfont \rule{0pt}{-5.5\ht\strutbox}#1\endtabular}%
+    %}%
+  \cleardoublepage
+  \vskip 100\p@
+}
+\makeatother
+
 \titlespacing*{\chapter}{0cm}{-1.cm}{-40pt}%pbk
 \titleformat{\chapter}[display]{\Huge\filleft\sffamily\upshape\bfseries\color{myColorMainA}}{\color{myColorMainA}\normalfont\bf\fontfamily{put}\fontseries{b}\fontsize{95pt}{0pt}\selectfont\thechapter}{20pt}{}[\vspace{2ex}\filright\vspace{2ex}\glsresetall]
 %\filleft\scshape

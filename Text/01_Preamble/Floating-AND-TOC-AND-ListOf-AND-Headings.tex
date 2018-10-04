@@ -22,6 +22,8 @@
 \makeatletter
 \addtokomafont{chapterentrypagenumber}{\color{myColorMainA}}
 \addtokomafont{chapterentry}{\color{myColorMainA}}
+\addtokomafont{partentrypagenumber}{\color{myColorMainA}}
+\addtokomafont{partentry}{\color{myColorMainA}}
 \makeatother
 
 \makeatletter
@@ -63,6 +65,7 @@
 
 % KOMA-Script code to customize the headings
 % Applying the color 'myColorMainA' which is defined in the main file (MainFile.tex)
+\addtokomafont{part}{\color{myColorMainA}}
 \addtokomafont{chapter}{\color{myColorMainA}}
 \addtokomafont{section}{\color{myColorMainA}}
 \addtokomafont{subsection}{\color{myColorMainA}}
