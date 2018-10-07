@@ -91,46 +91,39 @@ To be noticed that each \gls{fe} cards sends the collected data independently fr
 Pre-trigger and trigger signals are used by all the detectors to select the collected data to be sent to the acquisition system. The data selection and transfer must be as fast as possible in order to minimize the trigger latency and camera dead time. In order to reduce the transmission time, pre-trigger and trigger signals have been encoded on 24~bits.\newline
 This same trigger number is sent at the beginning of each data packet and is used by the event builder to associate the interactions collected by the three detector sections. With a 24-bit encoding, the trigger number is reset every 1 ns $\times \mathrm{2^{24}} =$ 16,78~ms. This time window is short for the event builder, so that for the physical data it is extended to 32~bits for all the \gls{fe} cards in order to have a reset every 1~ns $\times \mathrm{2^{32}} =$ 4,2~s, which is enough for the reconstruction of the events.
 
-
-%\begin{landscape}
 \begin{figure}
- %\subfloat[Pre-trigger generation in the THOR card.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive03.jpg}}
- %\subfloat[Pre-trigger sent to the 10 silicon FE cards.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive04.jpg}}\\
- %\subfloat[A single silicon FE card generates the trigger.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive05.jpg}}
- %\subfloat[Trigger signal is distributed to all the detectors.]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive06.jpg}}\\
- %\subfloat[The detectors send the collected data to the \charmu-TCA. ]{\includegraphics[width=0.5\textwidth]{03_GraphicFiles/appendixA_dataFormat/DAQ_update_13-03-15_Diapositive07.jpg}}
-\begin{subfigure}[b]{0.5\textwidth}
+\begin{subfigure}[t]{0.5\textwidth}
  \centering
 \includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_1.pdf}
 \caption[Signal detection on one \gls{asm} card and logical signal sent to the \gls{thor} card.]{An \gls{asm} card detects an interaction and sends a logical signal to the \gls{thor} card.}
 \label{chapappA::subfig::triggerLogic_1}
 \end{subfigure}%
-\begin{subfigure}[b]{0.5\textwidth}
+\begin{subfigure}[t]{0.5\textwidth}
  \centering
 \includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_2.pdf}
 \caption[Pre-trigger generation in the \gls{thor} card.]{The \gls{thor} card generates the pre-trigger signal.}
 \label{chapappA::subfig::triggerLogic_2}
 \end{subfigure}%
 \newline
-\begin{subfigure}[b]{0.5\textwidth}
+\begin{subfigure}[t]{0.5\textwidth}
  \centering
 \includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_3.pdf}
 \caption[Pre-trigger sent to the 10 silicon \gls{fe} cards.]{The pre-trigger is sent to the 10 silicon \gls{fe} cards.}
 \label{chapappA::subfig::triggerLogic_3}
 \end{subfigure}%
-\begin{subfigure}[b]{0.5\textwidth}
+\begin{subfigure}[t]{0.5\textwidth}
  \centering
 \includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_4.pdf}
 \caption[A single silicon \gls{fe} card generates the trigger.]{A single silicon \gls{fe} card generates the trigger.}
 \label{chapappA::subfig::triggerLogic_4}
 \end{subfigure}%
 \newline
-\begin{subfigure}[b]{0.5\textwidth}
+\begin{subfigure}[t]{0.5\textwidth}
  \centering
 \includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_5.pdf}
 \caption[Trigger signal is distributed to all the detectors.]{The trigger signal is distributed to all the detectors.}\label{chapappA::subfig::triggerLogic_5}
 \end{subfigure}%
-\begin{subfigure}[b]{0.5\textwidth}
+\begin{subfigure}[t]{0.5\textwidth}
  \centering
 \includegraphics[width=0.9\linewidth]{03_GraphicFiles/appendixA_dataFormat/triggerLogic_6.pdf}
 \caption[The detectors send the collected data to the \gls{utca}.]{The detectors send the collected data to the \gls{utca}.}\label{chapappA::subfig::triggerLogic_6}
@@ -823,6 +816,7 @@ In case of issues, for example when the temperature of a card go beyond a fixed 
 \centering
 \caption{Monitoring messages.}
 \label{chapappA::tab::monitoringMess}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{m{0.6cm} M{1.3cm} M{1.cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{0.8cm} M{2.5cm}}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -838,7 +832,7 @@ In case of issues, for example when the temperature of a card go beyond a fixed 
 \cmidrule{3-11}
 ...				&								&	& &	& & & & & & & \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 
@@ -994,6 +988,7 @@ In \tablename~\ref{chapappA::tab::coincSingleRate} the coincidence and single (p
 \centering
 \caption{Coincidence and single rate as a function of the beam intensity. The \gls{bgo} single rate corresponds to the pre-trigger rate.}
 \label{chapappA::tab::coincSingleRate}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{m{3.2cm} c c c c c c}
 \toprule
 \rowcolor{myColorMainA!20}
@@ -1003,12 +998,12 @@ In \tablename~\ref{chapappA::tab::coincSingleRate} the coincidence and single (p
 \midrule
 \textbf{Intensity(ions/s)}		& $2\times10^{10}$	&$5\times10^{7}$  & $1\times10^{8}$& $5\times10^{6}$ &$2\times10^{10}$& $5\times10^{7}$ \\
 \textbf{Coincidence rate per incident ion}		& $9\times10^{-4}$&  $8\times10^{-4}$&  $9\times10^{-4}$& $8\times10^{-4}$& / &  / \\
-\textbf{Coincidence rate (Hz)}		& $1,8\times10^{7}$&  $4\times10^{4}$&  9$\times10^{4}$& $4\times10^{3}$& / &  / \\
-\textbf{Single rate \gls{bgo} (Hz) - 96 blocks}		& 	$7,8\times10^{7}$& $1,4\times10^{6}$ & $3,9\times10^{5}$&$1,4\times10^{5}$ &/&/\\
-\textbf{Single rate \gls{bgo} (Hz) - 1 block}		& 	$8,1\times10^{5}$& $1,5\times10^{4}$ & $4\times10^{3}$&$1,5\times10^{3}$ &/&/\\
-\textbf{Single rate \gls{bgo} (Hz) - 1 \gls{asm} card (6 blocks)}		& 	$6,5\times10^{6}$& $1,2\times10^{5}$ & $3,2\times10^{4}$&$1,2\times10^{4}$ &/&/\\
+\textbf{Coincidence rate (Hz)}		& $1.8\times10^{7}$&  $4\times10^{4}$&  9$\times10^{4}$& $4\times10^{3}$& / &  / \\
+\textbf{Single rate \gls{bgo} (Hz) - 96 blocks}		& 	$7.8\times10^{7}$& $1.4\times10^{6}$ & $3.9\times10^{5}$& $1.4\times10^{5}$ & / & /\\
+\textbf{Single rate \gls{bgo} (Hz) - 1 block}		& 	$8.1\times10^{5}$& $1.5\times10^{4}$ & $4\times10^{3}$&$1.5\times10^{3}$ & / & /\\
+\textbf{Single rate \gls{bgo} (Hz) - 1 \gls{asm} card (6 blocks)}		& 	$6.5\times10^{6}$& $1.2\times10^{5}$ & $3.2\times10^{4}$& $1.2\times10^{4}$ & / & /\\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 
@@ -1037,15 +1032,15 @@ The 8bits/10bits encoding in included in the calculation.
 \midrule
 		& \underline{Protons}& \underline{Carbon ions} & \underline{Protons}& \underline{Carbon ions} \\
 \midrule
-\textbf{Intensity (ions/s)}		& $2\times10^{10}$	&$5\times10^{7}$  & $1\times10^{8}$& $5\times10^{6}$  \\
-\textbf{Pre-trigger flux (Mbits/s)}		& 	$2,5\times10^{3}$& 47,6 &  13,3&4,76 \\
-\textbf{Trigger flux (Mbits/s)}		& 	612& 1,4 & 3,1&0,1\\
-\textbf{\gls{bgo} data flux (Mbits/s) - 96 blocks}		& 	$1,7\times10^{5}$& 373 & 873&37,3\\
-\textbf{\gls{bgo} data flux (Mbits/s)- 1 block}		& 	$1,7\times10^{3}$& 3,88 & 8,73&0,3 \\
-\textbf{\gls{bgo} data flux (Mbits/s) - 1 carte \gls{asm}}		& 	$1,4\times10^{4}$& 31,1 & 69,9&3,1\\
-\textbf{Silicon data flux (Mbits/s) - case 1}		& 	$2,3\times10^{5}$& 522 & $1,2\times10^{3}$ & 52,2 \\
-\textbf{Silicon data flux (Mbits/s) - case 2}		& 	$1,6\times10^{6}$&  $ 3,7\times10^{3}$ &  $8,2\times10^{3}$&366 \\
-\textbf{Hodosocpe data flux (Mbits/s)}		& 	$8,1\times10^{4}$& 180 & 404 &18\\
+\textbf{Intensity (ions/s)}		& $2\times10^{10}$	& $5\times10^{7}$  & $1\times10^{8}$ & $5\times10^{6}$  \\
+\textbf{Pre-trigger flux (Mbits/s)}		& 	$2.5\times10^{3}$ & 47.6 &  13.3 & 4.76 \\
+\textbf{Trigger flux (Mbits/s)}		& 	612 & 1.4 & 3.1  & 0.1\\
+\textbf{\gls{bgo} data flux (Mbits/s) - 96 blocks}		& 	$1.7\times10^{5}$& 373 & 873 &37.3\\
+\textbf{\gls{bgo} data flux (Mbits/s)- 1 block}		& 	$1.7\times10^{3}$& 3.88 & 8.73 & 0.3 \\
+\textbf{\gls{bgo} data flux (Mbits/s) - 1 \gls{asm} card}		& 	$1.4\times10^{4}$ & 31.1 & 69.9 & 3.1\\
+\textbf{Silicon data flux (Mbits/s) - case 1}		& 	$2.3\times10^{5}$ & 522 & $1.2\times10^{3}$ & 52.2 \\
+\textbf{Silicon data flux (Mbits/s) - case 2}		& 	$1.6\times10^{6}$ &  $ 3.7\times10^{3}$ &  $8.2\times10^{3}$ & 366 \\
+\textbf{Hodosocpe data flux (Mbits/s)}		& 	$8.1\times10^{4}$ & 180 & 404 &18\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1066,11 +1061,11 @@ The data flow from the \gls{utca} to the acquisition PC is detailed here. The UD
 \midrule
 		& \underline{Protons}& \underline{Carbon ions} & \underline{Protons}& \underline{Carbon ions} \\
 \midrule
-\textbf{Intensity (ions/s)}		& $2\times10^{10}$	&$5\times10^{7}$  & $1\times10^{8}$& $5\times10^{6}$\\
+\textbf{Intensity (ions/s)}		& $2\times10^{10}$	&$5\times10^{7}$  & $1\times10^{8}$& $5\times10^{6}$ \\
 \textbf{Coincidence rate per incident ion}		& $9\times10^{-4}$&  $8\times10^{-4}$&  $9\times10^{-4}$& $8\times10^{-4}$ \\
-\textbf{Coincidence rate (Hz)}		& $1,8\times10^{7}$&  $4\times10^{4}$&  9$\times10^{4}$& $4\times10^{3}$\\
-\textbf{Data flow (Mbits/s) - case 1}		&$2,2\times10^{4}$ &  46,7&  112& 5,0\\
-\textbf{Data flow (Mbits/s) - case 2}		& $6\times10^{4}$&  133&  300& 13,3\\
+\textbf{Coincidence rate (Hz)}		& $1.8\times10^{7}$ &  $4\times10^{4}$ &  9$\times10^{4}$ & $4\times10^{3}$ \\
+\textbf{Data flow (Mbits/s) - case 1}		& $2.2\times10^{4}$ &  46.7&  112 & 5.0\\
+\textbf{Data flow (Mbits/s) - case 2}		& $6\times10^{4}$ &  133 &  300 & 13.3\\
 \bottomrule
 \end{tabular}
 \end{table}

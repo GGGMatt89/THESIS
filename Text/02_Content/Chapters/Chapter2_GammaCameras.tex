@@ -469,7 +469,7 @@ Non-imaging devices represent cost-effective solutions for range verification in
 
 \subsubsection{Imaging prototypes}\label{chap2::subsec::PGdevices_Imaging}
 
-With respect to non-imaging detection systems, imaging prototypes are more complex since the objective is the direct measurement of the spatial information carried by the prompt photons about their emission point. Collimation strategies are needed to retrieve spatial information, and the devices developed for particle therapy monitoring applications can be divided into mechanically and \enquote{electronically} collimated cameras. In addition to this, image reconstruction methods are needed, and are briefly presented in section~\ref{chap2::subsubsec::PGI_reconstruction}. 
+With respect to non-imaging detection systems, imaging prototypes are more complex since the objective is the direct measurement of the spatial information carried by the prompt photons about their emission point. Collimation strategies are needed to retrieve spatial information, and the devices developed for particle therapy monitoring applications can be divided into mechanically and \enquote{electronically} collimated cameras. In addition to this, image reconstruction methods are needed, and are briefly presented in section~\ref{chap2::sec::Image_reconstruction}. 
 
 \subsubsection{Mechanical collimation}\label{chap2::subsubsec::PGI_mechColl}
 
@@ -734,8 +734,29 @@ Alternative analytic reconstruction methods are proposed in other studies~\paren
 
 \subsection{Iterative reconstruction of Compton camera data}\label{chap2::subsec::IterRec} 
 
-Compton event reconstruction~\parencite{Schone2010, Zoglauer2011, Gillam2011, Mackin2012, Huang2018, Taya2017, Schone2017} \parencite{Lojacono2013}
+The iterative reconstruction approach allows to account for image background components and include the detector energy and spatial resolutions, and results in a three-dimensional image. Several algorithms have been proposed for the reconstruction of Compton events, based on the main points listed above~\parencite{Schone2010, Zoglauer2011, Gillam2011, Andreyev2011, Mackin2012, Huang2018, Taya2017, Schone2017}. The data related to the \gls{clarys} Compton camera have been reconstructed with a \gls{lm-mlem} algorithm, a version of the \gls{mlem} method based on the list of detected events. It has been developed by the \gls{creatis} group, which is actively working in this field in collaboration with the \gls{ipnl}~\parencite{Maxim2009, Lojacono2013, Hilaire2014}.
+The first step is to define the volume which includes the origin of the prompt gamma ray detected. This volume is divided into equal voxels and the emission intensity is assumed homogeneous for each voxel $j$, with a Poisson distribution of parameter $\lambda_j$ (a vector of the emissions intensities of all the voxels). The algorithm is based on a system matrix $T$ composed of the coefficients $t_{ij}$ which represent the probability that a photon produced in the voxel $j$ is detected in coincidence by the Compton camera as an event $i$. The probability for a gamma detected in coincidence to be emitted from the voxel $j$ is denoted as $s_j$.
+The \gls{lm-mlem}valgorithm starts with an initial value $\lambda^{(0)}_j$, which can be the simple back-projection reconstruction.
+The iterations rely on the recurrence relation in equation~\ref{chap2::eq::equation_lambda_compton_NM}.
 
+\begin{equation}
+\lambda_j^{(l+1)} =  \frac{\lambda_j^{(l)} }{s_j} \sum\limits_{i=1}^{N_{\gamma}} t_{ij} \frac{1}{P_i^{(l)}},\quad \mathrm{with}\quad  P_i^{(l)}=\sum\limits_{k=1}^{N_{v}} t_{ij}\lambda_k^{(l)},
+ \label{chap2::eq::equation_lambda_compton_NM}
+\end{equation}
+where $N_{\gamma}$ is the number of detected events and $N_v$ is the number of voxels in the image.
+
+For each photon detected, the coefficients in column $i$ are calculated by taking into account the uncertainties on the angle between the source and the involved scatterer plane and the angle between the scatterer plane and the absorber involved module.
+The matrix elements $t_{ij}$ are calculated as in equation~\ref{chap2::eq::equation_tij_compton_NM}.
+\begin{equation}
+ t_{ij} = K(\beta_i,E_{tot})\frac{|\mathrm{cos}(\theta_{{V_2V_1}}) |}{V_2V_1^2} \int\limits_{M\in v_j} \frac{|\mathrm{cos}(\theta_{V_1M})|}{V_1M^2} h_i(M)dv,
+ \label{chap2::eq::equation_tij_compton_NM}
+\end{equation}
+where $\beta_i$ is the Compton scattering angle, $V_1$ the interaction position in the scatterer, $V_2$ the interaction position in the absorber, $h_i$ the spatial kernel which models the uncertainties on the Compton angle for each voxel $M$, $K(\beta_i,E_{tot})$ the differential cross section and $v_j$ the reconstructed volume.
+
+In order to simplify and speed up the calculation of the $t_{ij}$ matrix, the voxels located far from the reconstructed cone are set to zero. The distance between the cone and the voxel is calculated by taking the voxel center as reference point. 
+For each iteration, the matrix $T$ is stored and the reconstructed image can be produced.
+
+The algorithm has been used to reconstruct the simulated data produced to test the \gls{clarys} Compton prototype for particle therapy monitoring and nuclear medicine, and the results are presented in chapter~\ref{chap::4} and chapter~\ref{chap::5}, respectively. 
 
 
 
