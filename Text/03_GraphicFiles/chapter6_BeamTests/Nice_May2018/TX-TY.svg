@@ -15,7 +15,7 @@
    viewBox="0 0 270 200"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="TX-TY.svg"
    inkscape:export-filename="/Users/mattia.fontana/Desktop/TX-Ttrig.png"
    inkscape:export-xdpi="96"
@@ -210,15 +210,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="651.85107"
-     inkscape:cy="69.268226"
+     inkscape:zoom="1.979899"
+     inkscape:cx="766.91291"
+     inkscape:cy="89.471277"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      showguides="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="708"
+     inkscape:window-width="1680"
+     inkscape:window-height="948"
      inkscape:window-x="0"
      inkscape:window-y="1"
      inkscape:window-maximized="1">
@@ -234,7 +234,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -329,5 +329,37 @@
        d="m 95.415221,269.87214 h 3.140416 v -0.93544 h 2.539063 v -0.40091 h 3.00678 v -2.87314 h 5.81311 v -0.80181 h 2.47225 v -2.87315 h 3.00678 v -2.20497 h 2.93996 l 0.12141,0.45309 h 2.28402 v -1.6558 h 6.08038 V 245.8847 h 2.67269 v -13.43029 h 2.80633 v -23.11882 h 3.00679 v -7.28309 h 2.47224 v -33.80959 h 2.93997 v 17.3057 h 2.93996 v -42.02813 h 3.0736 v 40.7586 h 2.47224 v -21.78247 h 2.87315 v 50.11304 h 3.00678 v 2.87314 h 2.53906 v 8.48581 h 2.93997 v 6.74856 h 2.93996 v 23.98744 h 2.53906 v 0.86862 h 2.80633 v 4.94449 h 3.0736 v 3.80859 h 2.93997 v 4.74403 h 2.53906 v 0.86863 h 5.87993"
        id="path4981"
        inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5634"
+       width="7.8399062"
+       height="9.9780617"
+       x="185.02177"
+       y="278.89694"
+       ry="2.32143" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5648"
+       width="43.903473"
+       height="10.833323"
+       x="181.45819"
+       y="279.03946"
+       ry="2.32143" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888855px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="182.31345"
+       y="286.59433"
+       id="text5636"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5638"
+         x="182.31345"
+         y="286.59433"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.8777771px;line-height:125%;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;">t<tspan
+   style="font-size:4.93888855px;baseline-shift:sub;fill:#000000;fill-opacity:1;"
+   id="tspan5640">x</tspan> - t<tspan
+   style="font-size:4.93888855px;baseline-shift:sub;fill:#000000;fill-opacity:1;"
+   id="tspan5644">y</tspan> [ns]</tspan></text>
   </g>
 </svg>

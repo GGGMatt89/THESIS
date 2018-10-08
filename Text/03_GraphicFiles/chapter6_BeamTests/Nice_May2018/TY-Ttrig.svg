@@ -15,7 +15,7 @@
    viewBox="0 0 210 180"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="TY-Ttrig.svg"
    inkscape:export-filename="/Users/mattia.fontana/Desktop/TX-Ttrig.png"
    inkscape:export-xdpi="96"
@@ -162,15 +162,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="409.41445"
-     inkscape:cy="123.53951"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="515.339"
+     inkscape:cy="-5.0319189"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      showguides="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="708"
+     inkscape:window-width="1680"
+     inkscape:window-height="948"
      inkscape:window-x="0"
      inkscape:window-y="1"
      inkscape:window-maximized="1">
@@ -186,7 +186,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -282,5 +282,81 @@
        d="m 90.667037,269.97469 h 2.315104 v -0.6142 h 1.086684 v 0.37797 h 0.992187 v -1.98437 h 1.700893 v 0.99218 h 1.039434 v -0.42522 h 1.039434 v 0.8032 h 1.228427 v -2.78758 h 0.94494 v 1.51191 h 0.7087 v -4.39397 h 0.99219 v -0.70871 h 1.03943 v 1.13393 h 1.03944 v -9.16592 h 2.07887 V 235.0119 h 0.8032 v -35.6715 h 0.99218 v -18.19011 h 0.94495 v 11.38653 h 1.08668 v -46.0186 h 1.03943 v 54.42858 h 1.08668 v 20.78869 h 0.70871 v 15.54427 h 1.08668 v 28.48995 h 0.99219 v -0.28348 h 1.03943 v 4.44122 h 1.03944 v -2.50409 h 0.66145 v 1.55915 h 1.03944 v -0.33073 h 1.08668 v 0.37798 h 1.03944 v 0.99218 h 2.83482"
        id="path4843"
        inkscape:connector-curvature="0" />
+    <image
+       y="279.50867"
+       x="138.49666"
+       id="image4909"
+       xlink:href="data:image/png;base64,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
+
+"
+       style="image-rendering:optimizeSpeed"
+       preserveAspectRatio="none"
+       height="8.1844444"
+       width="45.155556" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4916"
+       width="4.1325397"
+       height="1.3103174"
+       x="141.81667"
+       y="286.92062"
+       ry="0.6551587" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4918"
+       width="3.5277777"
+       height="4.1325397"
+       x="141.3127"
+       y="283.63474"
+       ry="0.65515912" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.93888903px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="141.71867"
+       y="286.57578"
+       id="text4912"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4914"
+         x="141.71867"
+         y="286.57578"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.93888903px;line-height:125%;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Bold';text-align:start;writing-mode:lr-tb;text-anchor:start">y</tspan></text>
   </g>
 </svg>
