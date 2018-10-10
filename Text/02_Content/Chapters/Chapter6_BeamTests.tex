@@ -194,6 +194,55 @@ Finally, before the end of this first test, the \gls{utca} trigger capabilities 
 
 \section{Collimated camera: September 2018}\label{chap6::sec::september2018}
 
+Following the hodoscope test performed in May 2018, the \gls{ipnl} electronics group focused on the integration of the absorber block read-out in the \gls{utca} acquisition system and on the validation of the trigger \gls{utca} handling. The generation of trigger signals by the \gls{bgo} blocks has been tested at the \gls{ipnl} with gamma sources, and the final integration of hodoscope and absorber has been tested on beam in September 2018. 
+6 \gls{bgo} blocks composed the minimal multi-collimated camera absorber, read-out by a single \gls{asm} board. As described in chapter~\ref{chap::3}, a \gls{fe} card is connected to each block: it is in charge of splitting the power supply to the four \glspl{pm} and sending the collected signals to the read-out \gls{asm} board. Each \gls{asm} board has 24 channels, so that it is designed for the read-out of a maximum of 6 blocks. The data are sampled at the selected frequency (up to 5 \gls{gsps} for 1024 samples). The integral of each signal (total collected charge) will be calculated on the card and directly sent to the acquisition system in the final camera acquisition configuration, while a test operating mode has been used for this preliminary beam measurements, with all the samples of each signal sent to the acquisition and stored. The selected sampling frequency has been 1 \gls{gsps}, with 1~\charmus signal width digitized. 
+One of the two identical tungsten collimators described in chapter~\ref{chap::3} has been placed in front of the absorber blocks. The 32$\times$32 fiber hodoscope has been used for the trigger generation tests and the first \gls{tof} measurements.
+A schematic view of the measurement setup is shown in \figurename~\ref{chap6::fig:-September_DAQscheme} from top view. 
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{03_GraphicFiles/chapter6_BeamTests/Nice_September2018/1Dscheme.png}
+\caption{Schematic view of the hodoscope and the multi-collimated camera setup for the beam test at \gls{cal}.}
+\label{chap6::fig:-September_DAQscheme}
+\end{figure}
+
+The hodoscope, mounted on its remotely controlled support, has been set at a distance of 12~cm from the beam nozzle, and aligned to the beam exit. Two \gls{pmma} 5~cm side cubes have been used as target, aligned to the beam line and set 40~cm far from the hodoscope center. The two targets have been disposed one on top of the other to completely stop the beam, which has a spot size increasing with the distance from the nozzle. GAFchromic films have been fixed to the hodoscope entrance surface and to the top target cube, and a 10~s irradiation at approximately 1~nA of beam current allowed to record the beam spot size in the two positions. The results are shown in \figurename~\ref{chap6::fig::September_beamSize}.  The multi-collimated camera was set 
+
+\begin{figure}[!htbp]
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1.\textwidth]{03_GraphicFiles/chapter6_BeamTests/Nice_September2018/hodo_target_beam.png}
+\caption{Beam size recorder with GAFchromic films on the hodoscope and \gls{pmma} target entrance surfaces.}
+\label{chap6::fig::September_beamSize}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1.\textwidth]{03_GraphicFiles/chapter6_BeamTests/Nice_September2018/Setup_withColl_withHodo.jpg}	
+\caption{Beam test setup including the beam tagging hodoscope 12~cm far from the beam nozzle, the \gls{pmma} cubes (40~cm far from the hodoscope) used as target and set on a support with adjustable height, and multi-collimated camera at 90\textdegree with respect to the beam direction. The tungsten collimator entrance face is at 12~cm from the target, and the 6 absorber blocks are in contact with the collimator back face.}
+\label{chap6::fig::September_SetupPicture2}
+\end{subfigure}
+\caption{Beam size recorder with GAFchromic films (left) and complete setup of the hodoscope and multi-collimated test (right).}
+\label{chap6::fig::September_SetupCamera}
+\end{figure}
+
+\begin{figure}[!htbp]
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1.\textwidth]{03_GraphicFiles/chapter6_BeamTests/Nice_September2018/Target_Coll_Abs.jpg}
+\caption{}
+\label{chap6::fig::September_SetupPicture}
+\end{subfigure}
+\begin{subfigure}[t]{.5\textwidth}
+\centering
+\includegraphics[width=1.\textwidth]{03_GraphicFiles/chapter6_BeamTests/Nice_September2018/}	
+\caption{}
+\label{chap6::fig::September_SetupPicture2}
+\end{subfigure}
+\caption{Pictures of the hodoscope and multi-collimated test setup.}
+\label{chap6::fig::September_SetupCamera}
+\end{figure}
+
+
 \subsection{Experimental results}\label{chap6::subsec::mayResults} 
 
 \subsection{Discussion}\label{chap6::subsec::mayDiscussion} 
